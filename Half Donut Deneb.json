@@ -1,0 +1,492 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "An arc chart of 2 layered arcs with text labels",
+  "data": {"name": "dataset"},
+  "title": {
+    "text": " ",
+    "anchor": "start",
+    "align": "center",
+    "font": "Arial",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "offset": 10
+  },
+  "transform": [
+    {
+      "calculate": "clamp ((1.57*(1+datum['Var To Budget YTD %']))-1.57, -1.56, 1.56  )",
+      "as": "Ring1_Theta2"
+    },
+    {
+      "calculate": "clamp ((1.57*(1+datum['Var To Budget %']))-1.57, -1.56, 1.56 ) ",
+      "as": "Ring2_Theta2"
+    },
+    {
+      "calculate": "datum['Sales YTD'] ",
+      "as": "Ring1_Label"
+    },
+    {
+      "calculate": "datum['Sales'] ",
+      "as": "Ring2_Label"
+    },
+    {
+      "calculate": " format( datum['Var To LY YTD %'] , '0.0%' )  ",
+      "as": "Below_Ring1_Label"
+    },
+    {
+      "calculate": " 'Growth vs LY ' + format( datum['Var To LY %'] , '0.0%' )  + '   | \u00A0  ' ",
+      "as": "Below_Ring2_Label"
+    },
+    {
+      "calculate": "datum['Var To Budget YTD'] >= 0 ",
+      "as": "Var_Ring1_Sales"
+    },
+    {
+      "calculate": "datum['Var To Budget'] >= 0 ",
+      "as": "Var_Ring2_Sales"
+    },
+    {
+      "calculate": "datum.Label",
+      "as": "Chart_Title"
+    }
+  ],
+  "params": [
+    {"name": "ring_max", "value": 120},
+    {"name": "ring_width", "value": 42},
+    {"name": "ring_gap", "value": 12},
+    {
+      "name": "ring0_color",
+      "value": "#F3F3F2"
+    },
+    {
+      "name": "ring_background_color",
+      "value": "#F3F2F0"
+    },
+    {
+      "name": "ring1_color_good",
+      "value": "#52CF71"
+    },
+    {
+      "name": "ring1_color_bad",
+      "value": "#F67984"
+    },
+    {
+      "name": "ring2_color",
+      "value": "#6086BC"
+    },
+    {
+      "name": "label_color",
+      "value": "#08090A"
+    },
+    {
+      "name": "target_color",
+      "value": "#897BB7"
+    },
+    {
+      "name": "ring_background_opacity",
+      "value": 0.9
+    },
+    {
+      "name": "ring0_percent",
+      "value": 100
+    },
+    {
+      "name": "ring0_outer",
+      "expr": "ring_max+2"
+    },
+    {
+      "name": "ring0_inner",
+      "expr": "ring_max+1"
+    },
+    {
+      "name": "ring1_outer",
+      "expr": "ring0_inner-ring_gap"
+    },
+    {
+      "name": "ring1_inner",
+      "expr": "ring1_outer-ring_width"
+    },
+    {
+      "name": "ring1_middle",
+      "expr": "(ring1_outer+ring1_inner)/2"
+    },
+    {
+      "name": "ring2_outer",
+      "expr": "ring1_inner-ring_gap"
+    },
+    {
+      "name": "ring2_inner",
+      "expr": "ring2_outer-ring_width"
+    },
+    {
+      "name": "ring2_middle",
+      "expr": "(ring2_outer+ring2_inner)/2"
+    },
+    {
+      "name": "circle_size",
+      "value": 100
+    },
+    {
+      "name": "x_label_gap",
+      "value": 10
+    },
+    {
+      "name": "x_circle_1",
+      "value": -100
+    },
+    {
+      "name": "x_circle_2",
+      "value": -20
+    },
+    {"name": "x_circle_3", "value": 50},
+    {
+      "name": "x_label_1",
+      "expr": "x_circle_1 + x_label_gap"
+    },
+    {
+      "name": "x_label_2",
+      "expr": "x_circle_2 + x_label_gap"
+    },
+    {
+      "name": "x_label_3",
+      "expr": "x_circle_3 + x_label_gap"
+    }
+  ],
+  "vconcat": [
+    {
+      "description": "RINGS",
+      "layer": [
+        {
+          "layer": [
+            {
+              "description": "RING 1 (OUTER) BACKGROUND",
+              "mark": {
+                "type": "arc",
+                "radius": {
+                  "expr": "ring1_outer"
+                },
+                "radius2": {
+                  "expr": "ring1_inner"
+                },
+                "theta": -1.57,
+                "theta2": 1.57
+              },
+              "encoding": {
+                "color": {
+                  "value": {
+                    "expr": "ring_background_color"
+                  }
+                },
+                "opacity": {
+                  "value": {
+                    "expr": "ring_background_opacity"
+                  }
+                }
+              }
+            },
+            {
+              "description": "RING 1 (OUTER)",
+              "mark": {
+                "type": "arc",
+                "radius": {
+                  "expr": "ring1_outer"
+                },
+                "radius2": {
+                  "expr": "ring1_inner"
+                },
+                "theta": -1.57,
+                "theta2": {
+                  "expr": "datum.Ring1_Theta2"
+                },
+                "cornerRadius": 0
+              },
+              "encoding": {
+                "color": {
+                  "value": {
+                    "expr": " datum['Var_Ring1_Sales'] ? ring1_color_good : ring1_color_bad  "
+                  }
+                }
+              }
+            },
+            {
+              "description": "RING 1 (OUTER) LABEL",
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -2,
+                "dy": {
+                  "expr": "-1*ring1_middle+7"
+                },
+                "fontSize": 14,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "text": {
+                  "field": "Ring1_Label",
+                  "type": "nominal",
+                  "format": ".3s"
+                },
+                "color": {
+                  "value": {
+                    "expr": "label_color"
+                  }
+                }
+              }
+            },
+            {
+              "description": "RING 1 2nd (OUTER) LABEL",
+              "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "dx": {
+                  "expr": "1*ring1_middle"
+                },
+                "dy": -10,
+                "fontSize": 14,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "text": {
+                  "value": "YTD",
+                  "type": "nominal",
+                  "format": ".3s"
+                },
+                "color": {
+                  "value": {
+                    "expr": "label_color"
+                  }
+                }
+              }
+            },
+            {
+              "description": "RING 1 (OUTER) TICK",
+              "mark": {
+                "type": "rule",
+                "strokeWidth": 4
+              },
+              "encoding": {
+                "x": {
+                  "value": {
+                    "expr": "100"
+                  },
+                  "axis": null,
+                  "scale": {
+                    "domain": [0, 10]
+                  }
+                },
+                "x2": {
+                  "value": {
+                    "expr": "100"
+                  }
+                },
+                "y": {
+                  "value": {
+                    "expr": " -9 "
+                  }
+                },
+                "y2": {
+                  "value": {
+                    "expr": " 33.1  "
+                  }
+                },
+                "stroke": {
+                  "value": {
+                    "expr": "target_color"
+                  }
+                }
+              }
+            },
+            {
+              "description": "Label Below Rings",
+              "mark": {
+                "type": "text",
+                "align": "middle",
+                "baseline": "middle",
+                "dx": 82,
+                "dy": 10,
+                "fontSize": 14,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "text": {
+                  "field": "Below_Ring1_Label",
+                  "type": "nominal"
+                },
+                "color": {
+                  "value": {
+                    "expr": "label_color"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "layer": [
+            {
+              "description": "RING 2 (INNER) BACKGROUND",
+              "mark": {
+                "type": "arc",
+                "radius": {
+                  "expr": "ring2_outer"
+                },
+                "radius2": {
+                  "expr": "ring2_inner"
+                },
+                "theta": -1.57,
+                "theta2": 1.57
+              },
+              "encoding": {
+                "color": {
+                  "value": {
+                    "expr": "ring_background_color"
+                  }
+                },
+                "opacity": {
+                  "value": {
+                    "expr": "ring_background_opacity"
+                  }
+                }
+              }
+            },
+            {
+              "description": "RING 2 (INNER)",
+              "mark": {
+                "type": "arc",
+                "radius": {
+                  "expr": "ring2_outer"
+                },
+                "radius2": {
+                  "expr": "ring2_inner"
+                },
+                "theta": -1.57,
+                "theta2": {
+                  "expr": "datum.Ring2_Theta2"
+                },
+                "cornerRadius": 0
+              },
+              "encoding": {
+                "color": {
+                  "value": {
+                    "expr": " datum['Var_Ring2_Sales'] ? ring1_color_good : ring1_color_bad  "
+                  }
+                }
+              }
+            },
+            {
+              "description": "RING 2 (INNER) LABEL",
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": -2,
+                "dy": {
+                  "expr": "-1*ring2_middle+7"
+                },
+                "fontSize": 14,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "text": {
+                  "field": "Ring2_Label",
+                  "type": "nominal",
+                  "format": ".3s"
+                },
+                "color": {
+                  "value": {
+                    "expr": "label_color"
+                  }
+                }
+              }
+            },
+            {
+              "description": "RING 2 2nd (INNER) LABEL",
+              "mark": {
+                "type": "text",
+                "align": "center",
+                "baseline": "middle",
+                "dx": {
+                  "expr": "1*ring2_middle"
+                },
+                "dy": -10,
+                "fontSize": 14,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "text": {
+                  "value": "MTD",
+                  "type": "nominal",
+                  "format": ".3s"
+                },
+                "color": {
+                  "value": {
+                    "expr": "label_color"
+                  }
+                }
+              }
+            },
+            {
+              "description": "RING 2 (INNER) TICK",
+              "mark": {
+                "type": "rule",
+                "strokeWidth": 4
+              },
+              "encoding": {
+                "x": {
+                  "value": {
+                    "expr": "100"
+                  }
+                },
+                "x2": {
+                  "value": {
+                    "expr": "100"
+                  }
+                },
+                "y": {
+                  "value": {
+                    "expr": "45"
+                  }
+                },
+                "y2": {
+                  "value": {
+                    "expr": "87.2"
+                  }
+                },
+                "stroke": {
+                  "value": {
+                    "expr": "target_color"
+                  }
+                }
+              }
+            },
+            {
+              "description": "Label Below Rings",
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "baseline": "middle",
+                "dx": 64,
+                "dy": 10,
+                "fontSize": 14,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "text": {
+                  "field": "Below_Ring2_Label",
+                  "type": "nominal"
+                },
+                "color": {
+                  "value": {
+                    "expr": "label_color"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "view": {"stroke": null}
+}
