@@ -1,0 +1,163 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Half-donut gauge showing Score vs Target (single outer ring)",
+  "data": {"name": "dataset"},
+  "title": {
+    "text": " ",
+    "anchor": "middle",
+    "font": "Arial",
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "offset": 10
+  },
+  "params": [
+    {"name": "score_value", "expr": "data('dataset')[0].score"},
+    {"name": "target_value", "expr": "data('dataset')[0].target"},
+    {"name": "ring_size", "expr": "min(width * 0.44, height * 0.78)"},
+    {"name": "ring_outer", "expr": "ring_size"},
+    {"name": "ring_inner", "expr": "ring_size * 0.65"},
+    {"name": "ring_middle", "expr": "(ring_outer + ring_inner) / 2"},
+    {"name": "start_theta", "expr": "-PI/2"},
+    {"name": "end_theta", "expr": "PI/2"},
+    {"name": "score_theta", "expr": "-PI/2 + PI * score_value"},
+    {"name": "target_theta", "expr": "-PI/2 + PI * target_value"},
+    {"name": "target_label_radius", "expr": "ring_outer + 18"},
+    {"name": "target_label_dx", "expr": "cos(target_theta - PI/2) * target_label_radius"},
+    {"name": "target_label_dy", "expr": "sin(target_theta - PI/2) * target_label_radius"},
+    {"name": "tick_overhang", "value": 6},
+    {"name": "tick_half_width", "value": 0.012},
+    {"name": "fill_color", "value": "#F2A900"},
+    {"name": "background_color", "value": "#DCD8DB"},
+    {"name": "target_color", "value": "#F2A900"},
+    {"name": "ring_fill_opacity", "value": 0.6},
+    {"name": "ring_stroke_width", "value": 4},
+    {"name": "label_color", "value": "#6B6B6B"},
+    {"name": "score_color", "value": "#7A7A7A"},
+    {"name": "label_font_size", "value": 14}
+  ],
+  "transform": [
+    {"calculate": "datum.score == null ? '--' : format(datum.score, '.0%')", "as": "score_label"},
+    {"calculate": "format(datum.target, '.0%')", "as": "target_label"}
+  ],
+  "layer": [
+    {
+      "description": "Background arc (full half ring)",
+      "mark": {
+        "type": "arc",
+        "radius": {"expr": "ring_outer"},
+        "radius2": {"expr": "ring_inner"},
+        "theta": {"expr": "start_theta"},
+        "theta2": {"expr": "end_theta"},
+        "stroke": {"expr": "background_color"},
+        "strokeWidth": {"expr": "ring_stroke_width"},
+        "strokeOpacity": 1,
+        "fillOpacity": {"expr": "ring_fill_opacity"}
+      },
+      "encoding": {
+        "color": {"value": {"expr": "background_color"}}
+      }
+    },
+    {
+      "description": "Foreground arc (fill from 0 to score)",
+      "mark": {
+        "type": "arc",
+        "radius": {"expr": "ring_outer"},
+        "radius2": {"expr": "ring_inner"},
+        "theta": {"expr": "start_theta"},
+        "theta2": {"expr": "score_theta"},
+        "stroke": {"expr": "fill_color"},
+        "strokeWidth": {"expr": "ring_stroke_width"},
+        "strokeOpacity": 1,
+        "fillOpacity": {"expr": "ring_fill_opacity"}
+      },
+      "encoding": {
+        "color": {"value": {"expr": "fill_color"}}
+      }
+    },
+    {
+      "description": "Target tick (thin arc overhanging the ring)",
+      "mark": {
+        "type": "arc",
+        "radius": {"expr": "ring_outer + tick_overhang"},
+        "radius2": {"expr": "ring_inner - tick_overhang"},
+        "theta": {"expr": "target_theta - tick_half_width"},
+        "theta2": {"expr": "target_theta + tick_half_width"}
+      },
+      "encoding": {
+        "color": {"value": {"expr": "target_color"}}
+      }
+    },
+    {
+      "description": "Score text (big centered)",
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dy": -4,
+        "fontSize": 46,
+        "font": "Arial",
+        "fontWeight": "normal"
+      },
+      "encoding": {
+        "text": {"field": "score_label"},
+        "color": {"value": {"expr": "score_color"}}
+      }
+    },
+    {
+      "description": "0% label (bottom-left)",
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "top",
+        "dx": {"expr": "-ring_middle"},
+        "dy": 10,
+        "fontSize": {"expr": "label_font_size"},
+        "font": "Arial",
+        "text": "0%"
+      },
+      "encoding": {
+        "color": {"value": {"expr": "label_color"}}
+      }
+    },
+    {
+      "description": "100% label (bottom-right)",
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "top",
+        "dx": {"expr": "ring_middle"},
+        "dy": 10,
+        "fontSize": {"expr": "label_font_size"},
+        "font": "Arial",
+        "text": "100%"
+      },
+      "encoding": {
+        "color": {"value": {"expr": "label_color"}}
+      }
+    },
+    {
+      "description": "Target % label (positioned radially near the tick)",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": {"expr": "target_label_dx + 4"},
+        "dy": {"expr": "target_label_dy"},
+        "fontSize": {"expr": "label_font_size"},
+        "font": "Arial"
+      },
+      "encoding": {
+        "text": {"field": "target_label"},
+        "color": {"value": {"expr": "label_color"}}
+      }
+    }
+  ],
+  "autosize": {"type": "fit", "contains": "padding"},
+  "config": {
+    "view": {"stroke": null},
+    "background": "white",
+    "font": "Arial"
+  },
+  "width": "container",
+  "height": "container"
+}
