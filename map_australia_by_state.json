@@ -10,15 +10,9 @@
   },
   "title": {
     "text": "Australian State Performance",
-    "dy": 60,
-    "subtitle": [
-      "rsp_spp Compliance Score by state and territory"
-    ],
-    "fontSize": 34,
+    "dy": 10,
+    "fontSize": 26,
     "color": "#18191C",
-    "subtitleFontSize": 16,
-    "subtitlePadding": 10,
-    "subtitleColor": "#666666",
     "align": "left",
     "anchor": "start",
     "baseline": "top"
@@ -30,6 +24,12 @@
     "right": 0,
     "top": 30
   },
+  "signals": [
+    {
+      "name": "isFiltered",
+      "update": "length(data('dataset')) < 7"
+    }
+  ],
   "data": [
     {
       "name": "dataset"
@@ -95805,13 +95805,23 @@
           "from": "dataset",
           "key": "State",
           "fields": [ "abbr" ],
-          "values": [ "rsp_spp Compliance Score" ],
-          "as": [ "percentage" ]
+          "values": [ "rsp_spp Compliance Score", "image" ],
+          "as": [ "percentage", "imageUrl" ]
         },
         {
           "type": "geojson",
           "signal": "geodata"
         }
+      ]
+    },
+    {
+      "name": "labelOffsets",
+      "values": [
+        { "abbr": "SA",  "dx": -30, "dy":  40, "tAlign": "center",   "imgDx":  -10 , "noLeader": true },
+        { "abbr": "VIC", "dx": -30,  "dy":  30, "tAlign": "center", "imgDx":  -12, "noLeader": true },
+        { "abbr": "TAS", "dx":  30,  "dy": -10, "tAlign": "left",   "imgDx":  59, "noLeader": true },
+        { "abbr": "NT",  "dx":  10,  "dy":   0, "tAlign": "center", "imgDx": -10 ,"noLeader": true },
+        { "abbr": "NSW", "dx":   0,  "dy": -10, "tAlign": "center", "noLeader": true }
       ]
     },
     {
@@ -95827,6 +95837,43 @@
           "type": "formula",
           "as": "cy",
           "expr": "geoCentroid('projection', datum)[1]"
+        },
+        {
+          "type": "lookup",
+          "from": "labelOffsets",
+          "key": "abbr",
+          "fields": [ "abbr" ],
+          "values": [ "dx", "dy", "tAlign", "imgDx", "noLeader" ]
+        },
+        {
+          "type": "formula",
+          "as": "lx",
+          "expr": "datum.cx + (datum.dx == null ? 0 : datum.dx)"
+        },
+        {
+          "type": "formula",
+          "as": "ly",
+          "expr": "datum.cy + (datum.dy == null ? 0 : datum.dy)"
+        },
+        {
+          "type": "formula",
+          "as": "labelAlign",
+          "expr": "datum.tAlign == null ? 'center' : datum.tAlign"
+        },
+        {
+          "type": "formula",
+          "as": "hasLeader",
+          "expr": "(datum.dx != null || datum.dy != null) && datum.noLeader != true"
+        },
+        {
+          "type": "formula",
+          "as": "leaderEndX",
+          "expr": "datum.labelAlign == 'left' ? datum.lx - 4 : (datum.labelAlign == 'right' ? datum.lx + 4 : datum.lx)"
+        },
+        {
+          "type": "formula",
+          "as": "ix",
+          "expr": "datum.lx + (datum.imgDx == null ? (datum.labelAlign == 'left' ? -2 : datum.labelAlign == 'right' ? -30 : -16) : datum.imgDx)"
         }
       ]
     }
@@ -95882,7 +95929,7 @@
         },
         "update": {
           "fill": {
-            "value": "#E8E5E7"
+            "signal": "isFiltered && datum.percentage != null ? '#FCD853' : '#E8E5E7'"
           },
           "stroke": {
             "value": "#333333"
@@ -95906,6 +95953,25 @@
       ]
     },
     {
+      "type": "rule",
+      "from": {
+        "data": "aus_labels"
+      },
+      "encode": {
+        "update": {
+          "x": { "field": "cx" },
+          "y": { "field": "cy" },
+          "x2": { "field": "leaderEndX" },
+          "y2": { "field": "ly" },
+          "stroke": { "value": "#666666" },
+          "strokeWidth": { "value": 1 },
+          "opacity": {
+            "signal": "isFiltered && datum.percentage == null ? 0 : (datum.hasLeader ? 0.8 : 0)"
+          }
+        }
+      }
+    },
+    {
       "type": "text",
       "from": {
         "data": "aus_labels"
@@ -95913,16 +95979,16 @@
       "encode": {
         "update": {
           "x": {
-            "field": "cx"
+            "field": "lx"
           },
           "y": {
-            "field": "cy"
+            "field": "ly"
           },
           "text": {
             "signal": "datum.percentage != null ? [datum.abbr, format(datum.percentage, '.0%')] : [datum.abbr]"
           },
           "align": {
-            "value": "center"
+            "field": "labelAlign"
           },
           "baseline": {
             "value": "middle"
@@ -95938,6 +96004,29 @@
           },
           "lineHeight": {
             "value": 20
+          },
+          "opacity": {
+            "signal": "isFiltered && datum.percentage == null ? 0 : 1"
+          }
+        }
+      }
+    },
+    {
+      "type": "image",
+      "from": {
+        "data": "aus_labels"
+      },
+      "encode": {
+        "update": {
+          "url": { "field": "imageUrl" },
+          "x": { "field": "ix" },
+          "y": { "signal": "datum.ly + 10" },
+          "width": { "value": 32 },
+          "height": { "value": 32 },
+          "align": { "value": "right" },
+          "baseline": { "value": "middle" },
+          "opacity": {
+            "signal": "datum.imageUrl == null || (isFiltered && datum.percentage == null) ? 0 : 1"
           }
         }
       }
@@ -95948,7 +96037,7 @@
         "update": {
           "text": {
             "value": [
-              "Source: rowanhogan/australian-states"
+              ""
             ]
           },
           "baseline": {
