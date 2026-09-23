@@ -1,0 +1,290 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Overlapping Bars with Share Lollipop",
+      "description": "For each category, a dark current bar sits in front of a grey total bar, and a lollipop on the right shows current as a share of total. Built for top-N lists such as top customers or products. Design after Gerard Duggan (dg-analysis.com).",
+      "author": "Timothy Osborn, after Gerard Duggan",
+      "uuid": "4ada3fcc-220a-465e-9204-bb186117114d",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Category",
+        "description": "One row per category, for example customer or product. Keep it to a short top-N list; long names wrap onto two lines.",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Current",
+        "description": "The current value, for example reporting month revenue. Drawn as the dark front bar and used as the top of the share.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Total",
+        "description": "The total the current value is part of, for example reporting year revenue. Drawn as the grey back bar; the share is Current / Total.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {"type": "fit", "contains": "padding"},
+    "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "params": [
+    {"name": "title", "value": ""},
+    {"name": "subtitle", "value": ""},
+    {"name": "currentBarColor", "expr": "pbiColor(1)"},
+    {"name": "currentBarStroke", "expr": "pbiColor(1, -0.3)"},
+    {"name": "totalBarColor", "value": "#E1E1E1"},
+    {"name": "totalBarStroke", "value": "#A6A6A6"},
+    {"name": "barStrokeWidth", "value": 1},
+    {"name": "lollipopStemColor", "expr": "currentBarColor"},
+    {"name": "lollipopHeadColor", "expr": "pbiColor(1, 0.8)"},
+    {"name": "lollipopHeadStroke", "expr": "pbiColor(1, 0.3)"},
+    {"name": "lollipopHeadStrokeWidth", "value": 1.5},
+    {"name": "textColor", "value": "#252423"},
+    {"name": "currentLabelColor", "value": "#FFFFFF"},
+    {"name": "subtitleColor", "value": "#605E5C"},
+    {"name": "valueFormat", "value": "$,.1f"},
+    {"name": "valueDivisor", "value": 1000},
+    {"name": "valueSuffix", "value": "K"},
+    {"name": "shareFormat", "value": ".1%"},
+    {"name": "tooltipValueFormat", "value": "$,.0f"},
+    {"name": "sortBy", "value": "current"},
+    {"name": "sortDescending", "value": true},
+    {"name": "titleFontSize", "value": 13},
+    {"name": "subtitleFontSize", "value": 10},
+    {"name": "categoryFontSize", "value": 12},
+    {"name": "categoryWrapChars", "value": 10},
+    {"name": "categoryLabelLimit", "value": 140},
+    {"name": "categoryGap", "value": 10},
+    {"name": "labelFontSize", "value": 11},
+    {"name": "shareFontSize", "value": 12},
+    {"name": "labelGap", "value": 4},
+    {"name": "labelCharWidth", "value": 0.55},
+    {"name": "totalBarHeight", "value": 0.44},
+    {"name": "totalBarOffset", "value": -0.08},
+    {"name": "currentBarHeight", "value": 0.34},
+    {"name": "currentBarOffset", "value": 0.13},
+    {"name": "lollipopGap", "value": 0.07},
+    {"name": "lollipopLength", "value": 0.18},
+    {"name": "lollipopOffset", "value": 0},
+    {"name": "lollipopStemWidth", "value": 3},
+    {"name": "lollipopHeadSize", "value": 160},
+    {"name": "shareAxisMax", "value": 0}
+  ],
+  "title": {
+    "text": {"expr": "title"},
+    "subtitle": {"expr": "subtitle"},
+    "anchor": "start",
+    "frame": "bounds",
+    "offset": {"expr": "length(title) + length(subtitle) > 0 ? 8 : 0"},
+    "subtitlePadding": {"expr": "length(title) > 0 && length(subtitle) > 0 ? 3 : 0"},
+    "fontSize": {"expr": "length(title) > 0 ? titleFontSize : 0"},
+    "fontWeight": "bold",
+    "color": {"expr": "textColor"},
+    "subtitleFontSize": {"expr": "length(subtitle) > 0 ? subtitleFontSize : 0"},
+    "subtitleColor": {"expr": "subtitleColor"}
+  },
+  "data": {"name": "dataset"},
+  "transform": [
+    {"calculate": "isValid(datum['__0__']) ? datum['__0__'] + '' : ''", "as": "catText"},
+    {"calculate": "isValid(datum['__1__']) ? max(0, datum['__1__']) : 0", "as": "valCurrent"},
+    {"calculate": "isValid(datum['__2__']) ? max(0, datum['__2__']) : 0", "as": "valTotal"},
+    {"calculate": "isValid(datum['__1__']) && isValid(datum['__2__']) && datum['__2__'] != 0 ? datum['__1__'] / datum['__2__'] : null", "as": "share"},
+    {"calculate": "max(datum.valCurrent, datum.valTotal)", "as": "valMax"},
+    {"joinaggregate": [
+      {"op": "max", "field": "valMax", "as": "scaleMax"},
+      {"op": "max", "field": "share", "as": "shareMaxData"}
+    ]},
+    {"calculate": "shareAxisMax > 0 ? shareAxisMax : (datum.shareMaxData > 0 ? datum.shareMaxData : 1)", "as": "shareMax"},
+    {"calculate": "isValid(datum['__1__']) ? format(datum['__1__'] / valueDivisor, valueFormat) + valueSuffix : ''", "as": "labelCurrent"},
+    {"calculate": "isValid(datum['__2__']) ? format(datum['__2__'] / valueDivisor, valueFormat) + valueSuffix : ''", "as": "labelTotal"},
+    {"calculate": "isValid(datum.share) ? format(datum.share, shareFormat) : ''", "as": "labelShare"},
+    {"calculate": "length(datum.labelShare)", "as": "labelShareChars"},
+    {"joinaggregate": [{"op": "max", "field": "labelShareChars", "as": "labelShareCharsMax"}]},
+    {"calculate": "sqrt(lollipopHeadSize / PI) + labelGap + 4 + datum.labelShareCharsMax * shareFontSize * labelCharWidth", "as": "shareLabelSpace"},
+    {"calculate": "max(0.1, 1 - datum.shareLabelSpace / max(width, 1) - lollipopLength - lollipopGap)", "as": "barAreaEnd"},
+    {"calculate": "datum.scaleMax > 0 ? datum.valTotal / datum.scaleMax * datum.barAreaEnd : 0", "as": "xTotal"},
+    {"calculate": "datum.scaleMax > 0 ? datum.valCurrent / datum.scaleMax * datum.barAreaEnd : 0", "as": "xCurrent"},
+    {"calculate": "datum.barAreaEnd + lollipopGap", "as": "xStemStart"},
+    {"calculate": "datum.xStemStart + (isValid(datum.share) ? clamp(datum.share / datum.shareMax, 0, 1) : 0) * lollipopLength", "as": "xStemEnd"},
+    {"calculate": "length(datum.labelTotal) * labelFontSize * labelCharWidth + 2 * labelGap", "as": "labelTotalPx"},
+    {"calculate": "length(datum.labelCurrent) * labelFontSize * labelCharWidth + 2 * labelGap", "as": "labelCurrentPx"},
+    {"calculate": "datum.xTotal * width >= datum.labelTotalPx", "as": "labelTotalInside"},
+    {"calculate": "datum.labelTotalInside || (datum.xStemStart - datum.xTotal) * width >= datum.labelTotalPx", "as": "labelTotalShown"},
+    {"calculate": "datum.xCurrent * width >= datum.labelCurrentPx", "as": "labelCurrentInside"},
+    {"calculate": "datum.labelCurrentInside || (datum.xStemStart - datum.xCurrent) * width >= datum.labelCurrentPx", "as": "labelCurrentShown"},
+    {"calculate": "isValid(datum['__1__']) ? format(datum['__1__'], tooltipValueFormat) : ''", "as": "tipCurrent"},
+    {"calculate": "isValid(datum['__2__']) ? format(datum['__2__'], tooltipValueFormat) : ''", "as": "tipTotal"},
+    {"calculate": "(sortDescending ? -1 : 1) * (sortBy == 'total' ? datum.valTotal : sortBy == 'share' ? (isValid(datum.share) ? datum.share : 0) : datum.valCurrent)", "as": "sortKey"},
+    {"calculate": "floor(length(datum.catText) / 2)", "as": "catMid"},
+    {"calculate": "lastindexof(datum.catText, ' ', datum.catMid)", "as": "catSpaceBefore"},
+    {"calculate": "indexof(datum.catText, ' ', datum.catMid)", "as": "catSpaceAfter"},
+    {"calculate": "datum.catSpaceBefore < 0 ? datum.catSpaceAfter : datum.catSpaceAfter < 0 ? datum.catSpaceBefore : (datum.catMid - datum.catSpaceBefore <= datum.catSpaceAfter - datum.catMid ? datum.catSpaceBefore : datum.catSpaceAfter)", "as": "catCut"},
+    {"calculate": "length(datum.catText) > categoryWrapChars && datum.catCut > 0 ? [substring(datum.catText, 0, datum.catCut), substring(datum.catText, datum.catCut + 1)] : datum.catText", "as": "catLines"}
+  ],
+  "encoding": {
+    "y": {
+      "field": "__0__",
+      "type": "nominal",
+      "sort": {"field": "sortKey", "op": "min", "order": "ascending"},
+      "scale": {"paddingInner": 0, "paddingOuter": 0},
+      "axis": null
+    },
+    "tooltip": [
+      {"field": "__0__", "type": "nominal", "title": "__0__"},
+      {"field": "tipCurrent", "type": "nominal", "title": "__1__"},
+      {"field": "tipTotal", "type": "nominal", "title": "__2__"},
+      {"field": "labelShare", "type": "nominal", "title": "Share of __2__"}
+    ]
+  },
+  "layer": [
+    {
+      "transform": [{"filter": "datum.xTotal > 0"}],
+      "mark": {
+        "type": "bar",
+        "fill": {"expr": "totalBarColor"},
+        "stroke": {"expr": "totalBarStroke"},
+        "strokeWidth": {"expr": "barStrokeWidth"},
+        "size": {"expr": "bandwidth('y') * totalBarHeight"},
+        "yOffset": {"expr": "bandwidth('y') * totalBarOffset"}
+      },
+      "encoding": {
+        "x": {"field": "xTotal", "type": "quantitative", "scale": {"domain": [0, 1], "nice": false, "zero": true}, "axis": null},
+        "x2": {"datum": 0}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.xCurrent > 0"}],
+      "mark": {
+        "type": "bar",
+        "fill": {"expr": "currentBarColor"},
+        "stroke": {"expr": "currentBarStroke"},
+        "strokeWidth": {"expr": "barStrokeWidth"},
+        "size": {"expr": "bandwidth('y') * currentBarHeight"},
+        "yOffset": {"expr": "bandwidth('y') * currentBarOffset"}
+      },
+      "encoding": {
+        "x": {"field": "xCurrent", "type": "quantitative", "scale": {"domain": [0, 1], "nice": false, "zero": true}, "axis": null},
+        "x2": {"datum": 0}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.share)"}],
+      "mark": {
+        "type": "rule",
+        "stroke": {"expr": "lollipopStemColor"},
+        "strokeWidth": {"expr": "lollipopStemWidth"},
+        "yOffset": {"expr": "bandwidth('y') * lollipopOffset"}
+      },
+      "encoding": {
+        "x": {"field": "xStemStart", "type": "quantitative", "scale": {"domain": [0, 1], "nice": false, "zero": true}, "axis": null},
+        "x2": {"field": "xStemEnd"}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.share)"}],
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": true,
+        "opacity": 1,
+        "fill": {"expr": "lollipopHeadColor"},
+        "stroke": {"expr": "lollipopHeadStroke"},
+        "strokeWidth": {"expr": "lollipopHeadStrokeWidth"},
+        "size": {"expr": "lollipopHeadSize"},
+        "yOffset": {"expr": "bandwidth('y') * lollipopOffset"}
+      },
+      "encoding": {
+        "x": {"field": "xStemEnd", "type": "quantitative", "scale": {"domain": [0, 1], "nice": false, "zero": true}, "axis": null}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": {"expr": "-categoryGap"},
+        "fill": {"expr": "textColor"},
+        "fontSize": {"expr": "categoryFontSize"},
+        "lineHeight": {"expr": "categoryFontSize * 1.2"},
+        "limit": {"expr": "categoryLabelLimit"}
+      },
+      "encoding": {
+        "x": {"datum": 0, "type": "quantitative", "scale": {"domain": [0, 1], "nice": false, "zero": true}, "axis": null},
+        "text": {"field": "catLines"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.labelTotalShown"}],
+      "mark": {
+        "type": "text",
+        "baseline": "middle",
+        "align": {"expr": "datum.labelTotalInside ? 'right' : 'left'"},
+        "dx": {"expr": "datum.labelTotalInside ? -labelGap : labelGap"},
+        "yOffset": {"expr": "bandwidth('y') * (totalBarOffset - totalBarHeight / 2 + currentBarOffset - currentBarHeight / 2) / 2"},
+        "fill": {"expr": "textColor"},
+        "fontSize": {"expr": "labelFontSize"}
+      },
+      "encoding": {
+        "x": {"field": "xTotal", "type": "quantitative", "scale": {"domain": [0, 1], "nice": false, "zero": true}, "axis": null},
+        "text": {"field": "labelTotal"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.labelCurrentShown"}],
+      "mark": {
+        "type": "text",
+        "baseline": "middle",
+        "align": {"expr": "datum.labelCurrentInside ? 'right' : 'left'"},
+        "dx": {"expr": "datum.labelCurrentInside ? -labelGap : labelGap"},
+        "fill": {"expr": "datum.labelCurrentInside ? currentLabelColor : textColor"},
+        "yOffset": {"expr": "!datum.labelCurrentInside && datum.xCurrent < datum.xTotal ? max(bandwidth('y') * currentBarOffset, bandwidth('y') * (totalBarOffset + totalBarHeight / 2) + barStrokeWidth / 2 + 1 + 0.42 * labelFontSize) : bandwidth('y') * currentBarOffset"},
+        "fontSize": {"expr": "labelFontSize"}
+      },
+      "encoding": {
+        "x": {"field": "xCurrent", "type": "quantitative", "scale": {"domain": [0, 1], "nice": false, "zero": true}, "axis": null},
+        "text": {"field": "labelCurrent"}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.share)"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": {"expr": "sqrt(lollipopHeadSize / PI) + labelGap + 2"},
+        "yOffset": {"expr": "bandwidth('y') * lollipopOffset"},
+        "fill": {"expr": "textColor"},
+        "fontSize": {"expr": "shareFontSize"}
+      },
+      "encoding": {
+        "x": {"field": "xStemEnd", "type": "quantitative", "scale": {"domain": [0, 1], "nice": false, "zero": true}, "axis": null},
+        "text": {"field": "labelShare"}
+      }
+    }
+  ]
+}

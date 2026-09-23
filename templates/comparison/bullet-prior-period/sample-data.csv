@@ -1,0 +1,5 @@
+Metric,Sort Order,Actual,Target,Previous,Higher Is Better
+RM OTD,1,0.986,0.95,0.917,1
+RY OTD,2,0.949,0.95,0.957,1
+RM Discount,3,0.0806,0.065,0.0452,0
+RY Discount,4,0.0614,0.065,0.0602,0

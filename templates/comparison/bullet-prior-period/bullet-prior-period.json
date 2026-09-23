@@ -1,0 +1,269 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Bullet with Prior Period",
+      "description": "One bullet per row: an actual bar coloured by whether it beats target, a lighter previous-period band coloured by whether that period beat target, and a target tick, each row on its own axis. Higher or lower can be better per row. Design after Gerard Duggan (dg-analysis.com).",
+      "author": "Timothy Osborn, after Gerard Duggan",
+      "uuid": "3a3549dc-99ce-4b53-95c6-81b4dc78c4c7",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Metric",
+        "description": "Row label, one row per metric, e.g. RM Revenue.",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Sort Order",
+        "description": "Row order, smallest at the top.",
+        "type": "numeric",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Actual",
+        "description": "Current period value: the thick bar.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "Target",
+        "description": "Target for the current period: the dark tick.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__4__",
+        "name": "Previous",
+        "description": "Previous period value: the light band behind the bar.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__5__",
+        "name": "Higher Is Better",
+        "description": "1 when a value above target is good, 0 when a value below target is good.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {"type": "fit", "contains": "padding"},
+    "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "params": [
+    {"name": "valueFormat", "value": ".1~%"},
+    {"name": "independentScales", "value": true},
+    {"name": "axisMax", "value": null},
+    {"name": "headroom", "value": 0.1},
+    {"name": "tickCount", "value": 3},
+    {"name": "colorGood", "expr": "pbiColor('good')"},
+    {"name": "colorBad", "expr": "pbiColor('bad')"},
+    {"name": "colorNeutral", "expr": "pbiColor('neutral')"},
+    {"name": "colorGoodTint", "expr": "pbiColor('good', 0.6)"},
+    {"name": "colorBadTint", "expr": "pbiColor('bad', 0.6)"},
+    {"name": "colorNeutralTint", "expr": "pbiColor('neutral', 0.6)"},
+    {"name": "trackColor", "value": "#EEF0F3"},
+    {"name": "targetColor", "value": "#252423"},
+    {"name": "trackThickness", "value": 0.48},
+    {"name": "previousBandThickness", "value": 0.66},
+    {"name": "actualBarThickness", "value": 0.4},
+    {"name": "targetTickLength", "value": 0.7},
+    {"name": "targetTickWidth", "value": 3},
+    {"name": "rowLabelFontSize", "value": 12},
+    {"name": "rowLabelColor", "value": "#252423"},
+    {"name": "rowLabelLimit", "value": 140},
+    {"name": "axisFontSize", "value": 9},
+    {"name": "axisLabelColor", "value": "#605E5C"},
+    {"name": "axisTickColor", "value": "#A19F9D"}
+  ],
+  "data": {"name": "dataset"},
+  "transform": [
+    {"calculate": "isValid(datum['__0__']) ? '' + datum['__0__'] : '(blank)'", "as": "label"},
+    {"calculate": "toNumber(datum['__1__'])", "as": "sortKey"},
+    {"calculate": "isValid(datum['__2__']) ? toNumber(datum['__2__']) : null", "as": "actual"},
+    {"calculate": "isValid(datum['__3__']) ? toNumber(datum['__3__']) : null", "as": "target"},
+    {"calculate": "isValid(datum['__4__']) ? toNumber(datum['__4__']) : null", "as": "previous"},
+    {"calculate": "isValid(datum['__5__']) ? toNumber(datum['__5__']) !== 0 : true", "as": "higherIsBetter"},
+    {"calculate": "!isValid(datum.actual) || !isValid(datum.target) ? 'none' : (datum.higherIsBetter ? datum.actual >= datum.target : datum.actual <= datum.target) ? 'good' : 'bad'", "as": "status"},
+    {"calculate": "!isValid(datum.previous) || !isValid(datum.target) ? 'none' : (datum.higherIsBetter ? datum.previous >= datum.target : datum.previous <= datum.target) ? 'good' : 'bad'", "as": "previousStatus"},
+    {"calculate": "datum.status === 'good' ? colorGood : datum.status === 'bad' ? colorBad : colorNeutral", "as": "actualColor"},
+    {"calculate": "datum.previousStatus === 'good' ? colorGoodTint : datum.previousStatus === 'bad' ? colorBadTint : colorNeutralTint", "as": "previousColor"},
+    {"calculate": "max(0, isValid(datum.actual) ? datum.actual : 0, isValid(datum.target) ? datum.target : 0, isValid(datum.previous) ? datum.previous : 0)", "as": "rowMax"},
+    {"calculate": "min(0, isValid(datum.actual) ? datum.actual : 0, isValid(datum.target) ? datum.target : 0, isValid(datum.previous) ? datum.previous : 0)", "as": "rowMin"},
+    {"joinaggregate": [{"op": "max", "field": "rowMax", "as": "allMax"}, {"op": "min", "field": "rowMin", "as": "allMin"}]},
+    {"calculate": "(independentScales ? datum.rowMin : datum.allMin) * (1 + headroom)", "as": "lo"},
+    {"calculate": "isValid(axisMax) ? axisMax : (independentScales ? datum.rowMax : datum.allMax) * (1 + headroom)", "as": "hi"},
+    {"calculate": "datum.hi > datum.lo ? datum.hi - datum.lo : 1", "as": "span"},
+    {"calculate": "(0 - datum.lo) / datum.span", "as": "xZero"},
+    {"calculate": "(datum.actual - datum.lo) / datum.span", "as": "xActual"},
+    {"calculate": "(datum.target - datum.lo) / datum.span", "as": "xTarget"},
+    {"calculate": "(datum.previous - datum.lo) / datum.span", "as": "xPrevious"},
+    {"calculate": "isValid(datum.actual) ? format(datum.actual, valueFormat) : '(blank)'", "as": "actualText"},
+    {"calculate": "isValid(datum.target) ? format(datum.target, valueFormat) : '(blank)'", "as": "targetText"},
+    {"calculate": "isValid(datum.previous) ? format(datum.previous, valueFormat) : '(blank)'", "as": "previousText"},
+    {"calculate": "isValid(datum.actual) && isValid(datum.target) ? (datum.actual > datum.target ? '+' : '') + format(datum.actual - datum.target, valueFormat) : '(blank)'", "as": "varianceText"},
+    {"calculate": "datum.status === 'good' ? 'Better than target' : datum.status === 'bad' ? 'Worse than target' : 'No target'", "as": "statusText"}
+  ],
+  "encoding": {
+    "y": {
+      "field": "label",
+      "type": "nominal",
+      "sort": {"field": "sortKey", "op": "min", "order": "ascending"},
+      "scale": {"paddingInner": 0, "paddingOuter": 0},
+      "title": null,
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "grid": false,
+        "labelPadding": 10,
+        "labelFontSize": {"expr": "rowLabelFontSize"},
+        "labelColor": {"expr": "rowLabelColor"},
+        "labelLimit": {"expr": "rowLabelLimit"}
+      }
+    }
+  },
+  "layer": [
+    {
+      "encoding": {
+        "tooltip": [
+          {"field": "label", "type": "nominal", "title": "Metric"},
+          {"field": "actualText", "type": "nominal", "title": "Actual"},
+          {"field": "targetText", "type": "nominal", "title": "Target"},
+          {"field": "previousText", "type": "nominal", "title": "Previous"},
+          {"field": "varianceText", "type": "nominal", "title": "Vs target"},
+          {"field": "statusText", "type": "nominal", "title": "Status"}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": {"expr": "trackColor"},
+            "height": {"expr": "bandwidth('y') * trackThickness"}
+          },
+          "encoding": {
+            "x": {
+              "datum": 0,
+              "type": "quantitative",
+              "scale": {"domain": [0, 1], "nice": false, "zero": false, "clamp": true},
+              "axis": null
+            },
+            "x2": {"datum": 1}
+          }
+        },
+        {
+          "transform": [{"filter": "isValid(datum.previous)"}],
+          "mark": {
+            "type": "bar",
+            "height": {"expr": "bandwidth('y') * trackThickness * previousBandThickness"}
+          },
+          "encoding": {
+            "x": {"field": "xZero", "type": "quantitative", "axis": null},
+            "x2": {"field": "xPrevious"},
+            "color": {"field": "previousColor", "type": "nominal", "scale": null}
+          }
+        },
+        {
+          "transform": [{"filter": "isValid(datum.actual)"}],
+          "mark": {
+            "type": "bar",
+            "height": {"expr": "bandwidth('y') * trackThickness * actualBarThickness"}
+          },
+          "encoding": {
+            "x": {"field": "xZero", "type": "quantitative", "axis": null},
+            "x2": {"field": "xActual"},
+            "color": {"field": "actualColor", "type": "nominal", "scale": null}
+          }
+        },
+        {
+          "transform": [{"filter": "isValid(datum.target)"}],
+          "mark": {
+            "type": "tick",
+            "color": {"expr": "targetColor"},
+            "opacity": 1,
+            "thickness": {"expr": "targetTickWidth"},
+            "size": {"expr": "bandwidth('y') * trackThickness * targetTickLength"}
+          },
+          "encoding": {
+            "x": {"field": "xTarget", "type": "quantitative", "axis": null}
+          }
+        }
+      ]
+    },
+    {
+      "transform": [
+        {"calculate": "datum.span / max(1, tickCount)", "as": "tickRaw"},
+        {"calculate": "pow(10, floor(log(datum.tickRaw) / LN10))", "as": "tickMagnitude"},
+        {"calculate": "datum.tickRaw / datum.tickMagnitude", "as": "tickError"},
+        {"calculate": "(datum.tickError >= sqrt(50) ? 10 : datum.tickError >= sqrt(10) ? 5 : datum.tickError >= sqrt(2) ? 2 : 1) * datum.tickMagnitude", "as": "tickStep"},
+        {"calculate": "sequence(ceil(datum.lo / datum.tickStep - 1e-9), floor((datum.lo + datum.span) / datum.tickStep + 1e-9) + 1)", "as": "tickIndex"},
+        {"flatten": ["tickIndex"]},
+        {"filter": "datum.hi > datum.lo || datum.tickIndex === 0"},
+        {"calculate": "datum.tickIndex * datum.tickStep + 0", "as": "tickValue"},
+        {"calculate": "(datum.tickValue - datum.lo) / datum.span", "as": "xTick"},
+        {"calculate": "format(datum.tickValue, valueFormat)", "as": "tickText"},
+        {"calculate": "length(datum.tickText)", "as": "tickTextLength"},
+        {"joinaggregate": [{"op": "max", "field": "tickTextLength", "as": "tickTextLongest"}], "groupby": ["label"]}
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "tick",
+            "color": {"expr": "axisTickColor"},
+            "opacity": 1,
+            "thickness": 1,
+            "size": 4,
+            "yOffset": {"expr": "bandwidth('y') * trackThickness / 2 + 2"}
+          },
+          "encoding": {
+            "x": {"field": "xTick", "type": "quantitative", "axis": null}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "top",
+            "color": {"expr": "axisLabelColor"},
+            "fontSize": {"expr": "axisFontSize"},
+            "yOffset": {"expr": "bandwidth('y') * trackThickness / 2 + 6"}
+          },
+          "encoding": {
+            "x": {"field": "xTick", "type": "quantitative", "axis": null},
+            "text": {"field": "tickText", "type": "nominal"},
+            "opacity": {
+              "condition": {
+                "test": "datum.tickIndex % max(1, ceil((datum.tickTextLongest * axisFontSize * 0.6 + 6) / max(1, datum.tickStep / datum.span * range('x')[1]))) === 0",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
