@@ -2,6 +2,6 @@
   "template": "templates/map/australia-choropleth/australia-choropleth.json",
   "instances": [
     { "id": "australia-choropleth", "page": "template", "data": "templates/map/australia-choropleth/sample-data.csv", "size": [720, 600],
-      "params": { "legendTitle": "Compliance score", "fontFamily": "Arial" } }
+      "params": { "legendTitle": "Score", "fontFamily": "Arial" } }
   ]
 }
