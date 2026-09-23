@@ -167,11 +167,15 @@ python tools/showcase/crop_previews.py <shots> --embed    # also embeds the thum
 
 - The data is embedded in the model definition as DAX calculated tables, which Desktop calculates
   when it opens the project. No refresh and no data source are needed.
-- Validate from inside `showcase/` with `pbir validate "Deneb Template Showcase.Report"`. Do not
-  pass `showcase/Deneb Template Showcase.Report` from the repo root: pbir 0.9.31 on Windows does
-  not resolve a relative path with a forward slash, and silently validates the report of its
-  active profile instead (the first output line, `Validating <name>`, shows which). It reports
-  `SCHEMA_DEGRADED` when the installed pbir has no copy of the visual container schema version
-  Desktop writes; that is a pbir cache gap, not a report error.
+- Validate from inside `showcase/` with `pbir validate "Deneb Template Showcase.Report"`, or pass
+  the absolute path. Do not pass `showcase/Deneb Template Showcase.Report` from the repo root:
+  when a `pbir connect` connection is active (in the pbir config, or as a `.pbir/active` file in
+  the working directory), a relative path with a forward slash is read as a path inside the
+  connected report, and pbir validates that report instead and exits 0. The first output line,
+  `Validating <name>`, shows which report was checked. It reports `SCHEMA_DEGRADED` when the
+  installed pbir has no copy of the visual container schema version Desktop writes; that is a
+  pbir cache gap, not a report error.
 - A Desktop save rewrites the generated files. Rerun the generator to put them back; change the
-  inputs, not the output.
+  inputs, not the output. A Desktop with Deneb 2.0 installed also stamps every Deneb visual with
+  `developer.version` 2.0.0.0 and its `stateManagement` properties on save; the generator writes
+  1.9.1 stamps on purpose, so the project opens in both versions.
