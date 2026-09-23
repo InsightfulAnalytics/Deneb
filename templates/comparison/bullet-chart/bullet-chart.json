@@ -1,0 +1,504 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Bullet Chart",
+      "description": "Horizontal bullets sorted by Actual: a bar coloured good or bad against a Budget tick, a wide Last Year bar behind, value and variance labels. Design after Daniel Marsh-Patrick (coacervo.co) and Robert Mundigl (clearlyandsimply.com).",
+      "author": "Timothy Osborn, after Daniel Marsh-Patrick and Robert Mundigl",
+      "uuid": "fab50266-a9c0-4bd8-94ce-b552ada4e95a",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Category",
+        "type": "text",
+        "kind": "column",
+        "description": "One row per category, for example a product. Labels each row."
+      },
+      {
+        "key": "__1__",
+        "name": "Actual",
+        "type": "numeric",
+        "kind": "measure",
+        "description": "The main bar and its value label. Rows sort by it, largest first."
+      },
+      {
+        "key": "__2__",
+        "name": "Budget",
+        "type": "numeric",
+        "kind": "measure",
+        "description": "The target tick. Actual at or above it colours the bar good, below it bad."
+      },
+      {
+        "key": "__3__",
+        "name": "Last Year",
+        "type": "numeric",
+        "kind": "measure",
+        "description": "The wide light bar behind the Actual bar, and the second variance in the tooltip."
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "params": [
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "colorNoBudget",
+      "expr": "pbiColor('neutral')"
+    },
+    {
+      "name": "colorLastYear",
+      "value": "#C8C6C4"
+    },
+    {
+      "name": "lastYearOpacity",
+      "value": 0.6
+    },
+    {
+      "name": "colorTarget",
+      "value": "#252423"
+    },
+    {
+      "name": "colorValueInside",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "colorValueOutside",
+      "value": "#252423"
+    },
+    {
+      "name": "colorCategoryText",
+      "value": "#252423"
+    },
+    {
+      "name": "colorAxisText",
+      "value": "#605E5C"
+    },
+    {
+      "name": "colorGrid",
+      "value": "#C8C6C4"
+    },
+    {
+      "name": "valueFormat",
+      "value": ".3s"
+    },
+    {
+      "name": "varianceFormat",
+      "value": ".1%"
+    },
+    {
+      "name": "axisFormat",
+      "value": "~s"
+    },
+    {
+      "name": "tooltipValueFormat",
+      "value": ",.0f"
+    },
+    {
+      "name": "tooltipPercentFormat",
+      "value": ".1%"
+    },
+    {
+      "name": "valueLabelPosition",
+      "value": "end"
+    },
+    {
+      "name": "labelFontSize",
+      "value": 12
+    },
+    {
+      "name": "labelPadding",
+      "value": 5
+    },
+    {
+      "name": "categoryFontSize",
+      "value": 12
+    },
+    {
+      "name": "categoryLabelLimit",
+      "value": 200
+    },
+    {
+      "name": "axisFontSize",
+      "value": 11
+    },
+    {
+      "name": "actualBarBand",
+      "value": 0.5
+    },
+    {
+      "name": "lastYearBand",
+      "value": 0.9
+    },
+    {
+      "name": "rowPadding",
+      "value": 0.1
+    },
+    {
+      "name": "barCornerRadius",
+      "value": 4
+    },
+    {
+      "name": "targetThickness",
+      "value": 3
+    },
+    {
+      "name": "labelGutter",
+      "expr": "targetThickness / 2 + 3 * labelPadding + 7 * labelFontSize * 0.56 + (bandwidth('y') * actualBarBand < labelFontSize * 0.8 ? 6 * labelFontSize * 0.56 + 2 * labelPadding : 0)"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "calculate": "isValid(datum['__2__'])",
+      "as": "hasBudget"
+    },
+    {
+      "calculate": "isValid(datum['__1__']) && isValid(datum['__2__']) ? datum['__1__'] - datum['__2__'] : null",
+      "as": "varBudget"
+    },
+    {
+      "calculate": "isValid(datum.varBudget) && datum['__2__'] !== 0 ? datum.varBudget / abs(datum['__2__']) : null",
+      "as": "varBudgetPct"
+    },
+    {
+      "calculate": "isValid(datum['__1__']) && isValid(datum['__3__']) ? datum['__1__'] - datum['__3__'] : null",
+      "as": "varLastYear"
+    },
+    {
+      "calculate": "isValid(datum.varLastYear) && datum['__3__'] !== 0 ? datum.varLastYear / abs(datum['__3__']) : null",
+      "as": "varLastYearPct"
+    },
+    {
+      "calculate": "!isValid(datum.varBudget) ? 'none' : datum.varBudget >= 0 ? 'good' : 'bad'",
+      "as": "status"
+    },
+    {
+      "calculate": "isValid(datum['__1__']) ? format(datum['__1__'], valueFormat) : ''",
+      "as": "valueText"
+    },
+    {
+      "calculate": "length(datum.valueText) * labelFontSize * 0.56",
+      "as": "valueTextWidth"
+    },
+    {
+      "calculate": "isValid(datum.varBudgetPct) ? (datum.status === 'good' ? '+' : '-') + format(abs(datum.varBudgetPct), varianceFormat) : ''",
+      "as": "varianceText"
+    },
+    {
+      "calculate": "isValid(datum['__1__']) ? format(datum['__1__'], tooltipValueFormat) : ''",
+      "as": "tipActual"
+    },
+    {
+      "calculate": "isValid(datum['__2__']) ? format(datum['__2__'], tooltipValueFormat) : ''",
+      "as": "tipBudget"
+    },
+    {
+      "calculate": "isValid(datum['__3__']) ? format(datum['__3__'], tooltipValueFormat) : ''",
+      "as": "tipLastYear"
+    },
+    {
+      "calculate": "isValid(datum.varBudget) ? (datum.varBudget >= 0 ? '+' : '-') + format(abs(datum.varBudget), tooltipValueFormat) : ''",
+      "as": "tipVarBudget"
+    },
+    {
+      "calculate": "isValid(datum.varBudgetPct) ? (datum.varBudgetPct >= 0 ? '+' : '-') + format(abs(datum.varBudgetPct), tooltipPercentFormat) : ''",
+      "as": "tipVarBudgetPct"
+    },
+    {
+      "calculate": "isValid(datum.varLastYear) ? (datum.varLastYear >= 0 ? '+' : '-') + format(abs(datum.varLastYear), tooltipValueFormat) : ''",
+      "as": "tipVarLastYear"
+    },
+    {
+      "calculate": "isValid(datum.varLastYearPct) ? (datum.varLastYearPct >= 0 ? '+' : '-') + format(abs(datum.varLastYearPct), tooltipPercentFormat) : ''",
+      "as": "tipVarLastYearPct"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "rowOrder"
+        }
+      ],
+      "sort": [
+        {
+          "field": "__1__",
+          "order": "descending"
+        },
+        {
+          "field": "__0__",
+          "order": "ascending"
+        }
+      ]
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "__0__",
+      "type": "nominal",
+      "sort": {
+        "field": "rowOrder",
+        "op": "min",
+        "order": "ascending"
+      },
+      "scale": {
+        "paddingInner": {
+          "expr": "rowPadding"
+        },
+        "paddingOuter": {
+          "expr": "rowPadding / 2"
+        }
+      },
+      "axis": {
+        "title": null,
+        "ticks": false,
+        "domain": true,
+        "domainColor": {
+          "expr": "colorGrid"
+        },
+        "labelColor": {
+          "expr": "colorCategoryText"
+        },
+        "labelFontSize": {
+          "expr": "categoryFontSize"
+        },
+        "labelLimit": {
+          "expr": "categoryLabelLimit"
+        },
+        "labelPadding": 8,
+        "labelOverlap": true
+      }
+    },
+    "tooltip": [
+      {
+        "field": "__0__",
+        "type": "nominal"
+      },
+      {
+        "field": "tipActual",
+        "type": "nominal",
+        "title": "__1__"
+      },
+      {
+        "field": "tipBudget",
+        "type": "nominal",
+        "title": "__2__"
+      },
+      {
+        "field": "tipLastYear",
+        "type": "nominal",
+        "title": "__3__"
+      },
+      {
+        "field": "tipVarBudget",
+        "type": "nominal",
+        "title": "Var to __2__"
+      },
+      {
+        "field": "tipVarBudgetPct",
+        "type": "nominal",
+        "title": "Var to __2__ %"
+      },
+      {
+        "field": "tipVarLastYear",
+        "type": "nominal",
+        "title": "Var to __3__"
+      },
+      {
+        "field": "tipVarLastYearPct",
+        "type": "nominal",
+        "title": "Var to __3__ %"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "description": "Last Year bar, wide and light, behind",
+      "mark": {
+        "type": "bar",
+        "height": {
+          "expr": "bandwidth('y') * lastYearBand"
+        },
+        "color": {
+          "expr": "colorLastYear"
+        },
+        "opacity": {
+          "expr": "lastYearOpacity"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "__3__",
+          "type": "quantitative",
+          "scale": {
+            "zero": true,
+            "nice": true,
+            "range": [
+              0,
+              {
+                "expr": "max(width - labelGutter, width / 2)"
+              }
+            ]
+          },
+          "axis": {
+            "title": null,
+            "ticks": false,
+            "domain": false,
+            "tickCount": 5,
+            "labelExpr": "format(datum.value, axisFormat)",
+            "labelColor": {
+              "expr": "colorAxisText"
+            },
+            "labelFontSize": {
+              "expr": "axisFontSize"
+            },
+            "labelFlush": false,
+            "grid": true,
+            "gridColor": {
+              "expr": "colorGrid"
+            },
+            "gridDash": [
+              1,
+              4
+            ]
+          }
+        }
+      }
+    },
+    {
+      "description": "Actual bar, coloured by the Budget test",
+      "mark": {
+        "type": "bar",
+        "height": {
+          "expr": "bandwidth('y') * actualBarBand"
+        },
+        "cornerRadiusEnd": {
+          "expr": "barCornerRadius"
+        },
+        "color": {
+          "expr": "datum.status === 'good' ? colorGood : datum.status === 'bad' ? colorBad : colorNoBudget"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "__1__",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "description": "Budget target tick",
+      "mark": {
+        "type": "tick",
+        "size": {
+          "expr": "bandwidth('y') * lastYearBand"
+        },
+        "thickness": {
+          "expr": "targetThickness"
+        },
+        "color": {
+          "expr": "colorTarget"
+        },
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "__2__",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "description": "Actual value label: inside the bar when it fits, outside in dark text when not",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "labelFontSize"
+        },
+        "dx": {
+          "expr": "(((bandwidth('y') * actualBarBand) >= labelFontSize * 0.8 && (valueLabelPosition === 'base' ? (scale('x', datum['__1__']) >= datum.valueTextWidth + 2 * labelPadding && !(datum.hasBudget && scale('x', datum['__2__']) - (targetThickness / 2) < datum.valueTextWidth + 2 * labelPadding)) : ((datum.hasBudget && scale('x', datum['__2__']) < scale('x', datum['__1__']) && scale('x', datum['__2__']) + (targetThickness / 2) > scale('x', datum['__1__']) - datum.valueTextWidth - 2 * labelPadding ? scale('x', datum['__2__']) - (targetThickness / 2) - labelPadding : scale('x', datum['__1__']) - labelPadding) - datum.valueTextWidth >= labelPadding))) ? (valueLabelPosition === 'base' ? labelPadding : (datum.hasBudget && scale('x', datum['__2__']) < scale('x', datum['__1__']) && scale('x', datum['__2__']) + (targetThickness / 2) > scale('x', datum['__1__']) - datum.valueTextWidth - 2 * labelPadding ? scale('x', datum['__2__']) - (targetThickness / 2) - labelPadding : scale('x', datum['__1__']) - labelPadding) - datum.valueTextWidth) : (datum.hasBudget && scale('x', datum['__2__']) + (targetThickness / 2) >= scale('x', datum['__1__']) && scale('x', datum['__2__']) - (targetThickness / 2) < scale('x', datum['__1__']) + 2 * labelPadding + datum.valueTextWidth ? scale('x', datum['__2__']) + (targetThickness / 2) + labelPadding : scale('x', datum['__1__']) + labelPadding)) - scale('x', datum['__1__'])"
+        },
+        "color": {
+          "expr": "((bandwidth('y') * actualBarBand) >= labelFontSize * 0.8 && (valueLabelPosition === 'base' ? (scale('x', datum['__1__']) >= datum.valueTextWidth + 2 * labelPadding && !(datum.hasBudget && scale('x', datum['__2__']) - (targetThickness / 2) < datum.valueTextWidth + 2 * labelPadding)) : ((datum.hasBudget && scale('x', datum['__2__']) < scale('x', datum['__1__']) && scale('x', datum['__2__']) + (targetThickness / 2) > scale('x', datum['__1__']) - datum.valueTextWidth - 2 * labelPadding ? scale('x', datum['__2__']) - (targetThickness / 2) - labelPadding : scale('x', datum['__1__']) - labelPadding) - datum.valueTextWidth >= labelPadding))) && datum.status !== 'none' ? colorValueInside : colorValueOutside"
+        },
+        "opacity": {
+          "expr": "bandwidth('y') >= labelFontSize ? 1 : 0"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "__1__",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "valueText"
+        }
+      }
+    },
+    {
+      "description": "Variance to Budget label, signed and coloured by the same test as the bar",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "labelFontSize"
+        },
+        "fontWeight": 600,
+        "dx": {
+          "expr": "max(((bandwidth('y') * actualBarBand) >= labelFontSize * 0.8 && (valueLabelPosition === 'base' ? (scale('x', datum['__1__']) >= datum.valueTextWidth + 2 * labelPadding && !(datum.hasBudget && scale('x', datum['__2__']) - (targetThickness / 2) < datum.valueTextWidth + 2 * labelPadding)) : ((datum.hasBudget && scale('x', datum['__2__']) < scale('x', datum['__1__']) && scale('x', datum['__2__']) + (targetThickness / 2) > scale('x', datum['__1__']) - datum.valueTextWidth - 2 * labelPadding ? scale('x', datum['__2__']) - (targetThickness / 2) - labelPadding : scale('x', datum['__1__']) - labelPadding) - datum.valueTextWidth >= labelPadding))) ? scale('x', datum['__1__']) + labelPadding : (datum.hasBudget && scale('x', datum['__2__']) + (targetThickness / 2) >= scale('x', datum['__1__']) && scale('x', datum['__2__']) - (targetThickness / 2) < scale('x', datum['__1__']) + 2 * labelPadding + datum.valueTextWidth ? scale('x', datum['__2__']) + (targetThickness / 2) + labelPadding : scale('x', datum['__1__']) + labelPadding) + datum.valueTextWidth + 2 * labelPadding, datum.hasBudget ? scale('x', datum['__2__']) + (targetThickness / 2) + labelPadding : 0) - scale('x', datum['__1__'])"
+        },
+        "color": {
+          "expr": "datum.status === 'good' ? colorGood : datum.status === 'bad' ? colorBad : colorNoBudget"
+        },
+        "opacity": {
+          "expr": "bandwidth('y') >= labelFontSize ? 1 : 0"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "__1__",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "varianceText"
+        }
+      }
+    }
+  ]
+}
