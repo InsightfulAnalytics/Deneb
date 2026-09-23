@@ -1,0 +1,40 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'australia-choropleth'
+ref table 'bullet-chart'
+ref table 'bullet-prior-period'
+ref table 'dash-bullet-revenue'
+ref table 'dash-bullet-discount'
+ref table 'dash-bullet-otd'
+ref table 'half-donut-gauge'
+ref table 'kpi-bar-card'
+ref table 'kpi-bar-card-product'
+ref table 'dash-top-customer'
+ref table 'dash-top-product'
+ref table 'kpi-gap-sparkline-card'
+ref table 'kpi-gap-sparkline-card-bad'
+ref table 'kpi-line-card'
+ref table 'kpi-line-card-otd'
+ref table 'dash-revenue'
+ref table 'dash-otd'
+ref table 'overlap-bar-share-lollipop'
+ref table 'dash-top3-customers'
+ref table 'dash-top3-products'
+ref table 'overlap-bar-variance-lollipop'
+ref table 'dash-freight'
+ref table 'dash-aov-customers'
+ref table 'dash-aov-products'
+ref table 'pl-accounts-statement'
+ref table 'pl-monthly-grid'
+ref table 'pl-odd-rows'

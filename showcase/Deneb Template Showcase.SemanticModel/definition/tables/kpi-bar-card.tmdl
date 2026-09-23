@@ -1,0 +1,85 @@
+/// Sample data for the KPI Bar Card template, showcase instance kpi-bar-card (templates/kpi/kpi-bar-card/sample-data.csv).
+table 'kpi-bar-card'
+	lineageTag: 0ea032ae-bd3f-5774-bee1-d577caf36752
+
+	/// The performer's value for the month, for example that customer's revenue.
+	measure 'Value (kpi-bar-card)' = SUM ( 'kpi-bar-card'[Value] )
+		lineageTag: 3c152a4c-29c5-5ee6-8673-c2236a8258e3
+
+	/// The month's total across everyone, for example total revenue. Used for the share.
+	measure 'Total (kpi-bar-card)' = SUM ( 'kpi-bar-card'[Total] )
+		lineageTag: 04140740-ba3d-5d9b-9439-937a93be676e
+
+	/// 1 on the reporting month, 0 on every other month.
+	measure 'Is Reporting Month (kpi-bar-card)' = SUM ( 'kpi-bar-card'[Is Reporting Month] )
+		lineageTag: 984fc955-d97a-5148-8d13-6224cd4305fe
+
+	/// The month, one row per month of the reporting year (a month-end date works).
+	column Month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a357169c-d8c6-5782-83ce-8991f4a232cf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// The top performer's name, for example the top customer. The same on every row.
+	column Name
+		dataType: string
+		lineageTag: 42b55267-c418-5981-b9b5-ff4a134e48cf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Name]
+
+		annotation SummarizationSetBy = User
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 0f97b27e-392f-560b-8696-387b0195a73c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Total
+		dataType: double
+		isHidden
+		lineageTag: 96bba95b-6c4e-5c44-b7fe-c134d19b6a3e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Total]
+
+		annotation SummarizationSetBy = User
+
+	column 'Is Reporting Month'
+		dataType: double
+		isHidden
+		lineageTag: 0e501137-01d8-59c7-bd53-abb4079b11f4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Is Reporting Month]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-bar-card' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Month", DATETIME,
+				    "Name", STRING,
+				    "Value", DOUBLE,
+				    "Total", DOUBLE,
+				    "Is Reporting Month", DOUBLE,
+				    {
+				        { "2015-01-31", "Save-a-lot Markets", 5020, 94224, 0 },
+				        { "2015-02-28", "Save-a-lot Markets", 3600, 99415, 0 },
+				        { "2015-03-31", "Save-a-lot Markets", 6542, 104854, 0 },
+				        { "2015-04-30", "Save-a-lot Markets", 16820, 123799, 1 }
+				    }
+				)

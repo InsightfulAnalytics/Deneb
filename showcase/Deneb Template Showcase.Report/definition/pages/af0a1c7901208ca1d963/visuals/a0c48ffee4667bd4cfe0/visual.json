@@ -1,0 +1,254 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "a0c48ffee4667bd4cfe0",
+  "position": {
+    "x": 552,
+    "y": 736,
+    "z": 27000,
+    "height": 132,
+    "width": 310,
+    "tabOrder": 27000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dash-freight"
+                    }
+                  },
+                  "Property": "Category"
+                }
+              },
+              "queryRef": "dash-freight.Category",
+              "nativeQueryRef": "Category",
+              "displayName": "Category"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dash-freight"
+                    }
+                  },
+                  "Property": "Current (dash-freight)"
+                }
+              },
+              "queryRef": "dash-freight.Current (dash-freight)",
+              "nativeQueryRef": "Current (dash-freight)",
+              "displayName": "Current"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dash-freight"
+                    }
+                  },
+                  "Property": "Comparison (dash-freight)"
+                }
+              },
+              "queryRef": "dash-freight.Comparison (dash-freight)",
+              "nativeQueryRef": "Comparison (dash-freight)",
+              "displayName": "Comparison"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"\"\n    },\n    {\n      \"name\": \"subtitle\",\n      \"value\": \"\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": false\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \"$.1f\"\n    },\n    {\n      \"name\": \"valueDivisor\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"valueSuffix\",\n      \"value\": \"\"\n    },\n    {\n      \"name\": \"percentFormat\",\n      \"value\": \"+.1%\"\n    },\n    {\n      \"name\": \"sortBy\",\n      \"value\": \"current\"\n    },\n    {\n      \"name\": \"sortDescending\",\n      \"value\": true\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"colorNeutral\",\n      \"expr\": \"pbiColor(''neutral'')\"\n    },\n    {\n      \"name\": \"colorComparisonFill\",\n      \"value\": \"#E1DFDD\"\n    },\n    {\n      \"name\": \"colorComparisonOutline\",\n      \"value\": \"#A19F9D\"\n    },\n    {\n      \"name\": \"colorTextPrimary\",\n      \"value\": \"#252423\"\n    },\n    {\n      \"name\": \"colorTextSecondary\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"colorLabelOnBar\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"colorLabelOnNeutral\",\n      \"value\": \"#252423\"\n    },\n    {\n      \"name\": \"comparisonOutlineWidth\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"lollipopHeadTint\",\n      \"value\": 0.75\n    },\n    {\n      \"name\": \"lollipopHeadStrokeWidth\",\n      \"value\": 1.5\n    },\n    {\n      \"name\": \"titleFontSize\",\n      \"value\": 13\n    },\n    {\n      \"name\": \"subtitleFontSize\",\n      \"value\": 10\n    },\n    {\n      \"name\": \"categoryFontSize\",\n      \"value\": 10\n    },\n    {\n      \"name\": \"valueFontSize\",\n      \"value\": 9\n    },\n    {\n      \"name\": \"percentFontSize\",\n      \"value\": 9.5\n    },\n    {\n      \"name\": \"labelColumnShare\",\n      \"value\": 0.26\n    },\n    {\n      \"name\": \"lollipopShare\",\n      \"value\": 0.18\n    },\n    {\n      \"name\": \"comparisonBarSize\",\n      \"value\": 0.42\n    },\n    {\n      \"name\": \"currentBarSize\",\n      \"value\": 0.3\n    },\n    {\n      \"name\": \"comparisonBarOffset\",\n      \"value\": -0.1\n    },\n    {\n      \"name\": \"currentBarOffset\",\n      \"value\": 0.12\n    },\n    {\n      \"name\": \"lollipopHeadRadius\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"lollipopStemWidth\",\n      \"value\": 2\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"calculate\": \"isValid(datum[''Category'']) ? datum[''Category''] + '''' : ''(Blank)''\",\n      \"as\": \"category\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Current'']) && isFinite(toNumber(datum[''Current''])) ? toNumber(datum[''Current'']) : null\",\n      \"as\": \"current\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Comparison'']) && isFinite(toNumber(datum[''Comparison''])) ? toNumber(datum[''Comparison'']) : null\",\n      \"as\": \"comparison\"\n    },\n    {\n      \"calculate\": \"isValid(datum.current) && isValid(datum.comparison) && datum.comparison != 0 ? (datum.current - datum.comparison) / abs(datum.comparison) : null\",\n      \"as\": \"difference\"\n    },\n    {\n      \"calculate\": \"!isValid(datum.difference) || datum.difference == 0 ? ''neutral'' : ((datum.difference > 0) === (higherIsBetter === true || higherIsBetter === ''true'') ? ''good'' : ''bad'')\",\n      \"as\": \"status\"\n    },\n    {\n      \"calculate\": \"datum.status == ''good'' ? colorGood : datum.status == ''bad'' ? colorBad : colorNeutral\",\n      \"as\": \"statusColor\"\n    },\n    {\n      \"calculate\": \"rgb(datum.statusColor)\",\n      \"as\": \"statusRgb\"\n    },\n    {\n      \"calculate\": \"''rgb('' + round(datum.statusRgb.r + (255 - datum.statusRgb.r) * lollipopHeadTint) + '','' + round(datum.statusRgb.g + (255 - datum.statusRgb.g) * lollipopHeadTint) + '','' + round(datum.statusRgb.b + (255 - datum.statusRgb.b) * lollipopHeadTint) + '')''\",\n      \"as\": \"headFill\"\n    },\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"categoryRank\"\n        }\n      ],\n      \"sort\": [\n        {\n          \"field\": \"category\",\n          \"order\": \"ascending\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"sortBy == ''category'' ? datum.categoryRank : sortBy == ''comparison'' ? datum.comparison : sortBy == ''difference'' ? datum.difference : datum.current\",\n      \"as\": \"sortRaw\"\n    },\n    {\n      \"calculate\": \"isValid(datum.sortRaw) ? (sortDescending ? -datum.sortRaw : datum.sortRaw) : 1e300\",\n      \"as\": \"sortValue\"\n    },\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"rowIndex\"\n        }\n      ],\n      \"sort\": [\n        {\n          \"field\": \"sortValue\",\n          \"order\": \"ascending\"\n        },\n        {\n          \"field\": \"categoryRank\",\n          \"order\": \"ascending\"\n        }\n      ]\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"count\",\n          \"as\": \"rowCount\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"current\",\n          \"as\": \"maxCurrent\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"comparison\",\n          \"as\": \"maxComparison\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"difference\",\n          \"as\": \"minDifference\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"difference\",\n          \"as\": \"maxDifference\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"(length(title) > 0 ? titleFontSize * 1.35 : 0) + (length(subtitle) > 0 ? subtitleFontSize * 1.35 : 0) + (length(title) + length(subtitle) > 0 ? 6 : 0)\",\n      \"as\": \"plotTop\"\n    },\n    {\n      \"calculate\": \"width * labelColumnShare\",\n      \"as\": \"labelRight\"\n    },\n    {\n      \"calculate\": \"datum.labelRight + 8\",\n      \"as\": \"barStart\"\n    },\n    {\n      \"calculate\": \"percentFontSize * 5\",\n      \"as\": \"percentSpace\"\n    },\n    {\n      \"calculate\": \"width - datum.percentSpace - 4\",\n      \"as\": \"lollipopRight\"\n    },\n    {\n      \"calculate\": \"datum.lollipopRight - width * lollipopShare\",\n      \"as\": \"lollipopLeft\"\n    },\n    {\n      \"calculate\": \"max(datum.lollipopLeft - 10 - datum.barStart, 1)\",\n      \"as\": \"barSpan\"\n    },\n    {\n      \"calculate\": \"max(isValid(datum.maxCurrent) ? datum.maxCurrent : 0, isValid(datum.maxComparison) ? datum.maxComparison : 0) > 0 ? max(isValid(datum.maxCurrent) ? datum.maxCurrent : 0, isValid(datum.maxComparison) ? datum.maxComparison : 0) : 1\",\n      \"as\": \"valueMax\"\n    },\n    {\n      \"calculate\": \"datum.barStart + max(0, isValid(datum.current) ? datum.current : 0) / datum.valueMax * datum.barSpan\",\n      \"as\": \"currentX\"\n    },\n    {\n      \"calculate\": \"datum.barStart + max(0, isValid(datum.comparison) ? datum.comparison : 0) / datum.valueMax * datum.barSpan\",\n      \"as\": \"comparisonX\"\n    },\n    {\n      \"calculate\": \"max(0, height - datum.plotTop) / datum.rowCount\",\n      \"as\": \"rowHeight\"\n    },\n    {\n      \"calculate\": \"datum.plotTop + (datum.rowIndex - 0.5) * datum.rowHeight\",\n      \"as\": \"rowCenter\"\n    },\n    {\n      \"calculate\": \"datum.rowCenter + (comparisonBarOffset - comparisonBarSize / 2) * datum.rowHeight\",\n      \"as\": \"comparisonTop\"\n    },\n    {\n      \"calculate\": \"datum.comparisonTop + comparisonBarSize * datum.rowHeight\",\n      \"as\": \"comparisonBottom\"\n    },\n    {\n      \"calculate\": \"datum.rowCenter + (currentBarOffset - currentBarSize / 2) * datum.rowHeight\",\n      \"as\": \"currentTop\"\n    },\n    {\n      \"calculate\": \"datum.currentTop + currentBarSize * datum.rowHeight\",\n      \"as\": \"currentBottom\"\n    },\n    {\n      \"calculate\": \"(min(datum.comparisonTop, datum.currentTop) + max(datum.comparisonBottom, datum.currentBottom)) / 2\",\n      \"as\": \"groupCenter\"\n    },\n    {\n      \"calculate\": \"datum.currentTop > datum.comparisonTop ? (datum.comparisonTop + min(datum.currentTop, datum.comparisonBottom)) / 2 : (datum.comparisonTop + datum.comparisonBottom) / 2\",\n      \"as\": \"comparisonLabelY\"\n    },\n    {\n      \"calculate\": \"(datum.currentTop + datum.currentBottom) / 2\",\n      \"as\": \"currentLabelY\"\n    },\n    {\n      \"calculate\": \"isValid(datum.current) ? format(datum.current / valueDivisor, valueFormat) + valueSuffix : ''''\",\n      \"as\": \"currentText\"\n    },\n    {\n      \"calculate\": \"isValid(datum.comparison) ? format(datum.comparison / valueDivisor, valueFormat) + valueSuffix : ''''\",\n      \"as\": \"comparisonText\"\n    },\n    {\n      \"calculate\": \"datum.currentX - datum.barStart >= length(datum.currentText) * valueFontSize * 0.55 + 6\",\n      \"as\": \"currentInside\"\n    },\n    {\n      \"calculate\": \"datum.comparisonX - datum.barStart >= length(datum.comparisonText) * valueFontSize * 0.55 + 6\",\n      \"as\": \"comparisonInside\"\n    },\n    {\n      \"calculate\": \"(datum.currentTop > datum.comparisonTop ? min(datum.currentTop, datum.comparisonBottom) : datum.comparisonBottom) - datum.comparisonTop >= valueFontSize\",\n      \"as\": \"comparisonLabelFits\"\n    },\n    {\n      \"calculate\": \"datum.status == ''neutral'' ? colorLabelOnNeutral : colorLabelOnBar\",\n      \"as\": \"currentLabelColor\"\n    },\n    {\n      \"calculate\": \"min(0, isValid(datum.minDifference) ? datum.minDifference : 0)\",\n      \"as\": \"differenceMin\"\n    },\n    {\n      \"calculate\": \"max(0, isValid(datum.maxDifference) ? datum.maxDifference : 0)\",\n      \"as\": \"differenceMax\"\n    },\n    {\n      \"calculate\": \"datum.lollipopLeft + lollipopHeadRadius + 1\",\n      \"as\": \"headLeft\"\n    },\n    {\n      \"calculate\": \"max(datum.lollipopRight - lollipopHeadRadius - 1, datum.headLeft)\",\n      \"as\": \"headRight\"\n    },\n    {\n      \"calculate\": \"datum.headLeft + (0 - datum.differenceMin) / max(datum.differenceMax - datum.differenceMin, 1e-9) * (datum.headRight - datum.headLeft)\",\n      \"as\": \"zeroX\"\n    },\n    {\n      \"calculate\": \"isValid(datum.difference) ? datum.headLeft + (datum.difference - datum.differenceMin) / max(datum.differenceMax - datum.differenceMin, 1e-9) * (datum.headRight - datum.headLeft) : null\",\n      \"as\": \"headX\"\n    },\n    {\n      \"calculate\": \"isValid(datum.difference) ? format(datum.difference, percentFormat) : ''''\",\n      \"as\": \"percentText\"\n    },\n    {\n      \"calculate\": \"max(isValid(datum.headX) ? datum.headX + lollipopHeadRadius : 0, datum.zeroX) + 4\",\n      \"as\": \"percentX\"\n    },\n    {\n      \"calculate\": \"max(3, floor((datum.labelRight - 4) / (categoryFontSize * 0.52)))\",\n      \"as\": \"labelChars\"\n    },\n    {\n      \"calculate\": \"length(datum.category) <= datum.labelChars || datum.rowHeight < categoryFontSize * 2.5 ? -1 : (lastindexof(substring(datum.category, 0, datum.labelChars + 1), '' '') > 0 ? lastindexof(substring(datum.category, 0, datum.labelChars + 1), '' '') : indexof(datum.category, '' ''))\",\n      \"as\": \"labelCut\"\n    },\n    {\n      \"calculate\": \"datum.labelCut > 0 ? [substring(datum.category, 0, datum.labelCut), substring(datum.category, datum.labelCut + 1)] : [datum.category]\",\n      \"as\": \"labelLines\"\n    }\n  ],\n  \"encoding\": {\n    \"tooltip\": [\n      {\n        \"field\": \"Category\",\n        \"type\": \"nominal\"\n      },\n      {\n        \"field\": \"currentText\",\n        \"type\": \"nominal\",\n        \"title\": \"Current\"\n      },\n      {\n        \"field\": \"comparisonText\",\n        \"type\": \"nominal\",\n        \"title\": \"Comparison\"\n      },\n      {\n        \"field\": \"percentText\",\n        \"type\": \"nominal\",\n        \"title\": \"Difference\"\n      }\n    ]\n  },\n  \"layer\": [\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.comparison)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rect\",\n        \"fill\": {\n          \"expr\": \"colorComparisonFill\"\n        },\n        \"stroke\": {\n          \"expr\": \"colorComparisonOutline\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"comparisonOutlineWidth\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"barStart\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"comparisonX\"\n        },\n        \"y\": {\n          \"field\": \"comparisonTop\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"comparisonBottom\"\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.current)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rect\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"barStart\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"currentX\"\n        },\n        \"y\": {\n          \"field\": \"currentTop\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"currentBottom\"\n        },\n        \"fill\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.comparison) && datum.comparisonLabelFits && datum.comparisonInside\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"middle\",\n        \"dx\": -4,\n        \"fontSize\": {\n          \"expr\": \"valueFontSize\"\n        },\n        \"fill\": {\n          \"expr\": \"colorTextPrimary\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"comparisonX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"comparisonLabelY\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"comparisonText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.comparison) && datum.comparisonLabelFits && !datum.comparisonInside\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"middle\",\n        \"dx\": 4,\n        \"fontSize\": {\n          \"expr\": \"valueFontSize\"\n        },\n        \"fill\": {\n          \"expr\": \"colorTextPrimary\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"comparisonX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"comparisonLabelY\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"comparisonText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.current) && datum.currentInside\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"middle\",\n        \"dx\": -4,\n        \"fontSize\": {\n          \"expr\": \"valueFontSize\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"currentX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"currentLabelY\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"currentText\",\n          \"type\": \"nominal\"\n        },\n        \"fill\": {\n          \"field\": \"currentLabelColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.current) && !datum.currentInside\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"middle\",\n        \"dx\": 4,\n        \"fontSize\": {\n          \"expr\": \"valueFontSize\"\n        },\n        \"fill\": {\n          \"expr\": \"colorTextPrimary\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"currentX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"currentLabelY\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"currentText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"middle\",\n        \"fontSize\": {\n          \"expr\": \"categoryFontSize\"\n        },\n        \"lineHeight\": {\n          \"expr\": \"categoryFontSize * 1.2\"\n        },\n        \"limit\": {\n          \"expr\": \"max(width * labelColumnShare - 2, 10)\"\n        },\n        \"fill\": {\n          \"expr\": \"colorTextPrimary\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"labelRight\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"groupCenter\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"labelLines\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.difference)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rule\",\n        \"strokeWidth\": {\n          \"expr\": \"lollipopStemWidth\"\n        },\n        \"strokeCap\": \"butt\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"zeroX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"headX\"\n        },\n        \"y\": {\n          \"field\": \"groupCenter\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"stroke\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.difference)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"circle\",\n        \"size\": {\n          \"expr\": \"PI * lollipopHeadRadius * lollipopHeadRadius\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"lollipopHeadStrokeWidth\"\n        },\n        \"opacity\": 1\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"headX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"groupCenter\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"fill\": {\n          \"field\": \"headFill\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"stroke\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.difference)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"middle\",\n        \"fontSize\": {\n          \"expr\": \"percentFontSize\"\n        },\n        \"limit\": {\n          \"expr\": \"percentFontSize * 5\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"percentX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"groupCenter\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"percentText\",\n          \"type\": \"nominal\"\n        },\n        \"fill\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"datum.rowIndex === 1 && length(title) > 0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"text\": {\n          \"expr\": \"title\"\n        },\n        \"x\": 0,\n        \"y\": 0,\n        \"align\": \"left\",\n        \"baseline\": \"top\",\n        \"fontSize\": {\n          \"expr\": \"titleFontSize\"\n        },\n        \"fontWeight\": \"bold\",\n        \"limit\": {\n          \"expr\": \"width\"\n        },\n        \"fill\": {\n          \"expr\": \"colorTextPrimary\"\n        }\n      },\n      \"encoding\": {\n        \"tooltip\": null\n      }\n    },\n    {\n      \"transform\": [\n        {\n          \"filter\": \"datum.rowIndex === 1 && length(subtitle) > 0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"text\": {\n          \"expr\": \"subtitle\"\n        },\n        \"x\": 0,\n        \"y\": {\n          \"expr\": \"length(title) > 0 ? titleFontSize * 1.35 : 0\"\n        },\n        \"align\": \"left\",\n        \"baseline\": \"top\",\n        \"fontSize\": {\n          \"expr\": \"subtitleFontSize\"\n        },\n        \"limit\": {\n          \"expr\": \"width\"\n        },\n        \"fill\": {\n          \"expr\": \"colorTextSecondary\"\n        }\n      },\n      \"encoding\": {\n        \"tooltip\": null\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'RM average freight cost per order by shipper'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

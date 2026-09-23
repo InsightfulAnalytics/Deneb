@@ -1,0 +1,4 @@
+Metric,Sort Order,Actual,Target,Previous,Higher Is Better
+Federal Shipping,1,1,0.95,0.985,1
+Speedy Express,2,1,0.95,0.93,1
+United Package,3,0.97,0.95,0.933,1

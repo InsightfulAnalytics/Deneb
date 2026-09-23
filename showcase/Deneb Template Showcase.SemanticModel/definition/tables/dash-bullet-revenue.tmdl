@@ -1,0 +1,95 @@
+/// Sample data for the Bullet with Prior Period template, showcase instance dash-bullet-revenue (showcase/data/dash-bullet-revenue.csv).
+table 'dash-bullet-revenue'
+	lineageTag: 5ec6f629-1241-5d4b-8bad-15f557b25895
+
+	/// Current period value: the thick bar.
+	measure 'Actual (dash-bullet-revenue)' = SUM ( 'dash-bullet-revenue'[Actual] )
+		lineageTag: ca6ea437-80ac-5ab5-84d1-717644eeacae
+
+	/// Target for the current period: the dark tick.
+	measure 'Target (dash-bullet-revenue)' = SUM ( 'dash-bullet-revenue'[Target] )
+		lineageTag: 1c7f05f8-78e4-5d4b-8a41-c4f0241e4898
+
+	/// Previous period value: the light band behind the bar.
+	measure 'Previous (dash-bullet-revenue)' = SUM ( 'dash-bullet-revenue'[Previous] )
+		lineageTag: c5387d38-408e-54ef-a4e7-d2ab59928517
+
+	/// 1 when a value above target is good, 0 when a value below target is good.
+	measure 'Higher Is Better (dash-bullet-revenue)' = SUM ( 'dash-bullet-revenue'[Higher Is Better] )
+		lineageTag: 0da457a4-629d-554b-939c-8f0d2b06635a
+
+	/// Row label, one row per metric, e.g. RM Revenue.
+	column Metric
+		dataType: string
+		lineageTag: 2db598b4-09c9-596b-b427-b5b481de7cc8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Metric]
+
+		annotation SummarizationSetBy = User
+
+	/// Row order, smallest at the top.
+	column 'Sort Order'
+		dataType: double
+		lineageTag: e710bd92-bd72-5431-a3d9-d29dd0619d4d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Sort Order]
+
+		annotation SummarizationSetBy = User
+
+	column Actual
+		dataType: double
+		isHidden
+		lineageTag: 042ec362-fbc6-53c8-bd3d-545ad7f06463
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Actual]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 41e4a77c-c262-5af4-be18-3df734666b1f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	column Previous
+		dataType: double
+		isHidden
+		lineageTag: f6175ed3-6ae2-5378-a75f-d0e0017b83eb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Previous]
+
+		annotation SummarizationSetBy = User
+
+	column 'Higher Is Better'
+		dataType: double
+		isHidden
+		lineageTag: c4001812-b1bc-5704-9fd2-e30f9f4d7ac4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Higher Is Better]
+
+		annotation SummarizationSetBy = User
+
+	partition 'dash-bullet-revenue' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Metric", STRING,
+				    "Sort Order", DOUBLE,
+				    "Actual", DOUBLE,
+				    "Target", DOUBLE,
+				    "Previous", DOUBLE,
+				    "Higher Is Better", DOUBLE,
+				    {
+				        { "RM Revenue", 1, 123799, 100000, 104854, 1 },
+				        { "RY Revenue", 2, 422292, 400000, 191322, 1 }
+				    }
+				)

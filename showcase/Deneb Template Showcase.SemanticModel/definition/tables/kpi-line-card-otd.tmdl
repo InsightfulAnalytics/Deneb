@@ -1,0 +1,74 @@
+/// Sample data for the KPI Line Card template, showcase instance kpi-line-card-otd (showcase/data/dash-otd.csv).
+table 'kpi-line-card-otd'
+	lineageTag: 139d9f3e-d5c9-51d4-a5e2-d7770354b7c2
+
+	/// The month's value, for example net revenue or an on-time delivery rate.
+	measure 'Value (kpi-line-card-otd)' = SUM ( 'kpi-line-card-otd'[Value] )
+		lineageTag: 61729edf-a47f-520d-86cb-45c30e9400d5
+
+	/// The month's target for Value.
+	measure 'Target (kpi-line-card-otd)' = SUM ( 'kpi-line-card-otd'[Target] )
+		lineageTag: e923a08b-1526-5df4-bc7b-b59098541a9c
+
+	/// 1 on the month the card reports on, else 0. With no 1 in the data the latest month is used.
+	measure 'Is Reporting Month (kpi-line-card-otd)' = SUM ( 'kpi-line-card-otd'[Is Reporting Month] )
+		lineageTag: 03b57d5e-fdac-5cc7-b8e4-682cd198d1fe
+
+	/// Month end date, one row per month. The line draws every month it receives.
+	column Month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 5a95d23e-8186-538e-a251-e131c07f1a74
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 96a5e467-272d-59de-84f3-896726effeac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: cc5e609c-630b-5c3d-b60e-c24d2b2560bf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	column 'Is Reporting Month'
+		dataType: double
+		isHidden
+		lineageTag: c8bf312d-60ae-509b-82c5-290437cef50e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Is Reporting Month]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-line-card-otd' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Month", DATETIME,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    "Is Reporting Month", DOUBLE,
+				    {
+				        { "2015-01-31", 0.91, 0.95, 0 },
+				        { "2015-02-28", 0.983, 0.95, 0 },
+				        { "2015-03-31", 0.917, 0.95, 0 },
+				        { "2015-04-30", 0.986, 0.95, 1 }
+				    }
+				)

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "662f4e2c7cf856c796c0",
+  "displayName": "KPI Gap Sparkline Card",
+  "displayOption": "FitToPage",
+  "height": 385,
+  "width": 792
+}

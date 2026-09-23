@@ -1,0 +1,287 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "5da99d4e43766133ec9f",
+  "position": {
+    "x": 198,
+    "y": 189,
+    "z": 20000,
+    "height": 235,
+    "width": 264,
+    "tabOrder": 20000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dash-revenue"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "dash-revenue.Month",
+              "nativeQueryRef": "Month",
+              "displayName": "Month"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dash-revenue"
+                    }
+                  },
+                  "Property": "Value (dash-revenue)"
+                }
+              },
+              "queryRef": "dash-revenue.Value (dash-revenue)",
+              "nativeQueryRef": "Value (dash-revenue)",
+              "displayName": "Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dash-revenue"
+                    }
+                  },
+                  "Property": "Target (dash-revenue)"
+                }
+              },
+              "queryRef": "dash-revenue.Target (dash-revenue)",
+              "nativeQueryRef": "Target (dash-revenue)",
+              "displayName": "Target"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dash-revenue"
+                    }
+                  },
+                  "Property": "Is Reporting Month (dash-revenue)"
+                }
+              },
+              "queryRef": "dash-revenue.Is Reporting Month (dash-revenue)",
+              "nativeQueryRef": "Is Reporting Month (dash-revenue)",
+              "displayName": "Is Reporting Month"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"padding\": 0,\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"REVENUE\"\n    },\n    {\n      \"name\": \"headerColor\",\n      \"expr\": \"pbiColor(0)\"\n    },\n    {\n      \"name\": \"headerTextColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"cardColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"borderColor\",\n      \"expr\": \"pbiColor(0, -0.25)\"\n    },\n    {\n      \"name\": \"borderWidth\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \"$,.0f\"\n    },\n    {\n      \"name\": \"valueColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"valueColorByStatus\",\n      \"value\": false\n    },\n    {\n      \"name\": \"metricLabel\",\n      \"value\": \"Rev\"\n    },\n    {\n      \"name\": \"rmLabel\",\n      \"value\": \"RM\"\n    },\n    {\n      \"name\": \"ryLabel\",\n      \"value\": \"RY\"\n    },\n    {\n      \"name\": \"momLabel\",\n      \"value\": \"MoM\"\n    },\n    {\n      \"name\": \"momFormat\",\n      \"value\": \"+.1%\"\n    },\n    {\n      \"name\": \"arrowUp\",\n      \"value\": \"▲\"\n    },\n    {\n      \"name\": \"arrowDown\",\n      \"value\": \"▼\"\n    },\n    {\n      \"name\": \"arrowFlat\",\n      \"value\": \"►\"\n    },\n    {\n      \"name\": \"varianceUnit\",\n      \"value\": \"absolute\"\n    },\n    {\n      \"name\": \"deltaFormat\",\n      \"value\": \"$,.2~f\"\n    },\n    {\n      \"name\": \"valueDivisor\",\n      \"value\": 1000\n    },\n    {\n      \"name\": \"valueSuffix\",\n      \"value\": \"K\"\n    },\n    {\n      \"name\": \"ryFormat\",\n      \"value\": \"$,.2~f\"\n    },\n    {\n      \"name\": \"yearAggregate\",\n      \"value\": \"sum\"\n    },\n    {\n      \"name\": \"aboveText\",\n      \"value\": \"above\"\n    },\n    {\n      \"name\": \"belowText\",\n      \"value\": \"below\"\n    },\n    {\n      \"name\": \"onText\",\n      \"value\": \"on\"\n    },\n    {\n      \"name\": \"targetNoun\",\n      \"value\": \"target rev\"\n    },\n    {\n      \"name\": \"targetLabel\",\n      \"value\": \"Target Rev\"\n    },\n    {\n      \"name\": \"noDataText\",\n      \"value\": \"n/a\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": true\n    },\n    {\n      \"name\": \"dateFormat\",\n      \"value\": \"%b %y\"\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"colorNeutral\",\n      \"expr\": \"pbiColor(''neutral'')\"\n    },\n    {\n      \"name\": \"lineColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"targetLineColor\",\n      \"value\": \"#A19F9D\"\n    },\n    {\n      \"name\": \"labelColor\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"xPadding\",\n      \"value\": 0.4\n    },\n    {\n      \"name\": \"unit\",\n      \"expr\": \"clamp(min(width / 264, height / 235), 0.5, 4)\"\n    },\n    {\n      \"name\": \"margin\",\n      \"expr\": \"19 * unit\"\n    },\n    {\n      \"name\": \"headerHeight\",\n      \"expr\": \"30 * unit\"\n    },\n    {\n      \"name\": \"titleSize\",\n      \"expr\": \"13 * unit\"\n    },\n    {\n      \"name\": \"valueSize\",\n      \"expr\": \"35 * unit\"\n    },\n    {\n      \"name\": \"statusSize\",\n      \"expr\": \"11 * unit\"\n    },\n    {\n      \"name\": \"statusLineHeight\",\n      \"expr\": \"13.8 * unit\"\n    },\n    {\n      \"name\": \"labelSize\",\n      \"expr\": \"9.5 * unit\"\n    },\n    {\n      \"name\": \"valueBaseline\",\n      \"expr\": \"headerHeight + 39 * unit\"\n    },\n    {\n      \"name\": \"statusBaseline\",\n      \"expr\": \"valueBaseline + 31 * unit\"\n    },\n    {\n      \"name\": \"plotTop\",\n      \"expr\": \"statusBaseline + 2 * statusLineHeight + 17 * unit\"\n    },\n    {\n      \"name\": \"plotBottom\",\n      \"expr\": \"height - 30 * unit\"\n    },\n    {\n      \"name\": \"axisBaseline\",\n      \"expr\": \"height - 10 * unit\"\n    },\n    {\n      \"name\": \"markerRadius\",\n      \"expr\": \"4.6 * unit\"\n    },\n    {\n      \"name\": \"lineWidth\",\n      \"expr\": \"1.8 * unit\"\n    },\n    {\n      \"name\": \"targetLineWidth\",\n      \"expr\": \"2 * unit\"\n    },\n    {\n      \"name\": \"targetLineDash\",\n      \"expr\": \"[2 * unit, 1.7 * unit]\"\n    },\n    {\n      \"name\": \"targetLabelSize\",\n      \"expr\": \"10 * unit\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"calculate\": \"time(datum[''Month''])\",\n      \"as\": \"t\"\n    },\n    {\n      \"filter\": \"isFinite(datum.t)\"\n    },\n    {\n      \"calculate\": \"toNumber(datum[''Value''])\",\n      \"as\": \"v\"\n    },\n    {\n      \"calculate\": \"toNumber(datum[''Target''])\",\n      \"as\": \"tg\"\n    },\n    {\n      \"calculate\": \"toNumber(datum[''Is Reporting Month'']) > 0 ? datum.t : null\",\n      \"as\": \"flagT\"\n    },\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"rowNumber\"\n        },\n        {\n          \"op\": \"lag\",\n          \"field\": \"v\",\n          \"as\": \"prevV\"\n        },\n        {\n          \"op\": \"lag\",\n          \"field\": \"tg\",\n          \"as\": \"prevTarget\"\n        }\n      ],\n      \"sort\": [\n        {\n          \"field\": \"t\",\n          \"order\": \"ascending\"\n        }\n      ]\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"max\",\n          \"field\": \"flagT\",\n          \"as\": \"flaggedT\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"t\",\n          \"as\": \"lastT\"\n        },\n        {\n          \"op\": \"count\",\n          \"as\": \"n\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"v\",\n          \"as\": \"minV\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"v\",\n          \"as\": \"maxV\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"tg\",\n          \"as\": \"minTarget\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"tg\",\n          \"as\": \"maxTarget\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"datum.rowNumber - 1\",\n      \"as\": \"idx\"\n    },\n    {\n      \"calculate\": \"isValid(datum.flaggedT) ? datum.flaggedT : datum.lastT\",\n      \"as\": \"rmT\"\n    },\n    {\n      \"calculate\": \"datum.t === datum.rmT\",\n      \"as\": \"isRM\"\n    },\n    {\n      \"calculate\": \"datum.isRM ? datum.v : null\",\n      \"as\": \"rmPart\"\n    },\n    {\n      \"calculate\": \"datum.isRM ? datum.tg : null\",\n      \"as\": \"rmTargetPart\"\n    },\n    {\n      \"calculate\": \"datum.isRM ? datum.prevV : null\",\n      \"as\": \"pmPart\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && year(datum.t) === year(datum.rmT) && datum.t <= datum.rmT ? datum.v : null\",\n      \"as\": \"ryPart\"\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"max\",\n          \"field\": \"rmPart\",\n          \"as\": \"rmV\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"rmTargetPart\",\n          \"as\": \"rmTg\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"pmPart\",\n          \"as\": \"pmV\"\n        },\n        {\n          \"op\": \"sum\",\n          \"field\": \"ryPart\",\n          \"as\": \"rySum\"\n        },\n        {\n          \"op\": \"mean\",\n          \"field\": \"ryPart\",\n          \"as\": \"ryMean\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"isValid(datum.rmV) && isValid(datum.rmTg) ? datum.rmV - datum.rmTg : null\",\n      \"as\": \"gap\"\n    },\n    {\n      \"calculate\": \"isValid(datum.gap) ? (higherIsBetter ? 1 : -1) * datum.gap : 0\",\n      \"as\": \"goodness\"\n    },\n    {\n      \"calculate\": \"datum.goodness > 0 ? colorGood : datum.goodness < 0 ? colorBad : colorNeutral\",\n      \"as\": \"statusColor\"\n    },\n    {\n      \"calculate\": \"valueColorByStatus ? datum.statusColor : valueColor\",\n      \"as\": \"valueFill\"\n    },\n    {\n      \"calculate\": \"!isValid(datum.v) || !isValid(datum.tg) ? colorNeutral : (higherIsBetter ? datum.v >= datum.tg : datum.v <= datum.tg) ? colorGood : colorBad\",\n      \"as\": \"markerColor\"\n    },\n    {\n      \"calculate\": \"isValid(datum.rmV) && isValid(datum.pmV) && datum.pmV !== 0 ? (datum.rmV - datum.pmV) / abs(datum.pmV) : null\",\n      \"as\": \"mom\"\n    },\n    {\n      \"calculate\": \"!isValid(datum.gap) ? null : varianceUnit === ''percent'' ? datum.gap / abs(datum.rmTg) : varianceUnit === ''points'' ? datum.gap : datum.gap / valueDivisor\",\n      \"as\": \"gapShown\"\n    },\n    {\n      \"calculate\": \"yearAggregate === ''mean'' ? datum.ryMean : datum.rySum\",\n      \"as\": \"ry\"\n    },\n    {\n      \"calculate\": \"isValid(datum.rmV) ? format(datum.rmV, valueFormat) : noDataText\",\n      \"as\": \"valueText\"\n    },\n    {\n      \"calculate\": \"momLabel + '' '' + (!isValid(datum.mom) ? noDataText : (datum.mom > 0 ? arrowUp : datum.mom < 0 ? arrowDown : arrowFlat) + '' at '' + (datum.mom < 0 ? ''-'' : indexof(momFormat, ''+'') >= 0 ? ''+'' : '''') + format(abs(datum.mom), replace(momFormat, ''+'', '''')))\",\n      \"as\": \"momText\"\n    },\n    {\n      \"calculate\": \"metricLabel + '' '' + rmLabel + '': '' + (!isValid(datum.gapShown) || !isFinite(datum.gapShown) ? noDataText : (datum.gapShown < 0 ? ''-'' : indexof(deltaFormat, ''+'') >= 0 ? ''+'' : '''') + format(abs(datum.gapShown), replace(deltaFormat, ''+'', '''')) + (varianceUnit === ''absolute'' ? valueSuffix : '''') + '' '' + (datum.gap > 0 ? aboveText : datum.gap < 0 ? belowText : onText) + '' '' + targetNoun)\",\n      \"as\": \"gapText\"\n    },\n    {\n      \"calculate\": \"metricLabel + '' '' + ryLabel + '': '' + (!isValid(datum.ry) || !isFinite(datum.ry) ? noDataText : (datum.ry < 0 ? ''-'' : indexof(ryFormat, ''+'') >= 0 ? ''+'' : '''') + format(abs(datum.ry) / valueDivisor, replace(ryFormat, ''+'', '''')) + valueSuffix)\",\n      \"as\": \"ryText\"\n    },\n    {\n      \"calculate\": \"[datum.momText, datum.gapText, datum.ryText]\",\n      \"as\": \"statusLines\"\n    },\n    {\n      \"calculate\": \"timeFormat(datum.t, dateFormat)\",\n      \"as\": \"monthText\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) ? format(datum.v, valueFormat) : noDataText\",\n      \"as\": \"valueTip\"\n    },\n    {\n      \"calculate\": \"isValid(datum.tg) ? format(datum.tg, valueFormat) : noDataText\",\n      \"as\": \"targetTip\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) ? (datum.v < datum.tg ? ''-'' : ''+'') + format(abs(datum.v - datum.tg), valueFormat) : noDataText\",\n      \"as\": \"gapTip\"\n    },\n    {\n      \"calculate\": \"isValid(datum.minTarget) && isValid(datum.minV) ? min(datum.minV, datum.minTarget) : isValid(datum.minTarget) ? datum.minTarget : datum.minV\",\n      \"as\": \"domainLo\"\n    },\n    {\n      \"calculate\": \"isValid(datum.maxTarget) && isValid(datum.maxV) ? max(datum.maxV, datum.maxTarget) : isValid(datum.maxTarget) ? datum.maxTarget : datum.maxV\",\n      \"as\": \"domainHi\"\n    },\n    {\n      \"calculate\": \"(datum.domainHi > datum.domainLo ? (datum.tg - datum.domainLo) / (datum.domainHi - datum.domainLo) : 0.5) * (plotBottom - plotTop)\",\n      \"as\": \"roomBelowTarget\"\n    },\n    {\n      \"calculate\": \"datum.v > datum.tg && datum.roomBelowTarget >= 6 * unit ? ['''', targetLabel] : [targetLabel, '''']\",\n      \"as\": \"labelLines\"\n    }\n  ],\n  \"layer\": [\n    {\n      \"description\": \"Card background\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"x\": 0,\n        \"y\": 0,\n        \"x2\": {\n          \"expr\": \"width\"\n        },\n        \"y2\": {\n          \"expr\": \"height\"\n        },\n        \"fill\": {\n          \"expr\": \"cardColor\"\n        }\n      }\n    },\n    {\n      \"description\": \"Header band\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"x\": 0,\n        \"y\": 0,\n        \"x2\": {\n          \"expr\": \"width\"\n        },\n        \"y2\": {\n          \"expr\": \"headerHeight\"\n        },\n        \"fill\": {\n          \"expr\": \"headerColor\"\n        }\n      }\n    },\n    {\n      \"description\": \"Header title\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"text\",\n        \"text\": {\n          \"expr\": \"title\"\n        },\n        \"x\": {\n          \"expr\": \"margin\"\n        },\n        \"y\": {\n          \"expr\": \"headerHeight / 2\"\n        },\n        \"align\": \"left\",\n        \"baseline\": \"middle\",\n        \"fontWeight\": \"bold\",\n        \"fontSize\": {\n          \"expr\": \"titleSize\"\n        },\n        \"fill\": {\n          \"expr\": \"headerTextColor\"\n        },\n        \"limit\": {\n          \"expr\": \"width - 2 * margin\"\n        }\n      }\n    },\n    {\n      \"description\": \"Reporting month value\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.isRM\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"x\": {\n          \"expr\": \"margin\"\n        },\n        \"y\": {\n          \"expr\": \"valueBaseline\"\n        },\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"bold\",\n        \"fontSize\": {\n          \"expr\": \"valueSize\"\n        },\n        \"limit\": {\n          \"expr\": \"width - 2 * margin\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"valueText\",\n          \"type\": \"nominal\"\n        },\n        \"color\": {\n          \"field\": \"valueFill\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"monthText\",\n            \"type\": \"nominal\",\n            \"title\": \"Reporting month\"\n          },\n          {\n            \"field\": \"valueTip\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetTip\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"gapTip\",\n            \"type\": \"nominal\",\n            \"title\": \"Gap to target\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Three status lines, coloured by the reporting month''s gap to target\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.isRM\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"x\": {\n          \"expr\": \"margin\"\n        },\n        \"y\": {\n          \"expr\": \"statusBaseline\"\n        },\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontSize\": {\n          \"expr\": \"statusSize\"\n        },\n        \"lineHeight\": {\n          \"expr\": \"statusLineHeight\"\n        },\n        \"limit\": {\n          \"expr\": \"width - 2 * margin\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"statusLines\",\n          \"type\": \"nominal\"\n        },\n        \"color\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"description\": \"Target line: one rule per run of months with the same target, so a changing target steps\",\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.tg)\"\n        },\n        {\n          \"calculate\": \"datum.idx === 0 || datum.tg !== datum.prevTarget ? 1 : 0\",\n          \"as\": \"runBreak\"\n        },\n        {\n          \"window\": [\n            {\n              \"op\": \"sum\",\n              \"field\": \"runBreak\",\n              \"as\": \"runId\"\n            }\n          ],\n          \"sort\": [\n            {\n              \"field\": \"idx\",\n              \"order\": \"ascending\"\n            }\n          ]\n        },\n        {\n          \"aggregate\": [\n            {\n              \"op\": \"min\",\n              \"field\": \"idx\",\n              \"as\": \"runStart\"\n            },\n            {\n              \"op\": \"max\",\n              \"field\": \"idx\",\n              \"as\": \"runEnd\"\n            },\n            {\n              \"op\": \"min\",\n              \"field\": \"tg\",\n              \"as\": \"runTarget\"\n            }\n          ],\n          \"groupby\": [\n            \"runId\",\n            \"n\"\n          ]\n        },\n        {\n          \"calculate\": \"max(datum.runStart - 0.5, -xPadding)\",\n          \"as\": \"xFrom\"\n        },\n        {\n          \"calculate\": \"min(datum.runEnd + 0.5, datum.n - 1 + xPadding)\",\n          \"as\": \"xTo\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rule\",\n        \"strokeWidth\": {\n          \"expr\": \"targetLineWidth\"\n        },\n        \"strokeDash\": {\n          \"expr\": \"targetLineDash\"\n        },\n        \"color\": {\n          \"expr\": \"targetLineColor\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"xFrom\",\n          \"type\": \"quantitative\",\n          \"axis\": null,\n          \"scale\": {\n            \"zero\": false,\n            \"nice\": false,\n            \"range\": [\n              {\n                \"expr\": \"margin\"\n              },\n              {\n                \"expr\": \"width - margin\"\n              }\n            ]\n          }\n        },\n        \"x2\": {\n          \"field\": \"xTo\"\n        },\n        \"y\": {\n          \"field\": \"runTarget\",\n          \"type\": \"quantitative\",\n          \"axis\": null,\n          \"scale\": {\n            \"zero\": false,\n            \"nice\": false,\n            \"range\": [\n              {\n                \"expr\": \"plotBottom\"\n              },\n              {\n                \"expr\": \"plotTop\"\n              }\n            ]\n          }\n        }\n      }\n    },\n    {\n      \"description\": \"Monthly line\",\n      \"mark\": {\n        \"type\": \"line\",\n        \"strokeWidth\": {\n          \"expr\": \"lineWidth\"\n        },\n        \"color\": {\n          \"expr\": \"lineColor\"\n        },\n        \"strokeJoin\": \"round\",\n        \"strokeCap\": \"round\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"idx\",\n          \"type\": \"quantitative\"\n        },\n        \"y\": {\n          \"field\": \"v\",\n          \"type\": \"quantitative\"\n        },\n        \"order\": {\n          \"field\": \"idx\",\n          \"type\": \"quantitative\"\n        }\n      }\n    },\n    {\n      \"description\": \"Target label halo, keeps the label readable where the line crosses it\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.idx === 0 && isValid(datum.tg)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"line-bottom\",\n        \"lineHeight\": {\n          \"expr\": \"1.6 * targetLabelSize\"\n        },\n        \"fontSize\": {\n          \"expr\": \"targetLabelSize\"\n        },\n        \"fill\": {\n          \"expr\": \"cardColor\"\n        },\n        \"stroke\": {\n          \"expr\": \"cardColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"0.25 * targetLabelSize\"\n        },\n        \"strokeJoin\": \"round\",\n        \"limit\": {\n          \"expr\": \"width - 2 * margin\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"value\": {\n            \"expr\": \"margin\"\n          }\n        },\n        \"y\": {\n          \"field\": \"tg\",\n          \"type\": \"quantitative\"\n        },\n        \"text\": {\n          \"field\": \"labelLines\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"description\": \"Target label at the left end of the target line, above it unless the first month sits above target and there is room below\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.idx === 0 && isValid(datum.tg)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"line-bottom\",\n        \"lineHeight\": {\n          \"expr\": \"1.6 * targetLabelSize\"\n        },\n        \"fontSize\": {\n          \"expr\": \"targetLabelSize\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"limit\": {\n          \"expr\": \"width - 2 * margin\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"value\": {\n            \"expr\": \"margin\"\n          }\n        },\n        \"y\": {\n          \"field\": \"tg\",\n          \"type\": \"quantitative\"\n        },\n        \"text\": {\n          \"field\": \"labelLines\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"description\": \"Month markers, coloured by each month''s value against its target\",\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.v)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"circle\",\n        \"opacity\": 1,\n        \"size\": {\n          \"expr\": \"PI * markerRadius * markerRadius\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"idx\",\n          \"type\": \"quantitative\"\n        },\n        \"y\": {\n          \"field\": \"v\",\n          \"type\": \"quantitative\"\n        },\n        \"color\": {\n          \"field\": \"markerColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"monthText\",\n            \"type\": \"nominal\",\n            \"title\": \"Month\"\n          },\n          {\n            \"field\": \"valueTip\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetTip\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"gapTip\",\n            \"type\": \"nominal\",\n            \"title\": \"Gap to target\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Month labels, thinned when months are too close to label them all\",\n      \"transform\": [\n        {\n          \"calculate\": \"max(1, ceil(labelSize * 3.6 / ((width - 2 * margin) / max(datum.n - 1 + 2 * xPadding, 0.001))))\",\n          \"as\": \"labelEvery\"\n        },\n        {\n          \"filter\": \"(datum.n - 1 - datum.idx) % datum.labelEvery === 0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"center\",\n        \"baseline\": \"alphabetic\",\n        \"fontSize\": {\n          \"expr\": \"labelSize\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"idx\",\n          \"type\": \"quantitative\"\n        },\n        \"y\": {\n          \"value\": {\n            \"expr\": \"axisBaseline\"\n          }\n        },\n        \"text\": {\n          \"field\": \"monthText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"description\": \"Card border\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"filled\": false,\n        \"x\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"y\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"x2\": {\n          \"expr\": \"width - borderWidth / 2\"\n        },\n        \"y2\": {\n          \"expr\": \"height - borderWidth / 2\"\n        },\n        \"stroke\": {\n          \"expr\": \"borderColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"borderWidth\"\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Revenue KPI card'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,55 @@
+/// Sample data for the Overlapping Bars with Variance Lollipop template, showcase instance overlap-bar-variance-lollipop (templates/comparison/overlap-bar-variance-lollipop/sample-data.csv).
+table 'overlap-bar-variance-lollipop'
+	lineageTag: ea499e46-5535-5784-a414-6badb0140a8c
+
+	/// The value being judged, for example the reporting month. Drawn as the front bar, coloured by whether it beats the comparison.
+	measure 'Current (overlap-bar-variance-lollipop)' = SUM ( 'overlap-bar-variance-lollipop'[Current] )
+		lineageTag: 8b585d80-67e3-5349-a630-c04f7f77decb
+
+	/// The value to beat, for example the reporting year average. Drawn as the grey bar behind the current bar.
+	measure 'Comparison (overlap-bar-variance-lollipop)' = SUM ( 'overlap-bar-variance-lollipop'[Comparison] )
+		lineageTag: 2aa87a5f-7804-555c-bea7-e91879ffd515
+
+	/// The row label: a customer, product, shipper or similar. One row per category.
+	column Category
+		dataType: string
+		lineageTag: 071063fc-2d34-5b86-b31d-3808358f5e89
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = User
+
+	column Current
+		dataType: double
+		isHidden
+		lineageTag: c7b88bf0-438d-516f-ab37-d3fe901f18f3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Current]
+
+		annotation SummarizationSetBy = User
+
+	column Comparison
+		dataType: double
+		isHidden
+		lineageTag: 00e90f2b-cb93-501e-bd37-489500a71a7a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Comparison]
+
+		annotation SummarizationSetBy = User
+
+	partition 'overlap-bar-variance-lollipop' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Category", STRING,
+				    "Current", DOUBLE,
+				    "Comparison", DOUBLE,
+				    {
+				        { "Raclette Courdavault", 220.12, 102.91 },
+				        { "Thüringer Rostbratwurst", 157.24, 131.56 },
+				        { "Côte de Blaye", 88.97, 263.04 }
+				    }
+				)

@@ -1,0 +1,96 @@
+/// Sample data for the Bullet with Prior Period template, showcase instance dash-bullet-otd (showcase/data/dash-bullet-otd.csv).
+table 'dash-bullet-otd'
+	lineageTag: e051c8c7-85c9-53cf-89e0-a734d9d6f841
+
+	/// Current period value: the thick bar.
+	measure 'Actual (dash-bullet-otd)' = SUM ( 'dash-bullet-otd'[Actual] )
+		lineageTag: 19a3cffe-eeff-55b2-bac2-ef48df623dd8
+
+	/// Target for the current period: the dark tick.
+	measure 'Target (dash-bullet-otd)' = SUM ( 'dash-bullet-otd'[Target] )
+		lineageTag: 85a71dd7-8d70-56be-af68-3b70e7c25fcb
+
+	/// Previous period value: the light band behind the bar.
+	measure 'Previous (dash-bullet-otd)' = SUM ( 'dash-bullet-otd'[Previous] )
+		lineageTag: a87bc641-9885-5595-aa93-5ce87b011652
+
+	/// 1 when a value above target is good, 0 when a value below target is good.
+	measure 'Higher Is Better (dash-bullet-otd)' = SUM ( 'dash-bullet-otd'[Higher Is Better] )
+		lineageTag: 25f4561f-41f6-5f1e-af47-782b3477c0c0
+
+	/// Row label, one row per metric, e.g. RM Revenue.
+	column Metric
+		dataType: string
+		lineageTag: 3bc5dcd8-2949-5ebe-b301-637a186d3654
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Metric]
+
+		annotation SummarizationSetBy = User
+
+	/// Row order, smallest at the top.
+	column 'Sort Order'
+		dataType: double
+		lineageTag: 841353af-1d6a-59fe-be2b-66c32775811e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Sort Order]
+
+		annotation SummarizationSetBy = User
+
+	column Actual
+		dataType: double
+		isHidden
+		lineageTag: e895e492-2f5a-5c28-a74d-c9e809de43a0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Actual]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 1818b173-1da5-51c3-8427-f11e4c0acfa2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	column Previous
+		dataType: double
+		isHidden
+		lineageTag: cf340741-b10a-5e31-b34b-c73696b22b6c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Previous]
+
+		annotation SummarizationSetBy = User
+
+	column 'Higher Is Better'
+		dataType: double
+		isHidden
+		lineageTag: db84c13c-088b-5f6a-98c7-a6e780e9e520
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Higher Is Better]
+
+		annotation SummarizationSetBy = User
+
+	partition 'dash-bullet-otd' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Metric", STRING,
+				    "Sort Order", DOUBLE,
+				    "Actual", DOUBLE,
+				    "Target", DOUBLE,
+				    "Previous", DOUBLE,
+				    "Higher Is Better", DOUBLE,
+				    {
+				        { "Federal Shipping", 1, 1, 0.95, 0.985, 1 },
+				        { "Speedy Express", 2, 1, 0.95, 0.93, 1 },
+				        { "United Package", 3, 0.97, 0.95, 0.933, 1 }
+				    }
+				)

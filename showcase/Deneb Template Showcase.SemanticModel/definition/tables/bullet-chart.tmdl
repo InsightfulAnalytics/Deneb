@@ -1,0 +1,77 @@
+/// Sample data for the Bullet Chart template, showcase instance bullet-chart (templates/comparison/bullet-chart/sample-data.csv).
+table 'bullet-chart'
+	lineageTag: 21e15c28-2807-5481-9ca7-8d69ce959ab0
+
+	/// The main bar and its value label. Rows sort by it, largest first.
+	measure 'Actual (bullet-chart)' = SUM ( 'bullet-chart'[Actual] )
+		lineageTag: d466f5f2-3b75-5190-a901-ab880d8e5ba2
+
+	/// The target tick. Actual at or above it colours the bar good, below it bad.
+	measure 'Budget (bullet-chart)' = SUM ( 'bullet-chart'[Budget] )
+		lineageTag: 1ee47849-b1dc-5aa5-b2e7-c6fb689c378b
+
+	/// The wide light bar behind the Actual bar, and the second variance in the tooltip.
+	measure 'Last Year (bullet-chart)' = SUM ( 'bullet-chart'[Last Year] )
+		lineageTag: 76a8d85f-10a7-5db0-a5cd-cca0dc596423
+
+	/// One row per category, for example a product. Labels each row.
+	column Category
+		dataType: string
+		lineageTag: b6738647-7c9a-591f-8125-c1cd52d858d1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = User
+
+	column Actual
+		dataType: double
+		isHidden
+		lineageTag: 2c2ee148-39a5-5fb4-b167-2adf6ff68e09
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Actual]
+
+		annotation SummarizationSetBy = User
+
+	column Budget
+		dataType: double
+		isHidden
+		lineageTag: a7c2e4eb-5b2f-5b20-beb2-95c1afb10fd6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Budget]
+
+		annotation SummarizationSetBy = User
+
+	column 'Last Year'
+		dataType: double
+		isHidden
+		lineageTag: 12b9e5ae-a062-5b54-8e44-e15efeeca31f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Last Year]
+
+		annotation SummarizationSetBy = User
+
+	partition 'bullet-chart' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Category", STRING,
+				    "Actual", DOUBLE,
+				    "Budget", DOUBLE,
+				    "Last Year", DOUBLE,
+				    {
+				        { "Light Sabers", 29640, 26300, 24210 },
+				        { "DL-44 Blaster", 28115, 28900, 26480 },
+				        { "E-11 Blaster", 27380, 24550, 28960 },
+				        { "Thermal Detonator", 26205, 26260, 23140 },
+				        { "Heavy Blaster Pistol", 25470, 23980, 21390 },
+				        { "Dark Sabers", 24310, 27640, 29870 },
+				        { "Bryar Pistol", 23060, 22410, 23590 },
+				        { "Stun Grenades", 22640, 21120, 18470 },
+				        { "Disruptor", 21350, 24860, 25970 },
+				        { "Slugthrower", 20190, 20050, 21880 }
+				    }
+				)

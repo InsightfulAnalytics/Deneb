@@ -1,0 +1,55 @@
+/// Sample data for the Overlapping Bars with Share Lollipop template, showcase instance overlap-bar-share-lollipop (templates/comparison/overlap-bar-share-lollipop/sample-data.csv).
+table 'overlap-bar-share-lollipop'
+	lineageTag: 47d13186-aed9-5d8a-bce5-c13a2d0abdf7
+
+	/// The current value, for example reporting month revenue. Drawn as the dark front bar and used as the top of the share.
+	measure 'Current (overlap-bar-share-lollipop)' = SUM ( 'overlap-bar-share-lollipop'[Current] )
+		lineageTag: b1a188e4-d026-500f-8b2f-8168d9d4cbf9
+
+	/// The total the current value is part of, for example reporting year revenue. Drawn as the grey back bar; the share is Current / Total.
+	measure 'Total (overlap-bar-share-lollipop)' = SUM ( 'overlap-bar-share-lollipop'[Total] )
+		lineageTag: af1a8666-a04d-5485-b114-38cabf094928
+
+	/// One row per category, for example customer or product. Keep it to a short top-N list; long names wrap onto two lines.
+	column Category
+		dataType: string
+		lineageTag: d256df3f-bd20-50b3-8d17-7de88fef92c3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = User
+
+	column Current
+		dataType: double
+		isHidden
+		lineageTag: e6d4756b-0ff4-52c1-99cd-3ffb8fd9b70e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Current]
+
+		annotation SummarizationSetBy = User
+
+	column Total
+		dataType: double
+		isHidden
+		lineageTag: 80cda8ba-3cb5-5ebd-9f2b-a04e30e5fe64
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Total]
+
+		annotation SummarizationSetBy = User
+
+	partition 'overlap-bar-share-lollipop' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Category", STRING,
+				    "Current", DOUBLE,
+				    "Total", DOUBLE,
+				    {
+				        { "Save-a-lot Markets", 16820, 31980 },
+				        { "Ernst Handel", 15712, 35954 },
+				        { "QUICK-Stop", 9165, 37217 }
+				    }
+				)

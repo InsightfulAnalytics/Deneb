@@ -1,0 +1,85 @@
+/// Sample data for the KPI Bar Card template, showcase instance dash-top-customer (showcase/data/dash-top-customer.csv).
+table 'dash-top-customer'
+	lineageTag: 33059079-55ec-55bf-8d01-ba6a4d6bfd1f
+
+	/// The performer's value for the month, for example that customer's revenue.
+	measure 'Value (dash-top-customer)' = SUM ( 'dash-top-customer'[Value] )
+		lineageTag: 51eb700f-7221-534d-9e14-d87074354730
+
+	/// The month's total across everyone, for example total revenue. Used for the share.
+	measure 'Total (dash-top-customer)' = SUM ( 'dash-top-customer'[Total] )
+		lineageTag: 5d03a774-7aa7-54ba-bcfa-be98ef007d77
+
+	/// 1 on the reporting month, 0 on every other month.
+	measure 'Is Reporting Month (dash-top-customer)' = SUM ( 'dash-top-customer'[Is Reporting Month] )
+		lineageTag: 7c21726d-6d76-58c8-91b4-12a4a7e64fa1
+
+	/// The month, one row per month of the reporting year (a month-end date works).
+	column Month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 48bcc90f-7e4a-5387-ac53-9a983bc9583f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// The top performer's name, for example the top customer. The same on every row.
+	column Name
+		dataType: string
+		lineageTag: 25a3a0d5-d9de-5cfb-81f1-7cdc6621c102
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Name]
+
+		annotation SummarizationSetBy = User
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: e6396b50-df32-55a0-af7f-3399baf84539
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Total
+		dataType: double
+		isHidden
+		lineageTag: c91ad7ec-1341-5959-943d-f71b1b280252
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Total]
+
+		annotation SummarizationSetBy = User
+
+	column 'Is Reporting Month'
+		dataType: double
+		isHidden
+		lineageTag: bc3b8ef4-d3e4-5c87-9a67-c351a49775ff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Is Reporting Month]
+
+		annotation SummarizationSetBy = User
+
+	partition 'dash-top-customer' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Month", DATETIME,
+				    "Name", STRING,
+				    "Value", DOUBLE,
+				    "Total", DOUBLE,
+				    "Is Reporting Month", DOUBLE,
+				    {
+				        { "2015-01-31", "Save-a-lot Markets", 5020, 94224, 0 },
+				        { "2015-02-28", "Save-a-lot Markets", 3600, 99415, 0 },
+				        { "2015-03-31", "Save-a-lot Markets", 6542, 104854, 0 },
+				        { "2015-04-30", "Save-a-lot Markets", 16820, 123799, 1 }
+				    }
+				)

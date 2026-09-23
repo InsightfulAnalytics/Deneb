@@ -1,0 +1,71 @@
+{
+  "template": "templates/comparison/overlap-bar-variance-lollipop/overlap-bar-variance-lollipop.json",
+  "instances": [
+    {
+      "id": "overlap-bar-variance-lollipop",
+      "page": "template",
+      "data": "templates/comparison/overlap-bar-variance-lollipop/sample-data.csv",
+      "size": [420, 220],
+      "params": {}
+    },
+    {
+      "id": "dash-freight",
+      "page": "dashboard",
+      "data": "showcase/data/dash-freight.csv",
+      "size": [300, 134],
+      "params": {
+        "higherIsBetter": false,
+        "valueFormat": "$.1f",
+        "colorGood": {"expr": "pbiColor('good')"},
+        "colorBad": {"expr": "pbiColor('bad')"},
+        "categoryFontSize": 10,
+        "valueFontSize": 9,
+        "percentFontSize": 9.5,
+        "labelColumnShare": 0.26,
+        "lollipopShare": 0.18,
+        "lollipopHeadRadius": 4,
+        "lollipopStemWidth": 2
+      }
+    },
+    {
+      "id": "dash-aov-customers",
+      "page": "dashboard",
+      "data": "showcase/data/dash-aov-customers.csv",
+      "size": [300, 134],
+      "params": {
+        "higherIsBetter": true,
+        "valueFormat": "$.1f",
+        "valueDivisor": 1000,
+        "valueSuffix": "K",
+        "colorGood": {"expr": "pbiColor('good')"},
+        "colorBad": {"expr": "pbiColor('bad')"},
+        "categoryFontSize": 10,
+        "valueFontSize": 9,
+        "percentFontSize": 9.5,
+        "labelColumnShare": 0.26,
+        "lollipopShare": 0.18,
+        "lollipopHeadRadius": 4,
+        "lollipopStemWidth": 2
+      }
+    },
+    {
+      "id": "dash-aov-products",
+      "page": "dashboard",
+      "data": "showcase/data/dash-aov-products.csv",
+      "size": [300, 134],
+      "params": {
+        "higherIsBetter": true,
+        "valueFormat": "$.1f",
+        "colorGood": {"expr": "pbiColor('good')"},
+        "colorBad": {"expr": "pbiColor('bad')"},
+        "categoryFontSize": 10,
+        "valueFontSize": 9,
+        "percentFontSize": 9.5,
+        "labelColumnShare": 0.26,
+        "lollipopShare": 0.18,
+        "lollipopHeadRadius": 4,
+        "lollipopStemWidth": 2
+      }
+    }
+  ]
+}

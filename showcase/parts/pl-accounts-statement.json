@@ -1,0 +1,15 @@
+{
+  "template": "templates/financial/pl-accounts-statement/pl-accounts-statement.json",
+  "instances": [
+    {
+      "id": "pl-accounts-statement",
+      "page": "template",
+      "data": "templates/financial/pl-accounts-statement/sample-data.csv",
+      "size": [
+        1608,
+        740
+      ],
+      "params": {}
+    }
+  ]
+}

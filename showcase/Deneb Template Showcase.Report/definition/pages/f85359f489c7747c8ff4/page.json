@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "f85359f489c7747c8ff4",
+  "displayName": "KPI Line Card",
+  "displayOption": "FitToPage",
+  "height": 425,
+  "width": 672
+}

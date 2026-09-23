@@ -1,0 +1,54 @@
+{
+  "template": "templates/comparison/overlap-bar-share-lollipop/overlap-bar-share-lollipop.json",
+  "instances": [
+    {
+      "id": "overlap-bar-share-lollipop",
+      "page": "template",
+      "data": "templates/comparison/overlap-bar-share-lollipop/sample-data.csv",
+      "size": [420, 220],
+      "params": {}
+    },
+    {
+      "id": "dash-top3-customers",
+      "page": "dashboard",
+      "data": "showcase/data/dash-top3-customers.csv",
+      "size": [320, 170],
+      "params": {
+        "valueFormat": "$,.1f",
+        "valueDivisor": 1000,
+        "valueSuffix": "K",
+        "shareFormat": ".1%",
+        "currentBarColor": {"expr": "pbiColor(1)"},
+        "lollipopHeadColor": {"expr": "pbiColor(1, 0.8)"},
+        "titleFontSize": 12,
+        "subtitleFontSize": 9,
+        "categoryFontSize": 10,
+        "labelFontSize": 9,
+        "shareFontSize": 9.5,
+        "lollipopHeadSize": 50,
+        "lollipopStemWidth": 2
+      }
+    },
+    {
+      "id": "dash-top3-products",
+      "page": "dashboard",
+      "data": "showcase/data/dash-top3-products.csv",
+      "size": [320, 170],
+      "params": {
+        "valueFormat": "$,.1f",
+        "valueDivisor": 1000,
+        "valueSuffix": "K",
+        "shareFormat": ".1%",
+        "currentBarColor": {"expr": "pbiColor(1)"},
+        "lollipopHeadColor": {"expr": "pbiColor(1, 0.8)"},
+        "titleFontSize": 12,
+        "subtitleFontSize": 9,
+        "categoryFontSize": 10,
+        "labelFontSize": 9,
+        "shareFontSize": 9.5,
+        "lollipopHeadSize": 50,
+        "lollipopStemWidth": 2
+      }
+    }
+  ]
+}

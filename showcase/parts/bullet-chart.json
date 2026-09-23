@@ -1,0 +1,6 @@
+{
+  "template": "templates/comparison/bullet-chart/bullet-chart.json",
+  "instances": [
+    { "id": "bullet-chart", "page": "template", "data": "templates/comparison/bullet-chart/sample-data.csv", "size": [620, 480], "params": {} }
+  ]
+}
