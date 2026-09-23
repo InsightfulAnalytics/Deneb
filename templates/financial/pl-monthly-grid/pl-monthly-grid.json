@@ -1,0 +1,1768 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vega",
+      "providerVersion": "6.2.0"
+    },
+    "information": {
+      "name": "Monthly P&L Grid",
+      "description": "A monthly P&L statement table: income, cost of sales, gross profit, margin, operating expenses, cost ratio and net profit as actual, last year and variance rows, across Jan to Dec, YTD, YTG and FY. All 315 cells are derived in the spec from 12 monthly rows. Design by Timothy Osborn.",
+      "author": "Timothy Osborn",
+      "uuid": "c7d0beea-a444-48de-b47b-6cdc0838a2a5",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Year",
+        "description": "Calendar year. One row per year and month.",
+        "type": "numeric",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Month",
+        "description": "Month number, 1 to 12.",
+        "type": "numeric",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Month Offset",
+        "description": "Months from the current month: 0 this month, -1 last month. Use the minimum over the month.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "Month Selected",
+        "description": "1 for a month to highlight, else 0. A measure that always returns 0 turns highlighting off.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__4__",
+        "name": "Income Act",
+        "description": "Total income, actual.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__5__",
+        "name": "Income LY",
+        "description": "Total income, last year.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__6__",
+        "name": "COGS Act",
+        "description": "Total cost of sales, actual, as a negative number.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__7__",
+        "name": "COGS LY",
+        "description": "Total cost of sales, last year, as a negative number.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__8__",
+        "name": "GP Act",
+        "description": "Gross profit, actual.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__9__",
+        "name": "GP LY",
+        "description": "Gross profit, last year.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__10__",
+        "name": "Opex Act",
+        "description": "Total operating expenses, actual, as a negative number.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__11__",
+        "name": "Opex LY",
+        "description": "Total operating expenses, last year, as a negative number.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__12__",
+        "name": "NP Act",
+        "description": "Net profit, actual.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__13__",
+        "name": "NP LY",
+        "description": "Net profit, last year.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI",
+    "text": {
+      "font": "Segoe UI"
+    }
+  },
+  "description": "Monthly P&L statement grid: 28 rows by 15 columns from one flat monthly query.",
+  "padding": 0,
+  "autosize": {
+    "type": "none",
+    "resize": true
+  },
+  "width": {
+    "signal": "pbiContainerWidth - (pbiContainerHeight < 622 ? 12 : 0)"
+  },
+  "height": {
+    "signal": "max(pbiContainerHeight, 622)"
+  },
+  "signals": [
+    {
+      "name": "headerColor",
+      "update": "pbiColor(1)"
+    },
+    {
+      "name": "headerTextColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "sectionColor",
+      "value": "#F1F1F1"
+    },
+    {
+      "name": "gridColor",
+      "value": "#E6E6E6"
+    },
+    {
+      "name": "textColor",
+      "value": "#231F20"
+    },
+    {
+      "name": "colorGood",
+      "update": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "update": "pbiColor('bad')"
+    },
+    {
+      "name": "highlightColor",
+      "update": "pbiColor(3, 0.7)"
+    },
+    {
+      "name": "highlightOpacity",
+      "value": 0.13
+    },
+    {
+      "name": "dimOpacity",
+      "value": 0.4
+    },
+    {
+      "name": "fontSize",
+      "value": 13
+    },
+    {
+      "name": "headerHeight",
+      "value": 34
+    },
+    {
+      "name": "labelWidth",
+      "value": 160
+    },
+    {
+      "name": "monthNames",
+      "value": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ]
+    },
+    {
+      "name": "ytdLabel",
+      "value": "YTD"
+    },
+    {
+      "name": "ytgLabel",
+      "value": "YTG"
+    },
+    {
+      "name": "fyLabel",
+      "value": "FY"
+    },
+    {
+      "name": "lineLabels",
+      "value": [
+        "Income",
+        "Income Act",
+        "Income LY",
+        "Income Var %",
+        "Cost of Sales",
+        "COGS Act",
+        "COGS LY",
+        "COGS Var %",
+        "Gross Profit",
+        "GP Act",
+        "GP LY",
+        "GP Var %",
+        "Gross Margin",
+        "GM % Act",
+        "GM % LY",
+        "GM Var pts",
+        "Operating Expenses",
+        "Opex Act",
+        "Opex LY",
+        "Opex Var %",
+        "Cost Ratio",
+        "Opex % Act",
+        "Opex % LY",
+        "Opex % Var pts",
+        "Net Profit",
+        "NP Act",
+        "NP LY",
+        "NP Var %"
+      ]
+    },
+    {
+      "name": "currencySymbol",
+      "value": "$"
+    },
+    {
+      "name": "colWidth",
+      "update": "(width - labelWidth) / 15"
+    },
+    {
+      "name": "rowHeight",
+      "update": "(height - headerHeight) / 28"
+    },
+    {
+      "name": "hasSel",
+      "update": "length(data('selCols')) > 0"
+    }
+  ],
+  "data": [
+    {
+      "name": "dataset",
+      "transform": [
+        {
+          "type": "formula",
+          "as": "Year",
+          "expr": "datum['__0__']"
+        },
+        {
+          "type": "formula",
+          "as": "Month",
+          "expr": "datum['__1__']"
+        },
+        {
+          "type": "formula",
+          "as": "MonthOffset",
+          "expr": "datum['__2__']"
+        },
+        {
+          "type": "formula",
+          "as": "MthSel",
+          "expr": "datum['__3__']"
+        },
+        {
+          "type": "formula",
+          "as": "IncAct",
+          "expr": "datum['__4__']"
+        },
+        {
+          "type": "formula",
+          "as": "IncLY",
+          "expr": "datum['__5__']"
+        },
+        {
+          "type": "formula",
+          "as": "CogAct",
+          "expr": "datum['__6__']"
+        },
+        {
+          "type": "formula",
+          "as": "CogLY",
+          "expr": "datum['__7__']"
+        },
+        {
+          "type": "formula",
+          "as": "GPAct",
+          "expr": "datum['__8__']"
+        },
+        {
+          "type": "formula",
+          "as": "GPLY",
+          "expr": "datum['__9__']"
+        },
+        {
+          "type": "formula",
+          "as": "OpxAct",
+          "expr": "datum['__10__']"
+        },
+        {
+          "type": "formula",
+          "as": "OpxLY",
+          "expr": "datum['__11__']"
+        },
+        {
+          "type": "formula",
+          "as": "NPAct",
+          "expr": "datum['__12__']"
+        },
+        {
+          "type": "formula",
+          "as": "NPLY",
+          "expr": "datum['__13__']"
+        },
+        {
+          "type": "formula",
+          "as": "todayIdx",
+          "expr": "isValid(datum.MonthOffset) && isValid(datum.Year) && isValid(datum.Month) ? 12 * datum.Year + datum.Month - datum.MonthOffset : null"
+        }
+      ]
+    },
+    {
+      "name": "rowsReg",
+      "values": [
+        {
+          "key": "t_inc",
+          "rowIdx": 0,
+          "kind": "title",
+          "fmt": "",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "inc_act",
+          "rowIdx": 1,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "inc_ly",
+          "rowIdx": 2,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "inc_var",
+          "rowIdx": 3,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": true,
+          "badUp": false
+        },
+        {
+          "key": "t_cogs",
+          "rowIdx": 4,
+          "kind": "title",
+          "fmt": "",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "cog_act",
+          "rowIdx": 5,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "cog_ly",
+          "rowIdx": 6,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "cog_var",
+          "rowIdx": 7,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": true,
+          "badUp": true
+        },
+        {
+          "key": "t_gp",
+          "rowIdx": 8,
+          "kind": "title",
+          "fmt": "",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "gp_act",
+          "rowIdx": 9,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "gp_ly",
+          "rowIdx": 10,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "gp_var",
+          "rowIdx": 11,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": true,
+          "badUp": false
+        },
+        {
+          "key": "t_gm",
+          "rowIdx": 12,
+          "kind": "title",
+          "fmt": "",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "gm_act",
+          "rowIdx": 13,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "gm_ly",
+          "rowIdx": 14,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "gm_var",
+          "rowIdx": 15,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": true,
+          "badUp": false
+        },
+        {
+          "key": "t_opx",
+          "rowIdx": 16,
+          "kind": "title",
+          "fmt": "",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "opx_act",
+          "rowIdx": 17,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "opx_ly",
+          "rowIdx": 18,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "opx_var",
+          "rowIdx": 19,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": true,
+          "badUp": true
+        },
+        {
+          "key": "t_ratio",
+          "rowIdx": 20,
+          "kind": "title",
+          "fmt": "",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "opr_act",
+          "rowIdx": 21,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "opr_ly",
+          "rowIdx": 22,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "opr_var",
+          "rowIdx": 23,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": true,
+          "badUp": true
+        },
+        {
+          "key": "t_np",
+          "rowIdx": 24,
+          "kind": "title",
+          "fmt": "",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "np_act",
+          "rowIdx": 25,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "np_ly",
+          "rowIdx": 26,
+          "kind": "data",
+          "fmt": "money",
+          "isVar": false,
+          "badUp": false
+        },
+        {
+          "key": "np_var",
+          "rowIdx": 27,
+          "kind": "data",
+          "fmt": "pct",
+          "isVar": true,
+          "badUp": false
+        }
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "as": "label",
+          "expr": "lineLabels[datum.rowIdx]"
+        }
+      ]
+    },
+    {
+      "name": "rowEdges",
+      "values": [
+        {
+          "edge": 0
+        },
+        {
+          "edge": 1
+        },
+        {
+          "edge": 2
+        },
+        {
+          "edge": 3
+        },
+        {
+          "edge": 4
+        },
+        {
+          "edge": 5
+        },
+        {
+          "edge": 6
+        },
+        {
+          "edge": 7
+        },
+        {
+          "edge": 8
+        },
+        {
+          "edge": 9
+        },
+        {
+          "edge": 10
+        },
+        {
+          "edge": 11
+        },
+        {
+          "edge": 12
+        },
+        {
+          "edge": 13
+        },
+        {
+          "edge": 14
+        },
+        {
+          "edge": 15
+        },
+        {
+          "edge": 16
+        },
+        {
+          "edge": 17
+        },
+        {
+          "edge": 18
+        },
+        {
+          "edge": 19
+        },
+        {
+          "edge": 20
+        },
+        {
+          "edge": 21
+        },
+        {
+          "edge": 22
+        },
+        {
+          "edge": 23
+        },
+        {
+          "edge": 24
+        },
+        {
+          "edge": 25
+        },
+        {
+          "edge": 26
+        },
+        {
+          "edge": 27
+        },
+        {
+          "edge": 28
+        }
+      ]
+    },
+    {
+      "name": "colsReg",
+      "values": [
+        {
+          "colIdx": 0
+        },
+        {
+          "colIdx": 1
+        },
+        {
+          "colIdx": 2
+        },
+        {
+          "colIdx": 3
+        },
+        {
+          "colIdx": 4
+        },
+        {
+          "colIdx": 5
+        },
+        {
+          "colIdx": 6
+        },
+        {
+          "colIdx": 7
+        },
+        {
+          "colIdx": 8
+        },
+        {
+          "colIdx": 9
+        },
+        {
+          "colIdx": 10
+        },
+        {
+          "colIdx": 11
+        },
+        {
+          "colIdx": 12
+        },
+        {
+          "colIdx": 13
+        },
+        {
+          "colIdx": 14
+        }
+      ]
+    },
+    {
+      "name": "titleRows",
+      "source": "rowsReg",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.kind == 'title'"
+        }
+      ]
+    },
+    {
+      "name": "months",
+      "source": "dataset",
+      "transform": [
+        {
+          "type": "aggregate",
+          "fields": [
+            "IncAct",
+            "IncLY",
+            "CogAct",
+            "CogLY",
+            "GPAct",
+            "GPLY",
+            "OpxAct",
+            "OpxLY",
+            "NPAct",
+            "NPLY",
+            "IncAct",
+            "IncLY",
+            "CogAct",
+            "CogLY",
+            "GPAct",
+            "GPLY",
+            "OpxAct",
+            "OpxLY",
+            "NPAct",
+            "NPLY",
+            "todayIdx",
+            "MthSel"
+          ],
+          "ops": [
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "max",
+            "max"
+          ],
+          "as": [
+            "sIncAct",
+            "sIncLY",
+            "sCogAct",
+            "sCogLY",
+            "sGPAct",
+            "sGPLY",
+            "sOpxAct",
+            "sOpxLY",
+            "sNPAct",
+            "sNPLY",
+            "vIncAct",
+            "vIncLY",
+            "vCogAct",
+            "vCogLY",
+            "vGPAct",
+            "vGPLY",
+            "vOpxAct",
+            "vOpxLY",
+            "vNPAct",
+            "vNPLY",
+            "todayIdx",
+            "selMonth"
+          ],
+          "groupby": [
+            "Month"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "IncAct",
+          "expr": "datum.vIncAct > 0 ? datum.sIncAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "IncLY",
+          "expr": "datum.vIncLY > 0 ? datum.sIncLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "CogAct",
+          "expr": "datum.vCogAct > 0 ? datum.sCogAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "CogLY",
+          "expr": "datum.vCogLY > 0 ? datum.sCogLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "GPAct",
+          "expr": "datum.vGPAct > 0 ? datum.sGPAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "GPLY",
+          "expr": "datum.vGPLY > 0 ? datum.sGPLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "OpxAct",
+          "expr": "datum.vOpxAct > 0 ? datum.sOpxAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "OpxLY",
+          "expr": "datum.vOpxLY > 0 ? datum.sOpxLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "NPAct",
+          "expr": "datum.vNPAct > 0 ? datum.sNPAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "NPLY",
+          "expr": "datum.vNPLY > 0 ? datum.sNPLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "curP",
+          "expr": "isFinite(datum.todayIdx) ? ((datum.todayIdx - 1) % 12) + 1 : null"
+        }
+      ]
+    },
+    {
+      "name": "monthCols",
+      "source": "months",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.Month >= 1 && datum.Month <= 12"
+        },
+        {
+          "type": "formula",
+          "as": "colIdx",
+          "expr": "datum.Month - 1"
+        },
+        {
+          "type": "formula",
+          "as": "colLabel",
+          "expr": "monthNames[datum.Month - 1]"
+        },
+        {
+          "type": "formula",
+          "as": "isSel",
+          "expr": "datum.selMonth > 0"
+        }
+      ]
+    },
+    {
+      "name": "selCols",
+      "source": "monthCols",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.isSel"
+        }
+      ]
+    },
+    {
+      "name": "totYTD",
+      "source": "months",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum.curP) && datum.Month <= datum.curP"
+        },
+        {
+          "type": "aggregate",
+          "fields": [
+            "IncAct",
+            "IncLY",
+            "CogAct",
+            "CogLY",
+            "GPAct",
+            "GPLY",
+            "OpxAct",
+            "OpxLY",
+            "NPAct",
+            "NPLY",
+            "IncAct",
+            "IncLY",
+            "CogAct",
+            "CogLY",
+            "GPAct",
+            "GPLY",
+            "OpxAct",
+            "OpxLY",
+            "NPAct",
+            "NPLY",
+            "todayIdx",
+            "MthSel"
+          ],
+          "ops": [
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "max",
+            "max"
+          ],
+          "as": [
+            "sIncAct",
+            "sIncLY",
+            "sCogAct",
+            "sCogLY",
+            "sGPAct",
+            "sGPLY",
+            "sOpxAct",
+            "sOpxLY",
+            "sNPAct",
+            "sNPLY",
+            "vIncAct",
+            "vIncLY",
+            "vCogAct",
+            "vCogLY",
+            "vGPAct",
+            "vGPLY",
+            "vOpxAct",
+            "vOpxLY",
+            "vNPAct",
+            "vNPLY",
+            "todayIdx",
+            "selMonth"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "IncAct",
+          "expr": "datum.vIncAct > 0 ? datum.sIncAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "IncLY",
+          "expr": "datum.vIncLY > 0 ? datum.sIncLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "CogAct",
+          "expr": "datum.vCogAct > 0 ? datum.sCogAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "CogLY",
+          "expr": "datum.vCogLY > 0 ? datum.sCogLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "GPAct",
+          "expr": "datum.vGPAct > 0 ? datum.sGPAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "GPLY",
+          "expr": "datum.vGPLY > 0 ? datum.sGPLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "OpxAct",
+          "expr": "datum.vOpxAct > 0 ? datum.sOpxAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "OpxLY",
+          "expr": "datum.vOpxLY > 0 ? datum.sOpxLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "NPAct",
+          "expr": "datum.vNPAct > 0 ? datum.sNPAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "NPLY",
+          "expr": "datum.vNPLY > 0 ? datum.sNPLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "colLabel",
+          "expr": "ytdLabel"
+        },
+        {
+          "type": "formula",
+          "as": "colIdx",
+          "expr": "12"
+        }
+      ]
+    },
+    {
+      "name": "totYTG",
+      "source": "months",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "isValid(datum.curP) && datum.Month > datum.curP"
+        },
+        {
+          "type": "aggregate",
+          "fields": [
+            "IncAct",
+            "IncLY",
+            "CogAct",
+            "CogLY",
+            "GPAct",
+            "GPLY",
+            "OpxAct",
+            "OpxLY",
+            "NPAct",
+            "NPLY",
+            "IncAct",
+            "IncLY",
+            "CogAct",
+            "CogLY",
+            "GPAct",
+            "GPLY",
+            "OpxAct",
+            "OpxLY",
+            "NPAct",
+            "NPLY",
+            "todayIdx",
+            "MthSel"
+          ],
+          "ops": [
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "max",
+            "max"
+          ],
+          "as": [
+            "sIncAct",
+            "sIncLY",
+            "sCogAct",
+            "sCogLY",
+            "sGPAct",
+            "sGPLY",
+            "sOpxAct",
+            "sOpxLY",
+            "sNPAct",
+            "sNPLY",
+            "vIncAct",
+            "vIncLY",
+            "vCogAct",
+            "vCogLY",
+            "vGPAct",
+            "vGPLY",
+            "vOpxAct",
+            "vOpxLY",
+            "vNPAct",
+            "vNPLY",
+            "todayIdx",
+            "selMonth"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "IncAct",
+          "expr": "datum.vIncAct > 0 ? datum.sIncAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "IncLY",
+          "expr": "datum.vIncLY > 0 ? datum.sIncLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "CogAct",
+          "expr": "datum.vCogAct > 0 ? datum.sCogAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "CogLY",
+          "expr": "datum.vCogLY > 0 ? datum.sCogLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "GPAct",
+          "expr": "datum.vGPAct > 0 ? datum.sGPAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "GPLY",
+          "expr": "datum.vGPLY > 0 ? datum.sGPLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "OpxAct",
+          "expr": "datum.vOpxAct > 0 ? datum.sOpxAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "OpxLY",
+          "expr": "datum.vOpxLY > 0 ? datum.sOpxLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "NPAct",
+          "expr": "datum.vNPAct > 0 ? datum.sNPAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "NPLY",
+          "expr": "datum.vNPLY > 0 ? datum.sNPLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "colLabel",
+          "expr": "ytgLabel"
+        },
+        {
+          "type": "formula",
+          "as": "colIdx",
+          "expr": "13"
+        }
+      ]
+    },
+    {
+      "name": "totFY",
+      "source": "months",
+      "transform": [
+        {
+          "type": "aggregate",
+          "fields": [
+            "IncAct",
+            "IncLY",
+            "CogAct",
+            "CogLY",
+            "GPAct",
+            "GPLY",
+            "OpxAct",
+            "OpxLY",
+            "NPAct",
+            "NPLY",
+            "IncAct",
+            "IncLY",
+            "CogAct",
+            "CogLY",
+            "GPAct",
+            "GPLY",
+            "OpxAct",
+            "OpxLY",
+            "NPAct",
+            "NPLY",
+            "todayIdx",
+            "MthSel"
+          ],
+          "ops": [
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "sum",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "valid",
+            "max",
+            "max"
+          ],
+          "as": [
+            "sIncAct",
+            "sIncLY",
+            "sCogAct",
+            "sCogLY",
+            "sGPAct",
+            "sGPLY",
+            "sOpxAct",
+            "sOpxLY",
+            "sNPAct",
+            "sNPLY",
+            "vIncAct",
+            "vIncLY",
+            "vCogAct",
+            "vCogLY",
+            "vGPAct",
+            "vGPLY",
+            "vOpxAct",
+            "vOpxLY",
+            "vNPAct",
+            "vNPLY",
+            "todayIdx",
+            "selMonth"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "IncAct",
+          "expr": "datum.vIncAct > 0 ? datum.sIncAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "IncLY",
+          "expr": "datum.vIncLY > 0 ? datum.sIncLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "CogAct",
+          "expr": "datum.vCogAct > 0 ? datum.sCogAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "CogLY",
+          "expr": "datum.vCogLY > 0 ? datum.sCogLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "GPAct",
+          "expr": "datum.vGPAct > 0 ? datum.sGPAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "GPLY",
+          "expr": "datum.vGPLY > 0 ? datum.sGPLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "OpxAct",
+          "expr": "datum.vOpxAct > 0 ? datum.sOpxAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "OpxLY",
+          "expr": "datum.vOpxLY > 0 ? datum.sOpxLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "NPAct",
+          "expr": "datum.vNPAct > 0 ? datum.sNPAct : null"
+        },
+        {
+          "type": "formula",
+          "as": "NPLY",
+          "expr": "datum.vNPLY > 0 ? datum.sNPLY : null"
+        },
+        {
+          "type": "formula",
+          "as": "colLabel",
+          "expr": "fyLabel"
+        },
+        {
+          "type": "formula",
+          "as": "colIdx",
+          "expr": "14"
+        }
+      ]
+    },
+    {
+      "name": "cells",
+      "source": [
+        "monthCols",
+        "totYTD",
+        "totYTG",
+        "totFY"
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "as": "inc_act",
+          "expr": "datum.IncAct"
+        },
+        {
+          "type": "formula",
+          "as": "inc_ly",
+          "expr": "datum.IncLY"
+        },
+        {
+          "type": "formula",
+          "as": "inc_var",
+          "expr": "(datum.IncLY == null || datum.IncLY == 0) ? null : (((datum.IncAct == null ? 0 : datum.IncAct) - datum.IncLY) / datum.IncLY)"
+        },
+        {
+          "type": "formula",
+          "as": "cog_act",
+          "expr": "datum.CogAct"
+        },
+        {
+          "type": "formula",
+          "as": "cog_ly",
+          "expr": "datum.CogLY"
+        },
+        {
+          "type": "formula",
+          "as": "cog_var",
+          "expr": "(datum.CogLY == null || datum.CogLY == 0) ? null : (((datum.CogAct == null ? 0 : datum.CogAct) - datum.CogLY) / datum.CogLY)"
+        },
+        {
+          "type": "formula",
+          "as": "gp_act",
+          "expr": "datum.GPAct"
+        },
+        {
+          "type": "formula",
+          "as": "gp_ly",
+          "expr": "datum.GPLY"
+        },
+        {
+          "type": "formula",
+          "as": "gp_var",
+          "expr": "(datum.GPLY == null || datum.GPLY == 0) ? null : (((datum.GPAct == null ? 0 : datum.GPAct) - datum.GPLY) / datum.GPLY)"
+        },
+        {
+          "type": "formula",
+          "as": "gm_act",
+          "expr": "(datum.IncAct == null || datum.IncAct == 0 || datum.GPAct == null) ? null : (datum.GPAct / datum.IncAct)"
+        },
+        {
+          "type": "formula",
+          "as": "gm_ly",
+          "expr": "(datum.IncLY == null || datum.IncLY == 0 || datum.GPLY == null) ? null : (datum.GPLY / datum.IncLY)"
+        },
+        {
+          "type": "formula",
+          "as": "gm_var",
+          "expr": "(datum.gm_act == null && datum.gm_ly == null) ? null : ((datum.gm_act == null ? 0 : datum.gm_act) - (datum.gm_ly == null ? 0 : datum.gm_ly))"
+        },
+        {
+          "type": "formula",
+          "as": "opx_act",
+          "expr": "datum.OpxAct"
+        },
+        {
+          "type": "formula",
+          "as": "opx_ly",
+          "expr": "datum.OpxLY"
+        },
+        {
+          "type": "formula",
+          "as": "opx_var",
+          "expr": "(datum.OpxLY == null || datum.OpxLY == 0) ? null : (((datum.OpxAct == null ? 0 : datum.OpxAct) - datum.OpxLY) / datum.OpxLY)"
+        },
+        {
+          "type": "formula",
+          "as": "opr_act",
+          "expr": "(datum.IncAct == null || datum.IncAct == 0 || datum.OpxAct == null) ? null : (-datum.OpxAct / datum.IncAct)"
+        },
+        {
+          "type": "formula",
+          "as": "opr_ly",
+          "expr": "(datum.IncLY == null || datum.IncLY == 0 || datum.OpxLY == null) ? null : (-datum.OpxLY / datum.IncLY)"
+        },
+        {
+          "type": "formula",
+          "as": "opr_var",
+          "expr": "(datum.opr_act == null && datum.opr_ly == null) ? null : ((datum.opr_act == null ? 0 : datum.opr_act) - (datum.opr_ly == null ? 0 : datum.opr_ly))"
+        },
+        {
+          "type": "formula",
+          "as": "np_act",
+          "expr": "datum.NPAct"
+        },
+        {
+          "type": "formula",
+          "as": "np_ly",
+          "expr": "datum.NPLY"
+        },
+        {
+          "type": "formula",
+          "as": "np_var",
+          "expr": "(datum.NPLY == null || datum.NPLY == 0) ? null : (((datum.NPAct == null ? 0 : datum.NPAct) - datum.NPLY) / datum.NPLY)"
+        },
+        {
+          "type": "fold",
+          "fields": [
+            "inc_act",
+            "inc_ly",
+            "inc_var",
+            "cog_act",
+            "cog_ly",
+            "cog_var",
+            "gp_act",
+            "gp_ly",
+            "gp_var",
+            "gm_act",
+            "gm_ly",
+            "gm_var",
+            "opx_act",
+            "opx_ly",
+            "opx_var",
+            "opr_act",
+            "opr_ly",
+            "opr_var",
+            "np_act",
+            "np_ly",
+            "np_var"
+          ],
+          "as": [
+            "key",
+            "value"
+          ]
+        },
+        {
+          "type": "lookup",
+          "from": "rowsReg",
+          "key": "key",
+          "fields": [
+            "key"
+          ],
+          "values": [
+            "rowIdx",
+            "label",
+            "fmt",
+            "isVar",
+            "badUp"
+          ],
+          "as": [
+            "rowIdx",
+            "rowLabel",
+            "fmt",
+            "isVar",
+            "badUp"
+          ]
+        },
+        {
+          "type": "formula",
+          "as": "av",
+          "expr": "abs(datum.value)"
+        },
+        {
+          "type": "formula",
+          "as": "body",
+          "expr": "datum.fmt == 'pct' ? (datum.av >= 1 ? format(datum.av, '.0%') : format(datum.av, '.1%')) : currencySymbol + (datum.av >= 999950 ? format(datum.av / 1e6, ',.1f') + 'M' : datum.av >= 999.5 ? format(datum.av / 1e3, ',.1f') + 'K' : format(datum.av, ',.0f'))"
+        },
+        {
+          "type": "formula",
+          "as": "fmtd",
+          "expr": "datum.value == null ? '' : (datum.value < 0 ? '(' + datum.body + ')' : datum.body)"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "name": "headerBand",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "value": 0
+          },
+          "x2": {
+            "signal": "width"
+          },
+          "y": {
+            "value": 0
+          },
+          "y2": {
+            "signal": "headerHeight"
+          },
+          "fill": {
+            "signal": "headerColor"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "headerLabels",
+      "from": {
+        "data": "colsReg"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "labelWidth + (datum.colIdx + 0.5) * colWidth"
+          },
+          "y": {
+            "signal": "headerHeight / 2"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "signal": "datum.colIdx < 12 ? monthNames[datum.colIdx] : [ytdLabel, ytgLabel, fyLabel][datum.colIdx - 12]"
+          },
+          "fontSize": {
+            "signal": "fontSize"
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "signal": "headerTextColor"
+          },
+          "limit": {
+            "signal": "colWidth - 4"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "name": "titleBands",
+      "from": {
+        "data": "titleRows"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "value": 0
+          },
+          "x2": {
+            "signal": "width"
+          },
+          "y": {
+            "signal": "headerHeight + datum.rowIdx * rowHeight"
+          },
+          "height": {
+            "signal": "rowHeight"
+          },
+          "fill": {
+            "signal": "sectionColor"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "name": "gridRules",
+      "from": {
+        "data": "rowEdges"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "value": 0
+          },
+          "x2": {
+            "signal": "width"
+          },
+          "y": {
+            "signal": "min(headerHeight + datum.edge * rowHeight, height - 0.5)"
+          },
+          "stroke": {
+            "signal": "gridColor"
+          },
+          "strokeWidth": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "name": "monthWash",
+      "from": {
+        "data": "selCols"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "labelWidth + datum.colIdx * colWidth"
+          },
+          "width": {
+            "signal": "colWidth"
+          },
+          "y": {
+            "signal": "headerHeight"
+          },
+          "y2": {
+            "signal": "height"
+          },
+          "fill": {
+            "signal": "highlightColor"
+          },
+          "fillOpacity": {
+            "signal": "highlightOpacity"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "rowLabels",
+      "from": {
+        "data": "rowsReg"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.kind == 'title' ? 10 : 24"
+          },
+          "y": {
+            "signal": "headerHeight + (datum.rowIdx + 0.5) * rowHeight"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "field": "label"
+          },
+          "fontSize": {
+            "signal": "fontSize"
+          },
+          "fontWeight": {
+            "signal": "datum.kind == 'title' ? 'bold' : 'normal'"
+          },
+          "fill": {
+            "signal": "textColor"
+          },
+          "limit": {
+            "signal": "labelWidth - (datum.kind == 'title' ? 10 : 24) - 6"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "cellText",
+      "from": {
+        "data": "cells"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "labelWidth + (datum.colIdx + 1) * colWidth - 6"
+          },
+          "y": {
+            "signal": "headerHeight + (datum.rowIdx + 0.5) * rowHeight"
+          },
+          "align": {
+            "value": "right"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "field": "fmtd"
+          },
+          "fontSize": {
+            "signal": "fontSize"
+          },
+          "fill": {
+            "signal": "datum.isVar && datum.value != null && datum.value != 0 ? ((datum.badUp ? -datum.value : datum.value) > 0 ? colorGood : colorBad) : textColor"
+          },
+          "fillOpacity": {
+            "signal": "!hasSel || datum.colIdx > 11 || datum.isSel ? 1 : dimOpacity"
+          },
+          "limit": {
+            "signal": "colWidth - 8"
+          },
+          "tooltip": {
+            "signal": "{'Line': datum.rowLabel, 'Column': datum.colLabel, 'Value': datum.fmtd == '' ? 'blank' : datum.fmtd}"
+          }
+        }
+      }
+    }
+  ]
+}
