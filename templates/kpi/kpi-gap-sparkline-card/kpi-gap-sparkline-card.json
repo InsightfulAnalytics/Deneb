@@ -1,0 +1,565 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "KPI Gap Sparkline Card",
+      "description": "Month-to-date KPI card: the MTD value, its comparison (last year or a target) and the gap with an arrow and a good or bad colour, over a sparkline of the daily gap with a trailing moving average. Design after Ruben Van de Voorde (tabulareditor.com).",
+      "author": "Timothy Osborn, after Ruben Van de Voorde (Tabular Editor)",
+      "uuid": "e207fa9f-c9f1-4519-adcd-8e88a564de3f",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Date",
+        "description": "The day. One row per day; the latest day with an Actual value is today.",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Actual",
+        "description": "The value for the day, for example orders in euros.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Comparison",
+        "description": "The same day last year, or a daily target.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {"type": "fit", "contains": "padding"},
+    "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {"name": "title", "value": "Orders MTD (€)"},
+    {"name": "comparisonLabel", "value": "MTD LY"},
+    {"name": "gapLabel", "value": "GAP"},
+    {"name": "windowDays", "value": 30},
+    {"name": "avgDays", "value": 5},
+    {"name": "windowLabel", "expr": "'LAST ' + windowDays + ' DAYS'"},
+    {"name": "dailyGapLabel", "value": "DAILY GAP"},
+    {"name": "avgLabel", "expr": "avgDays + 'D AVG'"},
+    {"name": "todayLabel", "value": "TODAY"},
+    {"name": "valueFormat", "value": ".3~s"},
+    {"name": "todayFormat", "value": ".2~s"},
+    {"name": "pctFormat", "value": ".1%"},
+    {"name": "tooltipFormat", "value": ",.0f"},
+    {"name": "arrowUp", "value": "↗"},
+    {"name": "arrowDown", "value": "↘"},
+    {"name": "arrowFlat", "value": "→"},
+    {"name": "higherIsBetter", "value": true},
+    {"name": "drawCardFrame", "value": true},
+    {"name": "colorGood", "expr": "pbiColor('good')"},
+    {"name": "colorBad", "expr": "pbiColor('bad')"},
+    {"name": "textPrimary", "value": "#323130"},
+    {"name": "textSecondary", "value": "#605E5C"},
+    {"name": "textMuted", "value": "#A19F9D"},
+    {"name": "avgLineColor", "value": "#323130"},
+    {"name": "separatorColor", "value": "#E8E6E3"},
+    {"name": "frameColor", "value": "#1F1F1F"},
+    {"name": "cardColor", "value": "#FFFFFF"},
+    {"name": "cornerRadius", "value": 8},
+    {"name": "cardPadding", "value": 24},
+    {"name": "valueFontSize", "value": 40},
+    {"name": "areaOpacity", "value": 0.3},
+    {"name": "colorAbove", "expr": "higherIsBetter ? colorGood : colorBad"},
+    {"name": "colorBelow", "expr": "higherIsBetter ? colorBad : colorGood"},
+    {"name": "fillAbove", "expr": "{gradient: 'linear', x1: 0, y1: 0, x2: 0, y2: 1, stops: [{offset: 0, color: 'rgba(' + rgb(colorAbove).r + ',' + rgb(colorAbove).g + ',' + rgb(colorAbove).b + ',' + areaOpacity + ')'}, {offset: 1, color: 'rgba(' + rgb(colorAbove).r + ',' + rgb(colorAbove).g + ',' + rgb(colorAbove).b + ',0)'}]}"},
+    {"name": "fillBelow", "expr": "{gradient: 'linear', x1: 0, y1: 0, x2: 0, y2: 1, stops: [{offset: 0, color: 'rgba(' + rgb(colorBelow).r + ',' + rgb(colorBelow).g + ',' + rgb(colorBelow).b + ',0)'}, {offset: 1, color: 'rgba(' + rgb(colorBelow).r + ',' + rgb(colorBelow).g + ',' + rgb(colorBelow).b + ',' + areaOpacity + ')'}]}"},
+    {"name": "layoutScale", "expr": "clamp(min(width / 360, height / 280), 0.6, 2)"},
+    {"name": "layoutLeft", "expr": "cardPadding * layoutScale + 1"},
+    {"name": "layoutRight", "expr": "width - cardPadding * layoutScale - 3"},
+    {"name": "layoutTop", "expr": "(cardPadding - 2) * layoutScale + 1"},
+    {"name": "layoutBottom", "expr": "height - (cardPadding - 6) * layoutScale - 3"},
+    {"name": "layoutColumn", "expr": "layoutLeft + 0.55 * (layoutRight - layoutLeft)"},
+    {"name": "layoutSparkTop", "expr": "layoutTop + 143 * layoutScale"},
+    {"name": "layoutSparkBottom", "expr": "max(layoutSparkTop + 20, layoutBottom - 3 * layoutScale)"},
+    {"name": "layoutSparkLeft", "expr": "layoutLeft + 4 * layoutScale"},
+    {"name": "layoutSparkRight", "expr": "layoutRight - 4 * layoutScale"},
+    {"name": "layoutHeaderY", "expr": "layoutTop + 125 * layoutScale"},
+    {"name": "layoutLegendGapWidth", "expr": "length(dailyGapLabel) * 9 * 0.6 * layoutScale"},
+    {"name": "layoutLegendAvgWidth", "expr": "length(avgLabel) * 9 * 0.6 * layoutScale"},
+    {"name": "layoutLegendX", "expr": "layoutRight - 54 * layoutScale - layoutLegendGapWidth - layoutLegendAvgWidth"},
+    {"name": "layoutLegendAvgX", "expr": "layoutLegendX + 33 * layoutScale + layoutLegendGapWidth"}
+  ],
+  "data": {"name": "dataset"},
+  "transform": [
+    {"calculate": "toDate(datum['__0__'])", "as": "dayDate"},
+    {"calculate": "isValid(datum['__1__']) ? toNumber(datum['__1__']) : null", "as": "dayActual"},
+    {"calculate": "isValid(datum['__2__']) ? toNumber(datum['__2__']) : null", "as": "dayComparison"},
+    {"filter": "isValid(datum.dayDate) && isFinite(time(datum.dayDate))"},
+    {"calculate": "round(utc(year(datum.dayDate), month(datum.dayDate), date(datum.dayDate)) / 864e5)", "as": "dayNumber"},
+    {"calculate": "isValid(datum.dayActual) ? datum.dayNumber : null", "as": "dayWithActual"},
+    {"joinaggregate": [{"op": "max", "field": "dayWithActual", "as": "today"}]},
+    {"filter": "isValid(datum.today) && datum.dayNumber <= datum.today"},
+    {"calculate": "year(datum.dayDate) * 12 + month(datum.dayDate) == utcyear(datum.today * 864e5) * 12 + utcmonth(datum.today * 864e5)", "as": "inMonth"},
+    {"calculate": "datum.dayNumber > datum.today - windowDays", "as": "inWindow"},
+    {"calculate": "datum.inMonth ? datum.dayActual : null", "as": "monthActual"},
+    {"calculate": "datum.inMonth ? datum.dayComparison : null", "as": "monthComparison"},
+    {"calculate": "isValid(datum.dayActual) && isValid(datum.dayComparison) ? datum.dayActual - datum.dayComparison : null", "as": "gap"},
+    {"calculate": "sequence(0, max(1, avgDays))", "as": "avgOffsets"},
+    {"flatten": ["avgOffsets"], "as": ["avgOffset"]},
+    {"calculate": "datum.dayNumber + datum.avgOffset", "as": "avgTarget"},
+    {"joinaggregate": [{"op": "mean", "field": "gap", "as": "avgGap"}], "groupby": ["avgTarget"]},
+    {"filter": "datum.avgOffset == 0"},
+    {"calculate": "datum.inWindow ? datum.gap : null", "as": "windowGap"},
+    {"calculate": "datum.inWindow ? datum.avgGap : null", "as": "windowAvg"},
+    {"calculate": "datum.dayNumber == datum.today ? datum.gap : null", "as": "todayGapOnly"},
+    {
+      "joinaggregate": [
+        {"op": "sum", "field": "monthActual", "as": "mtdActual"},
+        {"op": "sum", "field": "monthComparison", "as": "mtdComparison"},
+        {"op": "min", "field": "windowGap", "as": "windowGapMin"},
+        {"op": "max", "field": "windowGap", "as": "windowGapMax"},
+        {"op": "min", "field": "windowAvg", "as": "windowAvgMin"},
+        {"op": "max", "field": "windowAvg", "as": "windowAvgMax"},
+        {"op": "max", "field": "todayGapOnly", "as": "todayGap"}
+      ]
+    },
+    {"calculate": "datum.mtdActual - datum.mtdComparison", "as": "mtdGap"},
+    {"calculate": "datum.mtdComparison ? datum.mtdGap / abs(datum.mtdComparison) : null", "as": "mtdGapPct"},
+    {"calculate": "datum.mtdGap > 0 ? 1 : datum.mtdGap < 0 ? -1 : 0", "as": "mtdSign"},
+    {"calculate": "datum.mtdSign > 0 ? arrowUp : datum.mtdSign < 0 ? arrowDown : arrowFlat", "as": "mtdArrow"},
+    {"calculate": "datum.mtdSign == 0 ? textSecondary : (datum.mtdSign > 0) == higherIsBetter ? colorGood : colorBad", "as": "mtdColor"},
+    {"calculate": "replace(format(datum.mtdActual, valueFormat), 'G', 'B')", "as": "mtdActualText"},
+    {"calculate": "replace(format(datum.mtdComparison, valueFormat), 'G', 'B')", "as": "mtdComparisonText"},
+    {"calculate": "datum.mtdArrow + replace(format(abs(datum.mtdGap), valueFormat), 'G', 'B') + (isValid(datum.mtdGapPct) ? ' (' + datum.mtdArrow + format(abs(datum.mtdGapPct), pctFormat) + ')' : '')", "as": "mtdGapText"},
+    {"calculate": "datum.todayGap > 0 ? 1 : datum.todayGap < 0 ? -1 : 0", "as": "todaySign"},
+    {"calculate": "isValid(datum.todayGap) ? (datum.todaySign > 0 ? arrowUp : datum.todaySign < 0 ? arrowDown : arrowFlat) + replace(format(abs(datum.todayGap), todayFormat), 'G', 'B') : ''", "as": "todayText"},
+    {"calculate": "datum.todaySign == 0 ? textSecondary : datum.todaySign > 0 ? colorAbove : colorBelow", "as": "todayColor"},
+    {"calculate": "(datum.todayGap - min(0, datum.windowGapMin, datum.windowAvgMin)) / max(1e-9, max(0, datum.windowGapMax, datum.windowAvgMax) - min(0, datum.windowGapMin, datum.windowAvgMin)) > 0.6", "as": "calloutLow"},
+    {"calculate": "datum.gap >= 0 ? colorAbove : colorBelow", "as": "gapColor"},
+    {"calculate": "timeFormat(datum.dayDate, '%a %d %b %Y')", "as": "tipDate"},
+    {"calculate": "isValid(datum.dayActual) ? format(datum.dayActual, tooltipFormat) : ''", "as": "tipActual"},
+    {"calculate": "isValid(datum.dayComparison) ? format(datum.dayComparison, tooltipFormat) : ''", "as": "tipComparison"},
+    {"calculate": "isValid(datum.gap) ? format(datum.gap, tooltipFormat) : ''", "as": "tipGap"},
+    {"calculate": "isValid(datum.avgGap) ? format(datum.avgGap, tooltipFormat) : ''", "as": "tipAvg"}
+  ],
+  "layer": [
+    {
+      "description": "Card frame, headline figures, separator and sparkline header: one row (today).",
+      "transform": [{"filter": "datum.dayNumber == datum.today"}],
+      "layer": [
+        {
+          "transform": [{"filter": "drawCardFrame"}],
+          "mark": {
+            "type": "rect",
+            "x": 0,
+            "y": 0,
+            "x2": {"expr": "width"},
+            "y2": {"expr": "height"},
+            "cornerRadius": {"expr": "cornerRadius"},
+            "fill": {"expr": "frameColor"}
+          }
+        },
+        {
+          "transform": [{"filter": "drawCardFrame"}],
+          "mark": {
+            "type": "rect",
+            "x": 1,
+            "y": 1,
+            "x2": {"expr": "width - 3"},
+            "y2": {"expr": "height - 3"},
+            "cornerRadiusTopLeft": {"expr": "max(0, cornerRadius - 1)"},
+            "cornerRadiusTopRight": {"expr": "max(0, cornerRadius - 2)"},
+            "cornerRadiusBottomLeft": {"expr": "max(0, cornerRadius - 2)"},
+            "cornerRadiusBottomRight": {"expr": "max(0, cornerRadius - 3)"},
+            "fill": {"expr": "cardColor"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": {"expr": "title"},
+            "x": {"expr": "layoutLeft"},
+            "y": {"expr": "layoutTop + 15 * layoutScale"},
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": {"expr": "14 * layoutScale"},
+            "fontWeight": 600,
+            "fill": {"expr": "textSecondary"},
+            "limit": {"expr": "layoutColumn - layoutLeft - 6"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "x": {"expr": "layoutLeft"},
+            "y": {"expr": "layoutTop + 79 * layoutScale"},
+            "align": "left",
+            "baseline": "alphabetic",
+            "fontSize": {"expr": "valueFontSize * layoutScale"},
+            "fontWeight": 700,
+            "fill": {"expr": "textPrimary"},
+            "limit": {"expr": "layoutColumn - layoutLeft - 6"}
+          },
+          "encoding": {"text": {"field": "mtdActualText", "type": "nominal"}}
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": {"expr": "comparisonLabel"},
+            "x": {"expr": "layoutColumn"},
+            "y": {"expr": "layoutTop + 13 * layoutScale"},
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": {"expr": "10 * layoutScale"},
+            "fontWeight": 600,
+            "fill": {"expr": "textMuted"},
+            "limit": {"expr": "width - layoutColumn - 4"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "x": {"expr": "layoutColumn"},
+            "y": {"expr": "layoutTop + 31 * layoutScale"},
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": {"expr": "14 * layoutScale"},
+            "fontWeight": 600,
+            "fill": {"expr": "textSecondary"},
+            "limit": {"expr": "width - layoutColumn - 4"}
+          },
+          "encoding": {"text": {"field": "mtdComparisonText", "type": "nominal"}}
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": {"expr": "gapLabel"},
+            "x": {"expr": "layoutColumn"},
+            "y": {"expr": "layoutTop + 56 * layoutScale"},
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": {"expr": "10 * layoutScale"},
+            "fontWeight": 600,
+            "fill": {"expr": "textMuted"},
+            "limit": {"expr": "width - layoutColumn - 4"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "x": {"expr": "layoutColumn"},
+            "y": {"expr": "layoutTop + 74 * layoutScale"},
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": {"expr": "14 * layoutScale"},
+            "fontWeight": 600,
+            "limit": {"expr": "width - layoutColumn - 4"}
+          },
+          "encoding": {
+            "text": {"field": "mtdGapText", "type": "nominal"},
+            "color": {"field": "mtdColor", "type": "nominal", "scale": null, "legend": null}
+          }
+        },
+        {
+          "mark": {"type": "rule", "stroke": {"expr": "separatorColor"}, "strokeWidth": 1},
+          "encoding": {
+            "x": {"value": {"expr": "layoutLeft"}},
+            "x2": {"value": {"expr": "layoutRight"}},
+            "y": {"value": {"expr": "layoutTop + 103 * layoutScale"}}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": {"expr": "windowLabel"},
+            "x": {"expr": "layoutLeft"},
+            "y": {"expr": "layoutHeaderY"},
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": {"expr": "10 * layoutScale"},
+            "fontWeight": 600,
+            "fill": {"expr": "textMuted"},
+            "limit": {"expr": "layoutLegendX - layoutLeft - 8"}
+          }
+        },
+        {
+          "mark": {"type": "rule", "stroke": {"expr": "colorBelow"}, "strokeWidth": 1},
+          "encoding": {
+            "x": {"value": {"expr": "layoutLegendX"}},
+            "x2": {"value": {"expr": "layoutLegendX + 8 * layoutScale"}},
+            "y": {"value": {"expr": "layoutHeaderY"}}
+          }
+        },
+        {
+          "mark": {"type": "rule", "stroke": {"expr": "colorAbove"}, "strokeWidth": 1},
+          "encoding": {
+            "x": {"value": {"expr": "layoutLegendX + 8 * layoutScale"}},
+            "x2": {"value": {"expr": "layoutLegendX + 16 * layoutScale"}},
+            "y": {"value": {"expr": "layoutHeaderY"}}
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "shape": "circle",
+            "filled": true,
+            "size": {"expr": "12 * layoutScale * layoutScale"},
+            "x": {"expr": "layoutLegendX"},
+            "y": {"expr": "layoutHeaderY"},
+            "fill": {"expr": "cardColor"},
+            "stroke": {"expr": "colorBelow"},
+            "strokeWidth": 1,
+            "opacity": 1
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "shape": "circle",
+            "filled": true,
+            "size": {"expr": "12 * layoutScale * layoutScale"},
+            "x": {"expr": "layoutLegendX + 16 * layoutScale"},
+            "y": {"expr": "layoutHeaderY"},
+            "fill": {"expr": "cardColor"},
+            "stroke": {"expr": "colorAbove"},
+            "strokeWidth": 1,
+            "opacity": 1
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": {"expr": "dailyGapLabel"},
+            "x": {"expr": "layoutLegendX + 21 * layoutScale"},
+            "y": {"expr": "layoutHeaderY"},
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": {"expr": "9 * layoutScale"},
+            "fontWeight": 600,
+            "fill": {"expr": "textMuted"}
+          }
+        },
+        {
+          "mark": {"type": "rule", "stroke": {"expr": "avgLineColor"}, "strokeWidth": 2, "strokeCap": "round"},
+          "encoding": {
+            "x": {"value": {"expr": "layoutLegendAvgX"}},
+            "x2": {"value": {"expr": "layoutLegendAvgX + 16 * layoutScale"}},
+            "y": {"value": {"expr": "layoutHeaderY"}}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": {"expr": "avgLabel"},
+            "x": {"expr": "layoutLegendAvgX + 21 * layoutScale"},
+            "y": {"expr": "layoutHeaderY"},
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": {"expr": "9 * layoutScale"},
+            "fontWeight": 600,
+            "fill": {"expr": "textMuted"}
+          }
+        }
+      ]
+    },
+    {
+      "description": "Daily gap: areas and a thin line, split at the zero-gap baseline so each side takes its own colour.",
+      "transform": [
+        {"filter": "datum.inWindow && isValid(datum.gap)"},
+        {"calculate": "datum.gap >= 0 ? 1 : -1", "as": "gapSign"},
+        {
+          "window": [
+            {"op": "lead", "field": "gap", "as": "nextGap"},
+            {"op": "lead", "field": "dayNumber", "as": "nextDay"},
+            {"op": "lag", "field": "gapSign", "as": "previousSign"}
+          ],
+          "sort": [{"field": "dayNumber", "order": "ascending"}]
+        },
+        {"calculate": "isValid(datum.previousSign) && datum.previousSign != datum.gapSign ? 1 : 0", "as": "signFlip"},
+        {
+          "window": [{"op": "sum", "field": "signFlip", "as": "run"}],
+          "sort": [{"field": "dayNumber", "order": "ascending"}],
+          "frame": [null, 0]
+        },
+        {"calculate": "isValid(datum.nextGap) && (datum.nextGap >= 0 ? 1 : -1) != datum.gapSign ? datum.dayNumber + (datum.nextDay - datum.dayNumber) * datum.gap / (datum.gap - datum.nextGap) : null", "as": "crossDay"},
+        {"calculate": "isValid(datum.crossDay) ? [{x: datum.dayNumber, y: datum.gap, run: datum.run, side: datum.gapSign}, {x: datum.crossDay, y: 0, run: datum.run, side: datum.gapSign}, {x: datum.crossDay, y: 0, run: datum.run + 1, side: -datum.gapSign}] : [{x: datum.dayNumber, y: datum.gap, run: datum.run, side: datum.gapSign}]", "as": "pathPoints"},
+        {"flatten": ["pathPoints"], "as": ["pathPoint"]},
+        {"calculate": "datum.pathPoint.x", "as": "pathX"},
+        {"calculate": "datum.pathPoint.y", "as": "pathY"},
+        {"calculate": "datum.pathPoint.run", "as": "pathRun"},
+        {"calculate": "datum.pathPoint.side", "as": "pathSide"},
+        {"calculate": "datum.pathSide > 0 ? colorAbove : colorBelow", "as": "pathColor"}
+      ],
+      "layer": [
+        {
+          "transform": [{"filter": "datum.pathSide > 0"}],
+          "mark": {"type": "area", "fill": {"expr": "fillAbove"}, "interpolate": "linear"},
+          "encoding": {
+            "x": {"field": "pathX", "type": "quantitative", "axis": null, "scale": {"zero": false, "nice": false, "range": [{"expr": "layoutSparkLeft"}, {"expr": "layoutSparkRight"}]}},
+            "y": {"field": "pathY", "type": "quantitative", "axis": null, "scale": {"zero": true, "nice": false, "range": [{"expr": "layoutSparkBottom"}, {"expr": "layoutSparkTop"}]}},
+            "y2": {"datum": 0},
+            "detail": {"field": "pathRun"}
+          }
+        },
+        {
+          "transform": [{"filter": "datum.pathSide < 0"}],
+          "mark": {"type": "area", "fill": {"expr": "fillBelow"}, "interpolate": "linear"},
+          "encoding": {
+            "x": {"field": "pathX", "type": "quantitative", "axis": null},
+            "y": {"field": "pathY", "type": "quantitative", "axis": null},
+            "y2": {"datum": 0},
+            "detail": {"field": "pathRun"}
+          }
+        },
+        {
+          "mark": {"type": "line", "strokeWidth": 1, "opacity": 0.55, "interpolate": "linear"},
+          "encoding": {
+            "x": {"field": "pathX", "type": "quantitative", "axis": null},
+            "y": {"field": "pathY", "type": "quantitative", "axis": null},
+            "detail": {"field": "pathRun"},
+            "color": {"field": "pathColor", "type": "nominal", "scale": null, "legend": null}
+          }
+        }
+      ]
+    },
+    {
+      "description": "Zero-gap baseline, labelled with the comparison under its left end.",
+      "transform": [{"filter": "datum.dayNumber == datum.today"}],
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "x": {"expr": "layoutLeft"},
+            "x2": {"expr": "layoutRight"},
+            "stroke": {"expr": "textMuted"},
+            "strokeWidth": 0.75,
+            "strokeDash": [2, 2]
+          },
+          "encoding": {"y": {"datum": 0, "type": "quantitative", "axis": null}}
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": {"expr": "comparisonLabel"},
+            "x": {"expr": "layoutLeft"},
+            "dy": {"expr": "3 * layoutScale"},
+            "align": "left",
+            "baseline": "top",
+            "fontSize": {"expr": "8 * layoutScale"},
+            "fontWeight": 500,
+            "fill": {"expr": "textMuted"}
+          },
+          "encoding": {"y": {"datum": 0, "type": "quantitative", "axis": null}}
+        }
+      ]
+    },
+    {
+      "description": "Day markers, the trailing moving average and the end dot for today.",
+      "transform": [{"filter": "datum.inWindow"}],
+      "layer": [
+        {
+          "transform": [{"filter": "isValid(datum.gap)"}],
+          "mark": {"type": "point", "shape": "circle", "filled": true, "size": {"expr": "11 * layoutScale * layoutScale"}, "strokeWidth": 0.9, "fill": {"expr": "cardColor"}, "opacity": 1},
+          "encoding": {
+            "x": {"field": "dayNumber", "type": "quantitative", "axis": null},
+            "y": {"field": "gap", "type": "quantitative", "axis": null},
+            "stroke": {"field": "gapColor", "type": "nominal", "scale": null, "legend": null},
+            "tooltip": [
+              {"field": "tipDate", "type": "nominal", "title": "__0__"},
+              {"field": "tipActual", "type": "nominal", "title": "__1__"},
+              {"field": "tipComparison", "type": "nominal", "title": "__2__"},
+              {"field": "tipGap", "type": "nominal", "title": "Daily gap"},
+              {"field": "tipAvg", "type": "nominal", "title": "Trailing average"}
+            ]
+          }
+        },
+        {
+          "transform": [{"filter": "isValid(datum.avgGap)"}],
+          "mark": {"type": "line", "interpolate": "monotone", "strokeWidth": 1.75, "strokeJoin": "round", "strokeCap": "round", "stroke": {"expr": "avgLineColor"}},
+          "encoding": {
+            "x": {"field": "dayNumber", "type": "quantitative", "axis": null},
+            "y": {"field": "avgGap", "type": "quantitative", "axis": null}
+          }
+        },
+        {
+          "transform": [{"filter": "datum.dayNumber == datum.today && isValid(datum.gap)"}],
+          "mark": {"type": "point", "shape": "circle", "filled": true, "size": {"expr": "30 * layoutScale * layoutScale"}, "opacity": 1},
+          "encoding": {
+            "x": {"field": "dayNumber", "type": "quantitative", "axis": null},
+            "y": {"field": "gap", "type": "quantitative", "axis": null},
+            "color": {"field": "todayColor", "type": "nominal", "scale": null, "legend": null},
+            "tooltip": [
+              {"field": "tipDate", "type": "nominal", "title": "__0__"},
+              {"field": "tipActual", "type": "nominal", "title": "__1__"},
+              {"field": "tipComparison", "type": "nominal", "title": "__2__"},
+              {"field": "tipGap", "type": "nominal", "title": "Daily gap"},
+              {"field": "tipAvg", "type": "nominal", "title": "Trailing average"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Today callout: top right of the sparkline, or bottom right when today sits high, on a card-coloured plate so a line under it cannot clash.",
+      "transform": [{"filter": "datum.dayNumber == datum.today && isValid(datum.todayGap)"}],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "x": {"expr": "layoutRight - max(length(todayLabel) * 10, length(datum.todayText) * 12) * 0.62 * layoutScale - 3"},
+            "x2": {"expr": "layoutRight + 2"},
+            "y": {"expr": "(datum.calloutLow ? layoutSparkBottom - 19 * layoutScale : layoutSparkTop + 5 * layoutScale) - 7 * layoutScale"},
+            "y2": {"expr": "(datum.calloutLow ? layoutSparkBottom - 5 * layoutScale : layoutSparkTop + 19 * layoutScale) + 8 * layoutScale"},
+            "cornerRadius": 2,
+            "fill": {"expr": "cardColor"},
+            "opacity": 0.85
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "text": {"expr": "todayLabel"},
+            "x": {"expr": "layoutRight"},
+            "y": {"expr": "datum.calloutLow ? layoutSparkBottom - 19 * layoutScale : layoutSparkTop + 5 * layoutScale"},
+            "align": "right",
+            "baseline": "middle",
+            "fontSize": {"expr": "10 * layoutScale"},
+            "fontWeight": 600,
+            "fill": {"expr": "textMuted"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "x": {"expr": "layoutRight"},
+            "y": {"expr": "datum.calloutLow ? layoutSparkBottom - 5 * layoutScale : layoutSparkTop + 19 * layoutScale"},
+            "align": "right",
+            "baseline": "middle",
+            "fontSize": {"expr": "12 * layoutScale"},
+            "fontWeight": 600
+          },
+          "encoding": {
+            "text": {"field": "todayText", "type": "nominal"},
+            "color": {"field": "todayColor", "type": "nominal", "scale": null, "legend": null}
+          }
+        }
+      ]
+    }
+  ]
+}
