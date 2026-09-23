@@ -1,9 +1,33 @@
 # Odd Rows P&L Statement
 
-A 13-row P&L statement table that adds margins, cost ratios and per-store and per-product rows to
-the five main lines, for the current period and year to date, against last year and budget.
+A performant, 13-row P&L statement that adds margins, cost ratios and per-store and per-product rows
+to the five main lines, for the current period and year to date, against last year and budget. It
+renders far faster than the same statement in a Power BI matrix or table.
 
 ![Odd Rows P&L Statement](preview.png)
+
+## Why it is fast
+
+A Power BI matrix or table builds a statement like this one cell at a time: each row is dispatched
+through `SWITCH` or a calculation group, then every cell pays for its format string and colour
+rules. This template asks the model for the base measures only, in one small query that returns
+30 rows. Every ratio, variance, format and colour is worked out inside the visual. The visual only
+ever receives those rows however large the model is, so it stays fast as the data grows. The one
+cost that still grows with the data is the query of the base measures, which any visual pays.
+
+Measured in Performance Analyzer on a 74.9 million row fact table, the Deneb build this template
+comes from rendered in **344 ms**, against **1,484 ms** for the best native build (a `SWITCH`
+table) and **7,746 ms** for calculation groups on rows and columns. Eight of the thirteen rows are
+ratios and per-unit results, which no set of accounts can produce, so a bridge table is not an
+option here: the choice is dispatch or Deneb.
+
+- How it was measured, and all nine builds side by side:
+  [The Ultimate Guide to the Power BI P&L Style Matrix & Deneb's Flawless Victory](https://binexus.net/blog/power-bi-pl-matrix-guide/).
+- To fit the template to your own model, give it to a coding agent with the
+  [performant-matrix](https://github.com/InsightfulAnalytics/PBI_Agentic_Dev/blob/main/plugins/custom-visuals/skills/performant-matrix/SKILL.md)
+  skill from [PBI_Agentic_Dev](https://github.com/InsightfulAnalytics/PBI_Agentic_Dev). It builds
+  the grid against your model's measures: the row registry, the format rules and a tie-out query
+  that proves the numbers match your model.
 
 ## Fields
 

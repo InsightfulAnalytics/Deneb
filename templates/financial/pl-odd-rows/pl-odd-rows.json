@@ -9,7 +9,7 @@
     },
     "information": {
       "name": "Odd Rows P&L Statement",
-      "description": "A P&L statement table: income, cost of sales, gross profit, operating expenses and net profit, then margins, cost ratios and per-store and per-product results, for the current period and year to date against last year and budget, all derived in the spec from 30 rows. Design by Timothy Osborn.",
+      "description": "A performant 13-row P&L statement, far faster than a Power BI matrix or table: the five main lines plus margins, cost ratios and per-store and per-product results, current period and year to date, derived in the spec from 30 rows. Design by Timothy Osborn.",
       "author": "Timothy Osborn",
       "uuid": "bafe36ee-2eee-46fc-834f-8be982cc5f1f",
       "generated": "2026-09-23T00:00:00.000Z",

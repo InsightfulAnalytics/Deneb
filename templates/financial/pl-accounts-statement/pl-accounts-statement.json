@@ -9,7 +9,7 @@
     },
     "information": {
       "name": "P&L Accounts Statement",
-      "description": "A classic account-level P&L statement table: detail accounts, subtotals and totals as rows, for the current period and year to date against budget and last year. The row count comes from the data; variances and formats are derived in the spec. Design by Timothy Osborn.",
+      "description": "A performant account-level P&L statement, far faster than a Power BI matrix or table: the model returns base measures only, and every variance, subtotal and format is derived in the spec. Current period and year to date against budget and last year. Design by Timothy Osborn.",
       "author": "Timothy Osborn",
       "uuid": "b94aece1-6c9f-4726-bfb4-c0056b32f21c",
       "generated": "2026-09-23T00:00:00.000Z",

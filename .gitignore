@@ -7,3 +7,6 @@ tools/showcase/out/
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
 **/.pbi/editorSettings.json
+
+# pbir CLI per-directory active report marker (pbir connect)
+.pbir/

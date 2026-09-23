@@ -1,9 +1,33 @@
 # P&L Accounts Statement
 
-A classic account-level P&L statement table: detail accounts, subtotals and totals as rows, with
-the current period and year to date against budget and last year.
+A performant, account-level P&L statement: detail accounts, subtotals and totals as rows, with the
+current period and year to date against budget and last year. It renders far faster than the same
+statement in a Power BI matrix or table.
 
 ![P&L Accounts Statement](preview.png)
+
+## Why it is fast
+
+A Power BI matrix or table builds a statement like this one cell at a time: each row is dispatched
+through `SWITCH` or a calculation group, then every cell pays for its format string and colour
+rules. This template asks the model for the base measures only, one row per statement line, in one
+small query. Every variance, subtotal, format and colour is worked out inside the visual. The
+visual only ever receives the statement's own rows (27 in the sample) however large the model is,
+so it stays fast as the data grows. The one cost that still grows with the data is the query of
+the base measures, which any visual pays.
+
+Measured in Performance Analyzer on a 74.9 million row fact table, the Deneb build this template
+comes from rendered in **165 ms**, against **4,978 ms** for the same statement as a `SWITCH` table.
+Because these rows are accounts, a bridge table in the model is the other fix (407 ms in the same
+test) and keeps a native visual. This template also gives you the formatting and the colour.
+
+- How it was measured, and all nine builds side by side:
+  [The Ultimate Guide to the Power BI P&L Style Matrix & Deneb's Flawless Victory](https://binexus.net/blog/power-bi-pl-matrix-guide/).
+- To fit the template to your own model, give it to a coding agent with the
+  [performant-matrix](https://github.com/InsightfulAnalytics/PBI_Agentic_Dev/blob/main/plugins/custom-visuals/skills/performant-matrix/SKILL.md)
+  skill from [PBI_Agentic_Dev](https://github.com/InsightfulAnalytics/PBI_Agentic_Dev). It builds
+  the grid against your model's measures: the row registry, the format rules and a tie-out query
+  that proves the numbers match your model.
 
 ## Fields
 

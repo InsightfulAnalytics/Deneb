@@ -9,7 +9,7 @@
     },
     "information": {
       "name": "Monthly P&L Grid",
-      "description": "A monthly P&L statement table: income, cost of sales, gross profit, margin, operating expenses, cost ratio and net profit as actual, last year and variance rows, across Jan to Dec, YTD, YTG and FY. All 315 cells are derived in the spec from 12 monthly rows. Design by Timothy Osborn.",
+      "description": "A performant monthly P&L grid, far faster than a Power BI matrix or table: seven sections as actual, last year and variance across Jan to Dec, YTD, YTG and FY. All 315 cells are derived in the spec from 12 monthly rows. Design by Timothy Osborn.",
       "author": "Timothy Osborn",
       "uuid": "c7d0beea-a444-48de-b47b-6cdc0838a2a5",
       "generated": "2026-09-23T00:00:00.000Z",

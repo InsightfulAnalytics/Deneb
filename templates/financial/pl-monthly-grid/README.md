@@ -1,10 +1,34 @@
 # Monthly P&L Grid
 
-A monthly P&L statement table: seven sections (income, cost of sales, gross profit, gross margin,
-operating expenses, cost ratio, net profit), each as actual, last year and variance, across
-January to December, YTD, YTG and FY.
+A performant monthly P&L statement: seven sections (income, cost of sales, gross profit, gross
+margin, operating expenses, cost ratio, net profit), each as actual, last year and variance, across
+January to December, YTD, YTG and FY. It renders far faster than the same grid in a Power BI matrix
+or table.
 
 ![Monthly P&L Grid](preview.png)
+
+## Why it is fast
+
+A Power BI matrix builds a grid like this one cell at a time: the rows or columns are dispatched
+through a calculation group, then every cell pays for its format string and colour rules. This
+template asks the model for 10 base measures by month, one small query that returns 12 rows: 120
+values where the matrix asked for 420 cells. All 315 displayed cells, with their formats and
+colours, are worked out inside the visual. The visual only ever receives those 12 rows however
+large the model is, so it stays fast as the data grows. The one cost that still grows with the
+data is the query of the base measures, which any visual pays.
+
+Measured in Performance Analyzer on a 74.9 million row fact table, the Deneb build this template
+comes from rendered in **206 ms**, against **11,065 ms** for the calculation-group matrix. On a
+production report the same change took a matrix from 10,984 ms to 406 ms, and the grid now renders
+in the Power BI Service, where the matrix did not.
+
+- How it was measured, and all nine builds side by side:
+  [The Ultimate Guide to the Power BI P&L Style Matrix & Deneb's Flawless Victory](https://binexus.net/blog/power-bi-pl-matrix-guide/).
+- To fit the template to your own model, give it to a coding agent with the
+  [performant-matrix](https://github.com/InsightfulAnalytics/PBI_Agentic_Dev/blob/main/plugins/custom-visuals/skills/performant-matrix/SKILL.md)
+  skill from [PBI_Agentic_Dev](https://github.com/InsightfulAnalytics/PBI_Agentic_Dev). It builds
+  the grid against your model's measures: the row registry, the format rules and a tie-out query
+  that proves the numbers match your model.
 
 ## Fields
 

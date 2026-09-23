@@ -1,7 +1,8 @@
 # Deneb Templates for Power BI
 
 Twelve ready-to-import [Deneb](https://deneb-viz.github.io/) templates for Power BI: KPI cards,
-bullet and comparison charts, P&L statement tables, a gauge and a map of Australia. Each one comes
+bullet and comparison charts, [performant P&L statements](#performant-pl-statements) that render
+far faster than a Power BI matrix or table, a gauge and a map of Australia. Each one comes
 with sample data, a preview and a README that lists its fields and options, and all of them sit
 bound to sample data in one Power BI project you can open and explore.
 
@@ -38,10 +39,32 @@ Click a preview for the template's fields, options and credits.
 </tr>
 </table>
 
-### P&L statements
+### Performant P&L statements
 
-Three statement tables drawn entirely in Deneb. Every variance, subtotal and format is worked out
-in the spec from a small flat dataset. By Timothy Osborn.
+Three P&L statements built for speed: each one renders far faster than the same statement in a
+Power BI matrix or table. A matrix builds a statement one cell at a time, dispatching every row
+through `SWITCH` or a calculation group and then paying for a format string and colour rules per
+cell. These templates ask the model for the base measures only, in one small query, and work out
+every variance, subtotal, ratio, format and colour inside the visual. The visual only ever receives
+the statement's own rows, 12 to 30 of them, however large the model is, so it stays fast as the
+data grows. By Timothy Osborn.
+
+| Statement | Deneb template | The same statement as a matrix or table |
+|---|---|---|
+| Monthly P&L Grid | **206 ms** | 11,065 ms (calculation group) |
+| Odd Rows P&L Statement | **344 ms** | 1,484 ms (`SWITCH`) to 7,746 ms (calculation groups) |
+| P&L Accounts Statement | **165 ms** | 4,978 ms (`SWITCH`), or 407 ms with a bridge table in the model |
+
+*Performance Analyzer in Power BI Desktop, over a fact table of 74.9 million rows, median of three
+runs. The Deneb times are for the builds these templates come from.*
+
+- **The full story**, with all nine builds side by side and when not to use Deneb:
+  [The Ultimate Guide to the Power BI P&L Style Matrix & Deneb's Flawless Victory](https://binexus.net/blog/power-bi-pl-matrix-guide/).
+- **Make one fit your model** with a coding agent and the
+  [performant-matrix](https://github.com/InsightfulAnalytics/PBI_Agentic_Dev/blob/main/plugins/custom-visuals/skills/performant-matrix/SKILL.md)
+  skill from [PBI_Agentic_Dev](https://github.com/InsightfulAnalytics/PBI_Agentic_Dev). The skill
+  measures your slow matrix first, then builds the grid against your model's measures, with the
+  row registry, the format rules and a tie-out query that proves the numbers match.
 
 **[P&L Accounts Statement](templates/financial/pl-accounts-statement/)**: account-level rows,
 subtotals and totals for the current period and year to date, against budget and last year.
