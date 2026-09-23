@@ -142,7 +142,9 @@ With the showcase open in Power BI Desktop (and the "secure local APIs" preview 
 page, then crop:
 
 ```bash
-pbir desktop screenshot "showcase/Deneb Template Showcase.Report" --all --scale 2 --output-dir <shots> --settle 4000
+cd showcase
+pbir desktop screenshot "Deneb Template Showcase.Report" --all --scale 2 --output-dir <shots> --settle 4000
+cd ..
 python tools/showcase/crop_previews.py <shots>            # writes the previews only
 python tools/showcase/crop_previews.py <shots> --embed    # also embeds the thumbnails
 ```
@@ -157,13 +159,18 @@ python tools/showcase/crop_previews.py <shots> --embed    # also embeds the thum
   `usermeta.information.previewImageBase64PNG`: 300 px on the long side, under 30 KB. A visual wider
   than 1000 page pixels (the P&L tables) is thumbnailed by its top-left corner so the text stays
   legible. The template file is edited in place, not re-serialised.
+- `--only <slug> [...]` redoes just those templates (or `dashboard`) and leaves every other
+  preview and thumbnail untouched, so a one-template change makes a one-template diff.
 - It needs Pillow (`pip install pillow`). Run `npm run check` in `tools/` afterwards.
 
 ## After a build, in Power BI Desktop
 
 - The data is embedded in the model definition as DAX calculated tables, which Desktop calculates
   when it opens the project. No refresh and no data source are needed.
-- Validate with `pbir validate "showcase/Deneb Template Showcase.Report"`. It reports
+- Validate from inside `showcase/` with `pbir validate "Deneb Template Showcase.Report"`. Do not
+  pass `showcase/Deneb Template Showcase.Report` from the repo root: pbir 0.9.31 on Windows does
+  not resolve a relative path with a forward slash, and silently validates the report of its
+  active profile instead (the first output line, `Validating <name>`, shows which). It reports
   `SCHEMA_DEGRADED` when the installed pbir has no copy of the visual container schema version
   Desktop writes; that is a pbir cache gap, not a report error.
 - A Desktop save rewrites the generated files. Rerun the generator to put them back; change the

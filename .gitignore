@@ -6,3 +6,4 @@ tools/showcase/out/
 # Power BI Desktop local state for the showcase PBIP
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+**/.pbi/editorSettings.json

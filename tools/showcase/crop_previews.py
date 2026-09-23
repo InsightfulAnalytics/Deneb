@@ -3,12 +3,15 @@
 
 Capture every page first, with the showcase open in Power BI Desktop:
 
-    pbir desktop screenshot "showcase/Deneb Template Showcase.Report" --all --scale 2 --output-dir <shots>
+    cd showcase
+    pbir desktop screenshot "Deneb Template Showcase.Report" --all --scale 2 --output-dir <shots>
+    cd ..
 
 Then, from the repository root:
 
     python tools/showcase/crop_previews.py <shots>            # preview.png per template, dashboard.png
     python tools/showcase/crop_previews.py <shots> --embed    # also embed the thumbnails in usermeta
+    python tools/showcase/crop_previews.py <shots> --embed --only australia-choropleth   # one template
 
 It reads tools/showcase/out/capture-map.json, which build_showcase.py writes. Needs Pillow.
 """
@@ -122,12 +125,23 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("shots", type=Path, help="folder written by pbir desktop screenshot --all")
     ap.add_argument("--embed", action="store_true", help="also embed each thumbnail in its template")
+    ap.add_argument("--only", nargs="+", metavar="SLUG",
+                    help="process only these template slugs (or 'dashboard'), leaving the other files alone")
     args = ap.parse_args()
 
     if not CAPTURE_MAP.is_file():
         print(f"{CAPTURE_MAP.relative_to(REPO)} not found; run build_showcase.py first", file=sys.stderr)
         return 1
     pages = json.loads(CAPTURE_MAP.read_text(encoding="utf-8"))["pages"]
+    if args.only:
+        known = {"dashboard"} | {p["template"] for p in pages if p["kind"] == "template"}
+        unknown = sorted(set(args.only) - known)
+        if unknown:
+            print(f"unknown slug(s): {', '.join(unknown)}", file=sys.stderr)
+            return 1
+        pages = [p for p in pages
+                 if (p["kind"] == "dashboard" and "dashboard" in args.only)
+                 or p.get("template") in args.only]
     missing = 0
     for page in pages:
         shot = args.shots / f"{page['displayName']}.png"
