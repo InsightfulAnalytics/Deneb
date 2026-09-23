@@ -1,0 +1,8 @@
+node_modules/
+tools/out/
+tools/showcase/out/
+*.bak
+
+# Power BI Desktop local state for the showcase PBIP
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
