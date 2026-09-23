@@ -1,0 +1,905 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "P&L Accounts Statement",
+      "description": "A performant account-level P&L statement, far faster than a Power BI matrix or table: the model returns base measures only, and every variance, subtotal and format is derived in the spec. Current period and year to date against budget and last year. Design by Timothy Osborn.",
+      "author": "Timothy Osborn",
+      "uuid": "b94aece1-6c9f-4726-bfb4-c0056b32f21c",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Line",
+        "description": "Statement line label, one row per line. A leading indent is stripped; LineClass sets the indent.",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "LineKey",
+        "description": "Sort key for the lines, ascending. Any increasing numbers work.",
+        "type": "numeric",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "LineClass",
+        "description": "Detail for an account line. Any other value (Subtotal, Total) is drawn bold with a rule above.",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__3__",
+        "name": "Actual",
+        "description": "Actual amount for the current period. Costs are negative.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__4__",
+        "name": "Budget",
+        "description": "Budget amount for the current period. Costs are negative.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__5__",
+        "name": "LY",
+        "description": "Last year's actual for the same period. Costs are negative.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__6__",
+        "name": "YTD Actual",
+        "description": "Actual amount, year to date. Costs are negative.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__7__",
+        "name": "YTD Budget",
+        "description": "Budget amount, year to date. Costs are negative.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__8__",
+        "name": "YTD LY",
+        "description": "Last year's actual, year to date. Costs are negative.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI",
+    "rule": {
+      "strokeCap": "butt"
+    }
+  },
+  "params": [
+    {
+      "name": "accentColor",
+      "expr": "pbiColor(0)"
+    },
+    {
+      "name": "negativeColor",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "textColor",
+      "value": "#1F252D"
+    },
+    {
+      "name": "strongTextColor",
+      "value": "#000000"
+    },
+    {
+      "name": "mutedTextColor",
+      "value": "#4A5361"
+    },
+    {
+      "name": "ruleColor",
+      "value": "#9AA3AF"
+    },
+    {
+      "name": "dividerColor",
+      "value": "#D3D8DF"
+    },
+    {
+      "name": "bandColor",
+      "value": "#161C24"
+    },
+    {
+      "name": "bandOpacity",
+      "value": 0.045
+    },
+    {
+      "name": "labelWidth",
+      "value": 280
+    },
+    {
+      "name": "indentWidth",
+      "value": 16
+    },
+    {
+      "name": "fontSize",
+      "value": 14
+    },
+    {
+      "name": "headerFontSize",
+      "value": 12
+    },
+    {
+      "name": "captionFontSize",
+      "value": 11.5
+    },
+    {
+      "name": "labelCaption",
+      "value": "STATEMENT LINE"
+    },
+    {
+      "name": "periodCaption",
+      "value": "CURRENT PERIOD"
+    },
+    {
+      "name": "ytdCaption",
+      "value": "YEAR TO DATE"
+    },
+    {
+      "name": "currencySymbol",
+      "value": "$"
+    },
+    {
+      "name": "percentFormat",
+      "value": ".1%"
+    },
+    {
+      "name": "detailLineClass",
+      "value": "Detail"
+    },
+    {
+      "name": "rowCount",
+      "expr": "length(data('dataset'))"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "padding": {
+    "left": 4,
+    "top": 10,
+    "right": 16,
+    "bottom": 14
+  },
+  "transform": [
+    {
+      "calculate": "datum['__0__']",
+      "as": "Line"
+    },
+    {
+      "calculate": "datum['__1__']",
+      "as": "LineKey"
+    },
+    {
+      "calculate": "datum['__2__']",
+      "as": "LineClass"
+    },
+    {
+      "calculate": "datum['__3__']",
+      "as": "Actual"
+    },
+    {
+      "calculate": "datum['__4__']",
+      "as": "Budget"
+    },
+    {
+      "calculate": "datum['__5__']",
+      "as": "LY"
+    },
+    {
+      "calculate": "datum['__6__']",
+      "as": "YTD Actual"
+    },
+    {
+      "calculate": "datum['__7__']",
+      "as": "YTD Budget"
+    },
+    {
+      "calculate": "datum['__8__']",
+      "as": "YTD LY"
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rowRank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "LineKey",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.rowRank - 1",
+      "as": "rowIdx"
+    },
+    {
+      "calculate": "datum['Actual'] - datum['Budget']",
+      "as": "Var"
+    },
+    {
+      "calculate": "(datum['Actual'] - datum['Budget']) / datum['Budget']",
+      "as": "Var %"
+    },
+    {
+      "calculate": "datum['Actual'] - datum['LY']",
+      "as": "vs LY"
+    },
+    {
+      "calculate": "(datum['Actual'] - datum['LY']) / datum['LY']",
+      "as": "vs LY %"
+    },
+    {
+      "calculate": "datum['YTD Actual'] - datum['YTD Budget']",
+      "as": "YTD Var"
+    },
+    {
+      "calculate": "(datum['YTD Actual'] - datum['YTD Budget']) / datum['YTD Budget']",
+      "as": "YTD Var %"
+    },
+    {
+      "calculate": "datum['YTD Actual'] - datum['YTD LY']",
+      "as": "YTD vs LY"
+    },
+    {
+      "calculate": "(datum['YTD Actual'] - datum['YTD LY']) / datum['YTD LY']",
+      "as": "YTD vs LY %"
+    },
+    {
+      "fold": [
+        "Actual",
+        "Budget",
+        "Var",
+        "Var %",
+        "LY",
+        "vs LY",
+        "vs LY %",
+        "YTD Actual",
+        "YTD Budget",
+        "YTD Var",
+        "YTD Var %",
+        "YTD LY",
+        "YTD vs LY",
+        "YTD vs LY %"
+      ],
+      "as": [
+        "column",
+        "value"
+      ]
+    },
+    {
+      "calculate": "indexof(datum.column, '%') >= 0",
+      "as": "isPctCol"
+    },
+    {
+      "calculate": "indexof([\"Var\", \"Var %\", \"vs LY\", \"vs LY %\", \"YTD Var\", \"YTD Var %\", \"YTD vs LY\", \"YTD vs LY %\"], datum.column) >= 0",
+      "as": "isVarCol"
+    },
+    {
+      "calculate": "datum.LineClass !== detailLineClass",
+      "as": "isSubtotal"
+    },
+    {
+      "calculate": "indexof([\"Actual\", \"Budget\", \"Var\", \"Var %\", \"LY\", \"vs LY\", \"vs LY %\", \"YTD Actual\", \"YTD Budget\", \"YTD Var\", \"YTD Var %\", \"YTD LY\", \"YTD vs LY\", \"YTD vs LY %\"], datum.column)",
+      "as": "colIdx"
+    },
+    {
+      "calculate": "datum.rowIdx + 0.5",
+      "as": "rowMid"
+    },
+    {
+      "calculate": "datum.rowIdx + 1",
+      "as": "rowEnd"
+    },
+    {
+      "calculate": "datum.colIdx + 1",
+      "as": "colEnd"
+    },
+    {
+      "calculate": "abs(datum.value)",
+      "as": "absValue"
+    },
+    {
+      "calculate": "datum.isPctCol ? format(datum.absValue, percentFormat) : (datum.absValue >= 999950 ? currencySymbol + format(datum.absValue / 1000000, ',.1f') + 'M' : (datum.absValue >= 999.5 ? currencySymbol + format(datum.absValue / 1000, ',.1f') + 'K' : currencySymbol + format(datum.absValue, ',.0f')))",
+      "as": "body"
+    },
+    {
+      "calculate": "(!isValid(datum.value) || !isFinite(datum.value)) ? '' : (datum.value < 0 ? '(' + datum.body + ')' : datum.body)",
+      "as": "cell"
+    },
+    {
+      "calculate": "-0.11",
+      "as": "headerRuleY"
+    }
+  ],
+  "layer": [
+    {
+      "description": "zebra banding on odd rows, spanning the label gutter and the grid",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual' && datum.rowIdx % 2 === 1"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": {
+          "expr": "bandColor"
+        },
+        "fillOpacity": {
+          "expr": "bandOpacity"
+        },
+        "x": {
+          "expr": "-labelWidth"
+        },
+        "x2": "width"
+      },
+      "encoding": {
+        "y": {
+          "field": "rowIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              {
+                "expr": "rowCount"
+              },
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "y2": {
+          "field": "rowEnd"
+        }
+      }
+    },
+    {
+      "description": "accent rule under the column headers",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual' && datum.rowIdx === 0"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "accentColor"
+        },
+        "strokeWidth": 1.5,
+        "opacity": 0.9,
+        "x": {
+          "expr": "-labelWidth"
+        },
+        "x2": "width"
+      },
+      "encoding": {
+        "y": {
+          "field": "headerRuleY",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              {
+                "expr": "rowCount"
+              },
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        }
+      }
+    },
+    {
+      "description": "vertical dividers: end of the label gutter, and the period and YTD split",
+      "transform": [
+        {
+          "filter": "datum.rowIdx === 0 && (datum.column === 'Actual' || datum.column === 'YTD Actual')"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "dividerColor"
+        },
+        "y": -46
+      },
+      "encoding": {
+        "x": {
+          "field": "colIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.column === 'YTD Actual'",
+            "value": 1.5
+          },
+          "value": 1
+        }
+      }
+    },
+    {
+      "description": "rule above each subtotal and total line",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual' && datum.isSubtotal"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "ruleColor"
+        },
+        "strokeWidth": 1,
+        "opacity": 0.8,
+        "x": {
+          "expr": "-labelWidth"
+        },
+        "x2": "width"
+      },
+      "encoding": {
+        "y": {
+          "field": "rowIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              {
+                "expr": "rowCount"
+              },
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        }
+      }
+    },
+    {
+      "description": "closing rule under the last row",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual' && datum.rowIdx === rowCount - 1"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "ruleColor"
+        },
+        "strokeWidth": 1,
+        "opacity": 0.8,
+        "x": {
+          "expr": "-labelWidth"
+        },
+        "x2": "width"
+      },
+      "encoding": {
+        "y": {
+          "field": "rowEnd",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              {
+                "expr": "rowCount"
+              },
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        }
+      }
+    },
+    {
+      "description": "half captions",
+      "transform": [
+        {
+          "filter": "datum.rowIdx === 0 && (datum.column === 'Actual' || datum.column === 'YTD Actual')"
+        },
+        {
+          "calculate": "datum.column === 'Actual' ? periodCaption : ytdCaption",
+          "as": "groupLabel"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "captionFontSize"
+        },
+        "fontWeight": 700,
+        "fill": {
+          "expr": "accentColor"
+        },
+        "opacity": 0.95,
+        "y": -38,
+        "xOffset": 4
+      },
+      "encoding": {
+        "x": {
+          "field": "colIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "text": {
+          "field": "groupLabel",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "row-label gutter caption",
+      "transform": [
+        {
+          "filter": "datum.rowIdx === 0 && datum.column === 'Actual'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "captionFontSize"
+        },
+        "fontWeight": 700,
+        "fill": {
+          "expr": "mutedTextColor"
+        },
+        "y": -38,
+        "x": {
+          "expr": "4 - labelWidth"
+        },
+        "text": {
+          "expr": "labelCaption"
+        }
+      },
+      "encoding": {}
+    },
+    {
+      "description": "column headers (the leading 'YTD ' is stripped, the half caption already says it)",
+      "transform": [
+        {
+          "filter": "datum.rowIdx === 0"
+        },
+        {
+          "calculate": "indexof(datum.column, 'YTD ') === 0 ? slice(datum.column, 4) : datum.column",
+          "as": "headerText"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "headerFontSize"
+        },
+        "y": -22,
+        "xOffset": -11,
+        "limit": {
+          "expr": "width / 14 - 6"
+        },
+        "fontWeight": {
+          "expr": "(datum.column === 'Actual' || datum.column === 'YTD Actual') ? 700 : 600"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "colEnd",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "text": {
+          "field": "headerText",
+          "type": "nominal"
+        },
+        "fill": {
+          "condition": {
+            "test": "datum.column === 'Actual' || datum.column === 'YTD Actual'",
+            "value": {
+              "expr": "strongTextColor"
+            }
+          },
+          "value": {
+            "expr": "mutedTextColor"
+          }
+        }
+      }
+    },
+    {
+      "description": "row labels in the left gutter; the indent is a pixel offset per LineClass, because a baked-in U+00A0 indent does not reliably survive the SVG pipeline",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual'"
+        },
+        {
+          "calculate": "trim(replace(datum.Line, /\\s+/g, ' '))",
+          "as": "lineLabel"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "fontSize"
+        },
+        "x": {
+          "expr": "4 - labelWidth + (datum.LineClass === detailLineClass ? indentWidth : 0)"
+        },
+        "limit": {
+          "expr": "labelWidth + 20"
+        },
+        "fontWeight": {
+          "expr": "datum.isSubtotal ? 700 : 400"
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "rowMid",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              {
+                "expr": "rowCount"
+              },
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "text": {
+          "field": "lineLabel",
+          "type": "nominal"
+        },
+        "fill": {
+          "condition": {
+            "test": "datum.isSubtotal",
+            "value": {
+              "expr": "strongTextColor"
+            }
+          },
+          "value": {
+            "expr": "textColor"
+          }
+        }
+      }
+    },
+    {
+      "description": "the numbers, one per line and column",
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "fontSize"
+        },
+        "xOffset": -11,
+        "fontWeight": {
+          "expr": "datum.isSubtotal ? 700 : 400"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "colEnd",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "y": {
+          "field": "rowMid",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              {
+                "expr": "rowCount"
+              },
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "text": {
+          "field": "cell",
+          "type": "nominal"
+        },
+        "fill": {
+          "condition": [
+            {
+              "test": "datum.isVarCol && datum.value < 0",
+              "value": {
+                "expr": "negativeColor"
+              }
+            },
+            {
+              "test": "datum.isSubtotal",
+              "value": {
+                "expr": "strongTextColor"
+              }
+            },
+            {
+              "test": "datum.column === 'Actual' || datum.column === 'YTD Actual'",
+              "value": {
+                "expr": "strongTextColor"
+              }
+            }
+          ],
+          "value": {
+            "expr": "textColor"
+          }
+        }
+      }
+    },
+    {
+      "description": "invisible full-cell rects so every cell is hoverable, blanks included",
+      "mark": {
+        "type": "rect",
+        "fill": {
+          "expr": "bandColor"
+        },
+        "fillOpacity": 0
+      },
+      "encoding": {
+        "x": {
+          "field": "colIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "x2": {
+          "field": "colEnd"
+        },
+        "y": {
+          "field": "rowIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              {
+                "expr": "rowCount"
+              },
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "y2": {
+          "field": "rowEnd"
+        },
+        "tooltip": [
+          {
+            "field": "Line",
+            "type": "nominal",
+            "title": "Line"
+          },
+          {
+            "field": "column",
+            "type": "nominal",
+            "title": "Column"
+          },
+          {
+            "field": "cell",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Raw",
+            "format": ",.4f"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+/// Sample data for the Bullet with Prior Period template, showcase instance bullet-prior-period (templates/comparison/bullet-prior-period/sample-data.csv).
+table 'bullet-prior-period'
+	lineageTag: 0d7fce6c-bae3-59db-9932-d27be01f9b35
+
+	/// Current period value: the thick bar.
+	measure 'Actual (bullet-prior-period)' = SUM ( 'bullet-prior-period'[Actual] )
+		lineageTag: c6a77665-a95d-54c0-b34c-002d6c244b92
+
+	/// Target for the current period: the dark tick.
+	measure 'Target (bullet-prior-period)' = SUM ( 'bullet-prior-period'[Target] )
+		lineageTag: 7f8c17e9-a2b4-5799-9621-9e8e0a82c11d
+
+	/// Previous period value: the light band behind the bar.
+	measure 'Previous (bullet-prior-period)' = SUM ( 'bullet-prior-period'[Previous] )
+		lineageTag: b5c2351a-9f99-537f-989c-3b1fdad608e9
+
+	/// 1 when a value above target is good, 0 when a value below target is good.
+	measure 'Higher Is Better (bullet-prior-period)' = SUM ( 'bullet-prior-period'[Higher Is Better] )
+		lineageTag: 4666e36b-1d84-5ece-8247-6a1ae5a86ef1
+
+	/// Row label, one row per metric, e.g. RM Revenue.
+	column Metric
+		dataType: string
+		lineageTag: a3ade1f4-942d-5d3d-acc3-0adde9cfae93
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Metric]
+
+		annotation SummarizationSetBy = User
+
+	/// Row order, smallest at the top.
+	column 'Sort Order'
+		dataType: double
+		lineageTag: 4907eb7d-e707-51ba-9bbe-c711da0115cc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Sort Order]
+
+		annotation SummarizationSetBy = User
+
+	column Actual
+		dataType: double
+		isHidden
+		lineageTag: 3e1e659e-475b-5952-8482-aa8f28ab192e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Actual]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 637b9c22-bed0-53fc-986d-ff97dba24653
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	column Previous
+		dataType: double
+		isHidden
+		lineageTag: f1b19eaf-aeb9-52f0-a759-847465c89762
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Previous]
+
+		annotation SummarizationSetBy = User
+
+	column 'Higher Is Better'
+		dataType: double
+		isHidden
+		lineageTag: 9f54c7ca-0cf1-55ad-9a2f-c4e12d46c1e0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Higher Is Better]
+
+		annotation SummarizationSetBy = User
+
+	partition 'bullet-prior-period' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Metric", STRING,
+				    "Sort Order", DOUBLE,
+				    "Actual", DOUBLE,
+				    "Target", DOUBLE,
+				    "Previous", DOUBLE,
+				    "Higher Is Better", DOUBLE,
+				    {
+				        { "RM OTD", 1, 0.986, 0.95, 0.917, 1 },
+				        { "RY OTD", 2, 0.949, 0.95, 0.957, 1 },
+				        { "RM Discount", 3, 0.0806, 0.065, 0.0452, 0 },
+				        { "RY Discount", 4, 0.0614, 0.065, 0.0602, 0 }
+				    }
+				)

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "1bfea09347b71ee27fe4",
+  "displayName": "Australia Choropleth",
+  "displayOption": "FitToPage",
+  "height": 705,
+  "width": 768
+}

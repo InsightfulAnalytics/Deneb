@@ -1,0 +1,269 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4e8d9d4fc3d29ed474be",
+  "position": {
+    "x": 24,
+    "y": 81,
+    "z": 2000,
+    "height": 480,
+    "width": 620,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bullet-chart"
+                    }
+                  },
+                  "Property": "Category"
+                }
+              },
+              "queryRef": "bullet-chart.Category",
+              "nativeQueryRef": "Category",
+              "displayName": "Category"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bullet-chart"
+                    }
+                  },
+                  "Property": "Actual (bullet-chart)"
+                }
+              },
+              "queryRef": "bullet-chart.Actual (bullet-chart)",
+              "nativeQueryRef": "Actual (bullet-chart)",
+              "displayName": "Actual"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bullet-chart"
+                    }
+                  },
+                  "Property": "Budget (bullet-chart)"
+                }
+              },
+              "queryRef": "bullet-chart.Budget (bullet-chart)",
+              "nativeQueryRef": "Budget (bullet-chart)",
+              "displayName": "Budget"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "bullet-chart"
+                    }
+                  },
+                  "Property": "Last Year (bullet-chart)"
+                }
+              },
+              "queryRef": "bullet-chart.Last Year (bullet-chart)",
+              "nativeQueryRef": "Last Year (bullet-chart)",
+              "displayName": "Last Year"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"params\": [\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"colorNoBudget\",\n      \"expr\": \"pbiColor(''neutral'')\"\n    },\n    {\n      \"name\": \"colorLastYear\",\n      \"value\": \"#C8C6C4\"\n    },\n    {\n      \"name\": \"lastYearOpacity\",\n      \"value\": 0.6\n    },\n    {\n      \"name\": \"colorTarget\",\n      \"value\": \"#252423\"\n    },\n    {\n      \"name\": \"colorValueInside\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"colorValueOutside\",\n      \"value\": \"#252423\"\n    },\n    {\n      \"name\": \"colorCategoryText\",\n      \"value\": \"#252423\"\n    },\n    {\n      \"name\": \"colorAxisText\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"colorGrid\",\n      \"value\": \"#C8C6C4\"\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \".3s\"\n    },\n    {\n      \"name\": \"varianceFormat\",\n      \"value\": \".1%\"\n    },\n    {\n      \"name\": \"axisFormat\",\n      \"value\": \"~s\"\n    },\n    {\n      \"name\": \"tooltipValueFormat\",\n      \"value\": \",.0f\"\n    },\n    {\n      \"name\": \"tooltipPercentFormat\",\n      \"value\": \".1%\"\n    },\n    {\n      \"name\": \"valueLabelPosition\",\n      \"value\": \"end\"\n    },\n    {\n      \"name\": \"labelFontSize\",\n      \"value\": 12\n    },\n    {\n      \"name\": \"labelPadding\",\n      \"value\": 5\n    },\n    {\n      \"name\": \"categoryFontSize\",\n      \"value\": 12\n    },\n    {\n      \"name\": \"categoryLabelLimit\",\n      \"value\": 200\n    },\n    {\n      \"name\": \"axisFontSize\",\n      \"value\": 11\n    },\n    {\n      \"name\": \"actualBarBand\",\n      \"value\": 0.5\n    },\n    {\n      \"name\": \"lastYearBand\",\n      \"value\": 0.9\n    },\n    {\n      \"name\": \"rowPadding\",\n      \"value\": 0.1\n    },\n    {\n      \"name\": \"barCornerRadius\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"targetThickness\",\n      \"value\": 3\n    },\n    {\n      \"name\": \"labelGutter\",\n      \"expr\": \"targetThickness / 2 + 3 * labelPadding + 7 * labelFontSize * 0.56 + (bandwidth(''y'') * actualBarBand < labelFontSize * 0.8 ? 6 * labelFontSize * 0.56 + 2 * labelPadding : 0)\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"calculate\": \"isValid(datum[''Budget''])\",\n      \"as\": \"hasBudget\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Actual'']) && isValid(datum[''Budget'']) ? datum[''Actual''] - datum[''Budget''] : null\",\n      \"as\": \"varBudget\"\n    },\n    {\n      \"calculate\": \"isValid(datum.varBudget) && datum[''Budget''] !== 0 ? datum.varBudget / abs(datum[''Budget'']) : null\",\n      \"as\": \"varBudgetPct\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Actual'']) && isValid(datum[''Last Year'']) ? datum[''Actual''] - datum[''Last Year''] : null\",\n      \"as\": \"varLastYear\"\n    },\n    {\n      \"calculate\": \"isValid(datum.varLastYear) && datum[''Last Year''] !== 0 ? datum.varLastYear / abs(datum[''Last Year'']) : null\",\n      \"as\": \"varLastYearPct\"\n    },\n    {\n      \"calculate\": \"!isValid(datum.varBudget) ? ''none'' : datum.varBudget >= 0 ? ''good'' : ''bad''\",\n      \"as\": \"status\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Actual'']) ? format(datum[''Actual''], valueFormat) : ''''\",\n      \"as\": \"valueText\"\n    },\n    {\n      \"calculate\": \"length(datum.valueText) * labelFontSize * 0.56\",\n      \"as\": \"valueTextWidth\"\n    },\n    {\n      \"calculate\": \"isValid(datum.varBudgetPct) ? (datum.status === ''good'' ? ''+'' : ''-'') + format(abs(datum.varBudgetPct), varianceFormat) : ''''\",\n      \"as\": \"varianceText\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Actual'']) ? format(datum[''Actual''], tooltipValueFormat) : ''''\",\n      \"as\": \"tipActual\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Budget'']) ? format(datum[''Budget''], tooltipValueFormat) : ''''\",\n      \"as\": \"tipBudget\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Last Year'']) ? format(datum[''Last Year''], tooltipValueFormat) : ''''\",\n      \"as\": \"tipLastYear\"\n    },\n    {\n      \"calculate\": \"isValid(datum.varBudget) ? (datum.varBudget >= 0 ? ''+'' : ''-'') + format(abs(datum.varBudget), tooltipValueFormat) : ''''\",\n      \"as\": \"tipVarBudget\"\n    },\n    {\n      \"calculate\": \"isValid(datum.varBudgetPct) ? (datum.varBudgetPct >= 0 ? ''+'' : ''-'') + format(abs(datum.varBudgetPct), tooltipPercentFormat) : ''''\",\n      \"as\": \"tipVarBudgetPct\"\n    },\n    {\n      \"calculate\": \"isValid(datum.varLastYear) ? (datum.varLastYear >= 0 ? ''+'' : ''-'') + format(abs(datum.varLastYear), tooltipValueFormat) : ''''\",\n      \"as\": \"tipVarLastYear\"\n    },\n    {\n      \"calculate\": \"isValid(datum.varLastYearPct) ? (datum.varLastYearPct >= 0 ? ''+'' : ''-'') + format(abs(datum.varLastYearPct), tooltipPercentFormat) : ''''\",\n      \"as\": \"tipVarLastYearPct\"\n    },\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"rowOrder\"\n        }\n      ],\n      \"sort\": [\n        {\n          \"field\": \"Actual\",\n          \"order\": \"descending\"\n        },\n        {\n          \"field\": \"Category\",\n          \"order\": \"ascending\"\n        }\n      ]\n    }\n  ],\n  \"encoding\": {\n    \"y\": {\n      \"field\": \"Category\",\n      \"type\": \"nominal\",\n      \"sort\": {\n        \"field\": \"rowOrder\",\n        \"op\": \"min\",\n        \"order\": \"ascending\"\n      },\n      \"scale\": {\n        \"paddingInner\": {\n          \"expr\": \"rowPadding\"\n        },\n        \"paddingOuter\": {\n          \"expr\": \"rowPadding / 2\"\n        }\n      },\n      \"axis\": {\n        \"title\": null,\n        \"ticks\": false,\n        \"domain\": true,\n        \"domainColor\": {\n          \"expr\": \"colorGrid\"\n        },\n        \"labelColor\": {\n          \"expr\": \"colorCategoryText\"\n        },\n        \"labelFontSize\": {\n          \"expr\": \"categoryFontSize\"\n        },\n        \"labelLimit\": {\n          \"expr\": \"categoryLabelLimit\"\n        },\n        \"labelPadding\": 8,\n        \"labelOverlap\": true\n      }\n    },\n    \"tooltip\": [\n      {\n        \"field\": \"Category\",\n        \"type\": \"nominal\"\n      },\n      {\n        \"field\": \"tipActual\",\n        \"type\": \"nominal\",\n        \"title\": \"Actual\"\n      },\n      {\n        \"field\": \"tipBudget\",\n        \"type\": \"nominal\",\n        \"title\": \"Budget\"\n      },\n      {\n        \"field\": \"tipLastYear\",\n        \"type\": \"nominal\",\n        \"title\": \"Last Year\"\n      },\n      {\n        \"field\": \"tipVarBudget\",\n        \"type\": \"nominal\",\n        \"title\": \"Var to Budget\"\n      },\n      {\n        \"field\": \"tipVarBudgetPct\",\n        \"type\": \"nominal\",\n        \"title\": \"Var to Budget %\"\n      },\n      {\n        \"field\": \"tipVarLastYear\",\n        \"type\": \"nominal\",\n        \"title\": \"Var to Last Year\"\n      },\n      {\n        \"field\": \"tipVarLastYearPct\",\n        \"type\": \"nominal\",\n        \"title\": \"Var to Last Year %\"\n      }\n    ]\n  },\n  \"layer\": [\n    {\n      \"description\": \"Last Year bar, wide and light, behind\",\n      \"mark\": {\n        \"type\": \"bar\",\n        \"height\": {\n          \"expr\": \"bandwidth(''y'') * lastYearBand\"\n        },\n        \"color\": {\n          \"expr\": \"colorLastYear\"\n        },\n        \"opacity\": {\n          \"expr\": \"lastYearOpacity\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"Last Year\",\n          \"type\": \"quantitative\",\n          \"scale\": {\n            \"zero\": true,\n            \"nice\": true,\n            \"range\": [\n              0,\n              {\n                \"expr\": \"max(width - labelGutter, width / 2)\"\n              }\n            ]\n          },\n          \"axis\": {\n            \"title\": null,\n            \"ticks\": false,\n            \"domain\": false,\n            \"tickCount\": 5,\n            \"labelExpr\": \"format(datum.value, axisFormat)\",\n            \"labelColor\": {\n              \"expr\": \"colorAxisText\"\n            },\n            \"labelFontSize\": {\n              \"expr\": \"axisFontSize\"\n            },\n            \"labelFlush\": false,\n            \"grid\": true,\n            \"gridColor\": {\n              \"expr\": \"colorGrid\"\n            },\n            \"gridDash\": [\n              1,\n              4\n            ]\n          }\n        }\n      }\n    },\n    {\n      \"description\": \"Actual bar, coloured by the Budget test\",\n      \"mark\": {\n        \"type\": \"bar\",\n        \"height\": {\n          \"expr\": \"bandwidth(''y'') * actualBarBand\"\n        },\n        \"cornerRadiusEnd\": {\n          \"expr\": \"barCornerRadius\"\n        },\n        \"color\": {\n          \"expr\": \"datum.status === ''good'' ? colorGood : datum.status === ''bad'' ? colorBad : colorNoBudget\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"Actual\",\n          \"type\": \"quantitative\"\n        }\n      }\n    },\n    {\n      \"description\": \"Budget target tick\",\n      \"mark\": {\n        \"type\": \"tick\",\n        \"size\": {\n          \"expr\": \"bandwidth(''y'') * lastYearBand\"\n        },\n        \"thickness\": {\n          \"expr\": \"targetThickness\"\n        },\n        \"color\": {\n          \"expr\": \"colorTarget\"\n        },\n        \"opacity\": 1\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"Budget\",\n          \"type\": \"quantitative\"\n        }\n      }\n    },\n    {\n      \"description\": \"Actual value label: inside the bar when it fits, outside in dark text when not\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"middle\",\n        \"fontSize\": {\n          \"expr\": \"labelFontSize\"\n        },\n        \"dx\": {\n          \"expr\": \"(((bandwidth(''y'') * actualBarBand) >= labelFontSize * 0.8 && (valueLabelPosition === ''base'' ? (scale(''x'', datum[''Actual'']) >= datum.valueTextWidth + 2 * labelPadding && !(datum.hasBudget && scale(''x'', datum[''Budget'']) - (targetThickness / 2) < datum.valueTextWidth + 2 * labelPadding)) : ((datum.hasBudget && scale(''x'', datum[''Budget'']) < scale(''x'', datum[''Actual'']) && scale(''x'', datum[''Budget'']) + (targetThickness / 2) > scale(''x'', datum[''Actual'']) - datum.valueTextWidth - 2 * labelPadding ? scale(''x'', datum[''Budget'']) - (targetThickness / 2) - labelPadding : scale(''x'', datum[''Actual'']) - labelPadding) - datum.valueTextWidth >= labelPadding))) ? (valueLabelPosition === ''base'' ? labelPadding : (datum.hasBudget && scale(''x'', datum[''Budget'']) < scale(''x'', datum[''Actual'']) && scale(''x'', datum[''Budget'']) + (targetThickness / 2) > scale(''x'', datum[''Actual'']) - datum.valueTextWidth - 2 * labelPadding ? scale(''x'', datum[''Budget'']) - (targetThickness / 2) - labelPadding : scale(''x'', datum[''Actual'']) - labelPadding) - datum.valueTextWidth) : (datum.hasBudget && scale(''x'', datum[''Budget'']) + (targetThickness / 2) >= scale(''x'', datum[''Actual'']) && scale(''x'', datum[''Budget'']) - (targetThickness / 2) < scale(''x'', datum[''Actual'']) + 2 * labelPadding + datum.valueTextWidth ? scale(''x'', datum[''Budget'']) + (targetThickness / 2) + labelPadding : scale(''x'', datum[''Actual'']) + labelPadding)) - scale(''x'', datum[''Actual''])\"\n        },\n        \"color\": {\n          \"expr\": \"((bandwidth(''y'') * actualBarBand) >= labelFontSize * 0.8 && (valueLabelPosition === ''base'' ? (scale(''x'', datum[''Actual'']) >= datum.valueTextWidth + 2 * labelPadding && !(datum.hasBudget && scale(''x'', datum[''Budget'']) - (targetThickness / 2) < datum.valueTextWidth + 2 * labelPadding)) : ((datum.hasBudget && scale(''x'', datum[''Budget'']) < scale(''x'', datum[''Actual'']) && scale(''x'', datum[''Budget'']) + (targetThickness / 2) > scale(''x'', datum[''Actual'']) - datum.valueTextWidth - 2 * labelPadding ? scale(''x'', datum[''Budget'']) - (targetThickness / 2) - labelPadding : scale(''x'', datum[''Actual'']) - labelPadding) - datum.valueTextWidth >= labelPadding))) && datum.status !== ''none'' ? colorValueInside : colorValueOutside\"\n        },\n        \"opacity\": {\n          \"expr\": \"bandwidth(''y'') >= labelFontSize ? 1 : 0\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"Actual\",\n          \"type\": \"quantitative\"\n        },\n        \"text\": {\n          \"field\": \"valueText\"\n        }\n      }\n    },\n    {\n      \"description\": \"Variance to Budget label, signed and coloured by the same test as the bar\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"middle\",\n        \"fontSize\": {\n          \"expr\": \"labelFontSize\"\n        },\n        \"fontWeight\": 600,\n        \"dx\": {\n          \"expr\": \"max(((bandwidth(''y'') * actualBarBand) >= labelFontSize * 0.8 && (valueLabelPosition === ''base'' ? (scale(''x'', datum[''Actual'']) >= datum.valueTextWidth + 2 * labelPadding && !(datum.hasBudget && scale(''x'', datum[''Budget'']) - (targetThickness / 2) < datum.valueTextWidth + 2 * labelPadding)) : ((datum.hasBudget && scale(''x'', datum[''Budget'']) < scale(''x'', datum[''Actual'']) && scale(''x'', datum[''Budget'']) + (targetThickness / 2) > scale(''x'', datum[''Actual'']) - datum.valueTextWidth - 2 * labelPadding ? scale(''x'', datum[''Budget'']) - (targetThickness / 2) - labelPadding : scale(''x'', datum[''Actual'']) - labelPadding) - datum.valueTextWidth >= labelPadding))) ? scale(''x'', datum[''Actual'']) + labelPadding : (datum.hasBudget && scale(''x'', datum[''Budget'']) + (targetThickness / 2) >= scale(''x'', datum[''Actual'']) && scale(''x'', datum[''Budget'']) - (targetThickness / 2) < scale(''x'', datum[''Actual'']) + 2 * labelPadding + datum.valueTextWidth ? scale(''x'', datum[''Budget'']) + (targetThickness / 2) + labelPadding : scale(''x'', datum[''Actual'']) + labelPadding) + datum.valueTextWidth + 2 * labelPadding, datum.hasBudget ? scale(''x'', datum[''Budget'']) + (targetThickness / 2) + labelPadding : 0) - scale(''x'', datum[''Actual''])\"\n        },\n        \"color\": {\n          \"expr\": \"datum.status === ''good'' ? colorGood : datum.status === ''bad'' ? colorBad : colorNoBudget\"\n        },\n        \"opacity\": {\n          \"expr\": \"bandwidth(''y'') >= labelFontSize ? 1 : 0\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"Actual\",\n          \"type\": \"quantitative\"\n        },\n        \"text\": {\n          \"field\": \"varianceText\"\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bullet Chart'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

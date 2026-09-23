@@ -1,0 +1,55 @@
+/// Sample data for the Overlapping Bars with Variance Lollipop template, showcase instance dash-aov-customers (showcase/data/dash-aov-customers.csv).
+table 'dash-aov-customers'
+	lineageTag: f7ee03a1-82b0-5457-83de-eea6056e07e8
+
+	/// The value being judged, for example the reporting month. Drawn as the front bar, coloured by whether it beats the comparison.
+	measure 'Current (dash-aov-customers)' = SUM ( 'dash-aov-customers'[Current] )
+		lineageTag: e58b6c83-ae7b-54ae-853b-e4c638f0bf92
+
+	/// The value to beat, for example the reporting year average. Drawn as the grey bar behind the current bar.
+	measure 'Comparison (dash-aov-customers)' = SUM ( 'dash-aov-customers'[Comparison] )
+		lineageTag: ffa7d419-99ee-53bd-b622-d770dc4bf4e2
+
+	/// The row label: a customer, product, shipper or similar. One row per category.
+	column Category
+		dataType: string
+		lineageTag: 6bf6142a-4528-591e-b509-7937f18e8876
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = User
+
+	column Current
+		dataType: double
+		isHidden
+		lineageTag: d68e7a24-cc87-55d6-a878-30d4e6912076
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Current]
+
+		annotation SummarizationSetBy = User
+
+	column Comparison
+		dataType: double
+		isHidden
+		lineageTag: d394ae75-0427-5ff6-afbf-69f14a4709f5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Comparison]
+
+		annotation SummarizationSetBy = User
+
+	partition 'dash-aov-customers' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Category", STRING,
+				    "Current", DOUBLE,
+				    "Comparison", DOUBLE,
+				    {
+				        { "Save-a-lot Markets", 5608.5, 3199.4 },
+				        { "Ernst Handel", 5221, 4481.3 },
+				        { "QUICK-Stop", 3090.9, 4712.35 }
+				    }
+				)

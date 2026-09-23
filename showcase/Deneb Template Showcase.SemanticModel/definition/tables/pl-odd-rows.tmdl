@@ -1,0 +1,108 @@
+/// Sample data for the Odd Rows P&L Statement template, showcase instance pl-odd-rows (templates/financial/pl-odd-rows/sample-data.csv).
+table 'pl-odd-rows'
+	lineageTag: d79ae53b-9e1a-59ba-a487-d03ef1e75350
+
+	/// Amount for the line and view. Costs are stored as negative numbers.
+	measure 'Amount (pl-odd-rows)' = SUM ( 'pl-odd-rows'[Amount] )
+		lineageTag: 5f2cb48e-dd0f-5069-9384-c13f5a6411c7
+
+	/// Count of trading stores for the view, ignoring the line filter.
+	measure 'Trading Stores (pl-odd-rows)' = SUM ( 'pl-odd-rows'[Trading Stores] )
+		lineageTag: 5e3fab9e-0ae5-52b7-bb36-48c92b876fbf
+
+	/// Count of active products for the view, ignoring the line filter.
+	measure 'Active Products (pl-odd-rows)' = SUM ( 'pl-odd-rows'[Active Products] )
+		lineageTag: 1c13150c-4961-5647-8ab3-4511e8e760e6
+
+	/// Statement line. Must carry the five lines Total Income, Total Cost of Sales, Gross Profit, Total Operating Expenses and Net Profit.
+	column Line
+		dataType: string
+		lineageTag: 9238bd2b-a4f1-5e57-8d15-c310287e41e5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Line]
+
+		annotation SummarizationSetBy = User
+
+	/// Scenario and period of the amount: Actual, LY, Budget, YTD Actual, YTD LY or YTD Budget.
+	column 'P&L View'
+		dataType: string
+		lineageTag: 48910d04-4780-5a7f-83cd-eb1788facfa9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [P&L View]
+
+		annotation SummarizationSetBy = User
+
+	column Amount
+		dataType: double
+		isHidden
+		lineageTag: 80c927f8-7b8d-59b1-bc24-a1dc8753c760
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Amount]
+
+		annotation SummarizationSetBy = User
+
+	column 'Trading Stores'
+		dataType: double
+		isHidden
+		lineageTag: ff19249a-4f50-5348-8ab7-926d93b9844d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trading Stores]
+
+		annotation SummarizationSetBy = User
+
+	column 'Active Products'
+		dataType: double
+		isHidden
+		lineageTag: 10c2b9dd-99df-5bda-a656-52eb55759dc5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Active Products]
+
+		annotation SummarizationSetBy = User
+
+	partition 'pl-odd-rows' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Line", STRING,
+				    "P&L View", STRING,
+				    "Amount", DOUBLE,
+				    "Trading Stores", DOUBLE,
+				    "Active Products", DOUBLE,
+				    {
+				        { "Total Income", "Actual", 7489504, 28, 2412 },
+				        { "Total Cost of Sales", "Actual", -4608319, 28, 2412 },
+				        { "Gross Profit", "Actual", 2881185, 28, 2412 },
+				        { "Total Operating Expenses", "Actual", -2310946, 28, 2412 },
+				        { "Net Profit", "Actual", 570239, 28, 2412 },
+				        { "Total Income", "LY", 7250806, 27, 2297 },
+				        { "Total Cost of Sales", "LY", -4423386, 27, 2297 },
+				        { "Gross Profit", "LY", 2827420, 27, 2297 },
+				        { "Total Operating Expenses", "LY", -2234204, 27, 2297 },
+				        { "Net Profit", "LY", 593216, 27, 2297 },
+				        { "Total Income", "Budget", 7333129, 28, 2450 },
+				        { "Total Cost of Sales", "Budget", -4444189, 28, 2450 },
+				        { "Gross Profit", "Budget", 2888940, 28, 2450 },
+				        { "Total Operating Expenses", "Budget", -2229216, 28, 2450 },
+				        { "Net Profit", "Budget", 659724, 28, 2450 },
+				        { "Total Income", "YTD Actual", 64209990, 28, 2493 },
+				        { "Total Cost of Sales", "YTD Actual", -39162485, 28, 2493 },
+				        { "Gross Profit", "YTD Actual", 25047505, 28, 2493 },
+				        { "Total Operating Expenses", "YTD Actual", -19760648, 28, 2493 },
+				        { "Net Profit", "YTD Actual", 5286857, 28, 2493 },
+				        { "Total Income", "YTD LY", 61942129, 27, 2384 },
+				        { "Total Cost of Sales", "YTD LY", -37814471, 27, 2384 },
+				        { "Gross Profit", "YTD LY", 24127658, 27, 2384 },
+				        { "Total Operating Expenses", "YTD LY", -18990869, 27, 2384 },
+				        { "Net Profit", "YTD LY", 5136789, 27, 2384 },
+				        { "Total Income", "YTD Budget", 62917172, 28, 2500 },
+				        { "Total Cost of Sales", "YTD Budget", -38405635, 28, 2500 },
+				        { "Gross Profit", "YTD Budget", 24511537, 28, 2500 },
+				        { "Total Operating Expenses", "YTD Budget", -19290994, 28, 2500 },
+				        { "Net Profit", "YTD Budget", 5220543, 28, 2500 }
+				    }
+				)

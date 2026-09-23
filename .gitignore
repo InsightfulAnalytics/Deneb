@@ -1,0 +1,12 @@
+node_modules/
+tools/out/
+tools/showcase/out/
+*.bak
+
+# Power BI Desktop local state for the showcase PBIP
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/editorSettings.json
+
+# pbir CLI per-directory active report marker (pbir connect)
+.pbir/

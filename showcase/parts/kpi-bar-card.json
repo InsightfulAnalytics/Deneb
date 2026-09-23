@@ -1,0 +1,67 @@
+{
+  "template": "templates/kpi/kpi-bar-card/kpi-bar-card.json",
+  "instances": [
+    {
+      "id": "kpi-bar-card",
+      "page": "template",
+      "data": "templates/kpi/kpi-bar-card/sample-data.csv",
+      "size": [300, 320],
+      "params": {}
+    },
+    {
+      "id": "kpi-bar-card-product",
+      "page": "template",
+      "data": "showcase/data/dash-top-product.csv",
+      "size": [300, 320],
+      "params": {
+        "title": "TOP PRODUCT",
+        "headerColor": { "expr": "pbiColor(1)" },
+        "headerTextColor": "#FFFFFF"
+      }
+    },
+    {
+      "id": "dash-top-customer",
+      "page": "dashboard",
+      "data": "showcase/data/dash-top-customer.csv",
+      "size": [264, 235],
+      "params": {
+        "title": "TOP CUSTOMER",
+        "headerColor": { "expr": "pbiColor(0, 0.8)" },
+        "headerTextColor": "#0B1E3F",
+        "nameColor": "#0B1E3F",
+        "statusColor": "#0B1E3F",
+        "metricLabel": "Rev",
+        "totalNoun": "of total rev",
+        "valueFormat": "$,.2f",
+        "labelFormat": "$,.0f",
+        "shareFormat": ".1%",
+        "momFormat": "+.1%",
+        "dateFormat": "%b %y",
+        "headerHeight": 30,
+        "titleFontSize": 13
+      }
+    },
+    {
+      "id": "dash-top-product",
+      "page": "dashboard",
+      "data": "showcase/data/dash-top-product.csv",
+      "size": [264, 235],
+      "params": {
+        "title": "TOP PRODUCT",
+        "headerColor": { "expr": "pbiColor(1)" },
+        "headerTextColor": "#FFFFFF",
+        "nameColor": "#0B1E3F",
+        "statusColor": "#0B1E3F",
+        "metricLabel": "Rev",
+        "totalNoun": "of total rev",
+        "valueFormat": "$,.2f",
+        "labelFormat": "$,.0f",
+        "shareFormat": ".1%",
+        "momFormat": "+.1%",
+        "dateFormat": "%b %y",
+        "headerHeight": 30,
+        "titleFontSize": 13
+      }
+    }
+  ]
+}

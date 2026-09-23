@@ -1,0 +1,341 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Overlapping Bars with Variance Lollipop",
+      "description": "For each category, a current bar coloured good or bad sits in front of a grey comparison bar, and a lollipop beside them shows the % difference. Built for a top-N list against an average. Design after Gerard Duggan (dg-analysis.com).",
+      "author": "Timothy Osborn, after Gerard Duggan",
+      "uuid": "5acf0450-afef-453e-98aa-e2e8146fa114",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACgCAMAAACBpqFQAAADAFBMVEX///////7+/////v///v7+/v/+/v7//f3+/f3//Pz+/Pz//Pf9/v/9/v79/f/9/f39/fz8/f/8/f78/Pz8/Pv7/f77/P77/Pv2/f78+/v9+vn6+vr4+v37+PX39/f49vX98vL0+P3w9v3y9fjz8/Ly8vLt8/ny8fHw8PDy7e3r7O7r6unq6Ofk7vri6unp6Ojk6O735ePs5t7s5t3r5d3p5+Xn5uXn5ePm5OLl5eTl4+Ll4+Hl4+Dk4+Lk4uDi4+PZ5fTW5fnW5fjV5fjU4/jv4eDj4eDj4d/j4N7i4eDi4N7h4eDh393t3dzh3dvh3Nv31tbg4N/g3t3g3tzf3t7f3t3e3t3f3dve3dzd3dzd29nc3Nzd2tfa2trZ2NfX1tbX1dPX1dLV1dXU09LT0tHS0M7L3fbF2fXD2PXC2PbC2PXF1Oi40vP1yMjpxMPQz87Qzs7QzszOzc3Ny8nNy8jLysnKyMbJyMjJyMbIyMfHxsXGxcPFw8HDw8LDwsLDwsHCwsLBv76/vby/vbuwzPClxvCwwNafwe/xtbXwsbHwr6/Ot7a9vLu8u7m7u7u7uri5ubi4trW1tLOxsbCtrazuqKjao6OpqKeko6OioaGgn57sm5vdl5blk5OgnJvoiYnmenqYve6Sue2NtuyDr+p8q+l7q+l8queCqduBqNuGoMN3p+dsoeZvnttonuZmneWampmXlpaUlJOTkpGRkI+NjYyKiomJiIdfl+BUkeJRkOJLjOGGhoWEhIODg4KCgYCAf39/fn1+fn19fHt7enl6eXh5eXh4d3Z1dXR0c3JzcnFIhdU5gd4vetwqd9sqdtsnddojctoicdkhcdohcdkgcdrha2vfXFzcSUnYNDTXLCzWKirWKSnWKCjVJCTVISHWICDVHx/UGxuJaGhvbm1rampnZ2ZkY2JeXVwhcNkgcNlLTE4fcNkfb9kecNkeb9kdb9kcbtkbbdkabNgZbNgXa9gUatsVadcTadoTadkTaNcSaNgSZ9cRZ9cPZdYGX9aT4WRcAAAULElEQVR42u2dDVRT6ZnHn7LksqXppJqtO0wwCssoJVCO3RJws4bR4TQ7DGeKy4xoFXQAwXJIWbGMCzgdYZITdB0GSDjhY+UjoNsWOwZIAsi3BBPTMIKyfIiKcgJJAZeiMrTWgX1vQEAFRUxscd4fuV/vjZ7wP8/73ucNz/9eAAwGg8FgMBgMBoPBYDAYzCsM88gnSyCJiZUCAt7M3PdsQjNc0VuxWG+e4PLm4e/vz+X5o20AjxcQwPvJT3gB6OhfUrBYZrE+8w+YI4jt7hMUzPYP8mL5B7izeEFBPJY7Eu0EFusJsYJ8pOojPl6ZH3pLy0OD8sv38Xj7KqQ8LNYCYgV7ZQyo6nhlw6HihnxFtjK7ie3dmKvIdg/AYj0hVpD3kcHKn+1J1uxTZrrr4l0kTe4BA++ka1gBn2GxnuiGwV5HBjR7fqAOV2Z6GdwzdKE+7pImTZO7P46sBbphZqV44JC7LiJbcaIh05Syb/8+yYmKfNY3ohsSdDqdNndII2YUIoiFI+vfQupNUg43JyJI2XwwV90gzUhPbqrY4//XGeBXIShzh1QAChW9qGQblUru2gDF4tGz+C/6+NWQw9nvFRDg48/z5nB8vDlcLs+b6/1XuhrazK0p5tc8ZWweObKMSrGK8ooEQLFFI1dEEovcJdjAckGxRVsozwriBqM1uUMSYP4Jsp5YlMWhgqCqWuY4IxQFqDFrwCMaNhQVOaEgiy6ORIvzmpjv2ljmk9Ch9nxypikeaK7kJNABtIeAyQRPLa0+DmDjTGR9vv2D+ez8YAG2p7lSV1OXxGs2lhLyVFtpif6cIwVJFekIG0rPUbbVlECRQFACNpFnIkv9ZALBAQGsspRYqjQAQ+Ze7XklkXFRF1G7N65FHffxsHS40q22WY6GMCTWpz/68TP5UfI66/Q0J+fFcIq5FLPVz08vA6rj1jMxzh7Rp7+/TSgDZ+cSIQDaKRaKioQiJypYSizFsNpUyfg4Yvtw2KBrnLgy0ZiUYArR0VtCyhrYpkxyxF/3298tgarSU6eXxKnSt5Y8mFDAqab9y0VoHf/CL/rnfiXVAB4l584cAMdSR4gsRkelMorNhtKiqhiPaIGwuMjRxkJiKfPfGciGxPMVxvQG1FCXYSpXKPaqoWmHuqW88mNSrLW/n/rqz8/kq798vTQeTEbDa0sWy/FMTfW5halurfKL+vnW01VkPyveABTnUkdKVAkIHKEKdcoDb5VEgZNIGFW0zTIjPR0aJOA6HGv8fCOKLN8TFQ1Jhl2eck8jUxsnL6PJQ8kUYu3vv7r8h2cy1HGl43Ha2zuuzC6XyZbLVzouj0UtWayns61NtPXt6C+FsMqGusGRCk4lKLJkICw9JfAQeZQWF6+hCCM9SoqdLRNZNBAfJiAlO6GlTOUWrznvK2GHabXpRJ04uclVdbGCSY5ZSKyh0eUw8mBiaPT++NCYebkzMjo6NDY2evvuc4llsyirQNRWXXWp1OahFhQnG1jjhLrhW+C4AZz8UJMzOnK2cJZlThseVREdOkyfXbZY41U1E3fO6SdGqvUT7dVf3hsZud926c5zirWoWmQO+nZxSfRsnjUvNaU+zMFeONeizU/ZyUydRtAIgk4KROZWhFkptDigXvoCYg1NlAqiakpkompZsbCmWCZqG7ujj6y533HXUt0QqI+pYTO9UMxZF4U6d/RCgbRQE/HoG+amO+uXK5ZIVH2paqq0+NwUkmxKVvVg7IsYi4oF1O+veQ3AmhPjX8kzyaGdIOOIgL8n0L5rLFrRyCgjCNp0H6Qx42hvkqFF+U71nzqWM2KNXRFG10xVx7ROfSGsEU2VfDHZPlVS/cCSYlkZGlRoxeoWB6DNbw3VAjAeHjCmNXUzuDYy0XY1fDF5ZTlD1v9V1chkNYLWyTPCO62CqaLqifavZStJLBrsMqGNmCHWNLgmngBJaKYuM0l9oZmpVNeyc9fRczar1CqG9F3I2dWYMpyG/sFyxUJjVlRMTYxQVhUtktWUimTtpa2TJZbthtYWK1lLYzhAmNFVqpKWf0udqMv1NbGzdZ7Zbjqx8lch6nAxy3S48RAxuFfNHnB9kcgamTxX85fLl1rbhr5svXxXP3SnbYRsvr2CxIobQALsyCkDlwv52aBKqNwc0gK+tcwK1aA4tEKe8qZKZTqsCgdNqNpN6/AiYo0Ojd8bGrtzd4xcRsb/eHtsdGWJBQTTmPa9j40pA4z0Bmkt05TQGMEyuWRqpIbvauUwaKLVqRxMv6pP9kQTRNagy4xYl28vi6Gh2yPT3EY7t8k1alxJA/xug2YgAuQa7fsbdXWa3bmhINZq5b668mYJkVMOCdoyzeH9g5W1myscNNkzY9b//tFyjN5bMWKRuJIXOxdyb6Y+gdzQ35zJLBjkdy0M2uwJJNaD9g7LYbm54cvoiCi7mv5alJiZ1jzcN5+Ya5xJS/8OPPy2WZK3ncAGVtAfbDBWg0K1LDZYUgwGg8FgMBgMBoPBYDAYDFjzu9XnAyuGWRKMQwn/uXQOHz7C/sZ+cU2aM/c/B7Effh7xaCHFN0usT322LACXw/XnbeFwf4K2XA6Hh445PH8u1/2j8G+yWJ/NGAQeJQC5MtlBwTxOMIfFDQrm8IICgn1Y3GCfxG+2WPMdFnNWC+4+pXiL14eJXh/JD3HcP4r912DvI/JDXA4WawH8mxoHk/YPl7FbpBf3ZAxneHE/apSqArBYC8FrUSd7H2nI9wrNGAhK12R4u+foyjI5WKyFuiEvSG1KXict+4G71PDROmUm+wflunjDPnYSFuvJXhhant5csS6/LKBio1rqUi/23imtdTfs93olxaKTvkzz5GRmirLgRGXxyOLkmrTh7pkSL2WLIpidc2SPPFipyfbmWrwboprk1fPr3G2Auspct70KbV6jvljx9ksas/6dlRTqHYRuisEO9eGhLRrFOKjB4qkDda74n5SF+rjxkvISNNgolYpzD+9lIbuA60YWg3AgwkJoDmaTJo02syGeJhZKq/yDZkavuXHM4mJRkefrrMxcpjT98tsAW4v8SMeYQBT1migatm21smBILIlqODuuMR4dJGfmk2VrcRELFCSR5sz3dyzIB7t2frBj50702rnDvCX3dm1Jili1hjQvr1ptiV+BAlGXzpXq9R42yPns4QFrBHqPDWdj/mcbQMzpGD9UDe0h86BYvzBnuwag/qJasi4XQsS+TSpxWJoKVUamaWqzIael/HtpGvn0dOdH/7x0frzpl3ss+Bkpq5z1p7b6ba2uQkOXs0zo5BxT6hF5ivReQnGp0ClGJBLGWH8wotFjDXSatoxtjBiAo3WJw1tUmbUqT2PY4ObsgQQjWyNVNHuS9X/rfvubX/9m6fz6d7+RFctIiv2A+qJh5VT1pT4q6kCkoNUZHGXVVcijWuLnWCo6W0ShRkbFnFktjC4SnHrb2gMXDSJ0KLLioDmhGeIUiUooS5cnQp2kHthKuUnRIpEnm4sll2bOnGfT/PMDMxNTohe1J5NiXZoVazWIYmANFYkVFVksQL5ogLNOEC2QIfsq1dpixQ4AqI8ShthBZnZzYhOhyFSkEbr4QbZEm3YBMuIUmcS0WF9dHno6l8k3dKBXxx9Qie0Q6cu80tE+IXxxLzeFMtcNbcBjA/ofS7ahyDrlHOMnOl1SBBtKHEUlAmuLRcBuBUB+OChcc3TnJRE5IEmQxKGj5LrzOnqlRsuSHIalmTOHxpELcwh5Au6Oj90dv0uaA8bHRjoeiCxgfKdA9KXq0hq9B+WhHhscwTnamTRdRqLYckI2zMiXmmhtnCeha12cHKnoNtvwTLFGJvQ1E6MTbaOjrfq2Vn1r++jYnZq28csWEYtMHU6dLXY2j0qUR25yMc+CaYU7qdBoxGNF3rO+1XluwyRVDnPa2kosSayh8WpB5BeTpcKpamFJzeniA2e+HiqSifRj9y0i1vyk9OEeBd1UBaULVKr50Ib6Usu6icWbnm3OvDJZLKxq1QsEU7Ii/Z3JVmHbvS/PTBWd/XrCMmIBdfXq1ZSXPG3ZciIljYV8AaRlAK3p3/XcTKOTaToNAQw6afk1ezMdyDkj+TYGMmcSNt/5/Z+Gnu7CbBdF1dzXi74+Uyo6jVSavDwyVSVoG7FQZP0VcIBKY1mlyXe2IXuXJHvuNKviyfhiKGlLcYWN3K2pKRE80AsnqqZqhHcF7WNj988KhybaH6xYsdBtZxIABsRMZWMipDWWeZpqJQPKbEiuFSc0NIRkDOckQDaLlZ7u4pLpllO7N7f5aPxw8lLMmR1/OXMgpnRSL5osFgnP6Ysm7pw551dUrL+3kiNLZaxo1LnW5YYYPzaFSrfXpYtN7wzEXaz1LXtXqt2ui9e6DB8Vyy+wPQ2hw4cqLuyS+ho9l+Q3HPq6+sz90Y62sfEadE+CtrGx1kuten3byIOV3A3rM4aTYMAFlGliYwWzIiJTApJcZTikKNUXWM3o5iHqfFVIo5tbU1gzsDSGNKaWvjRz5sj4+OjoH++gHGKcvM3F6N0798bHxzpWcjesy4C9wxt1cWDISGHqcsvixQ2orTaWPczKMHgaIHt476DhtUH2bmOojpYUtn14r46xNLFIF+bo7RFyS25Gp/2YK1qs8nQaKPLDDGqF64WG5vclukxjvZqpDHPRKGrVTNOJEBM0yCFnoLFxdy0kDFYqXQakM2NW+8gyuLxyx6xpoyGyW7psJr+dQd5M9JXCZrPLkLYDpaAurjOXQ8915hSV+T7AOjezOfPs1Ni9ZTA2uYLFms62ZpyYC+Shj9wphJjNmSmwLfpA9DI4EO0BNgArvNpqRhJivjJA2D6auk/fPgQwzzvdWLVMKFg7DAaDwWAwGAwGg8FgMBgM/M2bM7GZE7MkGOFx/2E9YmNj18G3Xh2HhfjQL61H/EGx5yvjfCWrldHDmyyAD4fH8dnCm95yuWQTWnPdk18psRY2Zz4vAcFcFm8nWoK57rxgb3fUFMz2Cg7mnni1xFrEYfF8BPkclO93PygNdz8k/dArRcxFLZ9l+ARxsFgL+KIOtgy0JOnkzR/V5ys+b66oYLPFjQ1SLx4W60mxvJMGy/fFJ7lqFU056R+GylVeXk1JsS1YrAVtUewUU4M/Sy2VD2To2Dt1Sm8k1sEWbyzWQpGVKM00ZDQoXHKVLhelRzjGUPe6jE+a3f82xSJodLJ+gbZIoTKNLPx+cu5hMbF4+1pMigxTbe3+Wk1OklYtTZIeamlJ9pknlp29vd1in97WDhVj2JlP26FdtGdra+V7dRPLeCaPpa6GHJ7EPyA0IpwXcJDDDj3IDg713vehT/Dc1dB2drWAVo+esrV2ZDmkS9ADPNzigWAwABkIpn0EO1zQivywIenpu8DVF52hI78m0ImZt1hKLPSETfJJ5lxuUIAPeqw5J9gf2V+5QXOpgx0EFhTwwc52AaVsYf3xQLBL5ZOH/GPrgc+H9YHW0owgWAMKuSkMci6GQdnmuTBqipsJoMGWclNCbAM8apwxmzPfe++ni/PeT99b8hhvfjip+SGlAdMeWHTfkYdi2UHe1a6ungJYsCeuL0wt3JSXdTIVILUwqyAw72Tgcb6tHVipSlJVDnAiCVV2p7gOyxnyxqOklVBRZty9ubbyHVTjhipzxcqweqa8MddNQncQM3POf262pGxM/uHT8X2x3jktlh3wrx4PDEy9mvrEZ7d/Y609v4DP31TIT90EELgeClOzEFbshYZwOnpWU2VZiDHMECtX7jKGASgq9g7vvZh8dBA9m2/QUDccEqcMz2WZErShEfXSxu2DiWQV5T/99zP4r3eDXlwseyjsDOTzAwt7uubTidTJKizMO96VWsjvOlZwzNYeoCAPslKzUk/ywc5K7kLdIaAxNus8oUys9B3QKAyfAFz0BYXYpFQZUPHogCQ2t/JwJVNebor7RC4/fN5QYTA/ZvT17v6+m4tzo79z83uWE6vgVs88rvZsArs31q5fe6wAsk4WwqZCgDdOZiGRNmXl8U/aW6sbSrUENOc0JIMh4Ty7WUxIkTNFnQaDyYOerlIGAcYdEG5MriivZxjTmEYDoz6bkISQucTrXTev9i7O1VsWEcsOUnv4gYH8nry16+dj93DMyircdDKvIDWQn9d9PGut/clNx/PyrJU9EA6VOm2zQ4ShqfYflKpQXUPLRhrsNVSaPMVajRxd/5oHzxvjw3M/vpg/mA6NlbBL16BlEdNi9V5/SO+Nm9d6b/Sh5QZq7O270dtrGbFQ5lTYU1DQ02m/cOawCV0N30BXw02bAvmpfHv7QFibut6KKQT7XbRah0q26ZuBudvchOq86eBpvjgy3Fjo6X0M8GQDc7smBKUaIdOXyfliXbvZ032zr6e7r6+7p+/adXJtocgiBcnq6sqzR7nDfB7Ls2xfUqpFm3mYzrxKZWK2ffYt5kfu5ORMZ/rEY2L19nUf5xd2Z+V1daGl72ZnVlb3jVudP3zPf9kE+Hy6pOmOrT1Sx57M223tv21Hdltzi5WLuon5Vd1zTY9tiLmc//XuWbGu9hce6+wpLOg8mdXdndV//VhPZ0H/zc7te362bPYEpc+K9W07u29bPTe3wjRybtf29a5bc2PWtbzA7u5f/KKzsKAgtf/q8d6uk/19XUc/TVk2n6ZkuL46d5+0h87+qw+l6uvuLsjK6rqe2t1ZkIci63rnyf5bhasZ/7hs6A6v0v2j5ot1tb+T/4vCzqy8ws6TeWTKSI5Z/YVgC5gnxLre299VeKOvu+vGja5ulD2iQOtD45iVEumVLhbqiLeu997sv3btVh9KtdD6GhZrUbGu9/ZeQwu5vX4N7V27jsV6XKynTXewWI+K1XdrcfqwWPOnZfysY0/jOB9fDTHLAv3R5angTojBYDAYDAaDwWAwGAwGg3lO/h9Ply/FwxWVAQAAAABJRU5ErkJggg=="
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Category",
+        "description": "The row label: a customer, product, shipper or similar. One row per category.",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Current",
+        "description": "The value being judged, for example the reporting month. Drawn as the front bar, coloured by whether it beats the comparison.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Comparison",
+        "description": "The value to beat, for example the reporting year average. Drawn as the grey bar behind the current bar.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {"type": "fit", "contains": "padding"},
+    "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "params": [
+    {"name": "title", "value": ""},
+    {"name": "subtitle", "value": ""},
+    {"name": "higherIsBetter", "value": true},
+    {"name": "valueFormat", "value": "$,.1f"},
+    {"name": "valueDivisor", "value": 1},
+    {"name": "valueSuffix", "value": ""},
+    {"name": "percentFormat", "value": "+.1%"},
+    {"name": "sortBy", "value": "current"},
+    {"name": "sortDescending", "value": true},
+    {"name": "colorGood", "expr": "pbiColor('good')"},
+    {"name": "colorBad", "expr": "pbiColor('bad')"},
+    {"name": "colorNeutral", "expr": "pbiColor('neutral')"},
+    {"name": "colorComparisonFill", "value": "#E1DFDD"},
+    {"name": "colorComparisonOutline", "value": "#A19F9D"},
+    {"name": "colorTextPrimary", "value": "#252423"},
+    {"name": "colorTextSecondary", "value": "#605E5C"},
+    {"name": "colorLabelOnBar", "value": "#FFFFFF"},
+    {"name": "colorLabelOnNeutral", "value": "#252423"},
+    {"name": "comparisonOutlineWidth", "value": 1},
+    {"name": "lollipopHeadTint", "value": 0.75},
+    {"name": "lollipopHeadStrokeWidth", "value": 1.5},
+    {"name": "titleFontSize", "value": 13},
+    {"name": "subtitleFontSize", "value": 10},
+    {"name": "categoryFontSize", "value": 12},
+    {"name": "valueFontSize", "value": 10},
+    {"name": "percentFontSize", "value": 11},
+    {"name": "labelColumnShare", "value": 0.28},
+    {"name": "lollipopShare", "value": 0.2},
+    {"name": "comparisonBarSize", "value": 0.42},
+    {"name": "currentBarSize", "value": 0.3},
+    {"name": "comparisonBarOffset", "value": -0.1},
+    {"name": "currentBarOffset", "value": 0.12},
+    {"name": "lollipopHeadRadius", "value": 5},
+    {"name": "lollipopStemWidth", "value": 2.5}
+  ],
+  "data": {"name": "dataset"},
+  "transform": [
+    {"calculate": "isValid(datum['__0__']) ? datum['__0__'] + '' : '(Blank)'", "as": "category"},
+    {"calculate": "isValid(datum['__1__']) && isFinite(toNumber(datum['__1__'])) ? toNumber(datum['__1__']) : null", "as": "current"},
+    {"calculate": "isValid(datum['__2__']) && isFinite(toNumber(datum['__2__'])) ? toNumber(datum['__2__']) : null", "as": "comparison"},
+    {"calculate": "isValid(datum.current) && isValid(datum.comparison) && datum.comparison != 0 ? (datum.current - datum.comparison) / abs(datum.comparison) : null", "as": "difference"},
+    {"calculate": "!isValid(datum.difference) || datum.difference == 0 ? 'neutral' : ((datum.difference > 0) === (higherIsBetter === true || higherIsBetter === 'true') ? 'good' : 'bad')", "as": "status"},
+    {"calculate": "datum.status == 'good' ? colorGood : datum.status == 'bad' ? colorBad : colorNeutral", "as": "statusColor"},
+    {"calculate": "rgb(datum.statusColor)", "as": "statusRgb"},
+    {"calculate": "'rgb(' + round(datum.statusRgb.r + (255 - datum.statusRgb.r) * lollipopHeadTint) + ',' + round(datum.statusRgb.g + (255 - datum.statusRgb.g) * lollipopHeadTint) + ',' + round(datum.statusRgb.b + (255 - datum.statusRgb.b) * lollipopHeadTint) + ')'", "as": "headFill"},
+    {"window": [{"op": "row_number", "as": "categoryRank"}], "sort": [{"field": "category", "order": "ascending"}]},
+    {"calculate": "sortBy == 'category' ? datum.categoryRank : sortBy == 'comparison' ? datum.comparison : sortBy == 'difference' ? datum.difference : datum.current", "as": "sortRaw"},
+    {"calculate": "isValid(datum.sortRaw) ? (sortDescending ? -datum.sortRaw : datum.sortRaw) : 1e300", "as": "sortValue"},
+    {"window": [{"op": "row_number", "as": "rowIndex"}], "sort": [{"field": "sortValue", "order": "ascending"}, {"field": "categoryRank", "order": "ascending"}]},
+    {"joinaggregate": [
+      {"op": "count", "as": "rowCount"},
+      {"op": "max", "field": "current", "as": "maxCurrent"},
+      {"op": "max", "field": "comparison", "as": "maxComparison"},
+      {"op": "min", "field": "difference", "as": "minDifference"},
+      {"op": "max", "field": "difference", "as": "maxDifference"}
+    ]},
+    {"calculate": "(length(title) > 0 ? titleFontSize * 1.35 : 0) + (length(subtitle) > 0 ? subtitleFontSize * 1.35 : 0) + (length(title) + length(subtitle) > 0 ? 6 : 0)", "as": "plotTop"},
+    {"calculate": "width * labelColumnShare", "as": "labelRight"},
+    {"calculate": "datum.labelRight + 8", "as": "barStart"},
+    {"calculate": "percentFontSize * 5", "as": "percentSpace"},
+    {"calculate": "width - datum.percentSpace - 4", "as": "lollipopRight"},
+    {"calculate": "datum.lollipopRight - width * lollipopShare", "as": "lollipopLeft"},
+    {"calculate": "max(datum.lollipopLeft - 10 - datum.barStart, 1)", "as": "barSpan"},
+    {"calculate": "max(isValid(datum.maxCurrent) ? datum.maxCurrent : 0, isValid(datum.maxComparison) ? datum.maxComparison : 0) > 0 ? max(isValid(datum.maxCurrent) ? datum.maxCurrent : 0, isValid(datum.maxComparison) ? datum.maxComparison : 0) : 1", "as": "valueMax"},
+    {"calculate": "datum.barStart + max(0, isValid(datum.current) ? datum.current : 0) / datum.valueMax * datum.barSpan", "as": "currentX"},
+    {"calculate": "datum.barStart + max(0, isValid(datum.comparison) ? datum.comparison : 0) / datum.valueMax * datum.barSpan", "as": "comparisonX"},
+    {"calculate": "max(0, height - datum.plotTop) / datum.rowCount", "as": "rowHeight"},
+    {"calculate": "datum.plotTop + (datum.rowIndex - 0.5) * datum.rowHeight", "as": "rowCenter"},
+    {"calculate": "datum.rowCenter + (comparisonBarOffset - comparisonBarSize / 2) * datum.rowHeight", "as": "comparisonTop"},
+    {"calculate": "datum.comparisonTop + comparisonBarSize * datum.rowHeight", "as": "comparisonBottom"},
+    {"calculate": "datum.rowCenter + (currentBarOffset - currentBarSize / 2) * datum.rowHeight", "as": "currentTop"},
+    {"calculate": "datum.currentTop + currentBarSize * datum.rowHeight", "as": "currentBottom"},
+    {"calculate": "(min(datum.comparisonTop, datum.currentTop) + max(datum.comparisonBottom, datum.currentBottom)) / 2", "as": "groupCenter"},
+    {"calculate": "datum.currentTop > datum.comparisonTop ? (datum.comparisonTop + min(datum.currentTop, datum.comparisonBottom)) / 2 : (datum.comparisonTop + datum.comparisonBottom) / 2", "as": "comparisonLabelY"},
+    {"calculate": "(datum.currentTop + datum.currentBottom) / 2", "as": "currentLabelY"},
+    {"calculate": "isValid(datum.current) ? format(datum.current / valueDivisor, valueFormat) + valueSuffix : ''", "as": "currentText"},
+    {"calculate": "isValid(datum.comparison) ? format(datum.comparison / valueDivisor, valueFormat) + valueSuffix : ''", "as": "comparisonText"},
+    {"calculate": "datum.currentX - datum.barStart >= length(datum.currentText) * valueFontSize * 0.55 + 6", "as": "currentInside"},
+    {"calculate": "datum.comparisonX - datum.barStart >= length(datum.comparisonText) * valueFontSize * 0.55 + 6", "as": "comparisonInside"},
+    {"calculate": "(datum.currentTop > datum.comparisonTop ? min(datum.currentTop, datum.comparisonBottom) : datum.comparisonBottom) - datum.comparisonTop >= valueFontSize", "as": "comparisonLabelFits"},
+    {"calculate": "datum.status == 'neutral' ? colorLabelOnNeutral : colorLabelOnBar", "as": "currentLabelColor"},
+    {"calculate": "min(0, isValid(datum.minDifference) ? datum.minDifference : 0)", "as": "differenceMin"},
+    {"calculate": "max(0, isValid(datum.maxDifference) ? datum.maxDifference : 0)", "as": "differenceMax"},
+    {"calculate": "datum.lollipopLeft + lollipopHeadRadius + 1", "as": "headLeft"},
+    {"calculate": "max(datum.lollipopRight - lollipopHeadRadius - 1, datum.headLeft)", "as": "headRight"},
+    {"calculate": "datum.headLeft + (0 - datum.differenceMin) / max(datum.differenceMax - datum.differenceMin, 1e-9) * (datum.headRight - datum.headLeft)", "as": "zeroX"},
+    {"calculate": "isValid(datum.difference) ? datum.headLeft + (datum.difference - datum.differenceMin) / max(datum.differenceMax - datum.differenceMin, 1e-9) * (datum.headRight - datum.headLeft) : null", "as": "headX"},
+    {"calculate": "isValid(datum.difference) ? format(datum.difference, percentFormat) : ''", "as": "percentText"},
+    {"calculate": "max(isValid(datum.headX) ? datum.headX + lollipopHeadRadius : 0, datum.zeroX) + 4", "as": "percentX"},
+    {"calculate": "max(3, floor((datum.labelRight - 4) / (categoryFontSize * 0.52)))", "as": "labelChars"},
+    {"calculate": "length(datum.category) <= datum.labelChars || datum.rowHeight < categoryFontSize * 2.5 ? -1 : (lastindexof(substring(datum.category, 0, datum.labelChars + 1), ' ') > 0 ? lastindexof(substring(datum.category, 0, datum.labelChars + 1), ' ') : indexof(datum.category, ' '))", "as": "labelCut"},
+    {"calculate": "datum.labelCut > 0 ? [substring(datum.category, 0, datum.labelCut), substring(datum.category, datum.labelCut + 1)] : [datum.category]", "as": "labelLines"}
+  ],
+  "encoding": {
+    "tooltip": [
+      {"field": "__0__", "type": "nominal"},
+      {"field": "currentText", "type": "nominal", "title": "__1__"},
+      {"field": "comparisonText", "type": "nominal", "title": "__2__"},
+      {"field": "percentText", "type": "nominal", "title": "Difference"}
+    ]
+  },
+  "layer": [
+    {
+      "transform": [{"filter": "isValid(datum.comparison)"}],
+      "mark": {
+        "type": "rect",
+        "fill": {"expr": "colorComparisonFill"},
+        "stroke": {"expr": "colorComparisonOutline"},
+        "strokeWidth": {"expr": "comparisonOutlineWidth"}
+      },
+      "encoding": {
+        "x": {"field": "barStart", "type": "quantitative", "scale": null},
+        "x2": {"field": "comparisonX"},
+        "y": {"field": "comparisonTop", "type": "quantitative", "scale": null},
+        "y2": {"field": "comparisonBottom"}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.current)"}],
+      "mark": {"type": "rect"},
+      "encoding": {
+        "x": {"field": "barStart", "type": "quantitative", "scale": null},
+        "x2": {"field": "currentX"},
+        "y": {"field": "currentTop", "type": "quantitative", "scale": null},
+        "y2": {"field": "currentBottom"},
+        "fill": {"field": "statusColor", "type": "nominal", "scale": null}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.comparison) && datum.comparisonLabelFits && datum.comparisonInside"}],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -4,
+        "fontSize": {"expr": "valueFontSize"},
+        "fill": {"expr": "colorTextPrimary"}
+      },
+      "encoding": {
+        "x": {"field": "comparisonX", "type": "quantitative", "scale": null},
+        "y": {"field": "comparisonLabelY", "type": "quantitative", "scale": null},
+        "text": {"field": "comparisonText", "type": "nominal"}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.comparison) && datum.comparisonLabelFits && !datum.comparisonInside"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 4,
+        "fontSize": {"expr": "valueFontSize"},
+        "fill": {"expr": "colorTextPrimary"}
+      },
+      "encoding": {
+        "x": {"field": "comparisonX", "type": "quantitative", "scale": null},
+        "y": {"field": "comparisonLabelY", "type": "quantitative", "scale": null},
+        "text": {"field": "comparisonText", "type": "nominal"}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.current) && datum.currentInside"}],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -4,
+        "fontSize": {"expr": "valueFontSize"}
+      },
+      "encoding": {
+        "x": {"field": "currentX", "type": "quantitative", "scale": null},
+        "y": {"field": "currentLabelY", "type": "quantitative", "scale": null},
+        "text": {"field": "currentText", "type": "nominal"},
+        "fill": {"field": "currentLabelColor", "type": "nominal", "scale": null}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.current) && !datum.currentInside"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 4,
+        "fontSize": {"expr": "valueFontSize"},
+        "fill": {"expr": "colorTextPrimary"}
+      },
+      "encoding": {
+        "x": {"field": "currentX", "type": "quantitative", "scale": null},
+        "y": {"field": "currentLabelY", "type": "quantitative", "scale": null},
+        "text": {"field": "currentText", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": {"expr": "categoryFontSize"},
+        "lineHeight": {"expr": "categoryFontSize * 1.2"},
+        "limit": {"expr": "max(width * labelColumnShare - 2, 10)"},
+        "fill": {"expr": "colorTextPrimary"}
+      },
+      "encoding": {
+        "x": {"field": "labelRight", "type": "quantitative", "scale": null},
+        "y": {"field": "groupCenter", "type": "quantitative", "scale": null},
+        "text": {"field": "labelLines", "type": "nominal"}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.difference)"}],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": {"expr": "lollipopStemWidth"},
+        "strokeCap": "butt"
+      },
+      "encoding": {
+        "x": {"field": "zeroX", "type": "quantitative", "scale": null},
+        "x2": {"field": "headX"},
+        "y": {"field": "groupCenter", "type": "quantitative", "scale": null},
+        "stroke": {"field": "statusColor", "type": "nominal", "scale": null}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.difference)"}],
+      "mark": {
+        "type": "circle",
+        "size": {"expr": "PI * lollipopHeadRadius * lollipopHeadRadius"},
+        "strokeWidth": {"expr": "lollipopHeadStrokeWidth"},
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {"field": "headX", "type": "quantitative", "scale": null},
+        "y": {"field": "groupCenter", "type": "quantitative", "scale": null},
+        "fill": {"field": "headFill", "type": "nominal", "scale": null},
+        "stroke": {"field": "statusColor", "type": "nominal", "scale": null}
+      }
+    },
+    {
+      "transform": [{"filter": "isValid(datum.difference)"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {"expr": "percentFontSize"},
+        "limit": {"expr": "percentFontSize * 5"}
+      },
+      "encoding": {
+        "x": {"field": "percentX", "type": "quantitative", "scale": null},
+        "y": {"field": "groupCenter", "type": "quantitative", "scale": null},
+        "text": {"field": "percentText", "type": "nominal"},
+        "fill": {"field": "statusColor", "type": "nominal", "scale": null}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.rowIndex === 1 && length(title) > 0"}],
+      "mark": {
+        "type": "text",
+        "text": {"expr": "title"},
+        "x": 0,
+        "y": 0,
+        "align": "left",
+        "baseline": "top",
+        "fontSize": {"expr": "titleFontSize"},
+        "fontWeight": "bold",
+        "limit": {"expr": "width"},
+        "fill": {"expr": "colorTextPrimary"}
+      },
+      "encoding": {"tooltip": null}
+    },
+    {
+      "transform": [{"filter": "datum.rowIndex === 1 && length(subtitle) > 0"}],
+      "mark": {
+        "type": "text",
+        "text": {"expr": "subtitle"},
+        "x": 0,
+        "y": {"expr": "length(title) > 0 ? titleFontSize * 1.35 : 0"},
+        "align": "left",
+        "baseline": "top",
+        "fontSize": {"expr": "subtitleFontSize"},
+        "limit": {"expr": "width"},
+        "fill": {"expr": "colorTextSecondary"}
+      },
+      "encoding": {"tooltip": null}
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "template": "templates/financial/pl-odd-rows/pl-odd-rows.json",
+  "instances": [
+    {
+      "id": "pl-odd-rows",
+      "page": "template",
+      "data": "templates/financial/pl-odd-rows/sample-data.csv",
+      "size": [
+        1608,
+        530
+      ],
+      "params": {}
+    }
+  ]
+}

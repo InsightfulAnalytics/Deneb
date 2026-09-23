@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "d7011eef33f3bc72ee6c",
+  "displayName": "P&L Accounts Statement",
+  "displayOption": "FitToPage",
+  "height": 845,
+  "width": 1656
+}

@@ -1,0 +1,254 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "0bdc16f23242dfcb8231",
+  "position": {
+    "x": 408,
+    "y": 81,
+    "z": 3000,
+    "height": 280,
+    "width": 360,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-gap-sparkline-card-bad"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "kpi-gap-sparkline-card-bad.Date",
+              "nativeQueryRef": "Date",
+              "displayName": "Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-gap-sparkline-card-bad"
+                    }
+                  },
+                  "Property": "Actual (kpi-gap-sparkline-card-bad)"
+                }
+              },
+              "queryRef": "kpi-gap-sparkline-card-bad.Actual (kpi-gap-sparkline-card-bad)",
+              "nativeQueryRef": "Actual (kpi-gap-sparkline-card-bad)",
+              "displayName": "Actual"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-gap-sparkline-card-bad"
+                    }
+                  },
+                  "Property": "Comparison (kpi-gap-sparkline-card-bad)"
+                }
+              },
+              "queryRef": "kpi-gap-sparkline-card-bad.Comparison (kpi-gap-sparkline-card-bad)",
+              "nativeQueryRef": "Comparison (kpi-gap-sparkline-card-bad)",
+              "displayName": "Comparison"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"padding\": 0,\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"Orders MTD (€)\"\n    },\n    {\n      \"name\": \"comparisonLabel\",\n      \"value\": \"MTD LY\"\n    },\n    {\n      \"name\": \"gapLabel\",\n      \"value\": \"GAP\"\n    },\n    {\n      \"name\": \"windowDays\",\n      \"value\": 30\n    },\n    {\n      \"name\": \"avgDays\",\n      \"value\": 5\n    },\n    {\n      \"name\": \"windowLabel\",\n      \"expr\": \"''LAST '' + windowDays + '' DAYS''\"\n    },\n    {\n      \"name\": \"dailyGapLabel\",\n      \"value\": \"DAILY GAP\"\n    },\n    {\n      \"name\": \"avgLabel\",\n      \"expr\": \"avgDays + ''D AVG''\"\n    },\n    {\n      \"name\": \"todayLabel\",\n      \"value\": \"TODAY\"\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \".3~s\"\n    },\n    {\n      \"name\": \"todayFormat\",\n      \"value\": \".2~s\"\n    },\n    {\n      \"name\": \"pctFormat\",\n      \"value\": \".1%\"\n    },\n    {\n      \"name\": \"tooltipFormat\",\n      \"value\": \",.0f\"\n    },\n    {\n      \"name\": \"arrowUp\",\n      \"value\": \"↗\"\n    },\n    {\n      \"name\": \"arrowDown\",\n      \"value\": \"↘\"\n    },\n    {\n      \"name\": \"arrowFlat\",\n      \"value\": \"→\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": true\n    },\n    {\n      \"name\": \"drawCardFrame\",\n      \"value\": true\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"textPrimary\",\n      \"value\": \"#323130\"\n    },\n    {\n      \"name\": \"textSecondary\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"textMuted\",\n      \"value\": \"#A19F9D\"\n    },\n    {\n      \"name\": \"avgLineColor\",\n      \"value\": \"#323130\"\n    },\n    {\n      \"name\": \"separatorColor\",\n      \"value\": \"#E8E6E3\"\n    },\n    {\n      \"name\": \"frameColor\",\n      \"value\": \"#1F1F1F\"\n    },\n    {\n      \"name\": \"cardColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"cornerRadius\",\n      \"value\": 8\n    },\n    {\n      \"name\": \"cardPadding\",\n      \"value\": 24\n    },\n    {\n      \"name\": \"valueFontSize\",\n      \"value\": 40\n    },\n    {\n      \"name\": \"areaOpacity\",\n      \"value\": 0.3\n    },\n    {\n      \"name\": \"colorAbove\",\n      \"expr\": \"higherIsBetter ? colorGood : colorBad\"\n    },\n    {\n      \"name\": \"colorBelow\",\n      \"expr\": \"higherIsBetter ? colorBad : colorGood\"\n    },\n    {\n      \"name\": \"fillAbove\",\n      \"expr\": \"{gradient: ''linear'', x1: 0, y1: 0, x2: 0, y2: 1, stops: [{offset: 0, color: ''rgba('' + rgb(colorAbove).r + '','' + rgb(colorAbove).g + '','' + rgb(colorAbove).b + '','' + areaOpacity + '')''}, {offset: 1, color: ''rgba('' + rgb(colorAbove).r + '','' + rgb(colorAbove).g + '','' + rgb(colorAbove).b + '',0)''}]}\"\n    },\n    {\n      \"name\": \"fillBelow\",\n      \"expr\": \"{gradient: ''linear'', x1: 0, y1: 0, x2: 0, y2: 1, stops: [{offset: 0, color: ''rgba('' + rgb(colorBelow).r + '','' + rgb(colorBelow).g + '','' + rgb(colorBelow).b + '',0)''}, {offset: 1, color: ''rgba('' + rgb(colorBelow).r + '','' + rgb(colorBelow).g + '','' + rgb(colorBelow).b + '','' + areaOpacity + '')''}]}\"\n    },\n    {\n      \"name\": \"layoutScale\",\n      \"expr\": \"clamp(min(width / 360, height / 280), 0.6, 2)\"\n    },\n    {\n      \"name\": \"layoutLeft\",\n      \"expr\": \"cardPadding * layoutScale + 1\"\n    },\n    {\n      \"name\": \"layoutRight\",\n      \"expr\": \"width - cardPadding * layoutScale - 3\"\n    },\n    {\n      \"name\": \"layoutTop\",\n      \"expr\": \"(cardPadding - 2) * layoutScale + 1\"\n    },\n    {\n      \"name\": \"layoutBottom\",\n      \"expr\": \"height - (cardPadding - 6) * layoutScale - 3\"\n    },\n    {\n      \"name\": \"layoutColumn\",\n      \"expr\": \"layoutLeft + 0.55 * (layoutRight - layoutLeft)\"\n    },\n    {\n      \"name\": \"layoutSparkTop\",\n      \"expr\": \"layoutTop + 143 * layoutScale\"\n    },\n    {\n      \"name\": \"layoutSparkBottom\",\n      \"expr\": \"max(layoutSparkTop + 20, layoutBottom - 3 * layoutScale)\"\n    },\n    {\n      \"name\": \"layoutSparkLeft\",\n      \"expr\": \"layoutLeft + 4 * layoutScale\"\n    },\n    {\n      \"name\": \"layoutSparkRight\",\n      \"expr\": \"layoutRight - 4 * layoutScale\"\n    },\n    {\n      \"name\": \"layoutHeaderY\",\n      \"expr\": \"layoutTop + 125 * layoutScale\"\n    },\n    {\n      \"name\": \"layoutLegendGapWidth\",\n      \"expr\": \"length(dailyGapLabel) * 9 * 0.6 * layoutScale\"\n    },\n    {\n      \"name\": \"layoutLegendAvgWidth\",\n      \"expr\": \"length(avgLabel) * 9 * 0.6 * layoutScale\"\n    },\n    {\n      \"name\": \"layoutLegendX\",\n      \"expr\": \"layoutRight - 54 * layoutScale - layoutLegendGapWidth - layoutLegendAvgWidth\"\n    },\n    {\n      \"name\": \"layoutLegendAvgX\",\n      \"expr\": \"layoutLegendX + 33 * layoutScale + layoutLegendGapWidth\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"calculate\": \"toDate(datum[''Date''])\",\n      \"as\": \"dayDate\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Actual'']) ? toNumber(datum[''Actual'']) : null\",\n      \"as\": \"dayActual\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Comparison'']) ? toNumber(datum[''Comparison'']) : null\",\n      \"as\": \"dayComparison\"\n    },\n    {\n      \"filter\": \"isValid(datum.dayDate) && isFinite(time(datum.dayDate))\"\n    },\n    {\n      \"calculate\": \"round(utc(year(datum.dayDate), month(datum.dayDate), date(datum.dayDate)) / 864e5)\",\n      \"as\": \"dayNumber\"\n    },\n    {\n      \"calculate\": \"isValid(datum.dayActual) ? datum.dayNumber : null\",\n      \"as\": \"dayWithActual\"\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"max\",\n          \"field\": \"dayWithActual\",\n          \"as\": \"today\"\n        }\n      ]\n    },\n    {\n      \"filter\": \"isValid(datum.today) && datum.dayNumber <= datum.today\"\n    },\n    {\n      \"calculate\": \"year(datum.dayDate) * 12 + month(datum.dayDate) == utcyear(datum.today * 864e5) * 12 + utcmonth(datum.today * 864e5)\",\n      \"as\": \"inMonth\"\n    },\n    {\n      \"calculate\": \"datum.dayNumber > datum.today - windowDays\",\n      \"as\": \"inWindow\"\n    },\n    {\n      \"calculate\": \"datum.inMonth ? datum.dayActual : null\",\n      \"as\": \"monthActual\"\n    },\n    {\n      \"calculate\": \"datum.inMonth ? datum.dayComparison : null\",\n      \"as\": \"monthComparison\"\n    },\n    {\n      \"calculate\": \"isValid(datum.dayActual) && isValid(datum.dayComparison) ? datum.dayActual - datum.dayComparison : null\",\n      \"as\": \"gap\"\n    },\n    {\n      \"calculate\": \"sequence(0, max(1, avgDays))\",\n      \"as\": \"avgOffsets\"\n    },\n    {\n      \"flatten\": [\n        \"avgOffsets\"\n      ],\n      \"as\": [\n        \"avgOffset\"\n      ]\n    },\n    {\n      \"calculate\": \"datum.dayNumber + datum.avgOffset\",\n      \"as\": \"avgTarget\"\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"mean\",\n          \"field\": \"gap\",\n          \"as\": \"avgGap\"\n        }\n      ],\n      \"groupby\": [\n        \"avgTarget\"\n      ]\n    },\n    {\n      \"filter\": \"datum.avgOffset == 0\"\n    },\n    {\n      \"calculate\": \"datum.inWindow ? datum.gap : null\",\n      \"as\": \"windowGap\"\n    },\n    {\n      \"calculate\": \"datum.inWindow ? datum.avgGap : null\",\n      \"as\": \"windowAvg\"\n    },\n    {\n      \"calculate\": \"datum.dayNumber == datum.today ? datum.gap : null\",\n      \"as\": \"todayGapOnly\"\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"sum\",\n          \"field\": \"monthActual\",\n          \"as\": \"mtdActual\"\n        },\n        {\n          \"op\": \"sum\",\n          \"field\": \"monthComparison\",\n          \"as\": \"mtdComparison\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"windowGap\",\n          \"as\": \"windowGapMin\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"windowGap\",\n          \"as\": \"windowGapMax\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"windowAvg\",\n          \"as\": \"windowAvgMin\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"windowAvg\",\n          \"as\": \"windowAvgMax\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"todayGapOnly\",\n          \"as\": \"todayGap\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"datum.mtdActual - datum.mtdComparison\",\n      \"as\": \"mtdGap\"\n    },\n    {\n      \"calculate\": \"datum.mtdComparison ? datum.mtdGap / abs(datum.mtdComparison) : null\",\n      \"as\": \"mtdGapPct\"\n    },\n    {\n      \"calculate\": \"datum.mtdGap > 0 ? 1 : datum.mtdGap < 0 ? -1 : 0\",\n      \"as\": \"mtdSign\"\n    },\n    {\n      \"calculate\": \"datum.mtdSign > 0 ? arrowUp : datum.mtdSign < 0 ? arrowDown : arrowFlat\",\n      \"as\": \"mtdArrow\"\n    },\n    {\n      \"calculate\": \"datum.mtdSign == 0 ? textSecondary : (datum.mtdSign > 0) == higherIsBetter ? colorGood : colorBad\",\n      \"as\": \"mtdColor\"\n    },\n    {\n      \"calculate\": \"replace(format(datum.mtdActual, valueFormat), ''G'', ''B'')\",\n      \"as\": \"mtdActualText\"\n    },\n    {\n      \"calculate\": \"replace(format(datum.mtdComparison, valueFormat), ''G'', ''B'')\",\n      \"as\": \"mtdComparisonText\"\n    },\n    {\n      \"calculate\": \"datum.mtdArrow + replace(format(abs(datum.mtdGap), valueFormat), ''G'', ''B'') + (isValid(datum.mtdGapPct) ? '' ('' + datum.mtdArrow + format(abs(datum.mtdGapPct), pctFormat) + '')'' : '''')\",\n      \"as\": \"mtdGapText\"\n    },\n    {\n      \"calculate\": \"datum.todayGap > 0 ? 1 : datum.todayGap < 0 ? -1 : 0\",\n      \"as\": \"todaySign\"\n    },\n    {\n      \"calculate\": \"isValid(datum.todayGap) ? (datum.todaySign > 0 ? arrowUp : datum.todaySign < 0 ? arrowDown : arrowFlat) + replace(format(abs(datum.todayGap), todayFormat), ''G'', ''B'') : ''''\",\n      \"as\": \"todayText\"\n    },\n    {\n      \"calculate\": \"datum.todaySign == 0 ? textSecondary : datum.todaySign > 0 ? colorAbove : colorBelow\",\n      \"as\": \"todayColor\"\n    },\n    {\n      \"calculate\": \"(datum.todayGap - min(0, datum.windowGapMin, datum.windowAvgMin)) / max(1e-9, max(0, datum.windowGapMax, datum.windowAvgMax) - min(0, datum.windowGapMin, datum.windowAvgMin)) > 0.6\",\n      \"as\": \"calloutLow\"\n    },\n    {\n      \"calculate\": \"datum.gap >= 0 ? colorAbove : colorBelow\",\n      \"as\": \"gapColor\"\n    },\n    {\n      \"calculate\": \"timeFormat(datum.dayDate, ''%a %d %b %Y'')\",\n      \"as\": \"tipDate\"\n    },\n    {\n      \"calculate\": \"isValid(datum.dayActual) ? format(datum.dayActual, tooltipFormat) : ''''\",\n      \"as\": \"tipActual\"\n    },\n    {\n      \"calculate\": \"isValid(datum.dayComparison) ? format(datum.dayComparison, tooltipFormat) : ''''\",\n      \"as\": \"tipComparison\"\n    },\n    {\n      \"calculate\": \"isValid(datum.gap) ? format(datum.gap, tooltipFormat) : ''''\",\n      \"as\": \"tipGap\"\n    },\n    {\n      \"calculate\": \"isValid(datum.avgGap) ? format(datum.avgGap, tooltipFormat) : ''''\",\n      \"as\": \"tipAvg\"\n    }\n  ],\n  \"layer\": [\n    {\n      \"description\": \"Card frame, headline figures, separator and sparkline header: one row (today).\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.dayNumber == datum.today\"\n        }\n      ],\n      \"layer\": [\n        {\n          \"transform\": [\n            {\n              \"filter\": \"drawCardFrame\"\n            }\n          ],\n          \"mark\": {\n            \"type\": \"rect\",\n            \"x\": 0,\n            \"y\": 0,\n            \"x2\": {\n              \"expr\": \"width\"\n            },\n            \"y2\": {\n              \"expr\": \"height\"\n            },\n            \"cornerRadius\": {\n              \"expr\": \"cornerRadius\"\n            },\n            \"fill\": {\n              \"expr\": \"frameColor\"\n            }\n          }\n        },\n        {\n          \"transform\": [\n            {\n              \"filter\": \"drawCardFrame\"\n            }\n          ],\n          \"mark\": {\n            \"type\": \"rect\",\n            \"x\": 1,\n            \"y\": 1,\n            \"x2\": {\n              \"expr\": \"width - 3\"\n            },\n            \"y2\": {\n              \"expr\": \"height - 3\"\n            },\n            \"cornerRadiusTopLeft\": {\n              \"expr\": \"max(0, cornerRadius - 1)\"\n            },\n            \"cornerRadiusTopRight\": {\n              \"expr\": \"max(0, cornerRadius - 2)\"\n            },\n            \"cornerRadiusBottomLeft\": {\n              \"expr\": \"max(0, cornerRadius - 2)\"\n            },\n            \"cornerRadiusBottomRight\": {\n              \"expr\": \"max(0, cornerRadius - 3)\"\n            },\n            \"fill\": {\n              \"expr\": \"cardColor\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"text\": {\n              \"expr\": \"title\"\n            },\n            \"x\": {\n              \"expr\": \"layoutLeft\"\n            },\n            \"y\": {\n              \"expr\": \"layoutTop + 15 * layoutScale\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"14 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"fill\": {\n              \"expr\": \"textSecondary\"\n            },\n            \"limit\": {\n              \"expr\": \"layoutColumn - layoutLeft - 6\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"x\": {\n              \"expr\": \"layoutLeft\"\n            },\n            \"y\": {\n              \"expr\": \"layoutTop + 79 * layoutScale\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"alphabetic\",\n            \"fontSize\": {\n              \"expr\": \"valueFontSize * layoutScale\"\n            },\n            \"fontWeight\": 700,\n            \"fill\": {\n              \"expr\": \"textPrimary\"\n            },\n            \"limit\": {\n              \"expr\": \"layoutColumn - layoutLeft - 6\"\n            }\n          },\n          \"encoding\": {\n            \"text\": {\n              \"field\": \"mtdActualText\",\n              \"type\": \"nominal\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"text\": {\n              \"expr\": \"comparisonLabel\"\n            },\n            \"x\": {\n              \"expr\": \"layoutColumn\"\n            },\n            \"y\": {\n              \"expr\": \"layoutTop + 13 * layoutScale\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"10 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"fill\": {\n              \"expr\": \"textMuted\"\n            },\n            \"limit\": {\n              \"expr\": \"width - layoutColumn - 4\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"x\": {\n              \"expr\": \"layoutColumn\"\n            },\n            \"y\": {\n              \"expr\": \"layoutTop + 31 * layoutScale\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"14 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"fill\": {\n              \"expr\": \"textSecondary\"\n            },\n            \"limit\": {\n              \"expr\": \"width - layoutColumn - 4\"\n            }\n          },\n          \"encoding\": {\n            \"text\": {\n              \"field\": \"mtdComparisonText\",\n              \"type\": \"nominal\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"text\": {\n              \"expr\": \"gapLabel\"\n            },\n            \"x\": {\n              \"expr\": \"layoutColumn\"\n            },\n            \"y\": {\n              \"expr\": \"layoutTop + 56 * layoutScale\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"10 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"fill\": {\n              \"expr\": \"textMuted\"\n            },\n            \"limit\": {\n              \"expr\": \"width - layoutColumn - 4\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"x\": {\n              \"expr\": \"layoutColumn\"\n            },\n            \"y\": {\n              \"expr\": \"layoutTop + 74 * layoutScale\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"14 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"limit\": {\n              \"expr\": \"width - layoutColumn - 4\"\n            }\n          },\n          \"encoding\": {\n            \"text\": {\n              \"field\": \"mtdGapText\",\n              \"type\": \"nominal\"\n            },\n            \"color\": {\n              \"field\": \"mtdColor\",\n              \"type\": \"nominal\",\n              \"scale\": null,\n              \"legend\": null\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"rule\",\n            \"stroke\": {\n              \"expr\": \"separatorColor\"\n            },\n            \"strokeWidth\": 1\n          },\n          \"encoding\": {\n            \"x\": {\n              \"value\": {\n                \"expr\": \"layoutLeft\"\n              }\n            },\n            \"x2\": {\n              \"value\": {\n                \"expr\": \"layoutRight\"\n              }\n            },\n            \"y\": {\n              \"value\": {\n                \"expr\": \"layoutTop + 103 * layoutScale\"\n              }\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"text\": {\n              \"expr\": \"windowLabel\"\n            },\n            \"x\": {\n              \"expr\": \"layoutLeft\"\n            },\n            \"y\": {\n              \"expr\": \"layoutHeaderY\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"10 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"fill\": {\n              \"expr\": \"textMuted\"\n            },\n            \"limit\": {\n              \"expr\": \"layoutLegendX - layoutLeft - 8\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"rule\",\n            \"stroke\": {\n              \"expr\": \"colorBelow\"\n            },\n            \"strokeWidth\": 1\n          },\n          \"encoding\": {\n            \"x\": {\n              \"value\": {\n                \"expr\": \"layoutLegendX\"\n              }\n            },\n            \"x2\": {\n              \"value\": {\n                \"expr\": \"layoutLegendX + 8 * layoutScale\"\n              }\n            },\n            \"y\": {\n              \"value\": {\n                \"expr\": \"layoutHeaderY\"\n              }\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"rule\",\n            \"stroke\": {\n              \"expr\": \"colorAbove\"\n            },\n            \"strokeWidth\": 1\n          },\n          \"encoding\": {\n            \"x\": {\n              \"value\": {\n                \"expr\": \"layoutLegendX + 8 * layoutScale\"\n              }\n            },\n            \"x2\": {\n              \"value\": {\n                \"expr\": \"layoutLegendX + 16 * layoutScale\"\n              }\n            },\n            \"y\": {\n              \"value\": {\n                \"expr\": \"layoutHeaderY\"\n              }\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"point\",\n            \"shape\": \"circle\",\n            \"filled\": true,\n            \"size\": {\n              \"expr\": \"12 * layoutScale * layoutScale\"\n            },\n            \"x\": {\n              \"expr\": \"layoutLegendX\"\n            },\n            \"y\": {\n              \"expr\": \"layoutHeaderY\"\n            },\n            \"fill\": {\n              \"expr\": \"cardColor\"\n            },\n            \"stroke\": {\n              \"expr\": \"colorBelow\"\n            },\n            \"strokeWidth\": 1,\n            \"opacity\": 1\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"point\",\n            \"shape\": \"circle\",\n            \"filled\": true,\n            \"size\": {\n              \"expr\": \"12 * layoutScale * layoutScale\"\n            },\n            \"x\": {\n              \"expr\": \"layoutLegendX + 16 * layoutScale\"\n            },\n            \"y\": {\n              \"expr\": \"layoutHeaderY\"\n            },\n            \"fill\": {\n              \"expr\": \"cardColor\"\n            },\n            \"stroke\": {\n              \"expr\": \"colorAbove\"\n            },\n            \"strokeWidth\": 1,\n            \"opacity\": 1\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"text\": {\n              \"expr\": \"dailyGapLabel\"\n            },\n            \"x\": {\n              \"expr\": \"layoutLegendX + 21 * layoutScale\"\n            },\n            \"y\": {\n              \"expr\": \"layoutHeaderY\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"9 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"fill\": {\n              \"expr\": \"textMuted\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"rule\",\n            \"stroke\": {\n              \"expr\": \"avgLineColor\"\n            },\n            \"strokeWidth\": 2,\n            \"strokeCap\": \"round\"\n          },\n          \"encoding\": {\n            \"x\": {\n              \"value\": {\n                \"expr\": \"layoutLegendAvgX\"\n              }\n            },\n            \"x2\": {\n              \"value\": {\n                \"expr\": \"layoutLegendAvgX + 16 * layoutScale\"\n              }\n            },\n            \"y\": {\n              \"value\": {\n                \"expr\": \"layoutHeaderY\"\n              }\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"text\": {\n              \"expr\": \"avgLabel\"\n            },\n            \"x\": {\n              \"expr\": \"layoutLegendAvgX + 21 * layoutScale\"\n            },\n            \"y\": {\n              \"expr\": \"layoutHeaderY\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"9 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"fill\": {\n              \"expr\": \"textMuted\"\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"description\": \"Daily gap: areas and a thin line, split at the zero-gap baseline so each side takes its own colour.\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.inWindow && isValid(datum.gap)\"\n        },\n        {\n          \"calculate\": \"datum.gap >= 0 ? 1 : -1\",\n          \"as\": \"gapSign\"\n        },\n        {\n          \"window\": [\n            {\n              \"op\": \"lead\",\n              \"field\": \"gap\",\n              \"as\": \"nextGap\"\n            },\n            {\n              \"op\": \"lead\",\n              \"field\": \"dayNumber\",\n              \"as\": \"nextDay\"\n            },\n            {\n              \"op\": \"lag\",\n              \"field\": \"gapSign\",\n              \"as\": \"previousSign\"\n            }\n          ],\n          \"sort\": [\n            {\n              \"field\": \"dayNumber\",\n              \"order\": \"ascending\"\n            }\n          ]\n        },\n        {\n          \"calculate\": \"isValid(datum.previousSign) && datum.previousSign != datum.gapSign ? 1 : 0\",\n          \"as\": \"signFlip\"\n        },\n        {\n          \"window\": [\n            {\n              \"op\": \"sum\",\n              \"field\": \"signFlip\",\n              \"as\": \"run\"\n            }\n          ],\n          \"sort\": [\n            {\n              \"field\": \"dayNumber\",\n              \"order\": \"ascending\"\n            }\n          ],\n          \"frame\": [\n            null,\n            0\n          ]\n        },\n        {\n          \"calculate\": \"isValid(datum.nextGap) && (datum.nextGap >= 0 ? 1 : -1) != datum.gapSign ? datum.dayNumber + (datum.nextDay - datum.dayNumber) * datum.gap / (datum.gap - datum.nextGap) : null\",\n          \"as\": \"crossDay\"\n        },\n        {\n          \"calculate\": \"isValid(datum.crossDay) ? [{x: datum.dayNumber, y: datum.gap, run: datum.run, side: datum.gapSign}, {x: datum.crossDay, y: 0, run: datum.run, side: datum.gapSign}, {x: datum.crossDay, y: 0, run: datum.run + 1, side: -datum.gapSign}] : [{x: datum.dayNumber, y: datum.gap, run: datum.run, side: datum.gapSign}]\",\n          \"as\": \"pathPoints\"\n        },\n        {\n          \"flatten\": [\n            \"pathPoints\"\n          ],\n          \"as\": [\n            \"pathPoint\"\n          ]\n        },\n        {\n          \"calculate\": \"datum.pathPoint.x\",\n          \"as\": \"pathX\"\n        },\n        {\n          \"calculate\": \"datum.pathPoint.y\",\n          \"as\": \"pathY\"\n        },\n        {\n          \"calculate\": \"datum.pathPoint.run\",\n          \"as\": \"pathRun\"\n        },\n        {\n          \"calculate\": \"datum.pathPoint.side\",\n          \"as\": \"pathSide\"\n        },\n        {\n          \"calculate\": \"datum.pathSide > 0 ? colorAbove : colorBelow\",\n          \"as\": \"pathColor\"\n        }\n      ],\n      \"layer\": [\n        {\n          \"transform\": [\n            {\n              \"filter\": \"datum.pathSide > 0\"\n            }\n          ],\n          \"mark\": {\n            \"type\": \"area\",\n            \"fill\": {\n              \"expr\": \"fillAbove\"\n            },\n            \"interpolate\": \"linear\"\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"pathX\",\n              \"type\": \"quantitative\",\n              \"axis\": null,\n              \"scale\": {\n                \"zero\": false,\n                \"nice\": false,\n                \"range\": [\n                  {\n                    \"expr\": \"layoutSparkLeft\"\n                  },\n                  {\n                    \"expr\": \"layoutSparkRight\"\n                  }\n                ]\n              }\n            },\n            \"y\": {\n              \"field\": \"pathY\",\n              \"type\": \"quantitative\",\n              \"axis\": null,\n              \"scale\": {\n                \"zero\": true,\n                \"nice\": false,\n                \"range\": [\n                  {\n                    \"expr\": \"layoutSparkBottom\"\n                  },\n                  {\n                    \"expr\": \"layoutSparkTop\"\n                  }\n                ]\n              }\n            },\n            \"y2\": {\n              \"datum\": 0\n            },\n            \"detail\": {\n              \"field\": \"pathRun\"\n            }\n          }\n        },\n        {\n          \"transform\": [\n            {\n              \"filter\": \"datum.pathSide < 0\"\n            }\n          ],\n          \"mark\": {\n            \"type\": \"area\",\n            \"fill\": {\n              \"expr\": \"fillBelow\"\n            },\n            \"interpolate\": \"linear\"\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"pathX\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"y\": {\n              \"field\": \"pathY\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"y2\": {\n              \"datum\": 0\n            },\n            \"detail\": {\n              \"field\": \"pathRun\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"line\",\n            \"strokeWidth\": 1,\n            \"opacity\": 0.55,\n            \"interpolate\": \"linear\"\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"pathX\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"y\": {\n              \"field\": \"pathY\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"detail\": {\n              \"field\": \"pathRun\"\n            },\n            \"color\": {\n              \"field\": \"pathColor\",\n              \"type\": \"nominal\",\n              \"scale\": null,\n              \"legend\": null\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"description\": \"Zero-gap baseline, labelled with the comparison under its left end.\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.dayNumber == datum.today\"\n        }\n      ],\n      \"layer\": [\n        {\n          \"mark\": {\n            \"type\": \"rule\",\n            \"x\": {\n              \"expr\": \"layoutLeft\"\n            },\n            \"x2\": {\n              \"expr\": \"layoutRight\"\n            },\n            \"stroke\": {\n              \"expr\": \"textMuted\"\n            },\n            \"strokeWidth\": 0.75,\n            \"strokeDash\": [\n              2,\n              2\n            ]\n          },\n          \"encoding\": {\n            \"y\": {\n              \"datum\": 0,\n              \"type\": \"quantitative\",\n              \"axis\": null\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"text\": {\n              \"expr\": \"comparisonLabel\"\n            },\n            \"x\": {\n              \"expr\": \"layoutLeft\"\n            },\n            \"dy\": {\n              \"expr\": \"3 * layoutScale\"\n            },\n            \"align\": \"left\",\n            \"baseline\": \"top\",\n            \"fontSize\": {\n              \"expr\": \"8 * layoutScale\"\n            },\n            \"fontWeight\": 500,\n            \"fill\": {\n              \"expr\": \"textMuted\"\n            }\n          },\n          \"encoding\": {\n            \"y\": {\n              \"datum\": 0,\n              \"type\": \"quantitative\",\n              \"axis\": null\n            }\n          }\n        }\n      ]\n    },\n    {\n      \"description\": \"Day markers, the trailing moving average and the end dot for today.\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.inWindow\"\n        }\n      ],\n      \"layer\": [\n        {\n          \"transform\": [\n            {\n              \"filter\": \"isValid(datum.gap)\"\n            }\n          ],\n          \"mark\": {\n            \"type\": \"point\",\n            \"shape\": \"circle\",\n            \"filled\": true,\n            \"size\": {\n              \"expr\": \"11 * layoutScale * layoutScale\"\n            },\n            \"strokeWidth\": 0.9,\n            \"fill\": {\n              \"expr\": \"cardColor\"\n            },\n            \"opacity\": 1\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"dayNumber\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"y\": {\n              \"field\": \"gap\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"stroke\": {\n              \"field\": \"gapColor\",\n              \"type\": \"nominal\",\n              \"scale\": null,\n              \"legend\": null\n            },\n            \"tooltip\": [\n              {\n                \"field\": \"tipDate\",\n                \"type\": \"nominal\",\n                \"title\": \"Date\"\n              },\n              {\n                \"field\": \"tipActual\",\n                \"type\": \"nominal\",\n                \"title\": \"Actual\"\n              },\n              {\n                \"field\": \"tipComparison\",\n                \"type\": \"nominal\",\n                \"title\": \"Comparison\"\n              },\n              {\n                \"field\": \"tipGap\",\n                \"type\": \"nominal\",\n                \"title\": \"Daily gap\"\n              },\n              {\n                \"field\": \"tipAvg\",\n                \"type\": \"nominal\",\n                \"title\": \"Trailing average\"\n              }\n            ]\n          }\n        },\n        {\n          \"transform\": [\n            {\n              \"filter\": \"isValid(datum.avgGap)\"\n            }\n          ],\n          \"mark\": {\n            \"type\": \"line\",\n            \"interpolate\": \"monotone\",\n            \"strokeWidth\": 1.75,\n            \"strokeJoin\": \"round\",\n            \"strokeCap\": \"round\",\n            \"stroke\": {\n              \"expr\": \"avgLineColor\"\n            }\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"dayNumber\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"y\": {\n              \"field\": \"avgGap\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            }\n          }\n        },\n        {\n          \"transform\": [\n            {\n              \"filter\": \"datum.dayNumber == datum.today && isValid(datum.gap)\"\n            }\n          ],\n          \"mark\": {\n            \"type\": \"point\",\n            \"shape\": \"circle\",\n            \"filled\": true,\n            \"size\": {\n              \"expr\": \"30 * layoutScale * layoutScale\"\n            },\n            \"opacity\": 1\n          },\n          \"encoding\": {\n            \"x\": {\n              \"field\": \"dayNumber\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"y\": {\n              \"field\": \"gap\",\n              \"type\": \"quantitative\",\n              \"axis\": null\n            },\n            \"color\": {\n              \"field\": \"todayColor\",\n              \"type\": \"nominal\",\n              \"scale\": null,\n              \"legend\": null\n            },\n            \"tooltip\": [\n              {\n                \"field\": \"tipDate\",\n                \"type\": \"nominal\",\n                \"title\": \"Date\"\n              },\n              {\n                \"field\": \"tipActual\",\n                \"type\": \"nominal\",\n                \"title\": \"Actual\"\n              },\n              {\n                \"field\": \"tipComparison\",\n                \"type\": \"nominal\",\n                \"title\": \"Comparison\"\n              },\n              {\n                \"field\": \"tipGap\",\n                \"type\": \"nominal\",\n                \"title\": \"Daily gap\"\n              },\n              {\n                \"field\": \"tipAvg\",\n                \"type\": \"nominal\",\n                \"title\": \"Trailing average\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"description\": \"Today callout: top right of the sparkline, or bottom right when today sits high, on a card-coloured plate so a line under it cannot clash.\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.dayNumber == datum.today && isValid(datum.todayGap)\"\n        }\n      ],\n      \"layer\": [\n        {\n          \"mark\": {\n            \"type\": \"rect\",\n            \"x\": {\n              \"expr\": \"layoutRight - max(length(todayLabel) * 10, length(datum.todayText) * 12) * 0.62 * layoutScale - 3\"\n            },\n            \"x2\": {\n              \"expr\": \"layoutRight + 2\"\n            },\n            \"y\": {\n              \"expr\": \"(datum.calloutLow ? layoutSparkBottom - 19 * layoutScale : layoutSparkTop + 5 * layoutScale) - 7 * layoutScale\"\n            },\n            \"y2\": {\n              \"expr\": \"(datum.calloutLow ? layoutSparkBottom - 5 * layoutScale : layoutSparkTop + 19 * layoutScale) + 8 * layoutScale\"\n            },\n            \"cornerRadius\": 2,\n            \"fill\": {\n              \"expr\": \"cardColor\"\n            },\n            \"opacity\": 0.85\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"text\": {\n              \"expr\": \"todayLabel\"\n            },\n            \"x\": {\n              \"expr\": \"layoutRight\"\n            },\n            \"y\": {\n              \"expr\": \"datum.calloutLow ? layoutSparkBottom - 19 * layoutScale : layoutSparkTop + 5 * layoutScale\"\n            },\n            \"align\": \"right\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"10 * layoutScale\"\n            },\n            \"fontWeight\": 600,\n            \"fill\": {\n              \"expr\": \"textMuted\"\n            }\n          }\n        },\n        {\n          \"mark\": {\n            \"type\": \"text\",\n            \"x\": {\n              \"expr\": \"layoutRight\"\n            },\n            \"y\": {\n              \"expr\": \"datum.calloutLow ? layoutSparkBottom - 5 * layoutScale : layoutSparkTop + 19 * layoutScale\"\n            },\n            \"align\": \"right\",\n            \"baseline\": \"middle\",\n            \"fontSize\": {\n              \"expr\": \"12 * layoutScale\"\n            },\n            \"fontWeight\": 600\n          },\n          \"encoding\": {\n            \"text\": {\n              \"field\": \"todayText\",\n              \"type\": \"nominal\"\n            },\n            \"color\": {\n              \"field\": \"todayColor\",\n              \"type\": \"nominal\",\n              \"scale\": null,\n              \"legend\": null\n            }\n          }\n        }\n      ]\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KPI Gap Sparkline Card'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

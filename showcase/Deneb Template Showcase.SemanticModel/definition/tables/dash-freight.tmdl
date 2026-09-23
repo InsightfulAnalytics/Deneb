@@ -1,0 +1,55 @@
+/// Sample data for the Overlapping Bars with Variance Lollipop template, showcase instance dash-freight (showcase/data/dash-freight.csv).
+table 'dash-freight'
+	lineageTag: 737cce8c-9dde-57b3-a20c-1002da966b59
+
+	/// The value being judged, for example the reporting month. Drawn as the front bar, coloured by whether it beats the comparison.
+	measure 'Current (dash-freight)' = SUM ( 'dash-freight'[Current] )
+		lineageTag: 97eae811-4cc6-51bb-a2c0-f60ac6012c6c
+
+	/// The value to beat, for example the reporting year average. Drawn as the grey bar behind the current bar.
+	measure 'Comparison (dash-freight)' = SUM ( 'dash-freight'[Comparison] )
+		lineageTag: d6d8c1ab-5ec9-5bb4-a415-e5e149b2e811
+
+	/// The row label: a customer, product, shipper or similar. One row per category.
+	column Category
+		dataType: string
+		lineageTag: a9177a51-e1f7-52bd-af33-6f98fb07821e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = User
+
+	column Current
+		dataType: double
+		isHidden
+		lineageTag: 1881f59d-8f95-5789-9f3a-73546fa04409
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Current]
+
+		annotation SummarizationSetBy = User
+
+	column Comparison
+		dataType: double
+		isHidden
+		lineageTag: 6508d430-7700-5808-965c-4b3bd28cd160
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Comparison]
+
+		annotation SummarizationSetBy = User
+
+	partition 'dash-freight' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Category", STRING,
+				    "Current", DOUBLE,
+				    "Comparison", DOUBLE,
+				    {
+				        { "United Package", 115.53, 108.62 },
+				        { "Federal Shipping", 76.03, 64.87 },
+				        { "Speedy Express", 51.28, 67.93 }
+				    }
+				)

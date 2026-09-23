@@ -1,0 +1,45 @@
+/// Sample data for the Australia Choropleth template, showcase instance australia-choropleth (templates/map/australia-choropleth/sample-data.csv).
+table 'australia-choropleth'
+	lineageTag: 47a03f24-4b32-5107-b6fc-e0c2527bd7d6
+
+	/// The measure that colours each state and appears in its label.
+	measure 'Value (australia-choropleth)' = SUM ( 'australia-choropleth'[Value] )
+		lineageTag: f1d46e88-9ff8-51fb-a116-ec771a974158
+
+	/// State or territory: a full name (New South Wales), an abbreviation (NSW) or an ISO code (AU-NSW).
+	column State
+		dataType: string
+		lineageTag: 449cb9d2-e127-50ab-a4ef-d689952080bb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [State]
+
+		annotation SummarizationSetBy = User
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 43d36c40-5eee-5edb-ab35-8d16b7830e72
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	partition 'australia-choropleth' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "State", STRING,
+				    "Value", DOUBLE,
+				    {
+				        { "New South Wales", 0.912 },
+				        { "VIC", 0.884 },
+				        { "Queensland", 0.826 },
+				        { "SA", 0.947 },
+				        { "Western Australia", 0.791 },
+				        { "TAS", 0.968 },
+				        { "Northern Territory", 0.803 },
+				        { "ACT", 0.935 }
+				    }
+				)

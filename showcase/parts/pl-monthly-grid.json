@@ -1,0 +1,15 @@
+{
+  "template": "templates/financial/pl-monthly-grid/pl-monthly-grid.json",
+  "instances": [
+    {
+      "id": "pl-monthly-grid",
+      "page": "template",
+      "data": "templates/financial/pl-monthly-grid/sample-data.csv",
+      "size": [
+        1608,
+        740
+      ],
+      "params": {}
+    }
+  ]
+}

@@ -1,0 +1,1892 @@
+[
+  {
+    "rowIdx": 1,
+    "colIdx": 0,
+    "key": "inc_act",
+    "value": 6574009.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 0,
+    "key": "inc_ly",
+    "value": 6314489.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 0,
+    "key": "inc_var",
+    "value": 0.04109912931988637
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 0,
+    "key": "cog_act",
+    "value": -3969910.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 0,
+    "key": "cog_ly",
+    "value": -3872327.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 0,
+    "key": "cog_var",
+    "value": 0.025200092864058228
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 0,
+    "key": "gp_act",
+    "value": 2604099.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 0,
+    "key": "gp_ly",
+    "value": 2442162.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 0,
+    "key": "gp_var",
+    "value": 0.06630886894481201
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 0,
+    "key": "gm_act",
+    "value": 0.3961203886395653
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 0,
+    "key": "gm_ly",
+    "value": 0.3867552861363762
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 0,
+    "key": "gm_var",
+    "value": 0.00936510250318906
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 0,
+    "key": "opx_act",
+    "value": -2044889.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 0,
+    "key": "opx_ly",
+    "value": -1966673.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 0,
+    "key": "opx_var",
+    "value": 0.039770719382429105
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 0,
+    "key": "opr_act",
+    "value": 0.3110566170505699
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 0,
+    "key": "opr_ly",
+    "value": 0.3114540226453795
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 0,
+    "key": "opr_var",
+    "value": -0.0003974055948096078
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 0,
+    "key": "np_act",
+    "value": 559210.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 0,
+    "key": "np_ly",
+    "value": 475489.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 0,
+    "key": "np_var",
+    "value": 0.17607347383430533
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 1,
+    "key": "inc_act",
+    "value": 5951839.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 1,
+    "key": "inc_ly",
+    "value": 5924266.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 1,
+    "key": "inc_var",
+    "value": 0.0046542474628924494
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 1,
+    "key": "cog_act",
+    "value": -3609228.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 1,
+    "key": "cog_ly",
+    "value": -3579632.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 1,
+    "key": "cog_var",
+    "value": 0.008267888989706205
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 1,
+    "key": "gp_act",
+    "value": 2342611.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 1,
+    "key": "gp_ly",
+    "value": 2344634.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 1,
+    "key": "gp_var",
+    "value": -0.0008628212335059544
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 1,
+    "key": "gm_act",
+    "value": 0.3935944839905784
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 1,
+    "key": "gm_ly",
+    "value": 0.39576784702104867
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 1,
+    "key": "gm_var",
+    "value": -0.0021733630304702767
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 1,
+    "key": "opx_act",
+    "value": -1835033.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 1,
+    "key": "opx_ly",
+    "value": -1821860.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 1,
+    "key": "opx_var",
+    "value": 0.007230522652673641
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 1,
+    "key": "opr_act",
+    "value": 0.3083136153380493
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 1,
+    "key": "opr_ly",
+    "value": 0.30752501660121273
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 1,
+    "key": "opr_var",
+    "value": 0.0007885987368365655
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 1,
+    "key": "np_act",
+    "value": 507578.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 1,
+    "key": "np_ly",
+    "value": 522774.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 1,
+    "key": "np_var",
+    "value": -0.029068010268299495
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 2,
+    "key": "inc_act",
+    "value": 7416854.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 2,
+    "key": "inc_ly",
+    "value": 7120732.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 2,
+    "key": "inc_var",
+    "value": 0.04158589313570571
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 2,
+    "key": "cog_act",
+    "value": -4546663.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 2,
+    "key": "cog_ly",
+    "value": -4328690.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 2,
+    "key": "cog_var",
+    "value": 0.05035541930699588
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 2,
+    "key": "gp_act",
+    "value": 2870191.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 2,
+    "key": "gp_ly",
+    "value": 2792042.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 2,
+    "key": "gp_var",
+    "value": 0.0279899084612624
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 2,
+    "key": "gm_act",
+    "value": 0.38698227038040656
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 2,
+    "key": "gm_ly",
+    "value": 0.3921004188895187
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 2,
+    "key": "gm_var",
+    "value": -0.00511814850911213
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 2,
+    "key": "opx_act",
+    "value": -2268450.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 2,
+    "key": "opx_ly",
+    "value": -2178431.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 2,
+    "key": "opx_var",
+    "value": 0.04132286035224435
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 2,
+    "key": "opr_act",
+    "value": 0.3058507016586817
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 2,
+    "key": "opr_ly",
+    "value": 0.3059279579683662
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 2,
+    "key": "opr_var",
+    "value": -7.725630968447028e-05
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 2,
+    "key": "np_act",
+    "value": 601741.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 2,
+    "key": "np_ly",
+    "value": 613611.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 2,
+    "key": "np_var",
+    "value": -0.0193445032765058
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 3,
+    "key": "inc_act",
+    "value": 7126493.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 3,
+    "key": "inc_ly",
+    "value": 6849002.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 3,
+    "key": "inc_var",
+    "value": 0.04051553788420561
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 3,
+    "key": "cog_act",
+    "value": -4357703.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 3,
+    "key": "cog_ly",
+    "value": -4158299.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 3,
+    "key": "cog_var",
+    "value": 0.04795326165819245
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 3,
+    "key": "gp_act",
+    "value": 2768790.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 3,
+    "key": "gp_ly",
+    "value": 2690703.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 3,
+    "key": "gp_var",
+    "value": 0.029021040226290304
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 3,
+    "key": "gm_act",
+    "value": 0.3885206931375643
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 3,
+    "key": "gm_ly",
+    "value": 0.3928605948720704
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 3,
+    "key": "gm_var",
+    "value": -0.004339901734506102
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 3,
+    "key": "opx_act",
+    "value": -2191348.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 3,
+    "key": "opx_ly",
+    "value": -2098007.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 3,
+    "key": "opx_var",
+    "value": 0.04449031866909882
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 3,
+    "key": "opr_act",
+    "value": 0.30749318072718235
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 3,
+    "key": "opr_ly",
+    "value": 0.30632302341275414
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 3,
+    "key": "opr_var",
+    "value": 0.0011701573144282107
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 3,
+    "key": "np_act",
+    "value": 577442.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 3,
+    "key": "np_ly",
+    "value": 592696.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 3,
+    "key": "np_var",
+    "value": -0.02573663395737444
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 4,
+    "key": "inc_act",
+    "value": 7760666.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 4,
+    "key": "inc_ly",
+    "value": 7430772.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 4,
+    "key": "inc_var",
+    "value": 0.0443956563328817
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 4,
+    "key": "cog_act",
+    "value": -4708567.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 4,
+    "key": "cog_ly",
+    "value": -4567462.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 4,
+    "key": "cog_var",
+    "value": 0.030893524675191606
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 4,
+    "key": "gp_act",
+    "value": 3052099.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 4,
+    "key": "gp_ly",
+    "value": 2863310.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 4,
+    "key": "gp_var",
+    "value": 0.06593383182400787
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 4,
+    "key": "gm_act",
+    "value": 0.39327797382338064
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 4,
+    "key": "gm_ly",
+    "value": 0.38533142989718966
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 4,
+    "key": "gm_var",
+    "value": 0.007946543926190985
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 4,
+    "key": "opx_act",
+    "value": -2413937.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 4,
+    "key": "opx_ly",
+    "value": -2249125.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 4,
+    "key": "opx_var",
+    "value": 0.07327827488467738
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 4,
+    "key": "opr_act",
+    "value": 0.31104766008484325
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 4,
+    "key": "opr_ly",
+    "value": 0.30267716463376887
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 4,
+    "key": "opr_var",
+    "value": 0.008370495451074378
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 4,
+    "key": "np_act",
+    "value": 638162.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 4,
+    "key": "np_ly",
+    "value": 614185.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 4,
+    "key": "np_var",
+    "value": 0.039038726116723786
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 5,
+    "key": "inc_act",
+    "value": 7905266.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 5,
+    "key": "inc_ly",
+    "value": 7642470.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 5,
+    "key": "inc_var",
+    "value": 0.03438626517343215
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 5,
+    "key": "cog_act",
+    "value": -4839043.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 5,
+    "key": "cog_ly",
+    "value": -4690884.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 5,
+    "key": "cog_var",
+    "value": 0.03158445188582792
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 5,
+    "key": "gp_act",
+    "value": 3066223.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 5,
+    "key": "gp_ly",
+    "value": 2951586.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 5,
+    "key": "gp_var",
+    "value": 0.03883911903634182
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 5,
+    "key": "gm_act",
+    "value": 0.38787094577209674
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 5,
+    "key": "gm_ly",
+    "value": 0.38620838550887343
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 5,
+    "key": "gm_var",
+    "value": 0.0016625602632233116
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 5,
+    "key": "opx_act",
+    "value": -2400674.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 5,
+    "key": "opx_ly",
+    "value": -2359295.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 5,
+    "key": "opx_var",
+    "value": 0.017538713895464533
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 5,
+    "key": "opr_act",
+    "value": 0.303680356865917
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 5,
+    "key": "opr_ly",
+    "value": 0.30870844111916695
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 5,
+    "key": "opr_var",
+    "value": -0.005028084253249965
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 5,
+    "key": "np_act",
+    "value": 665549.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 5,
+    "key": "np_ly",
+    "value": 592291.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 5,
+    "key": "np_var",
+    "value": 0.12368582335372308
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 6,
+    "key": "inc_act",
+    "value": 6939914.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 6,
+    "key": "inc_ly",
+    "value": 6696903.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 6,
+    "key": "inc_var",
+    "value": 0.03628707180020377
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 6,
+    "key": "cog_act",
+    "value": -4270521.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 6,
+    "key": "cog_ly",
+    "value": -4131671.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 6,
+    "key": "cog_var",
+    "value": 0.03360625761344502
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 6,
+    "key": "gp_act",
+    "value": 2669393.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 6,
+    "key": "gp_ly",
+    "value": 2565232.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 6,
+    "key": "gp_var",
+    "value": 0.04060490435173115
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 6,
+    "key": "gm_act",
+    "value": 0.3846435272829029
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 6,
+    "key": "gm_ly",
+    "value": 0.3830475071835444
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 6,
+    "key": "gm_var",
+    "value": 0.0015960200993584972
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 6,
+    "key": "opx_act",
+    "value": -2141309.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 6,
+    "key": "opx_ly",
+    "value": -2055931.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 6,
+    "key": "opx_var",
+    "value": 0.04152765827257821
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 6,
+    "key": "opr_act",
+    "value": 0.30854978894551144
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 6,
+    "key": "opr_ly",
+    "value": 0.3069972791900973
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 6,
+    "key": "opr_var",
+    "value": 0.0015525097554141554
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 6,
+    "key": "np_act",
+    "value": 528084.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 6,
+    "key": "np_ly",
+    "value": 509301.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 6,
+    "key": "np_var",
+    "value": 0.03687995900263302
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 7,
+    "key": "inc_act",
+    "value": 7045445.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 7,
+    "key": "inc_ly",
+    "value": 6712689.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 7,
+    "key": "inc_var",
+    "value": 0.049571192706827326
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 7,
+    "key": "cog_act",
+    "value": -4252531.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 7,
+    "key": "cog_ly",
+    "value": -4062120.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 7,
+    "key": "cog_var",
+    "value": 0.04687478459523599
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 7,
+    "key": "gp_act",
+    "value": 2792914.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 7,
+    "key": "gp_ly",
+    "value": 2650569.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 7,
+    "key": "gp_var",
+    "value": 0.053703563272640704
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 7,
+    "key": "gm_act",
+    "value": 0.39641413707721795
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 7,
+    "key": "gm_ly",
+    "value": 0.3948594966935009
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 7,
+    "key": "gm_var",
+    "value": 0.0015546403837170542
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 7,
+    "key": "opx_act",
+    "value": -2154062.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 7,
+    "key": "opx_ly",
+    "value": -2027343.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 7,
+    "key": "opx_var",
+    "value": 0.06250496339297297
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 7,
+    "key": "opr_act",
+    "value": 0.3057382464840759
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 7,
+    "key": "opr_ly",
+    "value": 0.30201652422747427
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 7,
+    "key": "opr_var",
+    "value": 0.0037217222566016117
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 7,
+    "key": "np_act",
+    "value": 638852.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 7,
+    "key": "np_ly",
+    "value": 623226.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 7,
+    "key": "np_var",
+    "value": 0.025072766540548692
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 8,
+    "key": "inc_act",
+    "value": 7489504.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 8,
+    "key": "inc_ly",
+    "value": 7250806.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 8,
+    "key": "inc_var",
+    "value": 0.03292020225061876
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 8,
+    "key": "cog_act",
+    "value": -4608319.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 8,
+    "key": "cog_ly",
+    "value": -4423386.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 8,
+    "key": "cog_var",
+    "value": 0.04180801765887038
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 8,
+    "key": "gp_act",
+    "value": 2881185.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 8,
+    "key": "gp_ly",
+    "value": 2827420.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 8,
+    "key": "gp_var",
+    "value": 0.01901556896393178
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 8,
+    "key": "gm_act",
+    "value": 0.38469636974624755
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 8,
+    "key": "gm_ly",
+    "value": 0.38994561432204916
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 8,
+    "key": "gm_var",
+    "value": -0.005249244575801615
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 8,
+    "key": "opx_act",
+    "value": -2310946.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 8,
+    "key": "opx_ly",
+    "value": -2234204.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 8,
+    "key": "opx_var",
+    "value": 0.03434869868642255
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 8,
+    "key": "opr_act",
+    "value": 0.3085579498989519
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 8,
+    "key": "opr_ly",
+    "value": 0.3081318132080765
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 8,
+    "key": "opr_var",
+    "value": 0.0004261366908754338
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 8,
+    "key": "np_act",
+    "value": 570239.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 8,
+    "key": "np_ly",
+    "value": 593216.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 8,
+    "key": "np_var",
+    "value": -0.03873294044665013
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 9,
+    "key": "inc_act",
+    "value": 8120973.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 9,
+    "key": "inc_ly",
+    "value": 7798466.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 9,
+    "key": "inc_var",
+    "value": 0.04135518446833005
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 9,
+    "key": "cog_act",
+    "value": -4984045.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 9,
+    "key": "cog_ly",
+    "value": -4712632.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 9,
+    "key": "cog_var",
+    "value": 0.057592657351560654
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 9,
+    "key": "gp_act",
+    "value": 3136928.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 9,
+    "key": "gp_ly",
+    "value": 3085834.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 9,
+    "key": "gp_var",
+    "value": 0.01655759836724853
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 9,
+    "key": "gm_act",
+    "value": 0.38627489587762454
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 9,
+    "key": "gm_ly",
+    "value": 0.39569756411068535
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 9,
+    "key": "gm_var",
+    "value": -0.009422668233060816
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 9,
+    "key": "opx_act",
+    "value": -2510443.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 9,
+    "key": "opx_ly",
+    "value": -2399148.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 9,
+    "key": "opx_var",
+    "value": 0.04638938489830557
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 9,
+    "key": "opr_act",
+    "value": 0.30913081474350423
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 9,
+    "key": "opr_ly",
+    "value": 0.30764358016050847
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 9,
+    "key": "opr_var",
+    "value": 0.0014872345829957667
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 9,
+    "key": "np_act",
+    "value": 626485.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 9,
+    "key": "np_ly",
+    "value": 686686.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 9,
+    "key": "np_var",
+    "value": -0.08766889087588796
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 10,
+    "key": "inc_act",
+    "value": 9467535.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 10,
+    "key": "inc_ly",
+    "value": 9050163.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 10,
+    "key": "inc_var",
+    "value": 0.04611762241188363
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 10,
+    "key": "cog_act",
+    "value": -5760792.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 10,
+    "key": "cog_ly",
+    "value": -5494104.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 10,
+    "key": "cog_var",
+    "value": 0.04854076297063179
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 10,
+    "key": "gp_act",
+    "value": 3706743.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 10,
+    "key": "gp_ly",
+    "value": 3556059.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 10,
+    "key": "gp_var",
+    "value": 0.042373875124119144
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 10,
+    "key": "gm_act",
+    "value": 0.3915214467123702
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 10,
+    "key": "gm_ly",
+    "value": 0.3929276190937114
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 10,
+    "key": "gm_var",
+    "value": -0.0014061723813411642
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 10,
+    "key": "opx_act",
+    "value": -2906328.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 10,
+    "key": "opx_ly",
+    "value": -2831945.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 10,
+    "key": "opx_var",
+    "value": 0.026265693719334238
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 10,
+    "key": "opr_act",
+    "value": 0.3069783211786384
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 10,
+    "key": "opr_ly",
+    "value": 0.3129164634935305
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 10,
+    "key": "opr_var",
+    "value": -0.005938142314892092
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 10,
+    "key": "np_act",
+    "value": 800415.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 10,
+    "key": "np_ly",
+    "value": 724114.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 10,
+    "key": "np_var",
+    "value": 0.10537152989722613
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 11,
+    "key": "inc_act",
+    "value": 12370251.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 11,
+    "key": "inc_ly",
+    "value": 11942761.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 11,
+    "key": "inc_var",
+    "value": 0.03579490538243209
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 11,
+    "key": "cog_act",
+    "value": -7493525.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 11,
+    "key": "cog_ly",
+    "value": -7300350.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 11,
+    "key": "cog_var",
+    "value": 0.026461060086160254
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 11,
+    "key": "gp_act",
+    "value": 4876726.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 11,
+    "key": "gp_ly",
+    "value": 4642411.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 11,
+    "key": "gp_var",
+    "value": 0.05047269619169867
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 11,
+    "key": "gm_act",
+    "value": 0.39423015749640006
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 11,
+    "key": "gm_ly",
+    "value": 0.3887217537050268
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 11,
+    "key": "gm_var",
+    "value": 0.00550840379137324
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 11,
+    "key": "opx_act",
+    "value": -3742294.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 11,
+    "key": "opx_ly",
+    "value": -3713317.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 11,
+    "key": "opx_var",
+    "value": 0.007803535222013095
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 11,
+    "key": "opr_act",
+    "value": 0.3025236917181389
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 11,
+    "key": "opr_ly",
+    "value": 0.3109261752788991
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 11,
+    "key": "opr_var",
+    "value": -0.008402483560760177
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 11,
+    "key": "np_act",
+    "value": 1134432.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 11,
+    "key": "np_ly",
+    "value": 929094.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 11,
+    "key": "np_var",
+    "value": 0.2210088537865921
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 12,
+    "key": "inc_act",
+    "value": 64209990.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 12,
+    "key": "inc_ly",
+    "value": 61942129.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 12,
+    "key": "inc_var",
+    "value": 0.03661257752377223
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 12,
+    "key": "cog_act",
+    "value": -39162485.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 12,
+    "key": "cog_ly",
+    "value": -37814471.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 12,
+    "key": "cog_var",
+    "value": 0.03564809884554514
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 12,
+    "key": "gp_act",
+    "value": 25047505.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 12,
+    "key": "gp_ly",
+    "value": 24127658.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 12,
+    "key": "gp_var",
+    "value": 0.03812417268182432
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 12,
+    "key": "gm_act",
+    "value": 0.39008735245091924
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 12,
+    "key": "gm_ly",
+    "value": 0.389519352813979
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 12,
+    "key": "gm_var",
+    "value": 0.000567999636940264
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 12,
+    "key": "opx_act",
+    "value": -19760648.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 12,
+    "key": "opx_ly",
+    "value": -18990869.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 12,
+    "key": "opx_var",
+    "value": 0.04053416407643062
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 12,
+    "key": "opr_act",
+    "value": 0.30775036719364074
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 12,
+    "key": "opr_ly",
+    "value": 0.3065905112819096
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 12,
+    "key": "opr_var",
+    "value": 0.0011598559117311225
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 12,
+    "key": "np_act",
+    "value": 5286857.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 12,
+    "key": "np_ly",
+    "value": 5136789.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 12,
+    "key": "np_var",
+    "value": 0.02921435939844911
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 13,
+    "key": "inc_act",
+    "value": 29958759.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 13,
+    "key": "inc_ly",
+    "value": 28791390.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 13,
+    "key": "inc_var",
+    "value": 0.04054576732835754
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 13,
+    "key": "cog_act",
+    "value": -18238362.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 13,
+    "key": "cog_ly",
+    "value": -17507086.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 13,
+    "key": "cog_var",
+    "value": 0.04177028661423152
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 13,
+    "key": "gp_act",
+    "value": 11720397.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 13,
+    "key": "gp_ly",
+    "value": 11284304.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 13,
+    "key": "gp_var",
+    "value": 0.03864598117881262
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 13,
+    "key": "gm_act",
+    "value": 0.39121770698178787
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 13,
+    "key": "gm_ly",
+    "value": 0.3919332828321245
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 13,
+    "key": "gm_var",
+    "value": -0.0007155758503366028
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 13,
+    "key": "opx_act",
+    "value": -9159065.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 13,
+    "key": "opx_ly",
+    "value": -8944410.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 13,
+    "key": "opx_var",
+    "value": 0.023998788069867102
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 13,
+    "key": "opr_act",
+    "value": 0.3057224433094842
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 13,
+    "key": "opr_ly",
+    "value": 0.31066266685977995
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 13,
+    "key": "opr_var",
+    "value": -0.004940223550295719
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 13,
+    "key": "np_act",
+    "value": 2561332.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 13,
+    "key": "np_ly",
+    "value": 2339894.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 13,
+    "key": "np_var",
+    "value": 0.09463591085750038
+  },
+  {
+    "rowIdx": 1,
+    "colIdx": 14,
+    "key": "inc_act",
+    "value": 94168749.0
+  },
+  {
+    "rowIdx": 2,
+    "colIdx": 14,
+    "key": "inc_ly",
+    "value": 90733519.0
+  },
+  {
+    "rowIdx": 3,
+    "colIdx": 14,
+    "key": "inc_var",
+    "value": 0.03786064993246873
+  },
+  {
+    "rowIdx": 5,
+    "colIdx": 14,
+    "key": "cog_act",
+    "value": -57400847.0
+  },
+  {
+    "rowIdx": 6,
+    "colIdx": 14,
+    "key": "cog_ly",
+    "value": -55321557.0
+  },
+  {
+    "rowIdx": 7,
+    "colIdx": 14,
+    "key": "cog_var",
+    "value": 0.0375855292720702
+  },
+  {
+    "rowIdx": 9,
+    "colIdx": 14,
+    "key": "gp_act",
+    "value": 36767902.0
+  },
+  {
+    "rowIdx": 10,
+    "colIdx": 14,
+    "key": "gp_ly",
+    "value": 35411962.0
+  },
+  {
+    "rowIdx": 11,
+    "colIdx": 14,
+    "key": "gp_var",
+    "value": 0.03829045111931386
+  },
+  {
+    "rowIdx": 13,
+    "colIdx": 14,
+    "key": "gm_act",
+    "value": 0.3904469623993837
+  },
+  {
+    "rowIdx": 14,
+    "colIdx": 14,
+    "key": "gm_ly",
+    "value": 0.3902853365579263
+  },
+  {
+    "rowIdx": 15,
+    "colIdx": 14,
+    "key": "gm_var",
+    "value": 0.00016162584145740233
+  },
+  {
+    "rowIdx": 17,
+    "colIdx": 14,
+    "key": "opx_act",
+    "value": -28919713.0
+  },
+  {
+    "rowIdx": 18,
+    "colIdx": 14,
+    "key": "opx_ly",
+    "value": -27935279.0
+  },
+  {
+    "rowIdx": 19,
+    "colIdx": 14,
+    "key": "opx_var",
+    "value": 0.035239812711374746
+  },
+  {
+    "rowIdx": 21,
+    "colIdx": 14,
+    "key": "opr_act",
+    "value": 0.3071052053585208
+  },
+  {
+    "rowIdx": 22,
+    "colIdx": 14,
+    "key": "opr_ly",
+    "value": 0.3078826800490346
+  },
+  {
+    "rowIdx": 23,
+    "colIdx": 14,
+    "key": "opr_var",
+    "value": -0.0007774746905137575
+  },
+  {
+    "rowIdx": 25,
+    "colIdx": 14,
+    "key": "np_act",
+    "value": 7848189.0
+  },
+  {
+    "rowIdx": 26,
+    "colIdx": 14,
+    "key": "np_ly",
+    "value": 7476683.0
+  },
+  {
+    "rowIdx": 27,
+    "colIdx": 14,
+    "key": "np_var",
+    "value": 0.04968861191520357
+  }
+]

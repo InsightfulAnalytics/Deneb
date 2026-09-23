@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "0239366372b7534114e8",
+  "displayName": "Overlapping Bars with Variance Lollipop",
+  "displayOption": "FitToPage",
+  "height": 325,
+  "width": 468
+}

@@ -1,0 +1,166 @@
+{
+  "notes": "Layout of the Gerard Duggan KPI Dashboard recreation page (1600 x 900). Read by tools/showcase/build_showcase.py (text, images, visuals) and tools/showcase/make_background.py (background). Positions are page pixels. Colour names resolve through colors, then the theme's good, bad and neutral. A visual slot's params override the part's params for that instance: the page draws the section titles as native text, so in-visual titles are blanked here, and the two KPI bar cards take the line cards' 19 px inset and a border tinted from their header colour.",
+  "page": {
+    "displayName": "KPI Dashboard 2015",
+    "width": 1600,
+    "height": 900,
+    "background": "dashboard-background.svg"
+  },
+  "background": {
+    "page": "#FFFFFF",
+    "band": {
+      "edgeY": 392,
+      "centerY": 420,
+      "stops": [[0, "#071A38"], [0.45, "#0B2C5B"], [1, "#164080"]],
+      "sheenOpacity": 0.05
+    },
+    "bandLines": {
+      "color": "#FFFFFF",
+      "opacity": 0.22,
+      "width": 1,
+      "lines": [[74, 87, 1524, 87], [74, 171, 1524, 171]]
+    },
+    "gridLines": {
+      "color": "#CBD5E1",
+      "opacity": 1,
+      "width": 1.5,
+      "lines": [[530, 446, 530, 868], [884, 446, 884, 868], [1238, 446, 1238, 868]]
+    },
+    "footer": {
+      "y": 878,
+      "stops": [[0, "#071A38"], [1, "#164080"]],
+      "accent": {"color": "#FFB703", "width": 2}
+    }
+  },
+  "colors": {
+    "white": "#FFFFFF",
+    "amber": "#FFB703",
+    "ink": "#0B1E3F",
+    "body": "#475569",
+    "muted": "#64748B"
+  },
+  "styles": {
+    "title": {"size": 40, "color": "white"},
+    "targets": {"size": 12, "italic": true, "color": "amber"},
+    "key": {"size": 10, "italic": true, "color": "white"},
+    "month": {"size": 12, "italic": true, "color": "white"},
+    "panelTitle": {"size": 18, "color": "white"},
+    "panelBody": {"size": 12, "color": "white"},
+    "leftTitle": {"size": 18, "color": "ink"},
+    "leftBody": {"size": 12, "color": "body"},
+    "leftNote": {"size": 12, "italic": true, "color": "body"},
+    "sectionTitle": {"size": 10, "bold": true, "color": "ink"},
+    "sectionSub": {"size": 9, "color": "muted"},
+    "footer": {"size": 8, "color": "white"}
+  },
+  "text": [
+    {"id": "title", "x": 84, "y": 10, "w": 640, "h": 70, "paragraphs": [
+      [{"text": "KPI Dashboard | 2015", "style": "title"}]
+    ]},
+    {"id": "targets", "x": 88, "y": 100, "w": 900, "h": 24, "paragraphs": [
+      [{"text": "2015 Targets:  Net revenue per month: $100k  |  Discount on revenue: <6.5%  |  On-time delivery: >95%", "style": "targets"}]
+    ]},
+    {"id": "key", "x": 88, "y": 136, "w": 760, "h": 22, "paragraphs": [
+      [{"text": "Key: RM - Reporting Month  |  RY - Reporting Year  |  MoM - Month over Month change", "style": "key"}]
+    ]},
+    {"id": "reporting-month", "x": 1224, "y": 100, "w": 300, "h": 24, "paragraphs": [
+      {"align": "right", "runs": [{"text": "Reporting Month | Apr 2015", "style": "month"}]}
+    ]},
+    {"id": "kpi-panel-title", "x": 36, "y": 186, "w": 150, "h": 64, "paragraphs": [
+      [{"text": "Reporting Month KPIs", "style": "panelTitle"}]
+    ]},
+    {"id": "kpi-panel-body", "x": 36, "y": 264, "w": 150, "h": 76, "paragraphs": [
+      [{"text": "Monthly change and performance against targets", "style": "panelBody"}]
+    ]},
+    {"id": "analysis-title", "x": 36, "y": 446, "w": 150, "h": 160, "paragraphs": [
+      [{"text": "Analysis against targets and key performers", "style": "leftTitle"}]
+    ]},
+    {"id": "analysis-body", "x": 36, "y": 622, "w": 150, "h": 92, "paragraphs": [
+      [{"text": "Performance against targets and average year to date results.", "style": "leftBody"}]
+    ]},
+    {"id": "analysis-hover", "x": 36, "y": 724, "w": 150, "h": 46, "paragraphs": [
+      [{"text": "(Hover for tooltip on reading visuals)", "style": "leftNote"}]
+    ]},
+    {"id": "section-revenue", "x": 198, "y": 446, "w": 310, "h": 60, "paragraphs": [
+      [{"text": "RM and RY revenue against target and previous period", "style": "sectionTitle"}],
+      [{"text": "Above", "style": "sectionSub", "color": "good"},
+       {"text": " and ", "style": "sectionSub"},
+       {"text": "below", "style": "sectionSub", "color": "bad"},
+       {"text": " target values", "style": "sectionSub"}]
+    ]},
+    {"id": "section-otd", "x": 552, "y": 446, "w": 310, "h": 60, "paragraphs": [
+      [{"text": "RM On-time delivery", "style": "sectionTitle"}],
+      [{"text": "Above", "style": "sectionSub", "color": "good"},
+       {"text": " and ", "style": "sectionSub"},
+       {"text": "below", "style": "sectionSub", "color": "bad"},
+       {"text": " target values and average year rate", "style": "sectionSub"}]
+    ]},
+    {"id": "section-top3-customers", "x": 906, "y": 446, "w": 310, "h": 60, "paragraphs": [
+      [{"text": "RM Top 3 customers by revenue", "style": "sectionTitle"}],
+      [{"text": "RM", "style": "sectionSub", "color": "good"},
+       {"text": " revenue vs ", "style": "sectionSub"},
+       {"text": "RY", "style": "sectionSub", "color": "ink"},
+       {"text": " revenue   |   RM:RY % value", "style": "sectionSub"}]
+    ]},
+    {"id": "section-top3-products", "x": 1260, "y": 446, "w": 310, "h": 60, "paragraphs": [
+      [{"text": "RM Top 3 products by revenue", "style": "sectionTitle"}],
+      [{"text": "RM", "style": "sectionSub", "color": "good"},
+       {"text": " revenue vs ", "style": "sectionSub"},
+       {"text": "RY", "style": "sectionSub", "color": "ink"},
+       {"text": " revenue   |   RM:RY % value", "style": "sectionSub"}]
+    ]},
+    {"id": "section-discount", "x": 198, "y": 674, "w": 310, "h": 60, "paragraphs": [
+      [{"text": "RM and RY discount rate against target and previous period", "style": "sectionTitle"}],
+      [{"text": "Better", "style": "sectionSub", "color": "good"},
+       {"text": " or ", "style": "sectionSub"},
+       {"text": "worse", "style": "sectionSub", "color": "bad"},
+       {"text": " than target rate", "style": "sectionSub"}]
+    ]},
+    {"id": "section-freight", "x": 552, "y": 674, "w": 310, "h": 60, "paragraphs": [
+      [{"text": "RM average freight cost per order", "style": "sectionTitle"}],
+      [{"text": "Comparison of average cost against average year rate", "style": "sectionSub"}]
+    ]},
+    {"id": "section-aov-customers", "x": 906, "y": 674, "w": 310, "h": 60, "paragraphs": [
+      [{"text": "RM Average order value for Top 3 customers", "style": "sectionTitle"}],
+      [{"text": "Above", "style": "sectionSub", "color": "good"},
+       {"text": " and ", "style": "sectionSub"},
+       {"text": "below", "style": "sectionSub", "color": "bad"},
+       {"text": " RY average order values (real and %)", "style": "sectionSub"}]
+    ]},
+    {"id": "section-aov-products", "x": 1260, "y": 674, "w": 310, "h": 60, "paragraphs": [
+      [{"text": "RM Average order value for Top 3 products", "style": "sectionTitle"}],
+      [{"text": "Above", "style": "sectionSub", "color": "good"},
+       {"text": " and ", "style": "sectionSub"},
+       {"text": "below", "style": "sectionSub", "color": "bad"},
+       {"text": " RY average order values (real and %)", "style": "sectionSub"}]
+    ]},
+    {"id": "footer", "x": 40, "y": 880, "w": 900, "h": 18, "paragraphs": [
+      [{"text": "Design: Gerard Duggan | dg-analysis.com. Rebuilt in Deneb by Timothy Osborn.", "style": "footer"}]
+    ]}
+  ],
+  "images": [
+    {"id": "logo", "file": "binexus-signal-horizontal.png", "x": 1344, "y": 14, "w": 180, "h": 67, "alt": "BI Nexus logo"}
+  ],
+  "visuals": {
+    "dash-revenue": {"x": 198, "y": 189, "w": 264, "h": 235, "alt": "Revenue KPI card",
+      "container": {"background": "#FFFFFF", "shadow": true}},
+    "dash-otd": {"x": 552, "y": 189, "w": 264, "h": 235, "alt": "On-time delivery KPI card",
+      "container": {"background": "#FFFFFF", "shadow": true}},
+    "dash-top-customer": {"x": 906, "y": 189, "w": 264, "h": 235, "alt": "Top customer KPI card",
+      "container": {"background": "#FFFFFF", "shadow": true},
+      "params": {"cardPadding": 19, "borderColor": {"expr": "pbiColor(0, 0.4)"}}},
+    "dash-top-product": {"x": 1260, "y": 189, "w": 264, "h": 235, "alt": "Top product KPI card",
+      "container": {"background": "#FFFFFF", "shadow": true},
+      "params": {"cardPadding": 19, "borderColor": {"expr": "pbiColor(1, -0.25)"}}},
+    "dash-bullet-revenue": {"x": 198, "y": 508, "w": 310, "h": 156, "alt": "RM and RY revenue against target and previous period"},
+    "dash-bullet-discount": {"x": 198, "y": 736, "w": 310, "h": 132, "alt": "RM and RY discount rate against target and previous period"},
+    "dash-bullet-otd": {"x": 552, "y": 508, "w": 310, "h": 156, "alt": "RM on-time delivery by shipper"},
+    "dash-freight": {"x": 552, "y": 736, "w": 310, "h": 132, "alt": "RM average freight cost per order by shipper"},
+    "dash-top3-customers": {"x": 906, "y": 508, "w": 310, "h": 156, "alt": "RM top 3 customers by revenue",
+      "params": {"title": "", "subtitle": ""}},
+    "dash-aov-customers": {"x": 906, "y": 736, "w": 310, "h": 132, "alt": "RM average order value for the top 3 customers"},
+    "dash-top3-products": {"x": 1260, "y": 508, "w": 310, "h": 156, "alt": "RM top 3 products by revenue",
+      "params": {"title": "", "subtitle": ""}},
+    "dash-aov-products": {"x": 1260, "y": 736, "w": 310, "h": 132, "alt": "RM average order value for the top 3 products"}
+  }
+}

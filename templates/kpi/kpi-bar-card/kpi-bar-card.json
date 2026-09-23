@@ -1,0 +1,461 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vega",
+      "providerVersion": "6.2.0"
+    },
+    "information": {
+      "name": "KPI Bar Card",
+      "description": "A whole KPI card for a top performer: header band, the performer's name, month-over-month change with a coloured arrow, reporting-month and reporting-year values with their share of the total, and labelled monthly columns. Design after Gerard Duggan (dg-analysis.com).",
+      "author": "Timothy Osborn, after Gerard Duggan",
+      "uuid": "1101fe50-a451-4c2f-9419-b3bd347f4199",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Month",
+        "description": "The month, one row per month of the reporting year (a month-end date works).",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Name",
+        "description": "The top performer's name, for example the top customer. The same on every row.",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Value",
+        "description": "The performer's value for the month, for example that customer's revenue.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "Total",
+        "description": "The month's total across everyone, for example total revenue. Used for the share.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__4__",
+        "name": "Is Reporting Month",
+        "description": "1 on the reporting month, 0 on every other month.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {"type": "fit", "contains": "padding"},
+    "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "font": "Segoe UI",
+    "text": {"font": "Segoe UI"}
+  },
+  "description": "KPI bar card",
+  "padding": 0,
+  "width": {"signal": "pbiContainerWidth"},
+  "height": {"signal": "pbiContainerHeight"},
+  "signals": [
+    {"name": "title", "value": "TOP CUSTOMER"},
+    {"name": "metricLabel", "value": "Rev"},
+    {"name": "totalNoun", "value": "of total rev"},
+    {"name": "momLabel", "value": "MoM"},
+    {"name": "momJoinWord", "value": "at"},
+    {"name": "reportingMonthLabel", "value": "RM"},
+    {"name": "reportingYearLabel", "value": "RY"},
+    {"name": "valueFormat", "value": "$,.2f"},
+    {"name": "labelFormat", "value": "$,.0f"},
+    {"name": "valueDivisor", "value": 1000},
+    {"name": "valueSuffix", "value": "K"},
+    {"name": "shareFormat", "value": ".1%"},
+    {"name": "momFormat", "value": "+.1%"},
+    {"name": "arrowUp", "value": "▲"},
+    {"name": "arrowDown", "value": "▼"},
+    {"name": "arrowFlat", "value": "►"},
+    {"name": "dateFormat", "value": "%b %y"},
+    {"name": "higherIsBetter", "value": true},
+    {"name": "headerColor", "update": "pbiColor(0, 0.8)"},
+    {"name": "headerTextColor", "value": "#252423"},
+    {"name": "barColor", "update": "pbiColor(1)"},
+    {"name": "barLabelColor", "value": "#FFFFFF"},
+    {"name": "nameColor", "value": "#252423"},
+    {"name": "statusColor", "value": "#252423"},
+    {"name": "axisLabelColor", "value": "#605E5C"},
+    {"name": "cardColor", "value": "#FFFFFF"},
+    {"name": "borderColor", "value": "#C8C6C4"},
+    {"name": "colorGood", "update": "pbiColor('good')"},
+    {"name": "colorBad", "update": "pbiColor('bad')"},
+    {"name": "colorNeutral", "update": "pbiColor('neutral')"},
+    {"name": "headerHeight", "value": 34},
+    {"name": "cardPadding", "value": 12},
+    {"name": "titleFontSize", "value": 14},
+    {"name": "nameFontSize", "value": 22},
+    {"name": "statusFontSize", "value": 11},
+    {"name": "labelFontSize", "value": 10},
+    {"name": "barGap", "value": 0.28},
+
+    {"name": "rmOrder", "update": "length(data('flagStats')) && isValid(data('flagStats')[0].lastFlagged) ? data('flagStats')[0].lastFlagged : length(data('allStats')) && isValid(data('allStats')[0].lastOrder) ? data('allStats')[0].lastOrder : null"},
+    {"name": "rm", "update": "length(data('rmRow')) ? data('rmRow')[0] : null"},
+    {"name": "prior", "update": "length(data('priorRows')) ? data('priorRows')[0] : null"},
+    {"name": "year", "update": "length(data('allStats')) ? data('allStats')[0] : null"},
+    {"name": "rmValue", "update": "rm && isValid(rm.value) ? rm.value : null"},
+    {"name": "priorValue", "update": "prior && isValid(prior.value) ? prior.value : null"},
+    {"name": "mom", "update": "isValid(rmValue) && isValid(priorValue) && priorValue != 0 ? (rmValue - priorValue) / abs(priorValue) : null"},
+    {"name": "rmShare", "update": "isValid(rmValue) && rm && isValid(rm.total) && rm.total != 0 ? rmValue / rm.total : null"},
+    {"name": "ryValue", "update": "year && year.validValue > 0 ? year.sumValue : null"},
+    {"name": "ryShare", "update": "isValid(ryValue) && year.sumTotal != 0 ? ryValue / year.sumTotal : null"},
+    {"name": "performer", "update": "rm && isValid(rm.name) ? '' + rm.name : ''"},
+    {"name": "momArrow", "update": "!isValid(mom) ? '' : mom > 0 ? arrowUp : mom < 0 ? arrowDown : arrowFlat"},
+    {"name": "momArrowColor", "update": "!isValid(mom) || mom == 0 ? colorNeutral : (mom > 0) == higherIsBetter ? colorGood : colorBad"},
+    {"name": "momDetail", "update": "isValid(mom) ? momJoinWord + ' ' + format(mom, momFormat) : 'n/a'"},
+    {"name": "rmLine", "update": "metricLabel + ' ' + reportingMonthLabel + ': ' + (isValid(rmValue) ? format(rmValue / valueDivisor, valueFormat) + valueSuffix : 'n/a') + ' | ' + (isValid(rmShare) ? format(rmShare, shareFormat) : 'n/a') + ' ' + totalNoun"},
+    {"name": "ryLine", "update": "metricLabel + ' ' + reportingYearLabel + ': ' + (isValid(ryValue) ? format(ryValue / valueDivisor, valueFormat) + valueSuffix : 'n/a') + ' | ' + (isValid(ryShare) ? format(ryShare, shareFormat) : 'n/a') + ' ' + totalNoun"},
+
+    {"name": "innerWidth", "update": "max(0, width - 2 * cardPadding)"},
+    {"name": "wordGap", "update": "round(statusFontSize * 0.3)"},
+    {"name": "nameY", "update": "headerHeight + round(nameFontSize * 0.4)"},
+    {"name": "statusY", "update": "nameY + round(nameFontSize * 1.35)"},
+    {"name": "statusStep", "update": "round(statusFontSize * 1.45)"},
+    {"name": "chartTop", "update": "statusY + 3 * statusStep + round(statusFontSize * 0.9)"},
+    {"name": "axisY", "update": "height - round(cardPadding * 0.75) - round(labelFontSize * 1.25)"},
+    {"name": "chartBottom", "update": "max(chartTop, axisY - 4)"},
+    {"name": "labelPad", "update": "round(labelFontSize * 0.5)"},
+    {"name": "yLow", "update": "year && isValid(year.minValue) ? min(0, year.minValue) : 0"},
+    {"name": "yHigh", "update": "year && isValid(year.maxValue) ? max(0, year.maxValue) : 0"},
+    {"name": "monthCount", "update": "length(data('rows'))"},
+    {"name": "monthStep", "update": "max(1, bandwidth('x') / max(0.01, 1 - barGap))"}
+  ],
+  "data": [
+    {"name": "dataset"},
+    {
+      "name": "rows",
+      "source": "dataset",
+      "transform": [
+        {"type": "filter", "expr": "isValid(datum['__0__'])"},
+        {"type": "window", "ops": ["row_number"], "as": ["arrival"]},
+        {"type": "formula", "as": "time", "expr": "isDate(datum['__0__']) || isNumber(datum['__0__']) ? time(datum['__0__']) : isString(datum['__0__']) && isValid(toDate(datum['__0__'])) ? toDate(datum['__0__']) : null"},
+        {"type": "formula", "as": "order", "expr": "isValid(datum.time) ? datum.time : datum.arrival"},
+        {"type": "formula", "as": "label", "expr": "isValid(datum.time) ? timeFormat(datum.time, dateFormat) : '' + datum['__0__']"},
+        {"type": "formula", "as": "name", "expr": "datum['__1__']"},
+        {"type": "formula", "as": "value", "expr": "isValid(datum['__2__']) ? toNumber(datum['__2__']) : null"},
+        {"type": "formula", "as": "total", "expr": "isValid(datum['__3__']) ? toNumber(datum['__3__']) : null"},
+        {"type": "formula", "as": "flag", "expr": "toNumber(datum['__4__']) == 1"},
+        {"type": "collect", "sort": {"field": "order"}},
+        {"type": "window", "sort": {"field": "order"}, "ops": ["row_number"], "as": ["rank"]}
+      ]
+    },
+    {
+      "name": "allStats",
+      "source": "rows",
+      "transform": [
+        {
+          "type": "aggregate",
+          "fields": ["order", "value", "value", "total", "value", "value"],
+          "ops": ["max", "sum", "valid", "sum", "min", "max"],
+          "as": ["lastOrder", "sumValue", "validValue", "sumTotal", "minValue", "maxValue"]
+        }
+      ]
+    },
+    {
+      "name": "flagStats",
+      "source": "rows",
+      "transform": [
+        {"type": "filter", "expr": "datum.flag"},
+        {"type": "aggregate", "fields": ["order"], "ops": ["max"], "as": ["lastFlagged"]}
+      ]
+    },
+    {
+      "name": "rmRow",
+      "source": "rows",
+      "transform": [{"type": "filter", "expr": "datum.order === rmOrder"}]
+    },
+    {
+      "name": "priorRows",
+      "source": "rows",
+      "transform": [
+        {"type": "filter", "expr": "isValid(rmOrder) && datum.order < rmOrder"},
+        {"type": "collect", "sort": {"field": "order", "order": "descending"}}
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "domain": {"data": "rows", "field": "order", "sort": true},
+      "range": {"signal": "[cardPadding, width - cardPadding]"},
+      "paddingInner": {"signal": "barGap"},
+      "paddingOuter": {"signal": "barGap"}
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "domain": {"signal": "[yLow, yHigh > yLow ? yHigh : yLow + 1]"},
+      "nice": false,
+      "range": {"signal": "[chartBottom, chartTop]"}
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "name": "card",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"value": 0.5},
+          "y": {"value": 0.5},
+          "x2": {"signal": "width - 0.5"},
+          "y2": {"signal": "height - 0.5"},
+          "fill": {"signal": "cardColor"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "name": "header",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"value": 0.5},
+          "y": {"value": 0.5},
+          "x2": {"signal": "width - 0.5"},
+          "y2": {"signal": "headerHeight"},
+          "fill": {"signal": "headerColor"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "titleText",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "cardPadding"},
+          "y": {"signal": "headerHeight / 2 + 1"},
+          "baseline": {"value": "middle"},
+          "text": {"signal": "title"},
+          "fill": {"signal": "headerTextColor"},
+          "fontSize": {"signal": "titleFontSize"},
+          "fontWeight": {"value": "bold"},
+          "limit": {"signal": "innerWidth"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "nameText",
+      "encode": {
+        "update": {
+          "x": {"signal": "cardPadding"},
+          "y": {"signal": "nameY"},
+          "baseline": {"value": "top"},
+          "text": {"signal": "performer"},
+          "fill": {"signal": "nameColor"},
+          "fontSize": {"signal": "nameFontSize"},
+          "fontWeight": {"value": "bold"},
+          "limit": {"signal": "innerWidth"},
+          "tooltip": {"signal": "{'Name': performer}"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "momLabelText",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "cardPadding"},
+          "y": {"signal": "statusY"},
+          "baseline": {"value": "top"},
+          "text": {"signal": "momLabel"},
+          "fill": {"signal": "statusColor"},
+          "fontSize": {"signal": "statusFontSize"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "momArrowText",
+      "from": {"data": "momLabelText"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "datum.bounds.x2 + (datum.text ? wordGap : 0)"},
+          "y": {"signal": "statusY"},
+          "baseline": {"value": "top"},
+          "text": {"signal": "momArrow"},
+          "fill": {"signal": "momArrowColor"},
+          "fontSize": {"signal": "statusFontSize"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "momDetailText",
+      "from": {"data": "momArrowText"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "datum.bounds.x2 + (datum.text ? wordGap : 0)"},
+          "y": {"signal": "statusY"},
+          "baseline": {"value": "top"},
+          "text": {"signal": "momDetail"},
+          "fill": {"signal": "statusColor"},
+          "fontSize": {"signal": "statusFontSize"},
+          "limit": {"signal": "max(1, width - cardPadding - datum.bounds.x2 - wordGap)"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "rmLineText",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "cardPadding"},
+          "y": {"signal": "statusY + statusStep"},
+          "baseline": {"value": "top"},
+          "text": {"signal": "rmLine"},
+          "fill": {"signal": "statusColor"},
+          "fontSize": {"signal": "statusFontSize"},
+          "limit": {"signal": "innerWidth"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "ryLineText",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "cardPadding"},
+          "y": {"signal": "statusY + 2 * statusStep"},
+          "baseline": {"value": "top"},
+          "text": {"signal": "ryLine"},
+          "fill": {"signal": "statusColor"},
+          "fontSize": {"signal": "statusFontSize"},
+          "limit": {"signal": "innerWidth"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "name": "bars",
+      "from": {"data": "rows"},
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": "order"},
+          "width": {"scale": "x", "band": 1},
+          "y": {"scale": "y", "signal": "isValid(datum.value) ? datum.value : 0"},
+          "y2": {"scale": "y", "value": 0},
+          "fill": {"signal": "barColor"},
+          "tooltip": {"signal": "{'Name': datum.name, 'Month': datum.label, 'Value': isValid(datum.value) ? format(datum.value / valueDivisor, valueFormat) + valueSuffix : 'n/a', 'Share of total': isValid(datum.value) && datum.total ? format(datum.value / datum.total, shareFormat) : 'n/a'}"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "barLabelProbe",
+      "from": {"data": "rows"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"value": 0},
+          "y": {"signal": "scale('y', max(0, isValid(datum.value) ? datum.value : 0)) + labelPad"},
+          "align": {"value": "left"},
+          "baseline": {"value": "top"},
+          "text": {"signal": "isValid(datum.value) && datum.value > 0 ? format(datum.value / valueDivisor, labelFormat) + valueSuffix : ''"},
+          "fontSize": {"signal": "labelFontSize"},
+          "limit": {"signal": "innerWidth"},
+          "opacity": {"value": 0}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "barLabels",
+      "from": {"data": "barLabelProbe"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": "datum.order", "band": 0.5},
+          "y": {"field": "y"},
+          "align": {"value": "center"},
+          "baseline": {"value": "top"},
+          "text": {"field": "text"},
+          "fill": {"signal": "barLabelColor"},
+          "fontSize": {"signal": "labelFontSize"},
+          "opacity": {"signal": "datum.text && (extent(pluck(data('barLabelProbe') || [], 'bounds.x2'))[1] || 0) <= bandwidth('x') - 4 && scale('y', 0) - scale('y', datum.datum.value) >= labelFontSize + 2 * labelPad ? 1 : 0"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "monthLabelProbe",
+      "from": {"data": "rows"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "cardPadding"},
+          "y": {"signal": "axisY"},
+          "align": {"value": "left"},
+          "baseline": {"value": "top"},
+          "text": {"field": "label"},
+          "fontSize": {"signal": "labelFontSize"},
+          "limit": {"signal": "innerWidth"},
+          "opacity": {"value": 0}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "monthLabels",
+      "from": {"data": "monthLabelProbe"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": "datum.order", "band": 0.5},
+          "y": {"signal": "axisY"},
+          "align": {"value": "center"},
+          "baseline": {"value": "top"},
+          "text": {"signal": "(monthCount - datum.datum.rank) % max(1, ceil(((extent(pluck(data('monthLabelProbe') || [], 'bounds.x2'))[1] || cardPadding) - cardPadding + labelPad) / monthStep)) == 0 ? datum.datum.label : ''"},
+          "fill": {"signal": "axisLabelColor"},
+          "fontSize": {"signal": "labelFontSize"},
+          "limit": {"signal": "max(1, max(1, ceil(((extent(pluck(data('monthLabelProbe') || [], 'bounds.x2'))[1] || cardPadding) - cardPadding + labelPad) / monthStep)) * monthStep - labelPad)"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "name": "border",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"value": 0.5},
+          "y": {"value": 0.5},
+          "x2": {"signal": "width - 0.5"},
+          "y2": {"signal": "height - 0.5"},
+          "fill": {"value": "transparent"},
+          "stroke": {"signal": "borderColor"},
+          "strokeWidth": {"value": 1}
+        }
+      }
+    }
+  ]
+}

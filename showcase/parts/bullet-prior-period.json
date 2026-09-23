@@ -1,0 +1,47 @@
+{
+  "template": "templates/comparison/bullet-prior-period/bullet-prior-period.json",
+  "instances": [
+    {
+      "id": "bullet-prior-period",
+      "page": "template",
+      "data": "templates/comparison/bullet-prior-period/sample-data.csv",
+      "size": [420, 260],
+      "params": {}
+    },
+    {
+      "id": "dash-bullet-revenue",
+      "page": "dashboard",
+      "data": "showcase/data/dash-bullet-revenue.csv",
+      "size": [320, 170],
+      "params": {
+        "valueFormat": ",.0f",
+        "rowLabelFontSize": 12,
+        "axisFontSize": 9
+      }
+    },
+    {
+      "id": "dash-bullet-discount",
+      "page": "dashboard",
+      "data": "showcase/data/dash-bullet-discount.csv",
+      "size": [320, 170],
+      "params": {
+        "valueFormat": ".1~%",
+        "rowLabelFontSize": 12,
+        "axisFontSize": 9
+      }
+    },
+    {
+      "id": "dash-bullet-otd",
+      "page": "dashboard",
+      "data": "showcase/data/dash-bullet-otd.csv",
+      "size": [320, 170],
+      "params": {
+        "valueFormat": ".1~%",
+        "axisMax": 1,
+        "rowLabelFontSize": 11,
+        "rowLabelLimit": 160,
+        "axisFontSize": 9
+      }
+    }
+  ]
+}

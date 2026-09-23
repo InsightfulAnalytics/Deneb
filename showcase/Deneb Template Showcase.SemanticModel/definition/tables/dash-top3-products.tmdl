@@ -1,0 +1,55 @@
+/// Sample data for the Overlapping Bars with Share Lollipop template, showcase instance dash-top3-products (showcase/data/dash-top3-products.csv).
+table 'dash-top3-products'
+	lineageTag: d11612db-06c7-5df9-876a-0a389ce02eaa
+
+	/// The current value, for example reporting month revenue. Drawn as the dark front bar and used as the top of the share.
+	measure 'Current (dash-top3-products)' = SUM ( 'dash-top3-products'[Current] )
+		lineageTag: 1eb1ee99-fd6c-59a5-804a-80ee21a22e05
+
+	/// The total the current value is part of, for example reporting year revenue. Drawn as the grey back bar; the share is Current / Total.
+	measure 'Total (dash-top3-products)' = SUM ( 'dash-top3-products'[Total] )
+		lineageTag: b9530b82-e7c0-5f0e-ba1c-eca54bbf0067
+
+	/// One row per category, for example customer or product. Keep it to a short top-N list; long names wrap onto two lines.
+	column Category
+		dataType: string
+		lineageTag: bbdaeb79-545f-554f-b47b-ecb74a53a8ca
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = User
+
+	column Current
+		dataType: double
+		isHidden
+		lineageTag: 28ac409c-703c-5a44-902b-a36f486bb4b1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Current]
+
+		annotation SummarizationSetBy = User
+
+	column Total
+		dataType: double
+		isHidden
+		lineageTag: a19525ad-38ec-50f5-ae8d-86e89cca8b3f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Total]
+
+		annotation SummarizationSetBy = User
+
+	partition 'dash-top3-products' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Category", STRING,
+				    "Current", DOUBLE,
+				    "Total", DOUBLE,
+				    {
+				        { "Raclette Courdavault", 16290, 26349 },
+				        { "Thüringer Rostbratwurst", 11625, 33697 },
+				        { "Côte de Blaye", 6588, 67312 }
+				    }
+				)

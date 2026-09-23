@@ -1,0 +1,237 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Half-Donut Gauge",
+      "description": "A half-donut gauge for one ratio: the ring fills from 0% to 100% with the score, a tick marks the target, and the score sits large in the centre. Optionally colours the fill good or bad against the target. Design by Timothy Osborn.",
+      "author": "Timothy Osborn",
+      "uuid": "34c24562-181e-46c4-9cbb-acf5f1ec3bf0",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Score",
+        "description": "The value to show, as a ratio from 0 to 1 (0.72 fills 72% of the ring). Values outside 0-1 are drawn at the nearest end and labelled with the real value.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__1__",
+        "name": "Target",
+        "description": "The target, as a ratio from 0 to 1. Drawn as a tick across the ring with its value beside it. Leave it blank to hide the tick.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {"type": "fit", "contains": "padding"},
+    "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "params": [
+    {"name": "valueFormat", "value": ".0%"},
+    {"name": "startLabel", "value": "0%"},
+    {"name": "endLabel", "value": "100%"},
+    {"name": "targetPrefix", "value": ""},
+    {"name": "colourByTarget", "value": false},
+    {"name": "colorFill", "expr": "pbiColor(0)"},
+    {"name": "colorGood", "expr": "pbiColor('good')"},
+    {"name": "colorBad", "expr": "pbiColor('bad')"},
+    {"name": "colorTrack", "value": "#E1DFDD"},
+    {"name": "colorTarget", "value": "#252423"},
+    {"name": "colorScoreText", "value": "#252423"},
+    {"name": "colorLabel", "value": "#605E5C"},
+    {"name": "ringFillOpacity", "value": 0.6},
+    {"name": "ringStrokeWidth", "value": 3},
+    {"name": "ringInnerRatio", "value": 0.65},
+    {"name": "targetTickOverhang", "value": 6},
+    {"name": "targetTickWidth", "value": 3},
+    {"name": "labelFontSize", "value": 13},
+    {"name": "scoreFontSize", "expr": "ringInner * 0.6"},
+    {"name": "scoreFontWeight", "value": "normal"},
+    {"name": "labelGap", "value": 6},
+    {"name": "sideRoom", "expr": "targetTickOverhang + labelGap + labelFontSize * 0.62 * (length(targetPrefix) + length(format(1, valueFormat)))"},
+    {"name": "topRoom", "expr": "targetTickOverhang + labelGap + labelFontSize * 1.3"},
+    {"name": "bottomRoom", "expr": "labelGap + labelFontSize * 1.3"},
+    {"name": "ringOuter", "expr": "max(8, min(width / 2 - sideRoom, height - topRoom - bottomRoom))"},
+    {"name": "ringInner", "expr": "ringOuter * ringInnerRatio"},
+    {"name": "ringMiddle", "expr": "(ringOuter + ringInner) / 2"},
+    {"name": "centreX", "expr": "width / 2"},
+    {"name": "centreY", "expr": "max(0, (height - topRoom - ringOuter - bottomRoom) / 2) + topRoom + ringOuter"},
+    {"name": "targetLabelRadius", "expr": "ringOuter + targetTickOverhang + labelGap"},
+    {"name": "endLabelLimit", "expr": "max(24, 2 * min(width / 2 - ringMiddle, ringMiddle))"}
+  ],
+  "data": {"name": "dataset"},
+  "layer": [
+    {
+      "description": "Track and end labels. They read a one-row inline table, so they draw even when no rows arrive.",
+      "data": {"values": [{}]},
+      "layer": [
+        {
+          "mark": {
+            "type": "arc",
+            "x": {"expr": "centreX"},
+            "y": {"expr": "centreY"},
+            "radius": {"expr": "ringOuter"},
+            "radius2": {"expr": "ringInner"},
+            "theta": {"expr": "-PI / 2"},
+            "theta2": {"expr": "PI / 2"},
+            "fill": {"expr": "colorTrack"},
+            "fillOpacity": {"expr": "ringFillOpacity"},
+            "stroke": {"expr": "colorTrack"},
+            "strokeWidth": {"expr": "ringStrokeWidth"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "x": {"expr": "centreX - ringMiddle"},
+            "y": {"expr": "centreY + labelGap"},
+            "align": "center",
+            "baseline": "top",
+            "text": {"expr": "startLabel"},
+            "fontSize": {"expr": "labelFontSize"},
+            "fill": {"expr": "colorLabel"},
+            "limit": {"expr": "endLabelLimit"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "x": {"expr": "centreX + ringMiddle"},
+            "y": {"expr": "centreY + labelGap"},
+            "align": "center",
+            "baseline": "top",
+            "text": {"expr": "endLabel"},
+            "fontSize": {"expr": "labelFontSize"},
+            "fill": {"expr": "colorLabel"},
+            "limit": {"expr": "endLabelLimit"}
+          }
+        }
+      ]
+    },
+    {
+      "description": "Score, target tick and labels. The aggregate reduces the rows to exactly one, so extra rows never draw twice, and zero rows draw nothing here.",
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "mean", "field": "__0__", "as": "scoreRaw"},
+            {"op": "mean", "field": "__1__", "as": "targetRaw"}
+          ]
+        },
+        {"calculate": "isValid(datum.scoreRaw) ? clamp(datum.scoreRaw, 0, 1) : null", "as": "scoreDraw"},
+        {"calculate": "isValid(datum.targetRaw) ? clamp(datum.targetRaw, 0, 1) : null", "as": "targetDraw"},
+        {"calculate": "isValid(datum.scoreDraw) ? -PI / 2 + PI * datum.scoreDraw : null", "as": "scoreTheta"},
+        {"calculate": "isValid(datum.targetDraw) ? -PI / 2 + PI * datum.targetDraw : null", "as": "targetTheta"},
+        {"calculate": "isValid(datum.scoreRaw) ? format(datum.scoreRaw, valueFormat) : ''", "as": "scoreText"},
+        {"calculate": "isValid(datum.targetRaw) ? format(datum.targetRaw, valueFormat) : ''", "as": "targetText"},
+        {"calculate": "targetPrefix + datum.targetText", "as": "targetLabel"},
+        {"calculate": "labelFontSize * 0.31 * length(datum.targetLabel)", "as": "targetLabelHalfWidth"},
+        {"calculate": "colourByTarget && isValid(datum.targetRaw) ? (datum.scoreRaw >= datum.targetRaw ? colorGood : colorBad) : colorFill", "as": "fillColour"},
+        {"calculate": "datum.scoreText", "as": "__0__"},
+        {"calculate": "datum.targetText", "as": "__1__"}
+      ],
+      "layer": [
+        {
+          "description": "Score arc, from 0% to the clamped score.",
+          "transform": [{"filter": "datum.scoreDraw > 0"}],
+          "mark": {
+            "type": "arc",
+            "x": {"expr": "centreX"},
+            "y": {"expr": "centreY"},
+            "radius": {"expr": "ringOuter"},
+            "radius2": {"expr": "ringInner"},
+            "theta": {"expr": "-PI / 2"},
+            "theta2": {"expr": "datum.scoreTheta"},
+            "fillOpacity": {"expr": "ringFillOpacity"},
+            "strokeWidth": {"expr": "ringStrokeWidth"}
+          },
+          "encoding": {
+            "fill": {"field": "fillColour", "type": "nominal", "scale": null},
+            "stroke": {"field": "fillColour", "type": "nominal", "scale": null},
+            "tooltip": [
+              {"field": "__0__", "type": "nominal"},
+              {"field": "__1__", "type": "nominal"}
+            ]
+          }
+        },
+        {
+          "description": "Target tick, crossing the ring and overhanging it on both sides.",
+          "transform": [{"filter": "isValid(datum.targetDraw)"}],
+          "mark": {
+            "type": "rule",
+            "stroke": {"expr": "colorTarget"},
+            "strokeWidth": {"expr": "targetTickWidth"},
+            "strokeCap": "butt"
+          },
+          "encoding": {
+            "x": {"value": {"expr": "centreX + sin(datum.targetTheta) * (ringInner - targetTickOverhang)"}},
+            "y": {"value": {"expr": "centreY - cos(datum.targetTheta) * (ringInner - targetTickOverhang)"}},
+            "x2": {"value": {"expr": "centreX + sin(datum.targetTheta) * (ringOuter + targetTickOverhang)"}},
+            "y2": {"value": {"expr": "centreY - cos(datum.targetTheta) * (ringOuter + targetTickOverhang)"}},
+            "tooltip": [
+              {"field": "__0__", "type": "nominal"},
+              {"field": "__1__", "type": "nominal"}
+            ]
+          }
+        },
+        {
+          "description": "Target label, placed radially just beyond the tick so it clears the ring at any angle.",
+          "transform": [{"filter": "isValid(datum.targetDraw)"}],
+          "mark": {
+            "type": "text",
+            "x": {"expr": "centreX + sin(datum.targetTheta) * (targetLabelRadius + abs(sin(datum.targetTheta)) * datum.targetLabelHalfWidth + abs(cos(datum.targetTheta)) * labelFontSize * 0.6)"},
+            "y": {"expr": "centreY - cos(datum.targetTheta) * (targetLabelRadius + abs(sin(datum.targetTheta)) * datum.targetLabelHalfWidth + abs(cos(datum.targetTheta)) * labelFontSize * 0.6)"},
+            "align": "center",
+            "baseline": "middle",
+            "fontSize": {"expr": "labelFontSize"},
+            "fill": {"expr": "colorLabel"},
+            "limit": {"expr": "max(20, 2 * datum.targetLabelHalfWidth + sideRoom)"}
+          },
+          "encoding": {
+            "text": {"field": "targetLabel", "type": "nominal"}
+          }
+        },
+        {
+          "description": "Score label, centred in the hole and sitting on the ring's flat edge. It shows the real value, even when the arc is clamped, and shrinks when a long value would not fit the hole.",
+          "transform": [{"filter": "isValid(datum.scoreRaw)"}],
+          "mark": {
+            "type": "text",
+            "x": {"expr": "centreX"},
+            "y": {"expr": "centreY"},
+            "align": "center",
+            "baseline": "alphabetic",
+            "fontSize": {"expr": "min(scoreFontSize, ringInner * 1.7 / (0.65 * max(1, length(datum.scoreText))))"},
+            "fontWeight": {"expr": "scoreFontWeight"},
+            "fill": {"expr": "colorScoreText"},
+            "limit": {"expr": "2 * ringOuter"}
+          },
+          "encoding": {
+            "text": {"field": "scoreText", "type": "nominal"},
+            "tooltip": [
+              {"field": "__0__", "type": "nominal"},
+              {"field": "__1__", "type": "nominal"}
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

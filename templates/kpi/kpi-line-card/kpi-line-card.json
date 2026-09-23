@@ -1,0 +1,415 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "KPI Line Card",
+      "description": "A whole KPI card in one visual: header band, the reporting month's value, three status lines coloured by its gap to target (MoM change, gap to target, reporting-year figure) and a monthly line with a target line and good/bad markers. Design after Gerard Duggan (dg-analysis.com).",
+      "author": "Timothy Osborn, after Gerard Duggan",
+      "uuid": "d9357d46-c576-4607-9e6c-2c3dc361ebbd",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Month",
+        "description": "Month end date, one row per month. The line draws every month it receives.",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Value",
+        "description": "The month's value, for example net revenue or an on-time delivery rate.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Target",
+        "description": "The month's target for Value.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "Is Reporting Month",
+        "description": "1 on the month the card reports on, else 0. With no 1 in the data the latest month is used.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {"type": "fit", "contains": "padding"},
+    "view": {"stroke": "transparent"},
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {"name": "title", "value": "REVENUE"},
+    {"name": "headerColor", "expr": "pbiColor(0)"},
+    {"name": "headerTextColor", "value": "#FFFFFF"},
+    {"name": "cardColor", "value": "#FFFFFF"},
+    {"name": "borderColor", "expr": "pbiColor(0, -0.25)"},
+    {"name": "borderWidth", "value": 1},
+    {"name": "valueFormat", "value": "$,.0f"},
+    {"name": "valueColor", "expr": "pbiColor(0, -0.5)"},
+    {"name": "valueColorByStatus", "value": false},
+    {"name": "metricLabel", "value": "Rev"},
+    {"name": "rmLabel", "value": "RM"},
+    {"name": "ryLabel", "value": "RY"},
+    {"name": "momLabel", "value": "MoM"},
+    {"name": "momFormat", "value": "+.1%"},
+    {"name": "arrowUp", "value": "▲"},
+    {"name": "arrowDown", "value": "▼"},
+    {"name": "arrowFlat", "value": "►"},
+    {"name": "varianceUnit", "value": "absolute"},
+    {"name": "deltaFormat", "value": "$,.2~f"},
+    {"name": "valueDivisor", "value": 1000},
+    {"name": "valueSuffix", "value": "K"},
+    {"name": "ryFormat", "value": "$,.2~f"},
+    {"name": "yearAggregate", "value": "sum"},
+    {"name": "aboveText", "value": "above"},
+    {"name": "belowText", "value": "below"},
+    {"name": "onText", "value": "on"},
+    {"name": "targetNoun", "value": "target rev"},
+    {"name": "targetLabel", "value": "Target Rev"},
+    {"name": "noDataText", "value": "n/a"},
+    {"name": "higherIsBetter", "value": true},
+    {"name": "dateFormat", "value": "%b %y"},
+    {"name": "colorGood", "expr": "pbiColor('good')"},
+    {"name": "colorBad", "expr": "pbiColor('bad')"},
+    {"name": "colorNeutral", "expr": "pbiColor('neutral')"},
+    {"name": "lineColor", "expr": "pbiColor(0, -0.5)"},
+    {"name": "targetLineColor", "value": "#A19F9D"},
+    {"name": "labelColor", "value": "#605E5C"},
+    {"name": "xPadding", "value": 0.4},
+    {"name": "unit", "expr": "clamp(min(width / 264, height / 235), 0.5, 4)"},
+    {"name": "margin", "expr": "19 * unit"},
+    {"name": "headerHeight", "expr": "33 * unit"},
+    {"name": "titleSize", "expr": "14.5 * unit"},
+    {"name": "valueSize", "expr": "35 * unit"},
+    {"name": "statusSize", "expr": "11 * unit"},
+    {"name": "statusLineHeight", "expr": "13.8 * unit"},
+    {"name": "labelSize", "expr": "9.5 * unit"},
+    {"name": "valueBaseline", "expr": "headerHeight + 39 * unit"},
+    {"name": "statusBaseline", "expr": "valueBaseline + 31 * unit"},
+    {"name": "plotTop", "expr": "statusBaseline + 2 * statusLineHeight + 17 * unit"},
+    {"name": "plotBottom", "expr": "height - 30 * unit"},
+    {"name": "axisBaseline", "expr": "height - 10 * unit"},
+    {"name": "markerRadius", "expr": "4.6 * unit"},
+    {"name": "lineWidth", "expr": "1.8 * unit"},
+    {"name": "targetLineWidth", "expr": "2 * unit"},
+    {"name": "targetLineDash", "expr": "[2 * unit, 1.7 * unit]"},
+    {"name": "targetLabelSize", "expr": "10 * unit"}
+  ],
+  "data": {"name": "dataset"},
+  "transform": [
+    {"calculate": "time(datum['__0__'])", "as": "t"},
+    {"filter": "isFinite(datum.t)"},
+    {"calculate": "toNumber(datum['__1__'])", "as": "v"},
+    {"calculate": "toNumber(datum['__2__'])", "as": "tg"},
+    {"calculate": "toNumber(datum['__3__']) > 0 ? datum.t : null", "as": "flagT"},
+    {
+      "window": [
+        {"op": "row_number", "as": "rowNumber"},
+        {"op": "lag", "field": "v", "as": "prevV"},
+        {"op": "lag", "field": "tg", "as": "prevTarget"}
+      ],
+      "sort": [{"field": "t", "order": "ascending"}]
+    },
+    {
+      "joinaggregate": [
+        {"op": "max", "field": "flagT", "as": "flaggedT"},
+        {"op": "max", "field": "t", "as": "lastT"},
+        {"op": "count", "as": "n"},
+        {"op": "min", "field": "v", "as": "minV"},
+        {"op": "max", "field": "v", "as": "maxV"},
+        {"op": "min", "field": "tg", "as": "minTarget"},
+        {"op": "max", "field": "tg", "as": "maxTarget"}
+      ]
+    },
+    {"calculate": "datum.rowNumber - 1", "as": "idx"},
+    {"calculate": "isValid(datum.flaggedT) ? datum.flaggedT : datum.lastT", "as": "rmT"},
+    {"calculate": "datum.t === datum.rmT", "as": "isRM"},
+    {"calculate": "datum.isRM ? datum.v : null", "as": "rmPart"},
+    {"calculate": "datum.isRM ? datum.tg : null", "as": "rmTargetPart"},
+    {"calculate": "datum.isRM ? datum.prevV : null", "as": "pmPart"},
+    {"calculate": "isValid(datum.v) && year(datum.t) === year(datum.rmT) && datum.t <= datum.rmT ? datum.v : null", "as": "ryPart"},
+    {
+      "joinaggregate": [
+        {"op": "max", "field": "rmPart", "as": "rmV"},
+        {"op": "max", "field": "rmTargetPart", "as": "rmTg"},
+        {"op": "max", "field": "pmPart", "as": "pmV"},
+        {"op": "sum", "field": "ryPart", "as": "rySum"},
+        {"op": "mean", "field": "ryPart", "as": "ryMean"}
+      ]
+    },
+    {"calculate": "isValid(datum.rmV) && isValid(datum.rmTg) ? datum.rmV - datum.rmTg : null", "as": "gap"},
+    {"calculate": "isValid(datum.gap) ? (higherIsBetter ? 1 : -1) * datum.gap : 0", "as": "goodness"},
+    {"calculate": "datum.goodness > 0 ? colorGood : datum.goodness < 0 ? colorBad : colorNeutral", "as": "statusColor"},
+    {"calculate": "valueColorByStatus ? datum.statusColor : valueColor", "as": "valueFill"},
+    {"calculate": "!isValid(datum.v) || !isValid(datum.tg) ? colorNeutral : (higherIsBetter ? datum.v >= datum.tg : datum.v <= datum.tg) ? colorGood : colorBad", "as": "markerColor"},
+    {"calculate": "isValid(datum.rmV) && isValid(datum.pmV) && datum.pmV !== 0 ? (datum.rmV - datum.pmV) / abs(datum.pmV) : null", "as": "mom"},
+    {"calculate": "!isValid(datum.gap) ? null : varianceUnit === 'percent' ? datum.gap / abs(datum.rmTg) : varianceUnit === 'points' ? datum.gap : datum.gap / valueDivisor", "as": "gapShown"},
+    {"calculate": "yearAggregate === 'mean' ? datum.ryMean : datum.rySum", "as": "ry"},
+    {"calculate": "isValid(datum.rmV) ? format(datum.rmV, valueFormat) : noDataText", "as": "valueText"},
+    {"calculate": "momLabel + ' ' + (!isValid(datum.mom) ? noDataText : (datum.mom > 0 ? arrowUp : datum.mom < 0 ? arrowDown : arrowFlat) + ' at ' + (datum.mom < 0 ? '-' : indexof(momFormat, '+') >= 0 ? '+' : '') + format(abs(datum.mom), replace(momFormat, '+', '')))", "as": "momText"},
+    {"calculate": "metricLabel + ' ' + rmLabel + ': ' + (!isValid(datum.gapShown) || !isFinite(datum.gapShown) ? noDataText : (datum.gapShown < 0 ? '-' : indexof(deltaFormat, '+') >= 0 ? '+' : '') + format(abs(datum.gapShown), replace(deltaFormat, '+', '')) + (varianceUnit === 'absolute' ? valueSuffix : '') + ' ' + (datum.gap > 0 ? aboveText : datum.gap < 0 ? belowText : onText) + ' ' + targetNoun)", "as": "gapText"},
+    {"calculate": "metricLabel + ' ' + ryLabel + ': ' + (!isValid(datum.ry) || !isFinite(datum.ry) ? noDataText : (datum.ry < 0 ? '-' : indexof(ryFormat, '+') >= 0 ? '+' : '') + format(abs(datum.ry) / valueDivisor, replace(ryFormat, '+', '')) + valueSuffix)", "as": "ryText"},
+    {"calculate": "[datum.momText, datum.gapText, datum.ryText]", "as": "statusLines"},
+    {"calculate": "timeFormat(datum.t, dateFormat)", "as": "monthText"},
+    {"calculate": "isValid(datum.v) ? format(datum.v, valueFormat) : noDataText", "as": "valueTip"},
+    {"calculate": "isValid(datum.tg) ? format(datum.tg, valueFormat) : noDataText", "as": "targetTip"},
+    {"calculate": "isValid(datum.v) && isValid(datum.tg) ? (datum.v < datum.tg ? '-' : '+') + format(abs(datum.v - datum.tg), valueFormat) : noDataText", "as": "gapTip"},
+    {"calculate": "isValid(datum.minTarget) && isValid(datum.minV) ? min(datum.minV, datum.minTarget) : isValid(datum.minTarget) ? datum.minTarget : datum.minV", "as": "domainLo"},
+    {"calculate": "isValid(datum.maxTarget) && isValid(datum.maxV) ? max(datum.maxV, datum.maxTarget) : isValid(datum.maxTarget) ? datum.maxTarget : datum.maxV", "as": "domainHi"},
+    {"calculate": "(datum.domainHi > datum.domainLo ? (datum.tg - datum.domainLo) / (datum.domainHi - datum.domainLo) : 0.5) * (plotBottom - plotTop)", "as": "roomBelowTarget"},
+    {"calculate": "datum.v > datum.tg && datum.roomBelowTarget >= 6 * unit ? ['', targetLabel] : [targetLabel, '']", "as": "labelLines"}
+  ],
+  "layer": [
+    {
+      "description": "Card background",
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "x2": {"expr": "width"},
+        "y2": {"expr": "height"},
+        "fill": {"expr": "cardColor"}
+      }
+    },
+    {
+      "description": "Header band",
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "rect",
+        "x": 0,
+        "y": 0,
+        "x2": {"expr": "width"},
+        "y2": {"expr": "headerHeight"},
+        "fill": {"expr": "headerColor"}
+      }
+    },
+    {
+      "description": "Header title",
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "text",
+        "text": {"expr": "title"},
+        "x": {"expr": "margin"},
+        "y": {"expr": "headerHeight / 2"},
+        "align": "left",
+        "baseline": "middle",
+        "fontWeight": "bold",
+        "fontSize": {"expr": "titleSize"},
+        "fill": {"expr": "headerTextColor"},
+        "limit": {"expr": "width - 2 * margin"}
+      }
+    },
+    {
+      "description": "Reporting month value",
+      "transform": [{"filter": "datum.isRM"}],
+      "mark": {
+        "type": "text",
+        "x": {"expr": "margin"},
+        "y": {"expr": "valueBaseline"},
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "fontSize": {"expr": "valueSize"},
+        "limit": {"expr": "width - 2 * margin"}
+      },
+      "encoding": {
+        "text": {"field": "valueText", "type": "nominal"},
+        "color": {"field": "valueFill", "type": "nominal", "scale": null},
+        "tooltip": [
+          {"field": "monthText", "type": "nominal", "title": "Reporting month"},
+          {"field": "valueTip", "type": "nominal", "title": "Value"},
+          {"field": "targetTip", "type": "nominal", "title": "Target"},
+          {"field": "gapTip", "type": "nominal", "title": "Gap to target"}
+        ]
+      }
+    },
+    {
+      "description": "Three status lines, coloured by the reporting month's gap to target",
+      "transform": [{"filter": "datum.isRM"}],
+      "mark": {
+        "type": "text",
+        "x": {"expr": "margin"},
+        "y": {"expr": "statusBaseline"},
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontSize": {"expr": "statusSize"},
+        "lineHeight": {"expr": "statusLineHeight"},
+        "limit": {"expr": "width - 2 * margin"}
+      },
+      "encoding": {
+        "text": {"field": "statusLines", "type": "nominal"},
+        "color": {"field": "statusColor", "type": "nominal", "scale": null}
+      }
+    },
+    {
+      "description": "Target line: one rule per run of months with the same target, so a changing target steps",
+      "transform": [
+        {"filter": "isValid(datum.tg)"},
+        {"calculate": "datum.idx === 0 || datum.tg !== datum.prevTarget ? 1 : 0", "as": "runBreak"},
+        {"window": [{"op": "sum", "field": "runBreak", "as": "runId"}], "sort": [{"field": "idx", "order": "ascending"}]},
+        {
+          "aggregate": [
+            {"op": "min", "field": "idx", "as": "runStart"},
+            {"op": "max", "field": "idx", "as": "runEnd"},
+            {"op": "min", "field": "tg", "as": "runTarget"}
+          ],
+          "groupby": ["runId", "n"]
+        },
+        {"calculate": "max(datum.runStart - 0.5, -xPadding)", "as": "xFrom"},
+        {"calculate": "min(datum.runEnd + 0.5, datum.n - 1 + xPadding)", "as": "xTo"}
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": {"expr": "targetLineWidth"},
+        "strokeDash": {"expr": "targetLineDash"},
+        "color": {"expr": "targetLineColor"}
+      },
+      "encoding": {
+        "x": {
+          "field": "xFrom",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"zero": false, "nice": false, "range": [{"expr": "margin"}, {"expr": "width - margin"}]}
+        },
+        "x2": {"field": "xTo"},
+        "y": {
+          "field": "runTarget",
+          "type": "quantitative",
+          "axis": null,
+          "scale": {"zero": false, "nice": false, "range": [{"expr": "plotBottom"}, {"expr": "plotTop"}]}
+        }
+      }
+    },
+    {
+      "description": "Monthly line",
+      "mark": {
+        "type": "line",
+        "strokeWidth": {"expr": "lineWidth"},
+        "color": {"expr": "lineColor"},
+        "strokeJoin": "round",
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "x": {"field": "idx", "type": "quantitative"},
+        "y": {"field": "v", "type": "quantitative"},
+        "order": {"field": "idx", "type": "quantitative"}
+      }
+    },
+    {
+      "description": "Target label halo, keeps the label readable where the line crosses it",
+      "transform": [{"filter": "datum.idx === 0 && isValid(datum.tg)"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "line-bottom",
+        "lineHeight": {"expr": "1.6 * targetLabelSize"},
+        "fontSize": {"expr": "targetLabelSize"},
+        "fill": {"expr": "cardColor"},
+        "stroke": {"expr": "cardColor"},
+        "strokeWidth": {"expr": "0.25 * targetLabelSize"},
+        "strokeJoin": "round",
+        "limit": {"expr": "width - 2 * margin"}
+      },
+      "encoding": {
+        "x": {"value": {"expr": "margin"}},
+        "y": {"field": "tg", "type": "quantitative"},
+        "text": {"field": "labelLines", "type": "nominal"}
+      }
+    },
+    {
+      "description": "Target label at the left end of the target line, above it unless the first month sits above target and there is room below",
+      "transform": [{"filter": "datum.idx === 0 && isValid(datum.tg)"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "line-bottom",
+        "lineHeight": {"expr": "1.6 * targetLabelSize"},
+        "fontSize": {"expr": "targetLabelSize"},
+        "fill": {"expr": "labelColor"},
+        "limit": {"expr": "width - 2 * margin"}
+      },
+      "encoding": {
+        "x": {"value": {"expr": "margin"}},
+        "y": {"field": "tg", "type": "quantitative"},
+        "text": {"field": "labelLines", "type": "nominal"}
+      }
+    },
+    {
+      "description": "Month markers, coloured by each month's value against its target",
+      "transform": [{"filter": "isValid(datum.v)"}],
+      "mark": {
+        "type": "circle",
+        "opacity": 1,
+        "size": {"expr": "PI * markerRadius * markerRadius"}
+      },
+      "encoding": {
+        "x": {"field": "idx", "type": "quantitative"},
+        "y": {"field": "v", "type": "quantitative"},
+        "color": {"field": "markerColor", "type": "nominal", "scale": null},
+        "tooltip": [
+          {"field": "monthText", "type": "nominal", "title": "Month"},
+          {"field": "valueTip", "type": "nominal", "title": "Value"},
+          {"field": "targetTip", "type": "nominal", "title": "Target"},
+          {"field": "gapTip", "type": "nominal", "title": "Gap to target"}
+        ]
+      }
+    },
+    {
+      "description": "Month labels, thinned when months are too close to label them all",
+      "transform": [
+        {"calculate": "max(1, ceil(labelSize * 3.6 / ((width - 2 * margin) / max(datum.n - 1 + 2 * xPadding, 0.001))))", "as": "labelEvery"},
+        {"filter": "(datum.n - 1 - datum.idx) % datum.labelEvery === 0"}
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "alphabetic",
+        "fontSize": {"expr": "labelSize"},
+        "fill": {"expr": "labelColor"}
+      },
+      "encoding": {
+        "x": {"field": "idx", "type": "quantitative"},
+        "y": {"value": {"expr": "axisBaseline"}},
+        "text": {"field": "monthText", "type": "nominal"}
+      }
+    },
+    {
+      "description": "Card border",
+      "data": {"values": [{}]},
+      "mark": {
+        "type": "rect",
+        "filled": false,
+        "x": {"expr": "borderWidth / 2"},
+        "y": {"expr": "borderWidth / 2"},
+        "x2": {"expr": "width - borderWidth / 2"},
+        "y2": {"expr": "height - borderWidth / 2"},
+        "stroke": {"expr": "borderColor"},
+        "strokeWidth": {"expr": "borderWidth"}
+      }
+    }
+  ]
+}

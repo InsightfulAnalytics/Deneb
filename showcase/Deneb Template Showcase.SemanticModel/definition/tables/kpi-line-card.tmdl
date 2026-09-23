@@ -1,0 +1,74 @@
+/// Sample data for the KPI Line Card template, showcase instance kpi-line-card (templates/kpi/kpi-line-card/sample-data.csv).
+table 'kpi-line-card'
+	lineageTag: aca2ac5f-ac08-5cda-b5c6-a7d389dc108b
+
+	/// The month's value, for example net revenue or an on-time delivery rate.
+	measure 'Value (kpi-line-card)' = SUM ( 'kpi-line-card'[Value] )
+		lineageTag: 11006377-5924-5cea-8a51-6cd620881ef3
+
+	/// The month's target for Value.
+	measure 'Target (kpi-line-card)' = SUM ( 'kpi-line-card'[Target] )
+		lineageTag: 69cd0840-09bf-5bdb-8a77-7e528032da97
+
+	/// 1 on the month the card reports on, else 0. With no 1 in the data the latest month is used.
+	measure 'Is Reporting Month (kpi-line-card)' = SUM ( 'kpi-line-card'[Is Reporting Month] )
+		lineageTag: a9538e5a-cb73-5e13-9202-d067a61c073f
+
+	/// Month end date, one row per month. The line draws every month it receives.
+	column Month
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 81a27a82-922d-5604-b8b3-2cf9429495ad
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 6f52127a-be98-5346-875a-4adb3b55ae0f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 3bcc6665-fc40-5585-8767-e29d615a89c8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	column 'Is Reporting Month'
+		dataType: double
+		isHidden
+		lineageTag: 0f51b621-9c78-5b1b-bc83-527c3f9d91c3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Is Reporting Month]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-line-card' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Month", DATETIME,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    "Is Reporting Month", DOUBLE,
+				    {
+				        { "2015-01-31", 94224, 100000, 0 },
+				        { "2015-02-28", 99415, 100000, 0 },
+				        { "2015-03-31", 104854, 100000, 0 },
+				        { "2015-04-30", 123799, 100000, 1 }
+				    }
+				)

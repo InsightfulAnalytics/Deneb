@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "c71f9d2f2dd35d86bcaf",
+  "displayName": "Bullet with Prior Period",
+  "displayOption": "FitToPage",
+  "height": 365,
+  "width": 468
+}

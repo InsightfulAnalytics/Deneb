@@ -1,0 +1,419 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "62c9fc61c3ae28d43623",
+  "position": {
+    "x": 24,
+    "y": 81,
+    "z": 2000,
+    "height": 740,
+    "width": 1608,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "pl-monthly-grid.Year",
+              "nativeQueryRef": "Year",
+              "displayName": "Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "pl-monthly-grid.Month",
+              "nativeQueryRef": "Month",
+              "displayName": "Month"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "Month Offset (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.Month Offset (pl-monthly-grid)",
+              "nativeQueryRef": "Month Offset (pl-monthly-grid)",
+              "displayName": "Month Offset"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "Month Selected (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.Month Selected (pl-monthly-grid)",
+              "nativeQueryRef": "Month Selected (pl-monthly-grid)",
+              "displayName": "Month Selected"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "Income Act (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.Income Act (pl-monthly-grid)",
+              "nativeQueryRef": "Income Act (pl-monthly-grid)",
+              "displayName": "Income Act"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "Income LY (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.Income LY (pl-monthly-grid)",
+              "nativeQueryRef": "Income LY (pl-monthly-grid)",
+              "displayName": "Income LY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "COGS Act (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.COGS Act (pl-monthly-grid)",
+              "nativeQueryRef": "COGS Act (pl-monthly-grid)",
+              "displayName": "COGS Act"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "COGS LY (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.COGS LY (pl-monthly-grid)",
+              "nativeQueryRef": "COGS LY (pl-monthly-grid)",
+              "displayName": "COGS LY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "GP Act (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.GP Act (pl-monthly-grid)",
+              "nativeQueryRef": "GP Act (pl-monthly-grid)",
+              "displayName": "GP Act"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "GP LY (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.GP LY (pl-monthly-grid)",
+              "nativeQueryRef": "GP LY (pl-monthly-grid)",
+              "displayName": "GP LY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "Opex Act (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.Opex Act (pl-monthly-grid)",
+              "nativeQueryRef": "Opex Act (pl-monthly-grid)",
+              "displayName": "Opex Act"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "Opex LY (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.Opex LY (pl-monthly-grid)",
+              "nativeQueryRef": "Opex LY (pl-monthly-grid)",
+              "displayName": "Opex LY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "NP Act (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.NP Act (pl-monthly-grid)",
+              "nativeQueryRef": "NP Act (pl-monthly-grid)",
+              "displayName": "NP Act"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pl-monthly-grid"
+                    }
+                  },
+                  "Property": "NP LY (pl-monthly-grid)"
+                }
+              },
+              "queryRef": "pl-monthly-grid.NP LY (pl-monthly-grid)",
+              "nativeQueryRef": "NP LY (pl-monthly-grid)",
+              "displayName": "NP LY"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vega'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"description\": \"Monthly P&L statement grid: 28 rows by 15 columns from one flat monthly query.\",\n  \"padding\": 0,\n  \"autosize\": {\n    \"type\": \"none\",\n    \"resize\": true\n  },\n  \"width\": {\n    \"signal\": \"pbiContainerWidth - (pbiContainerHeight < 622 ? 12 : 0)\"\n  },\n  \"height\": {\n    \"signal\": \"max(pbiContainerHeight, 622)\"\n  },\n  \"signals\": [\n    {\n      \"name\": \"headerColor\",\n      \"update\": \"pbiColor(1)\"\n    },\n    {\n      \"name\": \"headerTextColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"sectionColor\",\n      \"value\": \"#F1F1F1\"\n    },\n    {\n      \"name\": \"gridColor\",\n      \"value\": \"#E6E6E6\"\n    },\n    {\n      \"name\": \"textColor\",\n      \"value\": \"#231F20\"\n    },\n    {\n      \"name\": \"colorGood\",\n      \"update\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"update\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"highlightColor\",\n      \"update\": \"pbiColor(3, 0.7)\"\n    },\n    {\n      \"name\": \"highlightOpacity\",\n      \"value\": 0.13\n    },\n    {\n      \"name\": \"dimOpacity\",\n      \"value\": 0.4\n    },\n    {\n      \"name\": \"fontSize\",\n      \"value\": 13\n    },\n    {\n      \"name\": \"headerHeight\",\n      \"value\": 34\n    },\n    {\n      \"name\": \"labelWidth\",\n      \"value\": 160\n    },\n    {\n      \"name\": \"monthNames\",\n      \"value\": [\n        \"Jan\",\n        \"Feb\",\n        \"Mar\",\n        \"Apr\",\n        \"May\",\n        \"Jun\",\n        \"Jul\",\n        \"Aug\",\n        \"Sep\",\n        \"Oct\",\n        \"Nov\",\n        \"Dec\"\n      ]\n    },\n    {\n      \"name\": \"ytdLabel\",\n      \"value\": \"YTD\"\n    },\n    {\n      \"name\": \"ytgLabel\",\n      \"value\": \"YTG\"\n    },\n    {\n      \"name\": \"fyLabel\",\n      \"value\": \"FY\"\n    },\n    {\n      \"name\": \"lineLabels\",\n      \"value\": [\n        \"Income\",\n        \"Income Act\",\n        \"Income LY\",\n        \"Income Var %\",\n        \"Cost of Sales\",\n        \"COGS Act\",\n        \"COGS LY\",\n        \"COGS Var %\",\n        \"Gross Profit\",\n        \"GP Act\",\n        \"GP LY\",\n        \"GP Var %\",\n        \"Gross Margin\",\n        \"GM % Act\",\n        \"GM % LY\",\n        \"GM Var pts\",\n        \"Operating Expenses\",\n        \"Opex Act\",\n        \"Opex LY\",\n        \"Opex Var %\",\n        \"Cost Ratio\",\n        \"Opex % Act\",\n        \"Opex % LY\",\n        \"Opex % Var pts\",\n        \"Net Profit\",\n        \"NP Act\",\n        \"NP LY\",\n        \"NP Var %\"\n      ]\n    },\n    {\n      \"name\": \"currencySymbol\",\n      \"value\": \"$\"\n    },\n    {\n      \"name\": \"colWidth\",\n      \"update\": \"(width - labelWidth) / 15\"\n    },\n    {\n      \"name\": \"rowHeight\",\n      \"update\": \"(height - headerHeight) / 28\"\n    },\n    {\n      \"name\": \"hasSel\",\n      \"update\": \"length(data(''selCols'')) > 0\"\n    }\n  ],\n  \"data\": [\n    {\n      \"name\": \"dataset\",\n      \"transform\": [\n        {\n          \"type\": \"formula\",\n          \"as\": \"Year\",\n          \"expr\": \"datum[''Year'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"Month\",\n          \"expr\": \"datum[''Month'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"MonthOffset\",\n          \"expr\": \"datum[''Month Offset'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"MthSel\",\n          \"expr\": \"datum[''Month Selected'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncAct\",\n          \"expr\": \"datum[''Income Act'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncLY\",\n          \"expr\": \"datum[''Income LY'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogAct\",\n          \"expr\": \"datum[''COGS Act'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogLY\",\n          \"expr\": \"datum[''COGS LY'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPAct\",\n          \"expr\": \"datum[''GP Act'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPLY\",\n          \"expr\": \"datum[''GP LY'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxAct\",\n          \"expr\": \"datum[''Opex Act'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxLY\",\n          \"expr\": \"datum[''Opex LY'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPAct\",\n          \"expr\": \"datum[''NP Act'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPLY\",\n          \"expr\": \"datum[''NP LY'']\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"todayIdx\",\n          \"expr\": \"isValid(datum.MonthOffset) && isValid(datum.Year) && isValid(datum.Month) ? 12 * datum.Year + datum.Month - datum.MonthOffset : null\"\n        }\n      ]\n    },\n    {\n      \"name\": \"rowsReg\",\n      \"values\": [\n        {\n          \"key\": \"t_inc\",\n          \"rowIdx\": 0,\n          \"kind\": \"title\",\n          \"fmt\": \"\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"inc_act\",\n          \"rowIdx\": 1,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"inc_ly\",\n          \"rowIdx\": 2,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"inc_var\",\n          \"rowIdx\": 3,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": true,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"t_cogs\",\n          \"rowIdx\": 4,\n          \"kind\": \"title\",\n          \"fmt\": \"\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"cog_act\",\n          \"rowIdx\": 5,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"cog_ly\",\n          \"rowIdx\": 6,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"cog_var\",\n          \"rowIdx\": 7,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": true,\n          \"badUp\": true\n        },\n        {\n          \"key\": \"t_gp\",\n          \"rowIdx\": 8,\n          \"kind\": \"title\",\n          \"fmt\": \"\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"gp_act\",\n          \"rowIdx\": 9,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"gp_ly\",\n          \"rowIdx\": 10,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"gp_var\",\n          \"rowIdx\": 11,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": true,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"t_gm\",\n          \"rowIdx\": 12,\n          \"kind\": \"title\",\n          \"fmt\": \"\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"gm_act\",\n          \"rowIdx\": 13,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"gm_ly\",\n          \"rowIdx\": 14,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"gm_var\",\n          \"rowIdx\": 15,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": true,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"t_opx\",\n          \"rowIdx\": 16,\n          \"kind\": \"title\",\n          \"fmt\": \"\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"opx_act\",\n          \"rowIdx\": 17,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"opx_ly\",\n          \"rowIdx\": 18,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"opx_var\",\n          \"rowIdx\": 19,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": true,\n          \"badUp\": true\n        },\n        {\n          \"key\": \"t_ratio\",\n          \"rowIdx\": 20,\n          \"kind\": \"title\",\n          \"fmt\": \"\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"opr_act\",\n          \"rowIdx\": 21,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"opr_ly\",\n          \"rowIdx\": 22,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"opr_var\",\n          \"rowIdx\": 23,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": true,\n          \"badUp\": true\n        },\n        {\n          \"key\": \"t_np\",\n          \"rowIdx\": 24,\n          \"kind\": \"title\",\n          \"fmt\": \"\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"np_act\",\n          \"rowIdx\": 25,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"np_ly\",\n          \"rowIdx\": 26,\n          \"kind\": \"data\",\n          \"fmt\": \"money\",\n          \"isVar\": false,\n          \"badUp\": false\n        },\n        {\n          \"key\": \"np_var\",\n          \"rowIdx\": 27,\n          \"kind\": \"data\",\n          \"fmt\": \"pct\",\n          \"isVar\": true,\n          \"badUp\": false\n        }\n      ],\n      \"transform\": [\n        {\n          \"type\": \"formula\",\n          \"as\": \"label\",\n          \"expr\": \"lineLabels[datum.rowIdx]\"\n        }\n      ]\n    },\n    {\n      \"name\": \"rowEdges\",\n      \"values\": [\n        {\n          \"edge\": 0\n        },\n        {\n          \"edge\": 1\n        },\n        {\n          \"edge\": 2\n        },\n        {\n          \"edge\": 3\n        },\n        {\n          \"edge\": 4\n        },\n        {\n          \"edge\": 5\n        },\n        {\n          \"edge\": 6\n        },\n        {\n          \"edge\": 7\n        },\n        {\n          \"edge\": 8\n        },\n        {\n          \"edge\": 9\n        },\n        {\n          \"edge\": 10\n        },\n        {\n          \"edge\": 11\n        },\n        {\n          \"edge\": 12\n        },\n        {\n          \"edge\": 13\n        },\n        {\n          \"edge\": 14\n        },\n        {\n          \"edge\": 15\n        },\n        {\n          \"edge\": 16\n        },\n        {\n          \"edge\": 17\n        },\n        {\n          \"edge\": 18\n        },\n        {\n          \"edge\": 19\n        },\n        {\n          \"edge\": 20\n        },\n        {\n          \"edge\": 21\n        },\n        {\n          \"edge\": 22\n        },\n        {\n          \"edge\": 23\n        },\n        {\n          \"edge\": 24\n        },\n        {\n          \"edge\": 25\n        },\n        {\n          \"edge\": 26\n        },\n        {\n          \"edge\": 27\n        },\n        {\n          \"edge\": 28\n        }\n      ]\n    },\n    {\n      \"name\": \"colsReg\",\n      \"values\": [\n        {\n          \"colIdx\": 0\n        },\n        {\n          \"colIdx\": 1\n        },\n        {\n          \"colIdx\": 2\n        },\n        {\n          \"colIdx\": 3\n        },\n        {\n          \"colIdx\": 4\n        },\n        {\n          \"colIdx\": 5\n        },\n        {\n          \"colIdx\": 6\n        },\n        {\n          \"colIdx\": 7\n        },\n        {\n          \"colIdx\": 8\n        },\n        {\n          \"colIdx\": 9\n        },\n        {\n          \"colIdx\": 10\n        },\n        {\n          \"colIdx\": 11\n        },\n        {\n          \"colIdx\": 12\n        },\n        {\n          \"colIdx\": 13\n        },\n        {\n          \"colIdx\": 14\n        }\n      ]\n    },\n    {\n      \"name\": \"titleRows\",\n      \"source\": \"rowsReg\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"datum.kind == ''title''\"\n        }\n      ]\n    },\n    {\n      \"name\": \"months\",\n      \"source\": \"dataset\",\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"fields\": [\n            \"IncAct\",\n            \"IncLY\",\n            \"CogAct\",\n            \"CogLY\",\n            \"GPAct\",\n            \"GPLY\",\n            \"OpxAct\",\n            \"OpxLY\",\n            \"NPAct\",\n            \"NPLY\",\n            \"IncAct\",\n            \"IncLY\",\n            \"CogAct\",\n            \"CogLY\",\n            \"GPAct\",\n            \"GPLY\",\n            \"OpxAct\",\n            \"OpxLY\",\n            \"NPAct\",\n            \"NPLY\",\n            \"todayIdx\",\n            \"MthSel\"\n          ],\n          \"ops\": [\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"max\",\n            \"max\"\n          ],\n          \"as\": [\n            \"sIncAct\",\n            \"sIncLY\",\n            \"sCogAct\",\n            \"sCogLY\",\n            \"sGPAct\",\n            \"sGPLY\",\n            \"sOpxAct\",\n            \"sOpxLY\",\n            \"sNPAct\",\n            \"sNPLY\",\n            \"vIncAct\",\n            \"vIncLY\",\n            \"vCogAct\",\n            \"vCogLY\",\n            \"vGPAct\",\n            \"vGPLY\",\n            \"vOpxAct\",\n            \"vOpxLY\",\n            \"vNPAct\",\n            \"vNPLY\",\n            \"todayIdx\",\n            \"selMonth\"\n          ],\n          \"groupby\": [\n            \"Month\"\n          ]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncAct\",\n          \"expr\": \"datum.vIncAct > 0 ? datum.sIncAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncLY\",\n          \"expr\": \"datum.vIncLY > 0 ? datum.sIncLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogAct\",\n          \"expr\": \"datum.vCogAct > 0 ? datum.sCogAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogLY\",\n          \"expr\": \"datum.vCogLY > 0 ? datum.sCogLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPAct\",\n          \"expr\": \"datum.vGPAct > 0 ? datum.sGPAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPLY\",\n          \"expr\": \"datum.vGPLY > 0 ? datum.sGPLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxAct\",\n          \"expr\": \"datum.vOpxAct > 0 ? datum.sOpxAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxLY\",\n          \"expr\": \"datum.vOpxLY > 0 ? datum.sOpxLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPAct\",\n          \"expr\": \"datum.vNPAct > 0 ? datum.sNPAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPLY\",\n          \"expr\": \"datum.vNPLY > 0 ? datum.sNPLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"curP\",\n          \"expr\": \"isFinite(datum.todayIdx) ? ((datum.todayIdx - 1) % 12) + 1 : null\"\n        }\n      ]\n    },\n    {\n      \"name\": \"monthCols\",\n      \"source\": \"months\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"datum.Month >= 1 && datum.Month <= 12\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"colIdx\",\n          \"expr\": \"datum.Month - 1\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"colLabel\",\n          \"expr\": \"monthNames[datum.Month - 1]\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"isSel\",\n          \"expr\": \"datum.selMonth > 0\"\n        }\n      ]\n    },\n    {\n      \"name\": \"selCols\",\n      \"source\": \"monthCols\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"datum.isSel\"\n        }\n      ]\n    },\n    {\n      \"name\": \"totYTD\",\n      \"source\": \"months\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"isValid(datum.curP) && datum.Month <= datum.curP\"\n        },\n        {\n          \"type\": \"aggregate\",\n          \"fields\": [\n            \"IncAct\",\n            \"IncLY\",\n            \"CogAct\",\n            \"CogLY\",\n            \"GPAct\",\n            \"GPLY\",\n            \"OpxAct\",\n            \"OpxLY\",\n            \"NPAct\",\n            \"NPLY\",\n            \"IncAct\",\n            \"IncLY\",\n            \"CogAct\",\n            \"CogLY\",\n            \"GPAct\",\n            \"GPLY\",\n            \"OpxAct\",\n            \"OpxLY\",\n            \"NPAct\",\n            \"NPLY\",\n            \"todayIdx\",\n            \"MthSel\"\n          ],\n          \"ops\": [\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"max\",\n            \"max\"\n          ],\n          \"as\": [\n            \"sIncAct\",\n            \"sIncLY\",\n            \"sCogAct\",\n            \"sCogLY\",\n            \"sGPAct\",\n            \"sGPLY\",\n            \"sOpxAct\",\n            \"sOpxLY\",\n            \"sNPAct\",\n            \"sNPLY\",\n            \"vIncAct\",\n            \"vIncLY\",\n            \"vCogAct\",\n            \"vCogLY\",\n            \"vGPAct\",\n            \"vGPLY\",\n            \"vOpxAct\",\n            \"vOpxLY\",\n            \"vNPAct\",\n            \"vNPLY\",\n            \"todayIdx\",\n            \"selMonth\"\n          ]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncAct\",\n          \"expr\": \"datum.vIncAct > 0 ? datum.sIncAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncLY\",\n          \"expr\": \"datum.vIncLY > 0 ? datum.sIncLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogAct\",\n          \"expr\": \"datum.vCogAct > 0 ? datum.sCogAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogLY\",\n          \"expr\": \"datum.vCogLY > 0 ? datum.sCogLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPAct\",\n          \"expr\": \"datum.vGPAct > 0 ? datum.sGPAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPLY\",\n          \"expr\": \"datum.vGPLY > 0 ? datum.sGPLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxAct\",\n          \"expr\": \"datum.vOpxAct > 0 ? datum.sOpxAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxLY\",\n          \"expr\": \"datum.vOpxLY > 0 ? datum.sOpxLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPAct\",\n          \"expr\": \"datum.vNPAct > 0 ? datum.sNPAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPLY\",\n          \"expr\": \"datum.vNPLY > 0 ? datum.sNPLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"colLabel\",\n          \"expr\": \"ytdLabel\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"colIdx\",\n          \"expr\": \"12\"\n        }\n      ]\n    },\n    {\n      \"name\": \"totYTG\",\n      \"source\": \"months\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"isValid(datum.curP) && datum.Month > datum.curP\"\n        },\n        {\n          \"type\": \"aggregate\",\n          \"fields\": [\n            \"IncAct\",\n            \"IncLY\",\n            \"CogAct\",\n            \"CogLY\",\n            \"GPAct\",\n            \"GPLY\",\n            \"OpxAct\",\n            \"OpxLY\",\n            \"NPAct\",\n            \"NPLY\",\n            \"IncAct\",\n            \"IncLY\",\n            \"CogAct\",\n            \"CogLY\",\n            \"GPAct\",\n            \"GPLY\",\n            \"OpxAct\",\n            \"OpxLY\",\n            \"NPAct\",\n            \"NPLY\",\n            \"todayIdx\",\n            \"MthSel\"\n          ],\n          \"ops\": [\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"max\",\n            \"max\"\n          ],\n          \"as\": [\n            \"sIncAct\",\n            \"sIncLY\",\n            \"sCogAct\",\n            \"sCogLY\",\n            \"sGPAct\",\n            \"sGPLY\",\n            \"sOpxAct\",\n            \"sOpxLY\",\n            \"sNPAct\",\n            \"sNPLY\",\n            \"vIncAct\",\n            \"vIncLY\",\n            \"vCogAct\",\n            \"vCogLY\",\n            \"vGPAct\",\n            \"vGPLY\",\n            \"vOpxAct\",\n            \"vOpxLY\",\n            \"vNPAct\",\n            \"vNPLY\",\n            \"todayIdx\",\n            \"selMonth\"\n          ]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncAct\",\n          \"expr\": \"datum.vIncAct > 0 ? datum.sIncAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncLY\",\n          \"expr\": \"datum.vIncLY > 0 ? datum.sIncLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogAct\",\n          \"expr\": \"datum.vCogAct > 0 ? datum.sCogAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogLY\",\n          \"expr\": \"datum.vCogLY > 0 ? datum.sCogLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPAct\",\n          \"expr\": \"datum.vGPAct > 0 ? datum.sGPAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPLY\",\n          \"expr\": \"datum.vGPLY > 0 ? datum.sGPLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxAct\",\n          \"expr\": \"datum.vOpxAct > 0 ? datum.sOpxAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxLY\",\n          \"expr\": \"datum.vOpxLY > 0 ? datum.sOpxLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPAct\",\n          \"expr\": \"datum.vNPAct > 0 ? datum.sNPAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPLY\",\n          \"expr\": \"datum.vNPLY > 0 ? datum.sNPLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"colLabel\",\n          \"expr\": \"ytgLabel\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"colIdx\",\n          \"expr\": \"13\"\n        }\n      ]\n    },\n    {\n      \"name\": \"totFY\",\n      \"source\": \"months\",\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"fields\": [\n            \"IncAct\",\n            \"IncLY\",\n            \"CogAct\",\n            \"CogLY\",\n            \"GPAct\",\n            \"GPLY\",\n            \"OpxAct\",\n            \"OpxLY\",\n            \"NPAct\",\n            \"NPLY\",\n            \"IncAct\",\n            \"IncLY\",\n            \"CogAct\",\n            \"CogLY\",\n            \"GPAct\",\n            \"GPLY\",\n            \"OpxAct\",\n            \"OpxLY\",\n            \"NPAct\",\n            \"NPLY\",\n            \"todayIdx\",\n            \"MthSel\"\n          ],\n          \"ops\": [\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"sum\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"valid\",\n            \"max\",\n            \"max\"\n          ],\n          \"as\": [\n            \"sIncAct\",\n            \"sIncLY\",\n            \"sCogAct\",\n            \"sCogLY\",\n            \"sGPAct\",\n            \"sGPLY\",\n            \"sOpxAct\",\n            \"sOpxLY\",\n            \"sNPAct\",\n            \"sNPLY\",\n            \"vIncAct\",\n            \"vIncLY\",\n            \"vCogAct\",\n            \"vCogLY\",\n            \"vGPAct\",\n            \"vGPLY\",\n            \"vOpxAct\",\n            \"vOpxLY\",\n            \"vNPAct\",\n            \"vNPLY\",\n            \"todayIdx\",\n            \"selMonth\"\n          ]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncAct\",\n          \"expr\": \"datum.vIncAct > 0 ? datum.sIncAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"IncLY\",\n          \"expr\": \"datum.vIncLY > 0 ? datum.sIncLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogAct\",\n          \"expr\": \"datum.vCogAct > 0 ? datum.sCogAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"CogLY\",\n          \"expr\": \"datum.vCogLY > 0 ? datum.sCogLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPAct\",\n          \"expr\": \"datum.vGPAct > 0 ? datum.sGPAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"GPLY\",\n          \"expr\": \"datum.vGPLY > 0 ? datum.sGPLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxAct\",\n          \"expr\": \"datum.vOpxAct > 0 ? datum.sOpxAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"OpxLY\",\n          \"expr\": \"datum.vOpxLY > 0 ? datum.sOpxLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPAct\",\n          \"expr\": \"datum.vNPAct > 0 ? datum.sNPAct : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"NPLY\",\n          \"expr\": \"datum.vNPLY > 0 ? datum.sNPLY : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"colLabel\",\n          \"expr\": \"fyLabel\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"colIdx\",\n          \"expr\": \"14\"\n        }\n      ]\n    },\n    {\n      \"name\": \"cells\",\n      \"source\": [\n        \"monthCols\",\n        \"totYTD\",\n        \"totYTG\",\n        \"totFY\"\n      ],\n      \"transform\": [\n        {\n          \"type\": \"formula\",\n          \"as\": \"inc_act\",\n          \"expr\": \"datum.IncAct\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"inc_ly\",\n          \"expr\": \"datum.IncLY\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"inc_var\",\n          \"expr\": \"(datum.IncLY == null || datum.IncLY == 0) ? null : (((datum.IncAct == null ? 0 : datum.IncAct) - datum.IncLY) / datum.IncLY)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"cog_act\",\n          \"expr\": \"datum.CogAct\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"cog_ly\",\n          \"expr\": \"datum.CogLY\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"cog_var\",\n          \"expr\": \"(datum.CogLY == null || datum.CogLY == 0) ? null : (((datum.CogAct == null ? 0 : datum.CogAct) - datum.CogLY) / datum.CogLY)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"gp_act\",\n          \"expr\": \"datum.GPAct\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"gp_ly\",\n          \"expr\": \"datum.GPLY\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"gp_var\",\n          \"expr\": \"(datum.GPLY == null || datum.GPLY == 0) ? null : (((datum.GPAct == null ? 0 : datum.GPAct) - datum.GPLY) / datum.GPLY)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"gm_act\",\n          \"expr\": \"(datum.IncAct == null || datum.IncAct == 0 || datum.GPAct == null) ? null : (datum.GPAct / datum.IncAct)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"gm_ly\",\n          \"expr\": \"(datum.IncLY == null || datum.IncLY == 0 || datum.GPLY == null) ? null : (datum.GPLY / datum.IncLY)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"gm_var\",\n          \"expr\": \"(datum.gm_act == null && datum.gm_ly == null) ? null : ((datum.gm_act == null ? 0 : datum.gm_act) - (datum.gm_ly == null ? 0 : datum.gm_ly))\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"opx_act\",\n          \"expr\": \"datum.OpxAct\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"opx_ly\",\n          \"expr\": \"datum.OpxLY\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"opx_var\",\n          \"expr\": \"(datum.OpxLY == null || datum.OpxLY == 0) ? null : (((datum.OpxAct == null ? 0 : datum.OpxAct) - datum.OpxLY) / datum.OpxLY)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"opr_act\",\n          \"expr\": \"(datum.IncAct == null || datum.IncAct == 0 || datum.OpxAct == null) ? null : (-datum.OpxAct / datum.IncAct)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"opr_ly\",\n          \"expr\": \"(datum.IncLY == null || datum.IncLY == 0 || datum.OpxLY == null) ? null : (-datum.OpxLY / datum.IncLY)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"opr_var\",\n          \"expr\": \"(datum.opr_act == null && datum.opr_ly == null) ? null : ((datum.opr_act == null ? 0 : datum.opr_act) - (datum.opr_ly == null ? 0 : datum.opr_ly))\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"np_act\",\n          \"expr\": \"datum.NPAct\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"np_ly\",\n          \"expr\": \"datum.NPLY\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"np_var\",\n          \"expr\": \"(datum.NPLY == null || datum.NPLY == 0) ? null : (((datum.NPAct == null ? 0 : datum.NPAct) - datum.NPLY) / datum.NPLY)\"\n        },\n        {\n          \"type\": \"fold\",\n          \"fields\": [\n            \"inc_act\",\n            \"inc_ly\",\n            \"inc_var\",\n            \"cog_act\",\n            \"cog_ly\",\n            \"cog_var\",\n            \"gp_act\",\n            \"gp_ly\",\n            \"gp_var\",\n            \"gm_act\",\n            \"gm_ly\",\n            \"gm_var\",\n            \"opx_act\",\n            \"opx_ly\",\n            \"opx_var\",\n            \"opr_act\",\n            \"opr_ly\",\n            \"opr_var\",\n            \"np_act\",\n            \"np_ly\",\n            \"np_var\"\n          ],\n          \"as\": [\n            \"key\",\n            \"value\"\n          ]\n        },\n        {\n          \"type\": \"lookup\",\n          \"from\": \"rowsReg\",\n          \"key\": \"key\",\n          \"fields\": [\n            \"key\"\n          ],\n          \"values\": [\n            \"rowIdx\",\n            \"label\",\n            \"fmt\",\n            \"isVar\",\n            \"badUp\"\n          ],\n          \"as\": [\n            \"rowIdx\",\n            \"rowLabel\",\n            \"fmt\",\n            \"isVar\",\n            \"badUp\"\n          ]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"av\",\n          \"expr\": \"abs(datum.value)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"body\",\n          \"expr\": \"datum.fmt == ''pct'' ? (datum.av >= 1 ? format(datum.av, ''.0%'') : format(datum.av, ''.1%'')) : currencySymbol + (datum.av >= 999950 ? format(datum.av / 1e6, '',.1f'') + ''M'' : datum.av >= 999.5 ? format(datum.av / 1e3, '',.1f'') + ''K'' : format(datum.av, '',.0f''))\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"fmtd\",\n          \"expr\": \"datum.value == null ? '''' : (datum.value < 0 ? ''('' + datum.body + '')'' : datum.body)\"\n        }\n      ]\n    }\n  ],\n  \"marks\": [\n    {\n      \"type\": \"rect\",\n      \"name\": \"headerBand\",\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"value\": 0\n          },\n          \"x2\": {\n            \"signal\": \"width\"\n          },\n          \"y\": {\n            \"value\": 0\n          },\n          \"y2\": {\n            \"signal\": \"headerHeight\"\n          },\n          \"fill\": {\n            \"signal\": \"headerColor\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"headerLabels\",\n      \"from\": {\n        \"data\": \"colsReg\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"labelWidth + (datum.colIdx + 0.5) * colWidth\"\n          },\n          \"y\": {\n            \"signal\": \"headerHeight / 2\"\n          },\n          \"align\": {\n            \"value\": \"center\"\n          },\n          \"baseline\": {\n            \"value\": \"middle\"\n          },\n          \"text\": {\n            \"signal\": \"datum.colIdx < 12 ? monthNames[datum.colIdx] : [ytdLabel, ytgLabel, fyLabel][datum.colIdx - 12]\"\n          },\n          \"fontSize\": {\n            \"signal\": \"fontSize\"\n          },\n          \"fontWeight\": {\n            \"value\": \"bold\"\n          },\n          \"fill\": {\n            \"signal\": \"headerTextColor\"\n          },\n          \"limit\": {\n            \"signal\": \"colWidth - 4\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"rect\",\n      \"name\": \"titleBands\",\n      \"from\": {\n        \"data\": \"titleRows\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"value\": 0\n          },\n          \"x2\": {\n            \"signal\": \"width\"\n          },\n          \"y\": {\n            \"signal\": \"headerHeight + datum.rowIdx * rowHeight\"\n          },\n          \"height\": {\n            \"signal\": \"rowHeight\"\n          },\n          \"fill\": {\n            \"signal\": \"sectionColor\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"rule\",\n      \"name\": \"gridRules\",\n      \"from\": {\n        \"data\": \"rowEdges\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"value\": 0\n          },\n          \"x2\": {\n            \"signal\": \"width\"\n          },\n          \"y\": {\n            \"signal\": \"min(headerHeight + datum.edge * rowHeight, height - 0.5)\"\n          },\n          \"stroke\": {\n            \"signal\": \"gridColor\"\n          },\n          \"strokeWidth\": {\n            \"value\": 1\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"rect\",\n      \"name\": \"monthWash\",\n      \"from\": {\n        \"data\": \"selCols\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"labelWidth + datum.colIdx * colWidth\"\n          },\n          \"width\": {\n            \"signal\": \"colWidth\"\n          },\n          \"y\": {\n            \"signal\": \"headerHeight\"\n          },\n          \"y2\": {\n            \"signal\": \"height\"\n          },\n          \"fill\": {\n            \"signal\": \"highlightColor\"\n          },\n          \"fillOpacity\": {\n            \"signal\": \"highlightOpacity\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"rowLabels\",\n      \"from\": {\n        \"data\": \"rowsReg\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"datum.kind == ''title'' ? 10 : 24\"\n          },\n          \"y\": {\n            \"signal\": \"headerHeight + (datum.rowIdx + 0.5) * rowHeight\"\n          },\n          \"baseline\": {\n            \"value\": \"middle\"\n          },\n          \"text\": {\n            \"field\": \"label\"\n          },\n          \"fontSize\": {\n            \"signal\": \"fontSize\"\n          },\n          \"fontWeight\": {\n            \"signal\": \"datum.kind == ''title'' ? ''bold'' : ''normal''\"\n          },\n          \"fill\": {\n            \"signal\": \"textColor\"\n          },\n          \"limit\": {\n            \"signal\": \"labelWidth - (datum.kind == ''title'' ? 10 : 24) - 6\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"cellText\",\n      \"from\": {\n        \"data\": \"cells\"\n      },\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"labelWidth + (datum.colIdx + 1) * colWidth - 6\"\n          },\n          \"y\": {\n            \"signal\": \"headerHeight + (datum.rowIdx + 0.5) * rowHeight\"\n          },\n          \"align\": {\n            \"value\": \"right\"\n          },\n          \"baseline\": {\n            \"value\": \"middle\"\n          },\n          \"text\": {\n            \"field\": \"fmtd\"\n          },\n          \"fontSize\": {\n            \"signal\": \"fontSize\"\n          },\n          \"fill\": {\n            \"signal\": \"datum.isVar && datum.value != null && datum.value != 0 ? ((datum.badUp ? -datum.value : datum.value) > 0 ? colorGood : colorBad) : textColor\"\n          },\n          \"fillOpacity\": {\n            \"signal\": \"!hasSel || datum.colIdx > 11 || datum.isSel ? 1 : dimOpacity\"\n          },\n          \"limit\": {\n            \"signal\": \"colWidth - 8\"\n          },\n          \"tooltip\": {\n            \"signal\": \"{''Line'': datum.rowLabel, ''Column'': datum.colLabel, ''Value'': datum.fmtd == '''' ? ''blank'' : datum.fmtd}\"\n          }\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\",\"text\":{\"font\":\"Arial\"}}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.2.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Monthly P&L Grid'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

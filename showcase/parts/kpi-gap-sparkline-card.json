@@ -1,0 +1,7 @@
+{
+  "template": "templates/kpi/kpi-gap-sparkline-card/kpi-gap-sparkline-card.json",
+  "instances": [
+    { "id": "kpi-gap-sparkline-card", "page": "template", "data": "templates/kpi/kpi-gap-sparkline-card/sample-data.csv", "size": [360, 280], "params": {} },
+    { "id": "kpi-gap-sparkline-card-bad", "page": "template", "data": "showcase/data/kpi-gap-sparkline-card-bad.csv", "size": [360, 280], "params": {} }
+  ]
+}

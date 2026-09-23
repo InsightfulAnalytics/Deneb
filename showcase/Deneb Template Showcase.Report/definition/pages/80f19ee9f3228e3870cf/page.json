@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "80f19ee9f3228e3870cf",
+  "displayName": "Bullet Chart",
+  "displayOption": "FitToPage",
+  "height": 585,
+  "width": 668
+}

@@ -1,0 +1,225 @@
+/// Sample data for the Monthly P&L Grid template, showcase instance pl-monthly-grid (templates/financial/pl-monthly-grid/sample-data.csv).
+table 'pl-monthly-grid'
+	lineageTag: 8e26773f-5057-570e-90af-227ca92d1c4b
+
+	/// Months from the current month: 0 this month, -1 last month. Use the minimum over the month.
+	measure 'Month Offset (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[Month Offset] )
+		lineageTag: 82e5a8a5-16f2-53bf-9f46-a290051d816f
+
+	/// 1 for a month to highlight, else 0. A measure that always returns 0 turns highlighting off.
+	measure 'Month Selected (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[Month Selected] )
+		lineageTag: c4344657-c340-5249-9a7b-230b1013c272
+
+	/// Total income, actual.
+	measure 'Income Act (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[Income Act] )
+		lineageTag: c68a9d98-1258-5567-9613-047b08d32ae7
+
+	/// Total income, last year.
+	measure 'Income LY (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[Income LY] )
+		lineageTag: 471fd190-e758-5b61-b539-97abc1ded6d9
+
+	/// Total cost of sales, actual, as a negative number.
+	measure 'COGS Act (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[COGS Act] )
+		lineageTag: 05740843-034b-510a-845d-01a04bc22835
+
+	/// Total cost of sales, last year, as a negative number.
+	measure 'COGS LY (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[COGS LY] )
+		lineageTag: f077c034-e1a3-5cdc-a876-ae47d37764e2
+
+	/// Gross profit, actual.
+	measure 'GP Act (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[GP Act] )
+		lineageTag: d8e47603-c14a-56cc-8608-b6a39b436c9f
+
+	/// Gross profit, last year.
+	measure 'GP LY (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[GP LY] )
+		lineageTag: 7eea5a56-59c7-53bd-8d49-a144a848c51a
+
+	/// Total operating expenses, actual, as a negative number.
+	measure 'Opex Act (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[Opex Act] )
+		lineageTag: 4e222888-8a4c-5d30-af8d-afddb49403df
+
+	/// Total operating expenses, last year, as a negative number.
+	measure 'Opex LY (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[Opex LY] )
+		lineageTag: 19952941-660a-5631-97f7-c1cb7c000848
+
+	/// Net profit, actual.
+	measure 'NP Act (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[NP Act] )
+		lineageTag: 46189001-1d5c-5e04-80a3-07b460b8cf0f
+
+	/// Net profit, last year.
+	measure 'NP LY (pl-monthly-grid)' = SUM ( 'pl-monthly-grid'[NP LY] )
+		lineageTag: e2ed42ec-c8fc-503a-9b44-48cd157c49a8
+
+	/// Calendar year. One row per year and month.
+	column Year
+		dataType: double
+		lineageTag: 8b6f5c62-d1c9-51c0-ade3-fae88fe4642f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = User
+
+	/// Month number, 1 to 12.
+	column Month
+		dataType: double
+		lineageTag: 1b8a6606-e5fc-5fbd-bb55-3771fbfdf212
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = User
+
+	column 'Month Offset'
+		dataType: double
+		isHidden
+		lineageTag: 0fb52886-4ebb-593b-9459-e40720edebab
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Offset]
+
+		annotation SummarizationSetBy = User
+
+	column 'Month Selected'
+		dataType: double
+		isHidden
+		lineageTag: 88935c51-234e-5589-ba1b-3d57c876fddb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Selected]
+
+		annotation SummarizationSetBy = User
+
+	column 'Income Act'
+		dataType: double
+		isHidden
+		lineageTag: b0424fea-ae96-5919-8360-628bd17e29d4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Income Act]
+
+		annotation SummarizationSetBy = User
+
+	column 'Income LY'
+		dataType: double
+		isHidden
+		lineageTag: a687eceb-17db-5f97-96d4-0c107a8d0820
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Income LY]
+
+		annotation SummarizationSetBy = User
+
+	column 'COGS Act'
+		dataType: double
+		isHidden
+		lineageTag: 015debe3-69ee-53a2-b2b6-24657677581d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [COGS Act]
+
+		annotation SummarizationSetBy = User
+
+	column 'COGS LY'
+		dataType: double
+		isHidden
+		lineageTag: dea77214-4468-54c5-a640-6458cb198f93
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [COGS LY]
+
+		annotation SummarizationSetBy = User
+
+	column 'GP Act'
+		dataType: double
+		isHidden
+		lineageTag: c8ada3d4-1019-567e-a82f-b49814c8fc29
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [GP Act]
+
+		annotation SummarizationSetBy = User
+
+	column 'GP LY'
+		dataType: double
+		isHidden
+		lineageTag: 1393dedc-86f7-58c7-acec-6d7dc21f0588
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [GP LY]
+
+		annotation SummarizationSetBy = User
+
+	column 'Opex Act'
+		dataType: double
+		isHidden
+		lineageTag: 18dd2522-3495-5443-b04f-108be25233cd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Opex Act]
+
+		annotation SummarizationSetBy = User
+
+	column 'Opex LY'
+		dataType: double
+		isHidden
+		lineageTag: cd096f42-582e-597a-b96a-e63a864e452c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Opex LY]
+
+		annotation SummarizationSetBy = User
+
+	column 'NP Act'
+		dataType: double
+		isHidden
+		lineageTag: d4328d5f-6b1e-5740-b1a3-c44bcdf77dbb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NP Act]
+
+		annotation SummarizationSetBy = User
+
+	column 'NP LY'
+		dataType: double
+		isHidden
+		lineageTag: 4c4b6f66-da6f-583a-a511-ad414f75f27e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NP LY]
+
+		annotation SummarizationSetBy = User
+
+	partition 'pl-monthly-grid' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Year", DOUBLE,
+				    "Month", DOUBLE,
+				    "Month Offset", DOUBLE,
+				    "Month Selected", DOUBLE,
+				    "Income Act", DOUBLE,
+				    "Income LY", DOUBLE,
+				    "COGS Act", DOUBLE,
+				    "COGS LY", DOUBLE,
+				    "GP Act", DOUBLE,
+				    "GP LY", DOUBLE,
+				    "Opex Act", DOUBLE,
+				    "Opex LY", DOUBLE,
+				    "NP Act", DOUBLE,
+				    "NP LY", DOUBLE,
+				    {
+				        { 2025, 1, -20, 0, 6574009, 6314489, -3969910, -3872327, 2604099, 2442162, -2044889, -1966673, 559210, 475489 },
+				        { 2025, 2, -19, 0, 5951839, 5924266, -3609228, -3579632, 2342611, 2344634, -1835033, -1821860, 507578, 522774 },
+				        { 2025, 3, -18, 0, 7416854, 7120732, -4546663, -4328690, 2870191, 2792042, -2268450, -2178431, 601741, 613611 },
+				        { 2025, 4, -17, 0, 7126493, 6849002, -4357703, -4158299, 2768790, 2690703, -2191348, -2098007, 577442, 592696 },
+				        { 2025, 5, -16, 0, 7760666, 7430772, -4708567, -4567462, 3052099, 2863310, -2413937, -2249125, 638162, 614185 },
+				        { 2025, 6, -15, 0, 7905266, 7642470, -4839043, -4690884, 3066223, 2951586, -2400674, -2359295, 665549, 592291 },
+				        { 2025, 7, -14, 0, 6939914, 6696903, -4270521, -4131671, 2669393, 2565232, -2141309, -2055931, 528084, 509301 },
+				        { 2025, 8, -13, 0, 7045445, 6712689, -4252531, -4062120, 2792914, 2650569, -2154062, -2027343, 638852, 623226 },
+				        { 2025, 9, -12, 0, 7489504, 7250806, -4608319, -4423386, 2881185, 2827420, -2310946, -2234204, 570239, 593216 },
+				        { 2025, 10, -11, 0, 8120973, 7798466, -4984045, -4712632, 3136928, 3085834, -2510443, -2399148, 626485, 686686 },
+				        { 2025, 11, -10, 0, 9467535, 9050163, -5760792, -5494104, 3706743, 3556059, -2906328, -2831945, 800415, 724114 },
+				        { 2025, 12, -9, 0, 12370251, 11942761, -7493525, -7300350, 4876726, 4642411, -3742294, -3713317, 1134432, 929094 }
+				    }
+				)

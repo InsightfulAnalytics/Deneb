@@ -1,0 +1,42 @@
+/// Sample data for the Half-Donut Gauge template, showcase instance half-donut-gauge (templates/gauge/half-donut-gauge/sample-data.csv).
+table 'half-donut-gauge'
+	lineageTag: b2da7df8-3192-50e1-90a1-1d0e240c43b3
+
+	/// The value to show, as a ratio from 0 to 1 (0.72 fills 72% of the ring). Values outside 0-1 are drawn at the nearest end and labelled with the real value.
+	measure 'Score (half-donut-gauge)' = SUM ( 'half-donut-gauge'[Score] )
+		lineageTag: 59a7c0b4-7639-5c1f-808e-19d8a8fca496
+
+	/// The target, as a ratio from 0 to 1. Drawn as a tick across the ring with its value beside it. Leave it blank to hide the tick.
+	measure 'Target (half-donut-gauge)' = SUM ( 'half-donut-gauge'[Target] )
+		lineageTag: 165a686f-f31a-56f3-9a49-cd7c1229fee8
+
+	column Score
+		dataType: double
+		isHidden
+		lineageTag: da66d6f2-7d06-570a-a64f-4d61baf60f39
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Score]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 8d8e79d8-5629-59b0-b71f-5f219128fd5f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	partition 'half-donut-gauge' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Score", DOUBLE,
+				    "Target", DOUBLE,
+				    {
+				        { 0.72, 0.8 }
+				    }
+				)

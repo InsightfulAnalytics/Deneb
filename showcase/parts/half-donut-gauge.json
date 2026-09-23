@@ -1,0 +1,6 @@
+{
+  "template": "templates/gauge/half-donut-gauge/half-donut-gauge.json",
+  "instances": [
+    { "id": "half-donut-gauge", "page": "template", "data": "templates/gauge/half-donut-gauge/sample-data.csv", "size": [420, 280], "params": {} }
+  ]
+}

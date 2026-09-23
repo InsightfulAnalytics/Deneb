@@ -1,0 +1,897 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Odd Rows P&L Statement",
+      "description": "A performant 13-row P&L statement, far faster than a Power BI matrix or table: the five main lines plus margins, cost ratios and per-store and per-product results, current period and year to date, derived in the spec from 30 rows. Design by Timothy Osborn.",
+      "author": "Timothy Osborn",
+      "uuid": "bafe36ee-2eee-46fc-834f-8be982cc5f1f",
+      "generated": "2026-09-23T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Line",
+        "description": "Statement line. Must carry the five lines Total Income, Total Cost of Sales, Gross Profit, Total Operating Expenses and Net Profit.",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "P&L View",
+        "description": "Scenario and period of the amount: Actual, LY, Budget, YTD Actual, YTD LY or YTD Budget.",
+        "type": "text",
+        "kind": "column"
+      },
+      {
+        "key": "__2__",
+        "name": "Amount",
+        "description": "Amount for the line and view. Costs are stored as negative numbers.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__3__",
+        "name": "Trading Stores",
+        "description": "Count of trading stores for the view, ignoring the line filter.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__4__",
+        "name": "Active Products",
+        "description": "Count of active products for the view, ignoring the line filter.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI",
+    "rule": {
+      "strokeCap": "butt"
+    }
+  },
+  "params": [
+    {
+      "name": "accentColor",
+      "expr": "pbiColor(0)"
+    },
+    {
+      "name": "negativeColor",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "textColor",
+      "value": "#1F252D"
+    },
+    {
+      "name": "strongTextColor",
+      "value": "#000000"
+    },
+    {
+      "name": "mutedTextColor",
+      "value": "#4A5361"
+    },
+    {
+      "name": "ruleColor",
+      "value": "#9AA3AF"
+    },
+    {
+      "name": "dividerColor",
+      "value": "#D3D8DF"
+    },
+    {
+      "name": "bandColor",
+      "value": "#161C24"
+    },
+    {
+      "name": "bandOpacity",
+      "value": 0.045
+    },
+    {
+      "name": "labelWidth",
+      "value": 280
+    },
+    {
+      "name": "fontSize",
+      "value": 14
+    },
+    {
+      "name": "headerFontSize",
+      "value": 12
+    },
+    {
+      "name": "captionFontSize",
+      "value": 11.5
+    },
+    {
+      "name": "labelCaption",
+      "value": "STATEMENT LINE"
+    },
+    {
+      "name": "periodCaption",
+      "value": "CURRENT PERIOD"
+    },
+    {
+      "name": "ytdCaption",
+      "value": "YEAR TO DATE"
+    },
+    {
+      "name": "currencySymbol",
+      "value": "$"
+    },
+    {
+      "name": "percentFormat",
+      "value": ".1%"
+    },
+    {
+      "name": "countFormat",
+      "value": ",.0f"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "padding": {
+    "left": 4,
+    "top": 10,
+    "right": 16,
+    "bottom": 14
+  },
+  "transform": [
+    {
+      "calculate": "datum['__0__']",
+      "as": "Line"
+    },
+    {
+      "calculate": "datum['__1__']",
+      "as": "P&L View"
+    },
+    {
+      "calculate": "datum['__2__']",
+      "as": "Amount"
+    },
+    {
+      "calculate": "datum['__3__']",
+      "as": "Trading Stores"
+    },
+    {
+      "calculate": "datum['__4__']",
+      "as": "Active Products"
+    },
+    {
+      "pivot": "Line",
+      "value": "Amount",
+      "op": "max",
+      "groupby": [
+        "P&L View",
+        "Trading Stores",
+        "Active Products"
+      ]
+    },
+    {
+      "calculate": "datum['Gross Profit'] / datum['Total Income']",
+      "as": "Gross Margin %"
+    },
+    {
+      "calculate": "datum['Net Profit'] / datum['Total Income']",
+      "as": "Net Margin %"
+    },
+    {
+      "calculate": "-datum['Total Cost of Sales'] / datum['Total Income']",
+      "as": "COGS % of Income"
+    },
+    {
+      "calculate": "-datum['Total Operating Expenses'] / datum['Total Income']",
+      "as": "Opex % of Income"
+    },
+    {
+      "calculate": "datum['Total Income'] / datum['Trading Stores']",
+      "as": "Income per Trading Store"
+    },
+    {
+      "calculate": "datum['Net Profit'] / datum['Trading Stores']",
+      "as": "Net Profit per Trading Store"
+    },
+    {
+      "calculate": "datum['Total Income'] / datum['Active Products']",
+      "as": "Income per Active Product"
+    },
+    {
+      "fold": [
+        "Total Income",
+        "Total Cost of Sales",
+        "Gross Profit",
+        "Total Operating Expenses",
+        "Net Profit",
+        "Gross Margin %",
+        "Net Margin %",
+        "COGS % of Income",
+        "Opex % of Income",
+        "Income per Trading Store",
+        "Net Profit per Trading Store",
+        "Income per Active Product",
+        "Trading Stores"
+      ],
+      "as": [
+        "metric",
+        "baseValue"
+      ]
+    },
+    {
+      "pivot": "P&L View",
+      "value": "baseValue",
+      "op": "max",
+      "groupby": [
+        "metric"
+      ]
+    },
+    {
+      "calculate": "datum['Actual'] - datum['LY']",
+      "as": "vs LY"
+    },
+    {
+      "calculate": "(datum['Actual'] - datum['LY']) / datum['LY']",
+      "as": "vs LY %"
+    },
+    {
+      "calculate": "datum['Actual'] - datum['Budget']",
+      "as": "Var to Budget"
+    },
+    {
+      "calculate": "(datum['Actual'] - datum['Budget']) / datum['Budget']",
+      "as": "Var to Budget %"
+    },
+    {
+      "calculate": "datum['YTD Actual'] - datum['YTD LY']",
+      "as": "YTD vs LY"
+    },
+    {
+      "calculate": "(datum['YTD Actual'] - datum['YTD LY']) / datum['YTD LY']",
+      "as": "YTD vs LY %"
+    },
+    {
+      "calculate": "datum['YTD Actual'] - datum['YTD Budget']",
+      "as": "YTD Var to Budget"
+    },
+    {
+      "calculate": "(datum['YTD Actual'] - datum['YTD Budget']) / datum['YTD Budget']",
+      "as": "YTD Var to Budget %"
+    },
+    {
+      "fold": [
+        "Actual",
+        "LY",
+        "vs LY",
+        "vs LY %",
+        "Budget",
+        "Var to Budget",
+        "Var to Budget %",
+        "YTD Actual",
+        "YTD LY",
+        "YTD vs LY",
+        "YTD vs LY %",
+        "YTD Budget",
+        "YTD Var to Budget",
+        "YTD Var to Budget %"
+      ],
+      "as": [
+        "column",
+        "value"
+      ]
+    },
+    {
+      "calculate": "indexof(datum.column, '%') >= 0",
+      "as": "isPctCol"
+    },
+    {
+      "calculate": "indexof(['vs LY','vs LY %','Var to Budget','Var to Budget %','YTD vs LY','YTD vs LY %','YTD Var to Budget','YTD Var to Budget %'], datum.column) >= 0",
+      "as": "isVarCol"
+    },
+    {
+      "calculate": "datum.isPctCol || indexof(['Gross Margin %','Net Margin %','COGS % of Income','Opex % of Income'], datum.metric) >= 0",
+      "as": "isPct"
+    },
+    {
+      "calculate": "indexof(['Gross Profit','Net Profit'], datum.metric) >= 0",
+      "as": "isSubtotal"
+    },
+    {
+      "calculate": "indexof(['Total Income','Total Cost of Sales','Gross Profit','Total Operating Expenses','Net Profit','Gross Margin %','Net Margin %','COGS % of Income','Opex % of Income','Income per Trading Store','Net Profit per Trading Store','Income per Active Product','Trading Stores'], datum.metric)",
+      "as": "rowIdx"
+    },
+    {
+      "calculate": "indexof(['Actual','LY','vs LY','vs LY %','Budget','Var to Budget','Var to Budget %','YTD Actual','YTD LY','YTD vs LY','YTD vs LY %','YTD Budget','YTD Var to Budget','YTD Var to Budget %'], datum.column)",
+      "as": "colIdx"
+    },
+    {
+      "calculate": "datum.rowIdx + 0.5",
+      "as": "rowMid"
+    },
+    {
+      "calculate": "datum.rowIdx + 1",
+      "as": "rowEnd"
+    },
+    {
+      "calculate": "datum.colIdx + 1",
+      "as": "colEnd"
+    },
+    {
+      "calculate": "abs(datum.value)",
+      "as": "absValue"
+    },
+    {
+      "calculate": "datum.isPct ? format(datum.absValue, percentFormat) : (datum.metric === 'Trading Stores' ? format(datum.absValue, countFormat) : (datum.absValue >= 999950 ? currencySymbol + format(datum.absValue / 1000000, ',.1f') + 'M' : (datum.absValue >= 999.5 ? currencySymbol + format(datum.absValue / 1000, ',.1f') + 'K' : currencySymbol + format(datum.absValue, ',.0f'))))",
+      "as": "body"
+    },
+    {
+      "calculate": "(!isValid(datum.value) || !isFinite(datum.value)) ? '' : (datum.value < 0 ? '(' + datum.body + ')' : datum.body)",
+      "as": "cell"
+    },
+    {
+      "calculate": "-0.11",
+      "as": "headerRuleY"
+    }
+  ],
+  "layer": [
+    {
+      "description": "zebra banding on odd rows, spanning the label gutter and the grid",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual' && datum.rowIdx % 2 === 1"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": {
+          "expr": "bandColor"
+        },
+        "fillOpacity": {
+          "expr": "bandOpacity"
+        },
+        "x": {
+          "expr": "-labelWidth"
+        },
+        "x2": "width"
+      },
+      "encoding": {
+        "y": {
+          "field": "rowIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              13,
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "y2": {
+          "field": "rowEnd"
+        }
+      }
+    },
+    {
+      "description": "accent rule under the column headers",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual' && datum.metric === 'Total Income'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "accentColor"
+        },
+        "strokeWidth": 1.5,
+        "opacity": 0.9,
+        "x": {
+          "expr": "-labelWidth"
+        },
+        "x2": "width"
+      },
+      "encoding": {
+        "y": {
+          "field": "headerRuleY",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              13,
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        }
+      }
+    },
+    {
+      "description": "vertical dividers: end of the label gutter, and the period and YTD split",
+      "transform": [
+        {
+          "filter": "datum.metric === 'Total Income' && (datum.column === 'Actual' || datum.column === 'YTD Actual')"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "dividerColor"
+        },
+        "y": -46
+      },
+      "encoding": {
+        "x": {
+          "field": "colIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "strokeWidth": {
+          "condition": {
+            "test": "datum.column === 'YTD Actual'",
+            "value": 1.5
+          },
+          "value": 1
+        }
+      }
+    },
+    {
+      "description": "rule above each subtotal line and above the ratio block",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual' && (datum.isSubtotal || datum.metric === 'Gross Margin %')"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "ruleColor"
+        },
+        "strokeWidth": 1,
+        "opacity": 0.8,
+        "x": {
+          "expr": "-labelWidth"
+        },
+        "x2": "width"
+      },
+      "encoding": {
+        "y": {
+          "field": "rowIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              13,
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        }
+      }
+    },
+    {
+      "description": "closing rule under the last row",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual' && datum.metric === 'Trading Stores'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "ruleColor"
+        },
+        "strokeWidth": 1,
+        "opacity": 0.8,
+        "x": {
+          "expr": "-labelWidth"
+        },
+        "x2": "width"
+      },
+      "encoding": {
+        "y": {
+          "field": "rowEnd",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              13,
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        }
+      }
+    },
+    {
+      "description": "half captions",
+      "transform": [
+        {
+          "filter": "datum.metric === 'Total Income' && (datum.column === 'Actual' || datum.column === 'YTD Actual')"
+        },
+        {
+          "calculate": "datum.column === 'Actual' ? periodCaption : ytdCaption",
+          "as": "groupLabel"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "captionFontSize"
+        },
+        "fontWeight": 700,
+        "fill": {
+          "expr": "accentColor"
+        },
+        "opacity": 0.95,
+        "y": -38,
+        "xOffset": 4
+      },
+      "encoding": {
+        "x": {
+          "field": "colIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "text": {
+          "field": "groupLabel",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "row-label gutter caption",
+      "transform": [
+        {
+          "filter": "datum.metric === 'Total Income' && datum.column === 'Actual'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "captionFontSize"
+        },
+        "fontWeight": 700,
+        "fill": {
+          "expr": "mutedTextColor"
+        },
+        "y": -38,
+        "x": {
+          "expr": "4 - labelWidth"
+        },
+        "text": {
+          "expr": "labelCaption"
+        }
+      },
+      "encoding": {}
+    },
+    {
+      "description": "column headers (the leading 'YTD ' is stripped, the half caption already says it)",
+      "transform": [
+        {
+          "filter": "datum.metric === 'Total Income'"
+        },
+        {
+          "calculate": "indexof(datum.column, 'YTD ') === 0 ? slice(datum.column, 4) : datum.column",
+          "as": "headerBase"
+        },
+        {
+          "calculate": "indexof(datum.headerBase, 'Var to ') === 0 ? ['Var to', slice(datum.headerBase, 7)] : datum.headerBase",
+          "as": "headerText"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "headerFontSize"
+        },
+        "y": -22,
+        "xOffset": -11,
+        "fontWeight": {
+          "expr": "(datum.column === 'Actual' || datum.column === 'YTD Actual') ? 700 : 600"
+        },
+        "lineHeight": 11,
+        "limit": {
+          "expr": "width / 14 - 6"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "colEnd",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "text": {
+          "field": "headerText",
+          "type": "nominal"
+        },
+        "fill": {
+          "condition": {
+            "test": "datum.column === 'Actual' || datum.column === 'YTD Actual'",
+            "value": {
+              "expr": "strongTextColor"
+            }
+          },
+          "value": {
+            "expr": "mutedTextColor"
+          }
+        }
+      }
+    },
+    {
+      "description": "row labels in the left gutter",
+      "transform": [
+        {
+          "filter": "datum.column === 'Actual'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "fontSize"
+        },
+        "x": {
+          "expr": "4 - labelWidth"
+        },
+        "limit": {
+          "expr": "labelWidth + 20"
+        },
+        "fontWeight": {
+          "expr": "datum.isSubtotal ? 700 : 400"
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "rowMid",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              13,
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "text": {
+          "field": "metric",
+          "type": "nominal"
+        },
+        "fill": {
+          "condition": {
+            "test": "datum.isSubtotal",
+            "value": {
+              "expr": "strongTextColor"
+            }
+          },
+          "value": {
+            "expr": "textColor"
+          }
+        }
+      }
+    },
+    {
+      "description": "the 182 numbers",
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": {
+          "expr": "fontSize"
+        },
+        "xOffset": -11,
+        "fontWeight": {
+          "expr": "datum.isSubtotal ? 700 : 400"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "colEnd",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "y": {
+          "field": "rowMid",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              13,
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "text": {
+          "field": "cell",
+          "type": "nominal"
+        },
+        "fill": {
+          "condition": [
+            {
+              "test": "datum.isVarCol && datum.value < 0",
+              "value": {
+                "expr": "negativeColor"
+              }
+            },
+            {
+              "test": "datum.isSubtotal",
+              "value": {
+                "expr": "strongTextColor"
+              }
+            },
+            {
+              "test": "datum.column === 'Actual' || datum.column === 'YTD Actual'",
+              "value": {
+                "expr": "strongTextColor"
+              }
+            }
+          ],
+          "value": {
+            "expr": "textColor"
+          }
+        }
+      }
+    },
+    {
+      "description": "invisible full-cell rects so every cell is hoverable, blanks included",
+      "mark": {
+        "type": "rect",
+        "fill": {
+          "expr": "bandColor"
+        },
+        "fillOpacity": 0
+      },
+      "encoding": {
+        "x": {
+          "field": "colIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              14
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "x2": {
+          "field": "colEnd"
+        },
+        "y": {
+          "field": "rowIdx",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              13,
+              0
+            ],
+            "nice": false,
+            "zero": false,
+            "clamp": false
+          },
+          "axis": null,
+          "title": null
+        },
+        "y2": {
+          "field": "rowEnd"
+        },
+        "tooltip": [
+          {
+            "field": "metric",
+            "type": "nominal",
+            "title": "Line"
+          },
+          {
+            "field": "column",
+            "type": "nominal",
+            "title": "Column"
+          },
+          {
+            "field": "cell",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Raw",
+            "format": ",.4f"
+          }
+        ]
+      }
+    }
+  ]
+}

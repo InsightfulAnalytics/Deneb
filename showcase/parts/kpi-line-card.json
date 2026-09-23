@@ -1,0 +1,85 @@
+{
+  "template": "templates/kpi/kpi-line-card/kpi-line-card.json",
+  "instances": [
+    {
+      "id": "kpi-line-card",
+      "page": "template",
+      "data": "templates/kpi/kpi-line-card/sample-data.csv",
+      "size": [300, 320],
+      "params": {}
+    },
+    {
+      "id": "kpi-line-card-otd",
+      "page": "template",
+      "data": "showcase/data/dash-otd.csv",
+      "size": [300, 320],
+      "params": {
+        "title": "ON-TIME DELIVERY (OTD)",
+        "headerColor": { "expr": "pbiColor(3)" },
+        "headerTextColor": "#0B1E3F",
+        "borderColor": { "expr": "pbiColor(3, -0.25)" },
+        "valueFormat": ".1%",
+        "valueColorByStatus": true,
+        "metricLabel": "Delivery",
+        "varianceUnit": "points",
+        "deltaFormat": "+.1%",
+        "valueDivisor": 1,
+        "valueSuffix": "",
+        "ryFormat": "+.1%",
+        "yearAggregate": "mean",
+        "targetNoun": "target rate",
+        "targetLabel": "Target Rate"
+      }
+    },
+    {
+      "id": "dash-revenue",
+      "page": "dashboard",
+      "data": "showcase/data/dash-revenue.csv",
+      "size": [264, 235],
+      "params": {
+        "title": "REVENUE",
+        "headerColor": { "expr": "pbiColor(0)" },
+        "headerTextColor": "#FFFFFF",
+        "borderColor": { "expr": "pbiColor(0, -0.25)" },
+        "valueFormat": "$,.0f",
+        "valueColorByStatus": false,
+        "metricLabel": "Rev",
+        "varianceUnit": "absolute",
+        "deltaFormat": "$,.2~f",
+        "valueDivisor": 1000,
+        "valueSuffix": "K",
+        "ryFormat": "$,.2~f",
+        "yearAggregate": "sum",
+        "targetNoun": "target rev",
+        "targetLabel": "Target Rev",
+        "headerHeight": { "expr": "30 * unit" },
+        "titleSize": { "expr": "13 * unit" }
+      }
+    },
+    {
+      "id": "dash-otd",
+      "page": "dashboard",
+      "data": "showcase/data/dash-otd.csv",
+      "size": [264, 235],
+      "params": {
+        "title": "ON-TIME DELIVERY (OTD)",
+        "headerColor": { "expr": "pbiColor(3)" },
+        "headerTextColor": "#0B1E3F",
+        "borderColor": { "expr": "pbiColor(3, -0.25)" },
+        "valueFormat": ".1%",
+        "valueColorByStatus": true,
+        "metricLabel": "Delivery",
+        "varianceUnit": "points",
+        "deltaFormat": "+.1%",
+        "valueDivisor": 1,
+        "valueSuffix": "",
+        "ryFormat": "+.1%",
+        "yearAggregate": "mean",
+        "targetNoun": "target rate",
+        "targetLabel": "Target Rate",
+        "headerHeight": { "expr": "30 * unit" },
+        "titleSize": { "expr": "13 * unit" }
+      }
+    }
+  ]
+}

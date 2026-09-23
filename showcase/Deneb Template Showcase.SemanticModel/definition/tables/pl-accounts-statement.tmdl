@@ -1,0 +1,161 @@
+/// Sample data for the P&L Accounts Statement template, showcase instance pl-accounts-statement (templates/financial/pl-accounts-statement/sample-data.csv).
+table 'pl-accounts-statement'
+	lineageTag: dfbe47fa-bf2d-5969-8b7e-71e746f42056
+
+	/// Actual amount for the current period. Costs are negative.
+	measure 'Actual (pl-accounts-statement)' = SUM ( 'pl-accounts-statement'[Actual] )
+		lineageTag: 335d95ad-0af5-5914-aff4-a756bf099b6f
+
+	/// Budget amount for the current period. Costs are negative.
+	measure 'Budget (pl-accounts-statement)' = SUM ( 'pl-accounts-statement'[Budget] )
+		lineageTag: 58350b14-8e40-5fcf-b326-f91b4ad0b926
+
+	/// Last year's actual for the same period. Costs are negative.
+	measure 'LY (pl-accounts-statement)' = SUM ( 'pl-accounts-statement'[LY] )
+		lineageTag: 68994254-188d-5b8e-a212-c83aa1351d4f
+
+	/// Actual amount, year to date. Costs are negative.
+	measure 'YTD Actual (pl-accounts-statement)' = SUM ( 'pl-accounts-statement'[YTD Actual] )
+		lineageTag: 70ef07ff-cf64-5d47-9d28-cce7ea12b44a
+
+	/// Budget amount, year to date. Costs are negative.
+	measure 'YTD Budget (pl-accounts-statement)' = SUM ( 'pl-accounts-statement'[YTD Budget] )
+		lineageTag: 65d05a10-a468-56dd-808b-6a97530e6ddd
+
+	/// Last year's actual, year to date. Costs are negative.
+	measure 'YTD LY (pl-accounts-statement)' = SUM ( 'pl-accounts-statement'[YTD LY] )
+		lineageTag: 3fe4aab3-c548-5137-a1ee-9901d7b1f09e
+
+	/// Statement line label, one row per line. A leading indent is stripped; LineClass sets the indent.
+	column Line
+		dataType: string
+		lineageTag: 1daf1447-b504-5753-9231-7bbea37b44ba
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Line]
+
+		annotation SummarizationSetBy = User
+
+	/// Sort key for the lines, ascending. Any increasing numbers work.
+	column LineKey
+		dataType: double
+		lineageTag: 95821e6c-868b-5e5a-b610-bc625f319d6f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [LineKey]
+
+		annotation SummarizationSetBy = User
+
+	/// Detail for an account line. Any other value (Subtotal, Total) is drawn bold with a rule above.
+	column LineClass
+		dataType: string
+		lineageTag: e1d95157-f936-5397-a567-408e3b46b34d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [LineClass]
+
+		annotation SummarizationSetBy = User
+
+	column Actual
+		dataType: double
+		isHidden
+		lineageTag: 9a4a6b1f-e3ac-5981-b4f5-f4ca948ced3c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Actual]
+
+		annotation SummarizationSetBy = User
+
+	column Budget
+		dataType: double
+		isHidden
+		lineageTag: 85e03c64-991d-57ea-b5fd-ffb6b427b026
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Budget]
+
+		annotation SummarizationSetBy = User
+
+	column LY
+		dataType: double
+		isHidden
+		lineageTag: 4199ef47-680c-5311-9e90-72d506411ed2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [LY]
+
+		annotation SummarizationSetBy = User
+
+	column 'YTD Actual'
+		dataType: double
+		isHidden
+		lineageTag: 0cf70315-e128-5e7c-862b-79267839f947
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YTD Actual]
+
+		annotation SummarizationSetBy = User
+
+	column 'YTD Budget'
+		dataType: double
+		isHidden
+		lineageTag: d0481c53-5812-5165-ac94-e970662c4c78
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YTD Budget]
+
+		annotation SummarizationSetBy = User
+
+	column 'YTD LY'
+		dataType: double
+		isHidden
+		lineageTag: 75cbabc4-4b08-5a98-ab18-864590326bd6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YTD LY]
+
+		annotation SummarizationSetBy = User
+
+	partition 'pl-accounts-statement' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Line", STRING,
+				    "LineKey", DOUBLE,
+				    "LineClass", STRING,
+				    "Actual", DOUBLE,
+				    "Budget", DOUBLE,
+				    "LY", DOUBLE,
+				    "YTD Actual", DOUBLE,
+				    "YTD Budget", DOUBLE,
+				    "YTD LY", DOUBLE,
+				    {
+				        { "Retail Sales", 10, "Detail", 3867715, 3790488, 3764101, 33305485, 32634402, 32102748 },
+				        { "Wholesale Sales", 20, "Detail", 3267163, 3197297, 3144756, 27871693, 27311489, 26920326 },
+				        { "Online Sales", 30, "Detail", 291507, 284637, 280126, 2495644, 2444518, 2401955 },
+				        { "Delivery & Freight Income", 40, "Detail", 63119, 60707, 61823, 537168, 526763, 517100 },
+				        { "Total Income", 50, "Subtotal", 7489504, 7333129, 7250806, 64209990, 62917172, 61942129 },
+				        { "Cost of Goods - Retail", 60, "Detail", -2209165, -2133788, -2121518, -18852336, -18490036, -18186898 },
+				        { "Cost of Goods - Wholesale", 70, "Detail", -2039976, -1967238, -1958259, -17357024, -17017266, -16774209 },
+				        { "Cost of Goods - Online", 80, "Detail", -182030, -176083, -174555, -1554363, -1525396, -1496639 },
+				        { "Freight Inwards", 90, "Detail", -147382, -139489, -141360, -1165713, -1143413, -1131213 },
+				        { "Stock Adjustments", 100, "Detail", -29766, -27591, -27694, -233049, -229524, -225512 },
+				        { "Total Cost of Sales", 110, "Subtotal", -4608319, -4444189, -4423386, -39162485, -38405635, -37814471 },
+				        { "Gross Profit", 120, "Total", 2881185, 2888940, 2827420, 25047505, 24511537, 24127658 },
+				        { "Salaries & Wages - Stores", 130, "Detail", -792450, -771291, -773394, -6797340, -6629353, -6528785 },
+				        { "Salaries & Wages - Warehouse", 140, "Detail", -306569, -283949, -279511, -2553501, -2455908, -2384661 },
+				        { "Superannuation", 150, "Detail", -116328, -114802, -113634, -1028450, -998824, -990713 },
+				        { "Rent & Outgoings", 160, "Detail", -397574, -376465, -379491, -3354962, -3316521, -3240836 },
+				        { "Utilities", 170, "Detail", -58338, -58259, -57511, -506576, -498793, -492049 },
+				        { "Marketing & Advertising", 180, "Detail", -215589, -215400, -217656, -1903004, -1860104, -1859521 },
+				        { "Insurance", 190, "Detail", -28377, -29728, -29746, -254404, -250582, -247847 },
+				        { "Vehicle & Delivery Costs", 200, "Detail", -154569, -145381, -149568, -1304416, -1276060, -1271102 },
+				        { "Repairs & Maintenance", 210, "Detail", -37585, -36487, -36015, -318896, -311303, -305127 },
+				        { "IT & Software", 220, "Detail", -44898, -43504, -44054, -385423, -374571, -368820 },
+				        { "Merchant & Bank Fees", 230, "Detail", -46202, -44873, -45065, -394098, -386869, -380728 },
+				        { "Depreciation", 240, "Detail", -68049, -65459, -63831, -575651, -558049, -552696 },
+				        { "Other Expenses", 250, "Detail", -44418, -43618, -44728, -383927, -374057, -367984 },
+				        { "Total Operating Expenses", 260, "Subtotal", -2310946, -2229216, -2234204, -19760648, -19290994, -18990869 },
+				        { "Net Profit", 270, "Total", 570239, 659724, 593216, 5286857, 5220543, 5136789 }
+				    }
+				)
