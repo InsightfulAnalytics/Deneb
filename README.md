@@ -1,8 +1,8 @@
 # Deneb Templates for Power BI
 
-Twelve ready-to-import [Deneb](https://deneb-viz.github.io/) templates for Power BI: KPI cards,
+Thirteen ready-to-import [Deneb](https://deneb-viz.github.io/) templates for Power BI: KPI cards,
 bullet and comparison charts, [performant P&L statements](#performant-pl-statements) that render
-far faster than a Power BI matrix or table, a gauge and a map of Australia. Each one comes
+far faster than a Power BI matrix or table, a gauge, a map of Australia and a calendar heatmap. Each one comes
 with sample data, a preview and a README that lists its fields and options, and all of them sit
 bound to sample data in one Power BI project you can open and explore.
 
@@ -11,6 +11,31 @@ bound to sample data in one Power BI project you can open and explore.
 *Gerard Duggan's Northwind KPI dashboard, rebuilt with the KPI and comparison templates below in
 the BI Nexus theme. It is the first page of the [showcase](#the-showcase). Dashboard design:
 [Gerard Duggan](https://dg-analysis.com).*
+
+## Master list
+
+Every Deneb template I have published is here, and this is the list of them. A template built for
+a project of its own is copied in when it is finished, and its README says where it is developed.
+
+| Template | Category | Built with | Fields | What it draws | Design |
+|---|---|---|---|---|---|
+| [KPI Bar Card](templates/kpi/kpi-bar-card/) | KPI | Vega | 5 | A top performer card: month-over-month change, reporting month and year, labelled monthly columns | After Gerard Duggan |
+| [KPI Gap Sparkline Card](templates/kpi/kpi-gap-sparkline-card/) | KPI | Vega-Lite | 3 | Month-to-date value, its gap to last year or a target, and a daily gap sparkline | After Ruben Van de Voorde (Tabular Editor) |
+| [KPI Line Card](templates/kpi/kpi-line-card/) | KPI | Vega-Lite | 4 | Value, three status lines coloured by the gap to target, and a monthly line against target | After Gerard Duggan |
+| [Bullet Chart](templates/comparison/bullet-chart/) | Comparison | Vega-Lite | 4 | Sorted bullets: actual against a budget tick and a last year bar, with variance labels | After Daniel Marsh-Patrick and Robert Mundigl |
+| [Bullet with Prior Period](templates/comparison/bullet-prior-period/) | Comparison | Vega-Lite | 6 | One bullet per row with a prior-period band, each row on its own axis | After Gerard Duggan |
+| [Overlapping Bars with Share Lollipop](templates/comparison/overlap-bar-share-lollipop/) | Comparison | Vega-Lite | 3 | Current in front of total, and current as a share of total | After Gerard Duggan |
+| [Overlapping Bars with Variance Lollipop](templates/comparison/overlap-bar-variance-lollipop/) | Comparison | Vega-Lite | 3 | Current in front of a comparison, and the % difference | After Gerard Duggan |
+| [P&L Accounts Statement](templates/financial/pl-accounts-statement/) | Financial | Vega-Lite | 9 | Account-level P&L, current period and year to date against budget and last year | Timothy Osborn |
+| [Monthly P&L Grid](templates/financial/pl-monthly-grid/) | Financial | Vega | 14 | Actual, last year and variance across January to December, YTD, YTG and FY | Timothy Osborn |
+| [Odd Rows P&L Statement](templates/financial/pl-odd-rows/) | Financial | Vega-Lite | 5 | Headline lines, margins, cost ratios and per-store and per-product results | Timothy Osborn |
+| [Half-Donut Gauge](templates/gauge/half-donut-gauge/) | Gauge | Vega-Lite | 2 | One ratio on a half ring, with a target tick | Timothy Osborn |
+| [Australia Choropleth](templates/map/australia-choropleth/) | Map | Vega | 2 | The eight states and territories shaded by one measure | Timothy Osborn, boundaries from Natural Earth |
+| [Calendar Heatmap](templates/time/calendar-heatmap/) | Time | Vega | 2 | A year of daily values as weeks by weekdays, the peak day ringed, a drag to cross-filter a date range | After Lumeric Visuals |
+
+The Calendar Heatmap is developed in its own repo,
+[InsightfulAnalytics/calendar-heatmap](https://github.com/InsightfulAnalytics/calendar-heatmap), beside
+Daily Sales, a five-page Power BI report built on it.
 
 ## Gallery
 
@@ -35,7 +60,7 @@ Click a preview for the template's fields, options and credits.
 </tr>
 <tr>
 <td valign="top"><a href="templates/map/australia-choropleth/"><img src="templates/map/australia-choropleth/preview.png" alt="Australia Choropleth"></a><br><b>Australia Choropleth</b><br>The eight states and territories shaded by one measure. By Timothy Osborn, boundaries from Natural Earth.</td>
-<td valign="top"></td>
+<td valign="top"><a href="templates/time/calendar-heatmap/"><img src="templates/time/calendar-heatmap/preview.png" alt="Calendar Heatmap"></a><br><b>Calendar Heatmap</b><br>A year of daily values, the peak day ringed, and a drag to cross-filter a date range. After Lumeric Visuals.</td>
 </tr>
 </table>
 
@@ -96,7 +121,7 @@ template file, which Deneb shows when you import it.
 
 **Deneb version.** The templates are built for Deneb 1.9.1 and also run on Deneb 2.0. They use the
 `pbiContainerWidth` and `pbiContainerHeight` signals, which 2.0 still accepts, and d3 number
-formats rather than `pbiFormat`.
+formats rather than `pbiFormat`, apart from the Calendar Heatmap's tooltips.
 
 ## The showcase
 
@@ -119,7 +144,7 @@ The dashboard and the showcase pages use the BI Nexus theme in
 |---|---|
 | `templates/<category>/<slug>/` | The template (`<slug>.json`), `preview.png`, `sample-data.csv`, `render.json` (offline render size) and a `README.md` |
 | `showcase/` | The showcase Power BI project and its inputs: theme, parts, dashboard layout and dashboard data |
-| `tools/check-templates.mjs` | Validates every template and renders it headless with its sample data |
+| `tools/check-templates.mjs` | Validates every template, renders it headless with its sample data, and fails a template the master list does not link |
 | `tools/showcase/` | Builds the showcase project and crops the previews |
 | `tools/pl/` | Generators and numeric checks for the P&L templates |
 | `tools/schema/` | A copy of Deneb's v1 template metadata schema |
@@ -129,7 +154,7 @@ To check the templates:
 ```bash
 cd tools
 npm ci
-npm run check     # validate all templates and run them against their sample data
+npm run check     # validate all templates, run them against their sample data, and check the master list
 npm run render    # also write SVG and PNG renders to tools/out/
 ```
 
@@ -156,6 +181,7 @@ credited in the template's metadata and README:
 | [Gerard Duggan](https://dg-analysis.com) ([Next Level KPIs in Power BI](https://youtu.be/ZVknC7YEMB4)) | KPI Line Card, KPI Bar Card, Bullet with Prior Period, both Overlapping Bars templates, and the KPI Dashboard 2015 layout |
 | [Daniel Marsh-Patrick](https://coacervo.co/deneb_mundigl) and [Robert Mundigl](https://www.clearlyandsimply.com/clearly_and_simply/2017/07/variations-of-alternative-bullet-graphs-in-excel.html) | Bullet Chart |
 | [Ruben Van de Voorde](https://tabulareditor.com/blog/kpi-card-best-practices-dashboard-design), Tabular Editor ApS | KPI Gap Sparkline Card (the "full make-over" card) |
+| [Lumeric Visuals](https://lumericvisuals.com/visuals/calendar-heatmap) | Calendar Heatmap (an independent reimplementation; nothing is copied from their code) |
 | [Natural Earth](https://www.naturalearthdata.com/) (public domain) | The state boundaries in Australia Choropleth |
 
 [Deneb](https://deneb-viz.github.io/) is by Daniel Marsh-Patrick. Charts are drawn with

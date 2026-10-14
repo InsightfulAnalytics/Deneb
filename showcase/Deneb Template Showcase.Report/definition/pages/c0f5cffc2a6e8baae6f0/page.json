@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "c0f5cffc2a6e8baae6f0",
+  "displayName": "Calendar Heatmap",
+  "displayOption": "FitToPage",
+  "height": 467,
+  "width": 1128
+}

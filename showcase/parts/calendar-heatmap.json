@@ -1,0 +1,6 @@
+{
+  "template": "templates/time/calendar-heatmap/calendar-heatmap.json",
+  "instances": [
+    { "id": "calendar-heatmap", "page": "template", "data": "templates/time/calendar-heatmap/sample-data.csv", "size": [1080, 362], "params": {} }
+  ]
+}
