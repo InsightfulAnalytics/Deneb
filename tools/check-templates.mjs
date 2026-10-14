@@ -22,6 +22,7 @@
  *     which Deneb 1.9 cannot parse
  *   - the file is under 400 KB, Background Designer's bundle cap
  *   - sample-data.csv has exactly the declared field names as its header
+ *   - a template under templates/ is linked from the master list in README.md
  *   - with the tokens replaced by those names, the spec compiles and a headless Vega view
  *     runs over the sample rows without an error
  *
@@ -341,11 +342,22 @@ if (!files.length) {
   console.error('no templates found (expected templates/<category>/<slug>/<slug>.json)')
   process.exit(1)
 }
+// The README's master list is the list of every template the repo holds, so a template folder it
+// does not link is an error. A template outside templates/, named on the command line, is not
+// held to it.
+const readme = readFileSync(join(REPO, 'README.md'), 'utf8')
+const listStart = readme.indexOf('## Master list')
+const listEnd = listStart === -1 ? -1 : readme.indexOf('\n## ', listStart + 1)
+const masterList = listStart === -1 ? '' : readme.slice(listStart, listEnd === -1 ? undefined : listEnd)
 const seenUuids = new Map()
 let failed = 0
 for (const file of files) {
   const { slug, errors, warnings } = await checkTemplate(file, seenUuids)
   const where = relative(REPO, file).replaceAll('\\', '/')
+  const folder = dirname(where)
+  if (folder.startsWith('templates/') && !masterList.includes(`](${folder}/)`)) {
+    errors.push(`README.md's master list does not link ${folder}/`)
+  }
   console.log(`${errors.length ? 'FAIL' : 'ok  '}  ${where}`)
   for (const e of errors) console.log(`        error: ${e}`)
   for (const w of warnings) console.log(`        warn:  ${w}`)

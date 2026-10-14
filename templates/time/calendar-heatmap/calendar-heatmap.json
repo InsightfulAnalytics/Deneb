@@ -1,0 +1,512 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vega",
+      "providerVersion": "6.2.0"
+    },
+    "information": {
+      "name": "Calendar Heatmap",
+      "description": "A year of daily values as week columns by weekday rows, coloured in steps of theme colour 1, with empty days drawn, the peak day ringed, and a click or drag to cross-filter a date range. Design after Lumeric Visuals (lumericvisuals.com).",
+      "author": "Timothy Osborn, after Lumeric Visuals",
+      "uuid": "e51c3d31-ff74-484a-a735-1d1a216677e5",
+      "generated": "2026-09-26T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Date",
+        "description": "The day: a date column, such as the date table's date. One row per day.",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Sales",
+        "description": "The day's value: a non-negative measure, such as total sales.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": true,
+      "highlight": true,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {"type": "fit", "contains": "padding"},
+    "background": "transparent",
+    "view": {"stroke": "transparent"},
+    "font": "Segoe UI",
+    "text": {"font": "Segoe UI"}
+  },
+  "description": "Calendar Heatmap: a Window of days (a calendar or fiscal year) as week columns by weekday rows, Monday first, coloured in five equal-interval steps of theme colour 1 over 0 to the Window's maximum. Empty days are drawn in the empty colour, the Peak day is ringed, and a left click or drag cross-filters a date range (advanced selection mode). With a target field named, days are coloured good or bad against their target instead. The settings are the signals from titleText to badColor.",
+  "width": {"signal": "pbiContainerWidth"},
+  "height": {"signal": "pbiContainerHeight"},
+  "padding": 0,
+  "signals": [
+    {"name": "titleText", "value": "__1__"},
+    {"name": "subtitleText", "value": "by __0__"},
+    {"name": "windowMode", "value": "calendar"},
+    {"name": "fiscalStartMonth", "value": 7},
+    {"name": "everyDateHasRow", "value": false},
+    {"name": "rampShades", "value": [0.8, 0.55, 0.25, -0.1, -0.45]},
+    {"name": "palette", "update": "[pbiColor(0, rampShades[0]), pbiColor(0, rampShades[1]), pbiColor(0, rampShades[2]), pbiColor(0, rampShades[3]), pbiColor(0, rampShades[4])]"},
+    {"name": "emptyColor", "value": "#f1f5f9"},
+    {"name": "filteredOutColor", "value": "#cbd5e1"},
+    {"name": "inkColor", "value": "#0b1e3f"},
+    {"name": "mutedColor", "value": "#475569"},
+    {"name": "faintColor", "value": "#94a3b8"},
+    {"name": "frameColor", "value": "#e2e8f0"},
+    {"name": "padL", "value": 24},
+    {"name": "padR", "value": 24},
+    {"name": "padT", "value": 14},
+    {"name": "padB", "value": 12},
+    {"name": "gutter", "value": 40},
+    {"name": "insetR", "value": 20},
+    {"name": "fpad", "value": 4},
+    {"name": "gapRatio", "value": 0.21},
+    {"name": "maxAspect", "value": 1.72},
+    {"name": "cellShape", "value": "capsule"},
+    {"name": "showHeader", "value": true},
+    {"name": "showLegend", "value": true},
+    {"name": "scaleField", "value": ""},
+    {"name": "targetField", "value": ""},
+    {"name": "goodColor", "update": "pbiColor('positive')"},
+    {"name": "badColor", "update": "pbiColor('negative')"},
+
+    {"name": "targetMode", "update": "isString(targetField) && targetField != ''"},
+    {"name": "startMonth", "update": "windowMode == 'fiscal' ? clamp(round(fiscalStartMonth), 1, 12) - 1 : 0"},
+    {"name": "winYear", "update": "length(data('windowStats')) && data('windowStats')[0].wy != null ? data('windowStats')[0].wy : (month(now()) >= startMonth ? year(now()) : year(now()) - 1)"},
+    {"name": "winStart", "update": "datetime(winYear, startMonth, 1)"},
+    {"name": "winEnd", "update": "datetime(winYear + 1, startMonth, 1)"},
+    {"name": "startWd", "update": "(day(winStart) + 6) % 7"},
+    {"name": "nDays", "update": "length(data('calendar'))"},
+    {"name": "nWeeks", "update": "floor((nDays - 1 + startWd) / 7) + 1"},
+    {"name": "peakValue", "update": "length(data('stats')) && data('stats')[0].maxValue > 0 ? data('stats')[0].maxValue : 1"},
+    {"name": "maxValue", "update": "length(data('stats')) && data('stats')[0].scaleMax > 0 ? data('stats')[0].scaleMax : peakValue"},
+    {"name": "totalValue", "update": "length(data('stats')) ? data('stats')[0].total : 0"},
+    {"name": "anySelected", "update": "length(data('selectedRows')) > 0"},
+    {"name": "highlightOn", "update": "length(data('stats')) > 0 && data('stats')[0].unlitRows > 0"},
+
+    {"name": "headerY", "update": "padT + 17"},
+    {"name": "monthY", "update": "showHeader ? headerY + 30 : padT + 10"},
+    {"name": "frameTop", "update": "monthY + 8"},
+    {"name": "frameLeft", "update": "padL + gutter"},
+    {"name": "availW", "update": "width - padR - insetR - frameLeft - 2 * fpad"},
+    {"name": "availH", "update": "height - padB - (showLegend ? 3 + 26 : 0) - frameTop - 2 * fpad"},
+    {"name": "cellW", "update": "max(2, min(availW / (nWeeks + (nWeeks - 1) * gapRatio), availH / (7 + 6 * gapRatio)))"},
+    {"name": "gap", "update": "cellW * gapRatio"},
+    {"name": "cellH", "update": "min((availH - 6 * gap) / 7, cellW * maxAspect)"},
+    {"name": "cellRadius", "update": "cellShape == 'square' ? min(2, cellW / 2) : cellW / 2"},
+    {"name": "ringW", "update": "min(cellW * 1.45, cellH)"},
+    {"name": "ringRadius", "update": "cellShape == 'square' ? min(2, ringW / 2) : ringW / 2"},
+    {"name": "legendSwatchX", "update": "padL + (targetMode ? 38 : 29)"},
+    {"name": "legendSteps", "update": "targetMode ? 2 : 5"},
+    {"name": "frameBottom", "update": "frameTop + 2 * fpad + 7 * cellH + 6 * gap"},
+    {"name": "legendY", "update": "frameBottom + 26"},
+    {"name": "gridW", "update": "nWeeks * cellW + (nWeeks - 1) * gap"},
+    {"name": "gridX", "update": "frameLeft + fpad"},
+    {"name": "gridY", "update": "frameTop + fpad"},
+
+    {
+      "name": "downIdx",
+      "value": null,
+      "on": [
+        {"events": "@cell:mousedown[event.button === 0]", "update": "datum.idx"},
+        {"events": "view:mousedown[event.button === 0][!event.item || event.item.mark.name !== 'cell']", "update": "null"}
+      ]
+    },
+    {
+      "name": "headIdx",
+      "value": null,
+      "on": [
+        {"events": "@cell:mousedown[event.button === 0]", "update": "datum.idx"},
+        {"events": "[@cell:mousedown[event.button === 0], window:mouseup] > @cell:mouseover", "update": "datum.idx"},
+        {"events": "view:mousedown[event.button === 0][!event.item || event.item.mark.name !== 'cell']", "update": "null"}
+      ]
+    },
+    {
+      "name": "dragging",
+      "value": false,
+      "on": [
+        {"events": "@cell:mousedown[event.button === 0]", "update": "true"},
+        {"events": "window:mouseup", "update": "false"}
+      ]
+    },
+    {
+      "name": "pressInGrid",
+      "value": false,
+      "on": [
+        {"events": "view:mousedown[event.button === 0]", "update": "x() >= gridX && x() <= gridX + gridW && y() >= gridY && y() <= gridY + 7 * cellH + 6 * gap"}
+      ]
+    },
+    {"name": "selLo", "update": "downIdx == null ? null : min(downIdx, headIdx)"},
+    {"name": "selHi", "update": "downIdx == null ? null : max(downIdx, headIdx)"},
+    {
+      "name": "rangeFilter",
+      "update": "selLo == null ? '' : 'inrange(time(toDate(datum[\"__0__\"])), [' + time(datetime(winYear, startMonth, 1 + selLo)) + ', ' + (time(datetime(winYear, startMonth, 2 + selHi)) - 1) + '])'"
+    },
+    {
+      "name": "pbiCrossFilterSelection",
+      "value": {},
+      "on": [
+        {
+          "events": "view:mouseup[event.button === 0]",
+          "update": "downIdx != null ? pbiCrossFilterApply(event, rangeFilter, {limit: 2500}) : pressInGrid ? pbiCrossFilterSelection : pbiCrossFilterClear()"
+        }
+      ]
+    }
+  ],
+  "data": [
+    {"name": "dataset"},
+    {
+      "name": "rows",
+      "source": "dataset",
+      "transform": [
+        {"type": "formula", "as": "_t", "expr": "datum['__0__'] == null || datum['__0__'] === '' ? null : time(toDate(datum['__0__']))"},
+        {"type": "filter", "expr": "isValid(datum._t)"},
+        {"type": "formula", "as": "_d", "expr": "datum._t % 864e5 == 0 ? datetime(utcyear(datum._t), utcmonth(datum._t), utcdate(datum._t)) : datetime(year(datum._t), month(datum._t), date(datum._t))"},
+        {"type": "formula", "as": "_key", "expr": "timeFormat(datum._d, '%Y-%m-%d')"},
+        {"type": "formula", "as": "_wy", "expr": "month(datum._d) >= startMonth ? year(datum._d) : year(datum._d) - 1"}
+      ]
+    },
+    {
+      "name": "windowStats",
+      "source": "rows",
+      "transform": [{"type": "aggregate", "ops": ["max"], "fields": ["_wy"], "as": ["wy"]}]
+    },
+    {
+      "name": "windowRows",
+      "source": "rows",
+      "transform": [
+        {"type": "filter", "expr": "datum._wy == winYear"},
+        {"type": "formula", "as": "_scale", "expr": "scaleField != '' && isValid(datum[scaleField]) && datum[scaleField] !== '' ? toNumber(datum[scaleField]) : null"},
+        {"type": "formula", "as": "_unlit", "expr": "isValid(datum['__1__']) && datum['__1____highlight'] === null ? 1 : 0"}
+      ]
+    },
+    {
+      "name": "stats",
+      "source": "windowRows",
+      "transform": [
+        {"type": "aggregate", "ops": ["max", "sum", "valid", "max", "sum"], "fields": ["__1__", "__1__", "__1__", "_scale", "_unlit"], "as": ["maxValue", "total", "activeDays", "scaleMax", "unlitRows"]}
+      ]
+    },
+    {
+      "name": "selectedRows",
+      "source": "windowRows",
+      "transform": [{"type": "filter", "expr": "datum.__selected__ == 'on'"}]
+    },
+    {
+      "name": "calendar",
+      "transform": [
+        {"type": "sequence", "start": 0, "stop": 367, "as": "idx"},
+        {"type": "formula", "as": "date", "expr": "datetime(winYear, startMonth, 1 + datum.idx)"},
+        {"type": "filter", "expr": "time(datum.date) < time(winEnd)"},
+        {"type": "formula", "as": "key", "expr": "timeFormat(datum.date, '%Y-%m-%d')"},
+        {"type": "formula", "as": "wd", "expr": "(day(datum.date) + 6) % 7"},
+        {"type": "formula", "as": "week", "expr": "floor((datum.idx + startWd) / 7)"},
+        {"type": "lookup", "from": "windowRows", "key": "_key", "fields": ["key"], "as": ["row"]},
+        {"type": "formula", "as": "value", "expr": "datum.row && isValid(datum.row['__1__']) ? datum.row['__1__'] : null"},
+        {"type": "formula", "as": "kind", "expr": "datum.row ? (datum.value == null ? 'empty' : 'valued') : everyDateHasRow ? 'filteredOut' : 'empty'"},
+        {"type": "formula", "as": "unlit", "expr": "highlightOn && datum.value != null && datum.row['__1____highlight'] === null"},
+        {"type": "formula", "as": "target", "expr": "targetMode && datum.row && isValid(datum.row[targetField]) && datum.row[targetField] !== '' ? toNumber(datum.row[targetField]) : null"}
+      ]
+    },
+    {
+      "name": "tips",
+      "source": "calendar",
+      "transform": [
+        {"type": "formula", "as": "_tipDate", "expr": "timeFormat(datum.date, '%a %d %b %Y')"},
+        {"type": "formula", "as": "_tipValue", "expr": "datum.value == null ? '(blank)' : pbiFormat(datum.value, '#,0')"},
+        {"type": "formula", "as": "_tipTarget", "expr": "datum.target == null ? '(blank)' : pbiFormat(datum.target, '#,0')"},
+        {"type": "project", "fields": ["_tipDate", "_tipValue", "_tipTarget"], "as": ["__0__", "__1__", {"signal": "targetMode ? targetField : '_target'"}]}
+      ]
+    },
+    {
+      "name": "daysWithRow",
+      "source": "calendar",
+      "transform": [
+        {"type": "filter", "expr": "datum.row"},
+        {"type": "formula", "as": "__row__", "expr": "datum.row.__row__"},
+        {"type": "formula", "as": "sel", "expr": "datum.row.__selected__"}
+      ]
+    },
+    {
+      "name": "daysWithoutRow",
+      "source": "calendar",
+      "transform": [{"type": "filter", "expr": "!datum.row"}]
+    },
+    {
+      "name": "dayCells",
+      "source": ["daysWithRow", "daysWithoutRow"],
+      "transform": [
+        {"type": "formula", "as": "_tipDate", "expr": "timeFormat(datum.date, '%a %d %b %Y')"},
+        {"type": "lookup", "from": "tips", "key": "__0__", "fields": ["_tipDate"], "as": ["tip"]}
+      ]
+    },
+    {
+      "name": "peak",
+      "source": "dayCells",
+      "transform": [{"type": "filter", "expr": "!targetMode && datum.value != null && datum.value >= peakValue"}]
+    },
+    {
+      "name": "monthLabels",
+      "source": "calendar",
+      "transform": [{"type": "filter", "expr": "date(datum.date) == 1 && (month(datum.date) - startMonth + 12) % 2 == 0"}]
+    },
+    {
+      "name": "weekdayLabels",
+      "values": [{"wd": 0, "t": "M"}, {"wd": 2, "t": "W"}, {"wd": 4, "t": "F"}, {"wd": 6, "t": "S"}]
+    },
+    {
+      "name": "legendBins",
+      "transform": [
+        {"type": "sequence", "start": 0, "stop": {"signal": "legendSteps"}, "as": "b"},
+        {"type": "filter", "expr": "showLegend"}
+      ]
+    },
+    {
+      "name": "header",
+      "values": [{}],
+      "transform": [{"type": "filter", "expr": "showHeader"}]
+    },
+    {
+      "name": "legend",
+      "values": [{}],
+      "transform": [{"type": "filter", "expr": "showLegend"}]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "quantize",
+      "domain": {"signal": "[0, maxValue]"},
+      "range": {"signal": "palette"}
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "name": "frame",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "round(frameLeft) + 0.5"},
+          "y": {"signal": "round(frameTop) + 0.5"},
+          "width": {"signal": "round(gridW + 2 * fpad)"},
+          "height": {"signal": "round(frameBottom - frameTop)"},
+          "cornerRadius": {"value": 8},
+          "fill": {"value": "transparent"},
+          "stroke": {"signal": "frameColor"},
+          "strokeWidth": {"value": 1}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "name": "cell",
+      "from": {"data": "dayCells"},
+      "encode": {
+        "enter": {"cursor": {"value": "pointer"}},
+        "update": {
+          "x": {"signal": "gridX + datum.week * (cellW + gap)"},
+          "y": {"signal": "gridY + datum.wd * (cellH + gap)"},
+          "width": {"signal": "cellW"},
+          "height": {"signal": "cellH"},
+          "cornerRadius": {"signal": "cellRadius"},
+          "fill": [
+            {"test": "datum.kind == 'filteredOut'", "value": "transparent"},
+            {"test": "datum.value == null", "signal": "emptyColor"},
+            {"test": "targetMode && datum.target == null", "signal": "faintColor"},
+            {"test": "targetMode", "signal": "datum.value >= datum.target ? goodColor : badColor"},
+            {"scale": "color", "field": "value"}
+          ],
+          "opacity": [
+            {"test": "dragging && selLo != null", "signal": "datum.idx >= selLo && datum.idx <= selHi ? 1 : 0.28"},
+            {"test": "highlightOn && datum.value != null", "signal": "datum.unlit ? 0.28 : 1"},
+            {"test": "anySelected", "signal": "datum.sel == 'on' ? 1 : 0.28"},
+            {"value": 1}
+          ],
+          "stroke": [
+            {"test": "datum.kind == 'filteredOut'", "signal": "filteredOutColor"},
+            {"signal": "inkColor"}
+          ],
+          "strokeWidth": [
+            {"test": "datum.kind == 'filteredOut'", "value": 1},
+            {"value": 1.25}
+          ],
+          "strokeOpacity": [
+            {"test": "datum.kind == 'filteredOut'", "value": 1},
+            {"value": 0}
+          ],
+          "tooltip": {"signal": "merge(targetMode && datum.tip ? datum.tip : {'__0__': timeFormat(datum.date, '%a %d %b %Y'), '__1__': datum.value == null ? '(blank)' : pbiFormat(datum.value, '#,0')}, datum.__row__ != null ? {'__row__': datum.__row__} : {})"}
+        },
+        "hover": {"strokeOpacity": {"value": 0.85}}
+      }
+    },
+    {
+      "type": "rect",
+      "name": "peakRing",
+      "from": {"data": "peak"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "xc": {"signal": "gridX + datum.week * (cellW + gap) + cellW / 2"},
+          "yc": {"signal": "gridY + datum.wd * (cellH + gap) + cellH / 2"},
+          "width": {"signal": "ringW"},
+          "height": {"signal": "cellH"},
+          "cornerRadius": {"signal": "ringRadius"},
+          "fill": {"scale": "color", "field": "value"},
+          "stroke": {"signal": "inkColor"},
+          "strokeWidth": {"value": 2.5},
+          "opacity": [
+            {"test": "dragging && selLo != null", "signal": "datum.idx >= selLo && datum.idx <= selHi ? 1 : 0.28"},
+            {"test": "highlightOn && datum.value != null", "signal": "datum.unlit ? 0.28 : 1"},
+            {"test": "anySelected", "signal": "datum.sel == 'on' ? 1 : 0.28"},
+            {"value": 1}
+          ]
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "monthLabel",
+      "from": {"data": "monthLabels"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "gridX + datum.week * (cellW + gap)"},
+          "y": {"signal": "monthY"},
+          "text": {"signal": "timeFormat(datum.date, '%b')"},
+          "fontSize": {"value": 10},
+          "fill": {"signal": "mutedColor"},
+          "align": {"value": "left"},
+          "baseline": {"value": "alphabetic"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "weekdayLabel",
+      "from": {"data": "weekdayLabels"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "frameLeft - 18"},
+          "y": {"signal": "gridY + datum.wd * (cellH + gap) + cellH / 2"},
+          "text": {"field": "t"},
+          "fontSize": {"value": 10},
+          "fill": {"signal": "faintColor"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "titleMark",
+      "from": {"data": "header"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "padL"},
+          "y": {"signal": "headerY"},
+          "text": {"signal": "titleText"},
+          "fontSize": {"value": 16},
+          "fontWeight": {"value": 600},
+          "fill": {"signal": "inkColor"},
+          "baseline": {"value": "alphabetic"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "subtitleMark",
+      "from": {"data": "titleMark"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "datum.bounds.x2 + 10"},
+          "y": {"signal": "headerY"},
+          "text": {"signal": "subtitleText"},
+          "fontSize": {"value": 12.5},
+          "fill": {"signal": "mutedColor"},
+          "baseline": {"value": "alphabetic"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "totalMark",
+      "from": {"data": "header"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "width - padR"},
+          "y": {"signal": "headerY"},
+          "text": {"signal": "abs(totalValue) >= 1e6 ? format(totalValue / 1e6, '.2f') + 'M' : abs(totalValue) >= 1e3 ? format(totalValue / 1e3, '.1f') + 'K' : format(totalValue, ',.0f')"},
+          "fontSize": {"value": 15},
+          "fontWeight": {"value": 600},
+          "fill": {"signal": "inkColor"},
+          "align": {"value": "right"},
+          "baseline": {"value": "alphabetic"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "legendLess",
+      "from": {"data": "legend"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "padL"},
+          "y": {"signal": "legendY"},
+          "text": {"signal": "targetMode ? 'Under' : 'Less'"},
+          "fontSize": {"value": 12},
+          "fill": {"signal": "mutedColor"},
+          "baseline": {"value": "alphabetic"}
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "name": "legendSwatch",
+      "from": {"data": "legendBins"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "legendSwatchX + datum.b * 14"},
+          "y": {"signal": "legendY - 9.5"},
+          "width": {"value": 11},
+          "height": {"value": 11},
+          "cornerRadius": {"value": 2.5},
+          "fill": {"signal": "targetMode ? (datum.b == 0 ? badColor : goodColor) : palette[datum.b]"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "legendMore",
+      "from": {"data": "legend"},
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {"signal": "legendSwatchX + legendSteps * 14 + 3"},
+          "y": {"signal": "legendY"},
+          "text": {"signal": "targetMode ? 'Over' : 'More'"},
+          "fontSize": {"value": 12},
+          "fill": {"signal": "mutedColor"},
+          "baseline": {"value": "alphabetic"}
+        }
+      }
+    }
+  ]
+}

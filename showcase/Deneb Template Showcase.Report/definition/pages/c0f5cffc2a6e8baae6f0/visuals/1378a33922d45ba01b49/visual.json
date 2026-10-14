@@ -1,0 +1,239 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1378a33922d45ba01b49",
+  "position": {
+    "x": 24,
+    "y": 81,
+    "z": 2000,
+    "height": 362,
+    "width": 1080,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "calendar-heatmap"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "calendar-heatmap.Date",
+              "nativeQueryRef": "Date",
+              "displayName": "Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "calendar-heatmap"
+                    }
+                  },
+                  "Property": "Sales (calendar-heatmap)"
+                }
+              },
+              "queryRef": "calendar-heatmap.Sales (calendar-heatmap)",
+              "nativeQueryRef": "Sales (calendar-heatmap)",
+              "displayName": "Sales"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vega'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"description\": \"Calendar Heatmap: a Window of days (a calendar or fiscal year) as week columns by weekday rows, Monday first, coloured in five equal-interval steps of theme colour 1 over 0 to the Window''s maximum. Empty days are drawn in the empty colour, the Peak day is ringed, and a left click or drag cross-filters a date range (advanced selection mode). With a target field named, days are coloured good or bad against their target instead. The settings are the signals from titleText to badColor.\",\n  \"width\": {\n    \"signal\": \"pbiContainerWidth\"\n  },\n  \"height\": {\n    \"signal\": \"pbiContainerHeight\"\n  },\n  \"padding\": 0,\n  \"signals\": [\n    {\n      \"name\": \"titleText\",\n      \"value\": \"Sales\"\n    },\n    {\n      \"name\": \"subtitleText\",\n      \"value\": \"by Date\"\n    },\n    {\n      \"name\": \"windowMode\",\n      \"value\": \"calendar\"\n    },\n    {\n      \"name\": \"fiscalStartMonth\",\n      \"value\": 7\n    },\n    {\n      \"name\": \"everyDateHasRow\",\n      \"value\": false\n    },\n    {\n      \"name\": \"rampShades\",\n      \"value\": [\n        0.8,\n        0.55,\n        0.25,\n        -0.1,\n        -0.45\n      ]\n    },\n    {\n      \"name\": \"palette\",\n      \"update\": \"[pbiColor(0, rampShades[0]), pbiColor(0, rampShades[1]), pbiColor(0, rampShades[2]), pbiColor(0, rampShades[3]), pbiColor(0, rampShades[4])]\"\n    },\n    {\n      \"name\": \"emptyColor\",\n      \"value\": \"#f1f5f9\"\n    },\n    {\n      \"name\": \"filteredOutColor\",\n      \"value\": \"#cbd5e1\"\n    },\n    {\n      \"name\": \"inkColor\",\n      \"value\": \"#0b1e3f\"\n    },\n    {\n      \"name\": \"mutedColor\",\n      \"value\": \"#475569\"\n    },\n    {\n      \"name\": \"faintColor\",\n      \"value\": \"#94a3b8\"\n    },\n    {\n      \"name\": \"frameColor\",\n      \"value\": \"#e2e8f0\"\n    },\n    {\n      \"name\": \"padL\",\n      \"value\": 24\n    },\n    {\n      \"name\": \"padR\",\n      \"value\": 24\n    },\n    {\n      \"name\": \"padT\",\n      \"value\": 14\n    },\n    {\n      \"name\": \"padB\",\n      \"value\": 12\n    },\n    {\n      \"name\": \"gutter\",\n      \"value\": 40\n    },\n    {\n      \"name\": \"insetR\",\n      \"value\": 20\n    },\n    {\n      \"name\": \"fpad\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"gapRatio\",\n      \"value\": 0.21\n    },\n    {\n      \"name\": \"maxAspect\",\n      \"value\": 1.72\n    },\n    {\n      \"name\": \"cellShape\",\n      \"value\": \"capsule\"\n    },\n    {\n      \"name\": \"showHeader\",\n      \"value\": true\n    },\n    {\n      \"name\": \"showLegend\",\n      \"value\": true\n    },\n    {\n      \"name\": \"scaleField\",\n      \"value\": \"\"\n    },\n    {\n      \"name\": \"targetField\",\n      \"value\": \"\"\n    },\n    {\n      \"name\": \"goodColor\",\n      \"update\": \"pbiColor(''positive'')\"\n    },\n    {\n      \"name\": \"badColor\",\n      \"update\": \"pbiColor(''negative'')\"\n    },\n    {\n      \"name\": \"targetMode\",\n      \"update\": \"isString(targetField) && targetField != ''''\"\n    },\n    {\n      \"name\": \"startMonth\",\n      \"update\": \"windowMode == ''fiscal'' ? clamp(round(fiscalStartMonth), 1, 12) - 1 : 0\"\n    },\n    {\n      \"name\": \"winYear\",\n      \"update\": \"length(data(''windowStats'')) && data(''windowStats'')[0].wy != null ? data(''windowStats'')[0].wy : (month(now()) >= startMonth ? year(now()) : year(now()) - 1)\"\n    },\n    {\n      \"name\": \"winStart\",\n      \"update\": \"datetime(winYear, startMonth, 1)\"\n    },\n    {\n      \"name\": \"winEnd\",\n      \"update\": \"datetime(winYear + 1, startMonth, 1)\"\n    },\n    {\n      \"name\": \"startWd\",\n      \"update\": \"(day(winStart) + 6) % 7\"\n    },\n    {\n      \"name\": \"nDays\",\n      \"update\": \"length(data(''calendar''))\"\n    },\n    {\n      \"name\": \"nWeeks\",\n      \"update\": \"floor((nDays - 1 + startWd) / 7) + 1\"\n    },\n    {\n      \"name\": \"peakValue\",\n      \"update\": \"length(data(''stats'')) && data(''stats'')[0].maxValue > 0 ? data(''stats'')[0].maxValue : 1\"\n    },\n    {\n      \"name\": \"maxValue\",\n      \"update\": \"length(data(''stats'')) && data(''stats'')[0].scaleMax > 0 ? data(''stats'')[0].scaleMax : peakValue\"\n    },\n    {\n      \"name\": \"totalValue\",\n      \"update\": \"length(data(''stats'')) ? data(''stats'')[0].total : 0\"\n    },\n    {\n      \"name\": \"anySelected\",\n      \"update\": \"length(data(''selectedRows'')) > 0\"\n    },\n    {\n      \"name\": \"highlightOn\",\n      \"update\": \"length(data(''stats'')) > 0 && data(''stats'')[0].unlitRows > 0\"\n    },\n    {\n      \"name\": \"headerY\",\n      \"update\": \"padT + 17\"\n    },\n    {\n      \"name\": \"monthY\",\n      \"update\": \"showHeader ? headerY + 30 : padT + 10\"\n    },\n    {\n      \"name\": \"frameTop\",\n      \"update\": \"monthY + 8\"\n    },\n    {\n      \"name\": \"frameLeft\",\n      \"update\": \"padL + gutter\"\n    },\n    {\n      \"name\": \"availW\",\n      \"update\": \"width - padR - insetR - frameLeft - 2 * fpad\"\n    },\n    {\n      \"name\": \"availH\",\n      \"update\": \"height - padB - (showLegend ? 3 + 26 : 0) - frameTop - 2 * fpad\"\n    },\n    {\n      \"name\": \"cellW\",\n      \"update\": \"max(2, min(availW / (nWeeks + (nWeeks - 1) * gapRatio), availH / (7 + 6 * gapRatio)))\"\n    },\n    {\n      \"name\": \"gap\",\n      \"update\": \"cellW * gapRatio\"\n    },\n    {\n      \"name\": \"cellH\",\n      \"update\": \"min((availH - 6 * gap) / 7, cellW * maxAspect)\"\n    },\n    {\n      \"name\": \"cellRadius\",\n      \"update\": \"cellShape == ''square'' ? min(2, cellW / 2) : cellW / 2\"\n    },\n    {\n      \"name\": \"ringW\",\n      \"update\": \"min(cellW * 1.45, cellH)\"\n    },\n    {\n      \"name\": \"ringRadius\",\n      \"update\": \"cellShape == ''square'' ? min(2, ringW / 2) : ringW / 2\"\n    },\n    {\n      \"name\": \"legendSwatchX\",\n      \"update\": \"padL + (targetMode ? 38 : 29)\"\n    },\n    {\n      \"name\": \"legendSteps\",\n      \"update\": \"targetMode ? 2 : 5\"\n    },\n    {\n      \"name\": \"frameBottom\",\n      \"update\": \"frameTop + 2 * fpad + 7 * cellH + 6 * gap\"\n    },\n    {\n      \"name\": \"legendY\",\n      \"update\": \"frameBottom + 26\"\n    },\n    {\n      \"name\": \"gridW\",\n      \"update\": \"nWeeks * cellW + (nWeeks - 1) * gap\"\n    },\n    {\n      \"name\": \"gridX\",\n      \"update\": \"frameLeft + fpad\"\n    },\n    {\n      \"name\": \"gridY\",\n      \"update\": \"frameTop + fpad\"\n    },\n    {\n      \"name\": \"downIdx\",\n      \"value\": null,\n      \"on\": [\n        {\n          \"events\": \"@cell:mousedown[event.button === 0]\",\n          \"update\": \"datum.idx\"\n        },\n        {\n          \"events\": \"view:mousedown[event.button === 0][!event.item || event.item.mark.name !== ''cell'']\",\n          \"update\": \"null\"\n        }\n      ]\n    },\n    {\n      \"name\": \"headIdx\",\n      \"value\": null,\n      \"on\": [\n        {\n          \"events\": \"@cell:mousedown[event.button === 0]\",\n          \"update\": \"datum.idx\"\n        },\n        {\n          \"events\": \"[@cell:mousedown[event.button === 0], window:mouseup] > @cell:mouseover\",\n          \"update\": \"datum.idx\"\n        },\n        {\n          \"events\": \"view:mousedown[event.button === 0][!event.item || event.item.mark.name !== ''cell'']\",\n          \"update\": \"null\"\n        }\n      ]\n    },\n    {\n      \"name\": \"dragging\",\n      \"value\": false,\n      \"on\": [\n        {\n          \"events\": \"@cell:mousedown[event.button === 0]\",\n          \"update\": \"true\"\n        },\n        {\n          \"events\": \"window:mouseup\",\n          \"update\": \"false\"\n        }\n      ]\n    },\n    {\n      \"name\": \"pressInGrid\",\n      \"value\": false,\n      \"on\": [\n        {\n          \"events\": \"view:mousedown[event.button === 0]\",\n          \"update\": \"x() >= gridX && x() <= gridX + gridW && y() >= gridY && y() <= gridY + 7 * cellH + 6 * gap\"\n        }\n      ]\n    },\n    {\n      \"name\": \"selLo\",\n      \"update\": \"downIdx == null ? null : min(downIdx, headIdx)\"\n    },\n    {\n      \"name\": \"selHi\",\n      \"update\": \"downIdx == null ? null : max(downIdx, headIdx)\"\n    },\n    {\n      \"name\": \"rangeFilter\",\n      \"update\": \"selLo == null ? '''' : ''inrange(time(toDate(datum[\\\"Date\\\"])), ['' + time(datetime(winYear, startMonth, 1 + selLo)) + '', '' + (time(datetime(winYear, startMonth, 2 + selHi)) - 1) + ''])''\"\n    },\n    {\n      \"name\": \"pbiCrossFilterSelection\",\n      \"value\": {},\n      \"on\": [\n        {\n          \"events\": \"view:mouseup[event.button === 0]\",\n          \"update\": \"downIdx != null ? pbiCrossFilterApply(event, rangeFilter, {limit: 2500}) : pressInGrid ? pbiCrossFilterSelection : pbiCrossFilterClear()\"\n        }\n      ]\n    }\n  ],\n  \"data\": [\n    {\n      \"name\": \"dataset\"\n    },\n    {\n      \"name\": \"rows\",\n      \"source\": \"dataset\",\n      \"transform\": [\n        {\n          \"type\": \"formula\",\n          \"as\": \"_t\",\n          \"expr\": \"datum[''Date''] == null || datum[''Date''] === '''' ? null : time(toDate(datum[''Date'']))\"\n        },\n        {\n          \"type\": \"filter\",\n          \"expr\": \"isValid(datum._t)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"_d\",\n          \"expr\": \"datum._t % 864e5 == 0 ? datetime(utcyear(datum._t), utcmonth(datum._t), utcdate(datum._t)) : datetime(year(datum._t), month(datum._t), date(datum._t))\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"_key\",\n          \"expr\": \"timeFormat(datum._d, ''%Y-%m-%d'')\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"_wy\",\n          \"expr\": \"month(datum._d) >= startMonth ? year(datum._d) : year(datum._d) - 1\"\n        }\n      ]\n    },\n    {\n      \"name\": \"windowStats\",\n      \"source\": \"rows\",\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"ops\": [\n            \"max\"\n          ],\n          \"fields\": [\n            \"_wy\"\n          ],\n          \"as\": [\n            \"wy\"\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"windowRows\",\n      \"source\": \"rows\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"datum._wy == winYear\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"_scale\",\n          \"expr\": \"scaleField != '''' && isValid(datum[scaleField]) && datum[scaleField] !== '''' ? toNumber(datum[scaleField]) : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"_unlit\",\n          \"expr\": \"isValid(datum[''Sales'']) && datum[''Sales__highlight''] === null ? 1 : 0\"\n        }\n      ]\n    },\n    {\n      \"name\": \"stats\",\n      \"source\": \"windowRows\",\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"ops\": [\n            \"max\",\n            \"sum\",\n            \"valid\",\n            \"max\",\n            \"sum\"\n          ],\n          \"fields\": [\n            \"Sales\",\n            \"Sales\",\n            \"Sales\",\n            \"_scale\",\n            \"_unlit\"\n          ],\n          \"as\": [\n            \"maxValue\",\n            \"total\",\n            \"activeDays\",\n            \"scaleMax\",\n            \"unlitRows\"\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"selectedRows\",\n      \"source\": \"windowRows\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"datum.__selected__ == ''on''\"\n        }\n      ]\n    },\n    {\n      \"name\": \"calendar\",\n      \"transform\": [\n        {\n          \"type\": \"sequence\",\n          \"start\": 0,\n          \"stop\": 367,\n          \"as\": \"idx\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"date\",\n          \"expr\": \"datetime(winYear, startMonth, 1 + datum.idx)\"\n        },\n        {\n          \"type\": \"filter\",\n          \"expr\": \"time(datum.date) < time(winEnd)\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"key\",\n          \"expr\": \"timeFormat(datum.date, ''%Y-%m-%d'')\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"wd\",\n          \"expr\": \"(day(datum.date) + 6) % 7\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"week\",\n          \"expr\": \"floor((datum.idx + startWd) / 7)\"\n        },\n        {\n          \"type\": \"lookup\",\n          \"from\": \"windowRows\",\n          \"key\": \"_key\",\n          \"fields\": [\n            \"key\"\n          ],\n          \"as\": [\n            \"row\"\n          ]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"value\",\n          \"expr\": \"datum.row && isValid(datum.row[''Sales'']) ? datum.row[''Sales''] : null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"kind\",\n          \"expr\": \"datum.row ? (datum.value == null ? ''empty'' : ''valued'') : everyDateHasRow ? ''filteredOut'' : ''empty''\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"unlit\",\n          \"expr\": \"highlightOn && datum.value != null && datum.row[''Sales__highlight''] === null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"target\",\n          \"expr\": \"targetMode && datum.row && isValid(datum.row[targetField]) && datum.row[targetField] !== '''' ? toNumber(datum.row[targetField]) : null\"\n        }\n      ]\n    },\n    {\n      \"name\": \"tips\",\n      \"source\": \"calendar\",\n      \"transform\": [\n        {\n          \"type\": \"formula\",\n          \"as\": \"_tipDate\",\n          \"expr\": \"timeFormat(datum.date, ''%a %d %b %Y'')\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"_tipValue\",\n          \"expr\": \"datum.value == null ? ''(blank)'' : pbiFormat(datum.value, ''#,0'')\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"_tipTarget\",\n          \"expr\": \"datum.target == null ? ''(blank)'' : pbiFormat(datum.target, ''#,0'')\"\n        },\n        {\n          \"type\": \"project\",\n          \"fields\": [\n            \"_tipDate\",\n            \"_tipValue\",\n            \"_tipTarget\"\n          ],\n          \"as\": [\n            \"Date\",\n            \"Sales\",\n            {\n              \"signal\": \"targetMode ? targetField : ''_target''\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"daysWithRow\",\n      \"source\": \"calendar\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"datum.row\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"__row__\",\n          \"expr\": \"datum.row.__row__\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"sel\",\n          \"expr\": \"datum.row.__selected__\"\n        }\n      ]\n    },\n    {\n      \"name\": \"daysWithoutRow\",\n      \"source\": \"calendar\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"!datum.row\"\n        }\n      ]\n    },\n    {\n      \"name\": \"dayCells\",\n      \"source\": [\n        \"daysWithRow\",\n        \"daysWithoutRow\"\n      ],\n      \"transform\": [\n        {\n          \"type\": \"formula\",\n          \"as\": \"_tipDate\",\n          \"expr\": \"timeFormat(datum.date, ''%a %d %b %Y'')\"\n        },\n        {\n          \"type\": \"lookup\",\n          \"from\": \"tips\",\n          \"key\": \"Date\",\n          \"fields\": [\n            \"_tipDate\"\n          ],\n          \"as\": [\n            \"tip\"\n          ]\n        }\n      ]\n    },\n    {\n      \"name\": \"peak\",\n      \"source\": \"dayCells\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"!targetMode && datum.value != null && datum.value >= peakValue\"\n        }\n      ]\n    },\n    {\n      \"name\": \"monthLabels\",\n      \"source\": \"calendar\",\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"date(datum.date) == 1 && (month(datum.date) - startMonth + 12) % 2 == 0\"\n        }\n      ]\n    },\n    {\n      \"name\": \"weekdayLabels\",\n      \"values\": [\n        {\n          \"wd\": 0,\n          \"t\": \"M\"\n        },\n        {\n          \"wd\": 2,\n          \"t\": \"W\"\n        },\n        {\n          \"wd\": 4,\n          \"t\": \"F\"\n        },\n        {\n          \"wd\": 6,\n          \"t\": \"S\"\n        }\n      ]\n    },\n    {\n      \"name\": \"legendBins\",\n      \"transform\": [\n        {\n          \"type\": \"sequence\",\n          \"start\": 0,\n          \"stop\": {\n            \"signal\": \"legendSteps\"\n          },\n          \"as\": \"b\"\n        },\n        {\n          \"type\": \"filter\",\n          \"expr\": \"showLegend\"\n        }\n      ]\n    },\n    {\n      \"name\": \"header\",\n      \"values\": [\n        {}\n      ],\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"showHeader\"\n        }\n      ]\n    },\n    {\n      \"name\": \"legend\",\n      \"values\": [\n        {}\n      ],\n      \"transform\": [\n        {\n          \"type\": \"filter\",\n          \"expr\": \"showLegend\"\n        }\n      ]\n    }\n  ],\n  \"scales\": [\n    {\n      \"name\": \"color\",\n      \"type\": \"quantize\",\n      \"domain\": {\n        \"signal\": \"[0, maxValue]\"\n      },\n      \"range\": {\n        \"signal\": \"palette\"\n      }\n    }\n  ],\n  \"marks\": [\n    {\n      \"type\": \"rect\",\n      \"name\": \"frame\",\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"round(frameLeft) + 0.5\"\n          },\n          \"y\": {\n            \"signal\": \"round(frameTop) + 0.5\"\n          },\n          \"width\": {\n            \"signal\": \"round(gridW + 2 * fpad)\"\n          },\n          \"height\": {\n            \"signal\": \"round(frameBottom - frameTop)\"\n          },\n          \"cornerRadius\": {\n            \"value\": 8\n          },\n          \"fill\": {\n            \"value\": \"transparent\"\n          },\n          \"stroke\": {\n            \"signal\": \"frameColor\"\n          },\n          \"strokeWidth\": {\n            \"value\": 1\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"rect\",\n      \"name\": \"cell\",\n      \"from\": {\n        \"data\": \"dayCells\"\n      },\n      \"encode\": {\n        \"enter\": {\n          \"cursor\": {\n            \"value\": \"pointer\"\n          }\n        },\n        \"update\": {\n          \"x\": {\n            \"signal\": \"gridX + datum.week * (cellW + gap)\"\n          },\n          \"y\": {\n            \"signal\": \"gridY + datum.wd * (cellH + gap)\"\n          },\n          \"width\": {\n            \"signal\": \"cellW\"\n          },\n          \"height\": {\n            \"signal\": \"cellH\"\n          },\n          \"cornerRadius\": {\n            \"signal\": \"cellRadius\"\n          },\n          \"fill\": [\n            {\n              \"test\": \"datum.kind == ''filteredOut''\",\n              \"value\": \"transparent\"\n            },\n            {\n              \"test\": \"datum.value == null\",\n              \"signal\": \"emptyColor\"\n            },\n            {\n              \"test\": \"targetMode && datum.target == null\",\n              \"signal\": \"faintColor\"\n            },\n            {\n              \"test\": \"targetMode\",\n              \"signal\": \"datum.value >= datum.target ? goodColor : badColor\"\n            },\n            {\n              \"scale\": \"color\",\n              \"field\": \"value\"\n            }\n          ],\n          \"opacity\": [\n            {\n              \"test\": \"dragging && selLo != null\",\n              \"signal\": \"datum.idx >= selLo && datum.idx <= selHi ? 1 : 0.28\"\n            },\n            {\n              \"test\": \"highlightOn && datum.value != null\",\n              \"signal\": \"datum.unlit ? 0.28 : 1\"\n            },\n            {\n              \"test\": \"anySelected\",\n              \"signal\": \"datum.sel == ''on'' ? 1 : 0.28\"\n            },\n            {\n              \"value\": 1\n            }\n          ],\n          \"stroke\": [\n            {\n              \"test\": \"datum.kind == ''filteredOut''\",\n              \"signal\": \"filteredOutColor\"\n            },\n            {\n              \"signal\": \"inkColor\"\n            }\n          ],\n          \"strokeWidth\": [\n            {\n              \"test\": \"datum.kind == ''filteredOut''\",\n              \"value\": 1\n            },\n            {\n              \"value\": 1.25\n            }\n          ],\n          \"strokeOpacity\": [\n            {\n              \"test\": \"datum.kind == ''filteredOut''\",\n              \"value\": 1\n            },\n            {\n              \"value\": 0\n            }\n          ],\n          \"tooltip\": {\n            \"signal\": \"merge(targetMode && datum.tip ? datum.tip : {''Date'': timeFormat(datum.date, ''%a %d %b %Y''), ''Sales'': datum.value == null ? ''(blank)'' : pbiFormat(datum.value, ''#,0'')}, datum.__row__ != null ? {''__row__'': datum.__row__} : {})\"\n          }\n        },\n        \"hover\": {\n          \"strokeOpacity\": {\n            \"value\": 0.85\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"rect\",\n      \"name\": \"peakRing\",\n      \"from\": {\n        \"data\": \"peak\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"xc\": {\n            \"signal\": \"gridX + datum.week * (cellW + gap) + cellW / 2\"\n          },\n          \"yc\": {\n            \"signal\": \"gridY + datum.wd * (cellH + gap) + cellH / 2\"\n          },\n          \"width\": {\n            \"signal\": \"ringW\"\n          },\n          \"height\": {\n            \"signal\": \"cellH\"\n          },\n          \"cornerRadius\": {\n            \"signal\": \"ringRadius\"\n          },\n          \"fill\": {\n            \"scale\": \"color\",\n            \"field\": \"value\"\n          },\n          \"stroke\": {\n            \"signal\": \"inkColor\"\n          },\n          \"strokeWidth\": {\n            \"value\": 2.5\n          },\n          \"opacity\": [\n            {\n              \"test\": \"dragging && selLo != null\",\n              \"signal\": \"datum.idx >= selLo && datum.idx <= selHi ? 1 : 0.28\"\n            },\n            {\n              \"test\": \"highlightOn && datum.value != null\",\n              \"signal\": \"datum.unlit ? 0.28 : 1\"\n            },\n            {\n              \"test\": \"anySelected\",\n              \"signal\": \"datum.sel == ''on'' ? 1 : 0.28\"\n            },\n            {\n              \"value\": 1\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"monthLabel\",\n      \"from\": {\n        \"data\": \"monthLabels\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"gridX + datum.week * (cellW + gap)\"\n          },\n          \"y\": {\n            \"signal\": \"monthY\"\n          },\n          \"text\": {\n            \"signal\": \"timeFormat(datum.date, ''%b'')\"\n          },\n          \"fontSize\": {\n            \"value\": 10\n          },\n          \"fill\": {\n            \"signal\": \"mutedColor\"\n          },\n          \"align\": {\n            \"value\": \"left\"\n          },\n          \"baseline\": {\n            \"value\": \"alphabetic\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"weekdayLabel\",\n      \"from\": {\n        \"data\": \"weekdayLabels\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"frameLeft - 18\"\n          },\n          \"y\": {\n            \"signal\": \"gridY + datum.wd * (cellH + gap) + cellH / 2\"\n          },\n          \"text\": {\n            \"field\": \"t\"\n          },\n          \"fontSize\": {\n            \"value\": 10\n          },\n          \"fill\": {\n            \"signal\": \"faintColor\"\n          },\n          \"align\": {\n            \"value\": \"center\"\n          },\n          \"baseline\": {\n            \"value\": \"middle\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"titleMark\",\n      \"from\": {\n        \"data\": \"header\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"padL\"\n          },\n          \"y\": {\n            \"signal\": \"headerY\"\n          },\n          \"text\": {\n            \"signal\": \"titleText\"\n          },\n          \"fontSize\": {\n            \"value\": 16\n          },\n          \"fontWeight\": {\n            \"value\": 600\n          },\n          \"fill\": {\n            \"signal\": \"inkColor\"\n          },\n          \"baseline\": {\n            \"value\": \"alphabetic\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"subtitleMark\",\n      \"from\": {\n        \"data\": \"titleMark\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"datum.bounds.x2 + 10\"\n          },\n          \"y\": {\n            \"signal\": \"headerY\"\n          },\n          \"text\": {\n            \"signal\": \"subtitleText\"\n          },\n          \"fontSize\": {\n            \"value\": 12.5\n          },\n          \"fill\": {\n            \"signal\": \"mutedColor\"\n          },\n          \"baseline\": {\n            \"value\": \"alphabetic\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"totalMark\",\n      \"from\": {\n        \"data\": \"header\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"width - padR\"\n          },\n          \"y\": {\n            \"signal\": \"headerY\"\n          },\n          \"text\": {\n            \"signal\": \"abs(totalValue) >= 1e6 ? format(totalValue / 1e6, ''.2f'') + ''M'' : abs(totalValue) >= 1e3 ? format(totalValue / 1e3, ''.1f'') + ''K'' : format(totalValue, '',.0f'')\"\n          },\n          \"fontSize\": {\n            \"value\": 15\n          },\n          \"fontWeight\": {\n            \"value\": 600\n          },\n          \"fill\": {\n            \"signal\": \"inkColor\"\n          },\n          \"align\": {\n            \"value\": \"right\"\n          },\n          \"baseline\": {\n            \"value\": \"alphabetic\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"legendLess\",\n      \"from\": {\n        \"data\": \"legend\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"padL\"\n          },\n          \"y\": {\n            \"signal\": \"legendY\"\n          },\n          \"text\": {\n            \"signal\": \"targetMode ? ''Under'' : ''Less''\"\n          },\n          \"fontSize\": {\n            \"value\": 12\n          },\n          \"fill\": {\n            \"signal\": \"mutedColor\"\n          },\n          \"baseline\": {\n            \"value\": \"alphabetic\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"rect\",\n      \"name\": \"legendSwatch\",\n      \"from\": {\n        \"data\": \"legendBins\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"legendSwatchX + datum.b * 14\"\n          },\n          \"y\": {\n            \"signal\": \"legendY - 9.5\"\n          },\n          \"width\": {\n            \"value\": 11\n          },\n          \"height\": {\n            \"value\": 11\n          },\n          \"cornerRadius\": {\n            \"value\": 2.5\n          },\n          \"fill\": {\n            \"signal\": \"targetMode ? (datum.b == 0 ? badColor : goodColor) : palette[datum.b]\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"legendMore\",\n      \"from\": {\n        \"data\": \"legend\"\n      },\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"x\": {\n            \"signal\": \"legendSwatchX + legendSteps * 14 + 3\"\n          },\n          \"y\": {\n            \"signal\": \"legendY\"\n          },\n          \"text\": {\n            \"signal\": \"targetMode ? ''Over'' : ''More''\"\n          },\n          \"fontSize\": {\n            \"value\": 12\n          },\n          \"fill\": {\n            \"signal\": \"mutedColor\"\n          },\n          \"baseline\": {\n            \"value\": \"alphabetic\"\n          }\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"background\":\"transparent\",\"view\":{\"stroke\":\"transparent\"},\"font\":\"Arial\",\"text\":{\"font\":\"Arial\"}}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.2.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Calendar Heatmap'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
