@@ -9,7 +9,7 @@
     },
     "information": {
       "name": "KPI Small Multiples",
-      "description": "One small KPI panel per category: its name, a sparkline, the latest value and its change, in a grid that reflows with the visual. Sorted by value, change or name; panels that do not fit are dropped from the end.",
+      "description": "One small KPI panel per category: the name on the left, the latest value and its change on the right, and a sparkline across the bottom, in a grid that reflows with the visual. Sorted by value, change or name; panels that do not fit are dropped from the end.",
       "author": "Timothy Osborn",
       "uuid": "dd252e95-d2f3-4044-8411-35e828c48986",
       "generated": "2026-10-18T00:00:00.000Z"
@@ -402,23 +402,31 @@
       "as": "py0"
     },
     {
-      "calculate": "clamp(min(datum.pw / 150, datum.ph / 62), 0.6, 1.8)",
+      "calculate": "clamp(min(datum.pw / 150, datum.ph / 72), 0.6, 1.8)",
       "as": "pu"
     },
     {
-      "calculate": "8 * datum.pu",
+      "calculate": "7 * datum.pu",
       "as": "ip"
+    },
+    {
+      "calculate": "datum.py0 + datum.ip + 12 * datum.pu",
+      "as": "topY"
+    },
+    {
+      "calculate": "datum.topY + 12 * datum.pu",
+      "as": "chY"
     },
     {
       "calculate": "datum.px0 + datum.ip",
       "as": "sx0"
     },
     {
-      "calculate": "datum.px0 + datum.pw * 0.56",
+      "calculate": "datum.px0 + datum.pw - datum.ip",
       "as": "sx1"
     },
     {
-      "calculate": "datum.py0 + datum.ip + 16 * datum.pu",
+      "calculate": "datum.chY + 5 * datum.pu",
       "as": "sy0"
     },
     {
@@ -458,7 +466,7 @@
       "as": "nameX"
     },
     {
-      "calculate": "datum.py0 + datum.ip + 10 * datum.pu",
+      "calculate": "datum.topY",
       "as": "nameY"
     },
     {
@@ -466,15 +474,11 @@
       "as": "nameSize"
     },
     {
-      "calculate": "datum.pw - 2 * datum.ip",
-      "as": "nameLimit"
-    },
-    {
       "calculate": "datum.px0 + datum.pw - datum.ip",
       "as": "rightX"
     },
     {
-      "calculate": "datum.py0 + datum.ph - datum.ip - 14 * datum.pu",
+      "calculate": "datum.topY",
       "as": "valueY"
     },
     {
@@ -482,12 +486,12 @@
       "as": "valueSize"
     },
     {
-      "calculate": "datum.py0 + datum.ph - datum.ip",
-      "as": "chY"
-    },
-    {
       "calculate": "10 * datum.pu",
       "as": "chSize"
+    },
+    {
+      "calculate": "max(20, datum.pw - 2 * datum.ip - 0.6 * datum.valueSize * length(datum.valueText) - 6 * datum.pu)",
+      "as": "nameLimit"
     },
     {
       "calculate": "datum.px0 + panelGap / 2",
