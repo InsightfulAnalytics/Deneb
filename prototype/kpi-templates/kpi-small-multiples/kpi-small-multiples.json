@@ -426,12 +426,12 @@
       "as": "sx1"
     },
     {
-      "calculate": "datum.chY + 5 * datum.pu",
-      "as": "sy0"
-    },
-    {
       "calculate": "datum.py0 + datum.ph - datum.ip",
       "as": "sy1"
+    },
+    {
+      "calculate": "datum.chY + min(11 * datum.pu, 0.4 * (datum.sy1 - datum.chY))",
+      "as": "sy0"
     },
     {
       "calculate": "sharedScale ? datum.gMin : datum.vMin",
