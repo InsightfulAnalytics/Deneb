@@ -1,0 +1,915 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Hit or Miss Strip",
+      "description": "The last twelve periods against target, each a short column coloured hit or miss (or an even dot), with the current streak written large (\"5 months on target\") and the hit count. Reads day, week, month, quarter or year from the dates.",
+      "author": "Timothy Osborn",
+      "uuid": "0482bf97-ab77-4e15-8838-53696397506e",
+      "generated": "2026-10-18T00:00:00.000Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Date",
+        "description": "One row per period: a day, a week start, a month end. The strip shows the latest ones.",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Value",
+        "description": "The period value.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Target",
+        "description": "The period target.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {
+      "name": "title",
+      "value": "Sales vs target"
+    },
+    {
+      "name": "periods",
+      "value": 12
+    },
+    {
+      "name": "periodNoun",
+      "value": "auto"
+    },
+    {
+      "name": "hitText",
+      "value": "on target"
+    },
+    {
+      "name": "missText",
+      "value": "off target"
+    },
+    {
+      "name": "ofText",
+      "value": "hit"
+    },
+    {
+      "name": "markStyle",
+      "value": "column"
+    },
+    {
+      "name": "maxGap",
+      "value": 0.1
+    },
+    {
+      "name": "targetLineColor",
+      "value": "#C8C6C4"
+    },
+    {
+      "name": "valueFormat",
+      "value": "auto"
+    },
+    {
+      "name": "prefix",
+      "value": "$"
+    },
+    {
+      "name": "pctFormat",
+      "value": "+.1%"
+    },
+    {
+      "name": "noDataText",
+      "value": "n/a"
+    },
+    {
+      "name": "higherIsBetter",
+      "value": true
+    },
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "colorNeutral",
+      "expr": "pbiColor('neutral')"
+    },
+    {
+      "name": "arrowUp",
+      "value": "▲"
+    },
+    {
+      "name": "arrowDown",
+      "value": "▼"
+    },
+    {
+      "name": "arrowFlat",
+      "value": "►"
+    },
+    {
+      "name": "cardColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "borderColor",
+      "value": "#E1DFDD"
+    },
+    {
+      "name": "borderWidth",
+      "value": 1
+    },
+    {
+      "name": "cardRadius",
+      "value": 4
+    },
+    {
+      "name": "valueColor",
+      "expr": "pbiColor(0, -0.5)"
+    },
+    {
+      "name": "labelColor",
+      "value": "#605E5C"
+    },
+    {
+      "name": "mutedColor",
+      "value": "#A19F9D"
+    },
+    {
+      "name": "stacked",
+      "expr": "width < 2.4 * height"
+    },
+    {
+      "name": "unit",
+      "expr": "stacked ? clamp(min(width / 280, height / 190), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)"
+    },
+    {
+      "name": "pad",
+      "expr": "14 * unit"
+    },
+    {
+      "name": "textLimit",
+      "expr": "stacked ? width * 0.6 : width * 0.46 - pad"
+    },
+    {
+      "name": "titleLimit",
+      "expr": "stacked ? width * 0.6 : width - 2 * pad"
+    },
+    {
+      "name": "titleSize",
+      "expr": "(stacked ? 13 : 11.5) * unit"
+    },
+    {
+      "name": "titleY",
+      "expr": "(stacked ? 24 : 20) * unit"
+    },
+    {
+      "name": "streakSize",
+      "expr": "(stacked ? 34 : 28) * unit"
+    },
+    {
+      "name": "streakY",
+      "expr": "(stacked ? 64 : 51) * unit"
+    },
+    {
+      "name": "runSize",
+      "expr": "(stacked ? 14 : 11) * unit"
+    },
+    {
+      "name": "runY",
+      "expr": "(stacked ? 64 : 67) * unit"
+    },
+    {
+      "name": "hitsSize",
+      "expr": "(stacked ? 11 : 10) * unit"
+    },
+    {
+      "name": "hitsX",
+      "expr": "stacked ? width - pad : pad"
+    },
+    {
+      "name": "hitsY",
+      "expr": "(stacked ? 24 : 82) * unit"
+    },
+    {
+      "name": "hitsAlign",
+      "expr": "stacked ? 'right' : 'left'"
+    },
+    {
+      "name": "stripX0",
+      "expr": "stacked ? pad : width * 0.48"
+    },
+    {
+      "name": "stripX1",
+      "expr": "width - pad"
+    },
+    {
+      "name": "stripY0",
+      "expr": "(stacked ? 82 : 32) * unit"
+    },
+    {
+      "name": "stripY1",
+      "expr": "stacked ? height - 26 * unit : 80 * unit"
+    },
+    {
+      "name": "stripMid",
+      "expr": "(stripY0 + stripY1) / 2"
+    },
+    {
+      "name": "showLabels",
+      "expr": "stacked"
+    },
+    {
+      "name": "labelSize",
+      "expr": "9.5 * unit"
+    },
+    {
+      "name": "labelY",
+      "expr": "height - 9 * unit"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "calculate": "time(toDate(datum['__0__']))",
+      "as": "t"
+    },
+    {
+      "filter": "isFinite(datum.t)"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "__1__",
+          "as": "vSum"
+        },
+        {
+          "op": "valid",
+          "field": "__1__",
+          "as": "vN"
+        },
+        {
+          "op": "sum",
+          "field": "__2__",
+          "as": "tgSum"
+        },
+        {
+          "op": "valid",
+          "field": "__2__",
+          "as": "tgN"
+        }
+      ],
+      "groupby": [
+        "t"
+      ]
+    },
+    {
+      "filter": "datum.vN > 0 && datum.tgN > 0"
+    },
+    {
+      "calculate": "datum.vSum",
+      "as": "v"
+    },
+    {
+      "calculate": "datum.tgSum",
+      "as": "tg"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "back"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "filter": "datum.back <= periods"
+    },
+    {
+      "calculate": "(higherIsBetter ? datum.v >= datum.tg : datum.v <= datum.tg) ? 1 : 0",
+      "as": "hitNum"
+    },
+    {
+      "window": [
+        {
+          "op": "lag",
+          "field": "hitNum",
+          "as": "laterHit"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "calculate": "isValid(datum.laterHit) && datum.laterHit !== datum.hitNum ? 1 : 0",
+      "as": "change"
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "change",
+          "as": "runId"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "window": [
+        {
+          "op": "lag",
+          "field": "t",
+          "as": "prevT"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "calculate": "isValid(datum.prevT) ? datum.t - datum.prevT : null",
+      "as": "gapMs"
+    },
+    {
+      "calculate": "datum.runId === 0 ? 1 : 0",
+      "as": "inRun"
+    },
+    {
+      "calculate": "datum.back === 1 ? datum.hitNum : null",
+      "as": "latestPart"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "count",
+          "as": "n"
+        },
+        {
+          "op": "sum",
+          "field": "hitNum",
+          "as": "hits"
+        },
+        {
+          "op": "sum",
+          "field": "inRun",
+          "as": "streak"
+        },
+        {
+          "op": "median",
+          "field": "gapMs",
+          "as": "gapMed"
+        },
+        {
+          "op": "max",
+          "field": "latestPart",
+          "as": "latestHit"
+        }
+      ]
+    },
+    {
+      "calculate": "periodNoun !== 'auto' ? periodNoun : !isValid(datum.gapMed) ? 'period' : datum.gapMed <= 1.5 * 864e5 ? 'day' : datum.gapMed <= 8.5 * 864e5 ? 'week' : datum.gapMed <= 32 * 864e5 ? 'month' : datum.gapMed <= 95 * 864e5 ? 'quarter' : 'year'",
+      "as": "noun"
+    },
+    {
+      "calculate": "datum.streak + ''",
+      "as": "streakText"
+    },
+    {
+      "calculate": "(datum.streak === 1 ? datum.noun : datum.noun + 's') + ' ' + (datum.latestHit === 1 ? hitText : missText)",
+      "as": "runText"
+    },
+    {
+      "calculate": "stacked ? pad + length(datum.streakText) * 0.56 * streakSize + 6 * unit : pad",
+      "as": "runX"
+    },
+    {
+      "calculate": "datum.latestHit === 1 ? colorGood : colorBad",
+      "as": "runColor"
+    },
+    {
+      "calculate": "datum.hits + ' of ' + datum.n + ' ' + ofText",
+      "as": "hitsText"
+    },
+    {
+      "calculate": "datum.n - datum.back",
+      "as": "idx"
+    },
+    {
+      "calculate": "(stripX1 - stripX0) / datum.n",
+      "as": "pitch"
+    },
+    {
+      "calculate": "stripX0 + (datum.idx + 0.5) * datum.pitch",
+      "as": "cx"
+    },
+    {
+      "calculate": "min(datum.pitch * 0.68, 26 * unit)",
+      "as": "cw"
+    },
+    {
+      "calculate": "datum.cx - datum.cw / 2",
+      "as": "cx0"
+    },
+    {
+      "calculate": "datum.cx + datum.cw / 2",
+      "as": "cx1"
+    },
+    {
+      "calculate": "datum.tg !== 0 ? (datum.v - datum.tg) / abs(datum.tg) : 0",
+      "as": "gapShare"
+    },
+    {
+      "calculate": "max(abs(clamp(datum.gapShare / maxGap, -1, 1)) * (stripY1 - stripY0) / 2, 2 * unit)",
+      "as": "mag"
+    },
+    {
+      "calculate": "datum.gapShare >= 0 ? stripMid - datum.mag : stripMid",
+      "as": "cy0"
+    },
+    {
+      "calculate": "datum.gapShare >= 0 ? stripMid : stripMid + datum.mag",
+      "as": "cy1"
+    },
+    {
+      "calculate": "datum.hitNum === 1 ? colorGood : colorBad",
+      "as": "cellColor"
+    },
+    {
+      "calculate": "PI * pow(min(datum.cw, (stripY1 - stripY0) * 0.5) / 2, 2)",
+      "as": "dotSize"
+    },
+    {
+      "calculate": "stripMid",
+      "as": "my"
+    },
+    {
+      "calculate": "datum.noun === 'month' ? timeFormat(datum.t, '%b') : datum.noun === 'quarter' ? 'Q' + (quarter(datum.t) + 1) : datum.noun === 'year' ? timeFormat(datum.t, '%Y') : datum.noun === 'day' ? timeFormat(datum.t, '%-d') : timeFormat(datum.t, '%-d %b')",
+      "as": "lbl"
+    },
+    {
+      "calculate": "datum.noun === 'month' && datum.pitch < labelSize * 2.2 ? substring(datum.lbl, 0, 1) : datum.lbl",
+      "as": "lblShort"
+    },
+    {
+      "calculate": "max(1, ceil(labelSize * 0.62 * length(datum.lblShort) * 1.2 / datum.pitch))",
+      "as": "labelEvery"
+    },
+    {
+      "calculate": "timeFormat(datum.t, '%-d %b %Y')",
+      "as": "tipDate"
+    },
+    {
+      "calculate": "(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== 'auto' ? format(datum.v, valueFormat) : (datum.v < 0 ? '−' : '') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.v) >= 999.5e6 ? 'bn' : abs(datum.v) >= 999.5e3 ? 'M' : abs(datum.v) >= 999.5 ? 'K' : ''))",
+      "as": "tipValue"
+    },
+    {
+      "calculate": "(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : valueFormat !== 'auto' ? format(datum.tg, valueFormat) : (datum.tg < 0 ? '−' : '') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.tg) >= 999.5e6 ? 'bn' : abs(datum.tg) >= 999.5e3 ? 'M' : abs(datum.tg) >= 999.5 ? 'K' : ''))",
+      "as": "tipTarget"
+    },
+    {
+      "calculate": "(!isValid(datum.gapShare) || !isFinite(datum.gapShare) ? noDataText : format(datum.gapShare, '+.1%'))",
+      "as": "tipGap"
+    },
+    {
+      "calculate": "datum.hitNum === 1 ? 'Hit' : 'Miss'",
+      "as": "tipHit"
+    },
+    {
+      "calculate": "stripX0",
+      "as": "sx0"
+    },
+    {
+      "calculate": "stripX1",
+      "as": "sx1"
+    }
+  ],
+  "layer": [
+    {
+      "description": "Card background and border, inset by half the border so the container never clips it",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "x": {
+          "expr": "borderWidth / 2"
+        },
+        "y": {
+          "expr": "borderWidth / 2"
+        },
+        "x2": {
+          "expr": "width - borderWidth / 2"
+        },
+        "y2": {
+          "expr": "height - borderWidth / 2"
+        },
+        "fill": {
+          "expr": "cardColor"
+        },
+        "stroke": {
+          "expr": "borderColor"
+        },
+        "strokeWidth": {
+          "expr": "borderWidth"
+        },
+        "cornerRadius": {
+          "expr": "cardRadius"
+        }
+      }
+    },
+    {
+      "description": "Title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "titleY"
+        },
+        "fontSize": {
+          "expr": "titleSize"
+        },
+        "limit": {
+          "expr": "titleLimit"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "title"
+        }
+      }
+    },
+    {
+      "description": "Hit count",
+      "transform": [
+        {
+          "filter": "datum.back === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "hitsAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "hitsX"
+        },
+        "y": {
+          "expr": "hitsY"
+        },
+        "fontSize": {
+          "expr": "hitsSize"
+        },
+        "limit": {
+          "expr": "textLimit"
+        },
+        "fill": {
+          "expr": "labelColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "hitsText",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Current streak, the headline",
+      "transform": [
+        {
+          "filter": "datum.back === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "streakY"
+        },
+        "fontSize": {
+          "expr": "streakSize"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "streakText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "runColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "What the streak is",
+      "transform": [
+        {
+          "filter": "datum.back === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "y": {
+          "expr": "runY"
+        },
+        "fontSize": {
+          "expr": "runSize"
+        },
+        "limit": {
+          "expr": "textLimit"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "runX",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "runText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "runColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Target line through the strip",
+      "transform": [
+        {
+          "filter": "markStyle === 'column' && datum.back === 1"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "targetLineColor"
+        },
+        "strokeWidth": 1,
+        "strokeDash": [
+          3,
+          2
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "sx0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "sx1"
+        },
+        "y": {
+          "field": "my",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "my"
+        }
+      }
+    },
+    {
+      "description": "Columns: each period above or below the target line, coloured hit or miss",
+      "transform": [
+        {
+          "filter": "markStyle === 'column'"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "cornerRadius": {
+          "expr": "1 * unit"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "cx0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "cx1"
+        },
+        "y": {
+          "field": "cy0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "cy1"
+        },
+        "color": {
+          "field": "cellColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "tipDate",
+            "type": "nominal",
+            "title": "Period"
+          },
+          {
+            "field": "tipValue",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "tipTarget",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "tipGap",
+            "type": "nominal",
+            "title": "Gap"
+          },
+          {
+            "field": "tipHit",
+            "type": "nominal",
+            "title": "Result"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Dots: one per period, coloured hit or miss",
+      "transform": [
+        {
+          "filter": "markStyle === 'dot'"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 1,
+        "shape": "circle"
+      },
+      "encoding": {
+        "x": {
+          "field": "cx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "my",
+          "type": "quantitative",
+          "scale": null
+        },
+        "size": {
+          "field": "dotSize",
+          "type": "quantitative",
+          "scale": null
+        },
+        "color": {
+          "field": "cellColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "tipDate",
+            "type": "nominal",
+            "title": "Period"
+          },
+          {
+            "field": "tipValue",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "tipTarget",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "tipGap",
+            "type": "nominal",
+            "title": "Gap"
+          },
+          {
+            "field": "tipHit",
+            "type": "nominal",
+            "title": "Result"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Period labels, thinned from the latest backwards",
+      "transform": [
+        {
+          "filter": "showLabels && (datum.back - 1) % datum.labelEvery === 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "y": {
+          "expr": "labelY"
+        },
+        "fontSize": {
+          "expr": "labelSize"
+        },
+        "fill": {
+          "expr": "mutedColor"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "cx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "lblShort",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

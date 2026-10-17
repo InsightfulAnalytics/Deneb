@@ -1,0 +1,639 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Ring Progress Card",
+      "description": "Value against target as a full ring with the percentage in the centre, and the value, target and what is left beside it. Past 100% a second lap starts in a darker shade. For when the half-donut gauge is too much.",
+      "author": "Timothy Osborn",
+      "uuid": "9f9beff3-49fd-4f86-8ab0-90ca40c3a31d",
+      "generated": "2026-10-18T00:00:00.000Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Value",
+        "description": "Progress so far.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__1__",
+        "name": "Target",
+        "description": "The target the ring fills to.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {
+      "name": "title",
+      "value": "Sales"
+    },
+    {
+      "name": "targetLabel",
+      "value": "target"
+    },
+    {
+      "name": "toGoText",
+      "value": "to go"
+    },
+    {
+      "name": "overText",
+      "value": "over target"
+    },
+    {
+      "name": "ringColor",
+      "expr": "pbiColor(0)"
+    },
+    {
+      "name": "overColor",
+      "expr": "pbiColor(0, -0.45)"
+    },
+    {
+      "name": "trackColor",
+      "value": "#EDEBE9"
+    },
+    {
+      "name": "colorByStatus",
+      "value": false
+    },
+    {
+      "name": "thickness",
+      "value": 0.17
+    },
+    {
+      "name": "valueFormat",
+      "value": "auto"
+    },
+    {
+      "name": "prefix",
+      "value": "$"
+    },
+    {
+      "name": "pctFormat",
+      "value": ".0%"
+    },
+    {
+      "name": "noDataText",
+      "value": "n/a"
+    },
+    {
+      "name": "higherIsBetter",
+      "value": true
+    },
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "colorNeutral",
+      "expr": "pbiColor('neutral')"
+    },
+    {
+      "name": "arrowUp",
+      "value": "▲"
+    },
+    {
+      "name": "arrowDown",
+      "value": "▼"
+    },
+    {
+      "name": "arrowFlat",
+      "value": "►"
+    },
+    {
+      "name": "cardColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "borderColor",
+      "value": "#E1DFDD"
+    },
+    {
+      "name": "borderWidth",
+      "value": 1
+    },
+    {
+      "name": "cardRadius",
+      "value": 4
+    },
+    {
+      "name": "valueColor",
+      "expr": "pbiColor(0, -0.5)"
+    },
+    {
+      "name": "labelColor",
+      "value": "#605E5C"
+    },
+    {
+      "name": "mutedColor",
+      "value": "#A19F9D"
+    },
+    {
+      "name": "pad",
+      "expr": "clamp(min(width, height) * 0.09, 6, 20)"
+    },
+    {
+      "name": "ringR",
+      "expr": "max(8, min(height - 2 * pad, width * 0.38) / 2)"
+    },
+    {
+      "name": "ringCX",
+      "expr": "pad + ringR"
+    },
+    {
+      "name": "ringCY",
+      "expr": "height / 2"
+    },
+    {
+      "name": "innerR",
+      "expr": "ringR * (1 - thickness)"
+    },
+    {
+      "name": "ringRound",
+      "expr": "(ringR - innerR) / 2"
+    },
+    {
+      "name": "textX",
+      "expr": "ringCX + ringR + max(10, pad)"
+    },
+    {
+      "name": "textW",
+      "expr": "max(20, width - textX - pad)"
+    },
+    {
+      "name": "unit",
+      "expr": "clamp(min(textW / 150, height / 92), 0.55, 2.4)"
+    },
+    {
+      "name": "blockTop",
+      "expr": "max(0, (height - 82 * unit) / 2)"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "__0__",
+          "as": "vSum"
+        },
+        {
+          "op": "valid",
+          "field": "__0__",
+          "as": "vN"
+        },
+        {
+          "op": "sum",
+          "field": "__1__",
+          "as": "tgSum"
+        },
+        {
+          "op": "valid",
+          "field": "__1__",
+          "as": "tgN"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.vN > 0 ? datum.vSum : null",
+      "as": "v"
+    },
+    {
+      "calculate": "datum.tgN > 0 ? datum.tgSum : null",
+      "as": "tg"
+    },
+    {
+      "calculate": "isValid(datum.v) && isValid(datum.tg) && datum.tg !== 0 ? datum.v / datum.tg : null",
+      "as": "r"
+    },
+    {
+      "calculate": "isValid(datum.v) && isValid(datum.tg) ? datum.tg - datum.v : null",
+      "as": "rem"
+    },
+    {
+      "calculate": "isValid(datum.rem) ? abs(datum.rem) : null",
+      "as": "remAbs"
+    },
+    {
+      "calculate": "isValid(datum.r) ? (higherIsBetter ? 1 : -1) * (datum.r - 1) : 0",
+      "as": "g"
+    },
+    {
+      "calculate": "colorByStatus ? (datum.g >= 0 ? colorGood : colorBad) : ringColor",
+      "as": "fillColor"
+    },
+    {
+      "calculate": "2 * PI * clamp(isValid(datum.r) ? datum.r : 0, 0, 1)",
+      "as": "fillTheta"
+    },
+    {
+      "calculate": "2 * PI * clamp(isValid(datum.r) ? datum.r - 1 : 0, 0, 1)",
+      "as": "overTheta"
+    },
+    {
+      "calculate": "(!isValid(datum.r) || !isFinite(datum.r) ? noDataText : format(datum.r, pctFormat))",
+      "as": "pctText"
+    },
+    {
+      "calculate": "min(innerR * 0.62, innerR * 1.75 / max(3, length(datum.pctText)))",
+      "as": "pctSize"
+    },
+    {
+      "calculate": "(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== 'auto' ? format(datum.v, valueFormat) : (datum.v < 0 ? '−' : '') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.v) >= 999.5e6 ? 'bn' : abs(datum.v) >= 999.5e3 ? 'M' : abs(datum.v) >= 999.5 ? 'K' : ''))",
+      "as": "valueText"
+    },
+    {
+      "calculate": "(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : valueFormat !== 'auto' ? format(datum.tg, valueFormat) : (datum.tg < 0 ? '−' : '') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.tg) >= 999.5e6 ? 'bn' : abs(datum.tg) >= 999.5e3 ? 'M' : abs(datum.tg) >= 999.5 ? 'K' : ''))",
+      "as": "targetText"
+    },
+    {
+      "calculate": "'of ' + datum.targetText + ' ' + targetLabel",
+      "as": "ofText"
+    },
+    {
+      "calculate": "!isValid(datum.rem) ? noDataText : datum.rem > 0 ? (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== 'auto' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? '−' : '') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.remAbs) >= 999.5e6 ? 'bn' : abs(datum.remAbs) >= 999.5e3 ? 'M' : abs(datum.remAbs) >= 999.5 ? 'K' : '')) + ' ' + toGoText : datum.rem < 0 ? arrowUp + ' ' + (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== 'auto' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? '−' : '') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.remAbs) >= 999.5e6 ? 'bn' : abs(datum.remAbs) >= 999.5e3 ? 'M' : abs(datum.remAbs) >= 999.5 ? 'K' : '')) + ' ' + overText : 'on ' + targetLabel",
+      "as": "gapText"
+    },
+    {
+      "calculate": "isValid(datum.r) ? (higherIsBetter ? (datum.r >= 1 ? colorGood : labelColor) : (datum.r > 1 ? colorBad : colorGood)) : labelColor",
+      "as": "gapColor"
+    }
+  ],
+  "layer": [
+    {
+      "description": "Card background and border, inset by half the border so the container never clips it",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "x": {
+          "expr": "borderWidth / 2"
+        },
+        "y": {
+          "expr": "borderWidth / 2"
+        },
+        "x2": {
+          "expr": "width - borderWidth / 2"
+        },
+        "y2": {
+          "expr": "height - borderWidth / 2"
+        },
+        "fill": {
+          "expr": "cardColor"
+        },
+        "stroke": {
+          "expr": "borderColor"
+        },
+        "strokeWidth": {
+          "expr": "borderWidth"
+        },
+        "cornerRadius": {
+          "expr": "cardRadius"
+        }
+      }
+    },
+    {
+      "description": "Ring track",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "arc",
+        "x": {
+          "expr": "ringCX"
+        },
+        "y": {
+          "expr": "ringCY"
+        },
+        "radius": {
+          "expr": "ringR"
+        },
+        "radius2": {
+          "expr": "innerR"
+        },
+        "theta": 0,
+        "theta2": {
+          "expr": "2 * PI"
+        },
+        "fill": {
+          "expr": "trackColor"
+        }
+      }
+    },
+    {
+      "description": "Ring fill to the share of target, rounded ends",
+      "transform": [
+        {
+          "filter": "datum.fillTheta > 0"
+        }
+      ],
+      "mark": {
+        "type": "arc",
+        "x": {
+          "expr": "ringCX"
+        },
+        "y": {
+          "expr": "ringCY"
+        },
+        "radius": {
+          "expr": "ringR"
+        },
+        "radius2": {
+          "expr": "innerR"
+        },
+        "theta": 0,
+        "theta2": {
+          "expr": "datum.fillTheta"
+        },
+        "cornerRadius": {
+          "expr": "ringRound"
+        }
+      },
+      "encoding": {
+        "fill": {
+          "field": "fillColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "pctText",
+            "type": "nominal",
+            "title": "Of target"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Second lap past 100%",
+      "transform": [
+        {
+          "filter": "datum.overTheta > 0"
+        }
+      ],
+      "mark": {
+        "type": "arc",
+        "x": {
+          "expr": "ringCX"
+        },
+        "y": {
+          "expr": "ringCY"
+        },
+        "radius": {
+          "expr": "ringR"
+        },
+        "radius2": {
+          "expr": "innerR"
+        },
+        "theta": 0,
+        "theta2": {
+          "expr": "datum.overTheta"
+        },
+        "cornerRadius": {
+          "expr": "ringRound"
+        },
+        "fill": {
+          "expr": "overColor"
+        }
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "pctText",
+            "type": "nominal",
+            "title": "Of target"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Percentage in the centre",
+      "mark": {
+        "type": "text",
+        "x": {
+          "expr": "ringCX"
+        },
+        "y": {
+          "expr": "ringCY"
+        },
+        "align": "center",
+        "baseline": "middle",
+        "fontWeight": "bold",
+        "fill": {
+          "expr": "valueColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "pctText",
+          "type": "nominal"
+        },
+        "size": {
+          "field": "pctSize",
+          "type": "quantitative",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "textX"
+        },
+        "y": {
+          "expr": "blockTop + 13 * unit"
+        },
+        "fontSize": {
+          "expr": "11.5 * unit"
+        },
+        "limit": {
+          "expr": "textW"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "title"
+        }
+      }
+    },
+    {
+      "description": "Value",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "textX"
+        },
+        "y": {
+          "expr": "blockTop + 44 * unit"
+        },
+        "fontSize": {
+          "expr": "26 * unit"
+        },
+        "limit": {
+          "expr": "textW"
+        },
+        "fill": {
+          "expr": "valueColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "valueText",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "pctText",
+            "type": "nominal",
+            "title": "Of target"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Target",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "textX"
+        },
+        "y": {
+          "expr": "blockTop + 62 * unit"
+        },
+        "fontSize": {
+          "expr": "11 * unit"
+        },
+        "limit": {
+          "expr": "textW"
+        },
+        "fill": {
+          "expr": "labelColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "ofText",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Left to go, or past target",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "textX"
+        },
+        "y": {
+          "expr": "blockTop + 79 * unit"
+        },
+        "fontSize": {
+          "expr": "11 * unit"
+        },
+        "limit": {
+          "expr": "textW"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "gapText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "gapColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    }
+  ]
+}

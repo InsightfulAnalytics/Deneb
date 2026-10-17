@@ -1,0 +1,7 @@
+KPI Name,Value,Target,Format
+Revenue,4215380,4000000,auto
+Gross Margin,0.382,0.4,.1%
+Orders,18240,17500,",.0f"
+Avg Order Value,231.1,228,"$,.2f"
+Returns Rate,0.041,0.035,.1%
+New Customers,1320,1500,",.0f"
