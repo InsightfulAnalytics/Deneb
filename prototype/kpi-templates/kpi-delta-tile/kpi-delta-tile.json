@@ -1,0 +1,493 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "KPI Delta Tile",
+      "description": "The plainest KPI card: the value, its change against a benchmark (prior year, prior period or target) as an amount and a percentage, and an arrow coloured good or bad. Side by side in a band tile, stacked in a taller card.",
+      "author": "Timothy Osborn",
+      "uuid": "9e25ca3e-e0fc-42be-a405-4acdd680773b",
+      "generated": "2026-10-18T00:00:00.000Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Value",
+        "description": "The KPI, for example sales this month.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__1__",
+        "name": "Benchmark",
+        "description": "What Value is compared with: prior year, prior period, budget or target. Name it in comparisonLabel.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {
+      "name": "title",
+      "value": "Sales"
+    },
+    {
+      "name": "comparisonLabel",
+      "value": "PY"
+    },
+    {
+      "name": "valueFormat",
+      "value": "auto"
+    },
+    {
+      "name": "prefix",
+      "value": "$"
+    },
+    {
+      "name": "pctFormat",
+      "value": "+.1%"
+    },
+    {
+      "name": "noDataText",
+      "value": "n/a"
+    },
+    {
+      "name": "varianceUnit",
+      "value": "auto"
+    },
+    {
+      "name": "higherIsBetter",
+      "value": true
+    },
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "colorNeutral",
+      "expr": "pbiColor('neutral')"
+    },
+    {
+      "name": "arrowUp",
+      "value": "▲"
+    },
+    {
+      "name": "arrowDown",
+      "value": "▼"
+    },
+    {
+      "name": "arrowFlat",
+      "value": "►"
+    },
+    {
+      "name": "cardColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "borderColor",
+      "value": "#E1DFDD"
+    },
+    {
+      "name": "borderWidth",
+      "value": 1
+    },
+    {
+      "name": "cardRadius",
+      "value": 4
+    },
+    {
+      "name": "valueColor",
+      "expr": "pbiColor(0, -0.5)"
+    },
+    {
+      "name": "labelColor",
+      "value": "#605E5C"
+    },
+    {
+      "name": "mutedColor",
+      "value": "#A19F9D"
+    },
+    {
+      "name": "stacked",
+      "expr": "width < 2.4 * height"
+    },
+    {
+      "name": "unit",
+      "expr": "stacked ? clamp(min(width / 240, height / 150), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)"
+    },
+    {
+      "name": "pad",
+      "expr": "14 * unit"
+    },
+    {
+      "name": "top0",
+      "expr": "max(0, (height - (stacked ? 150 : 90) * unit) / 2)"
+    },
+    {
+      "name": "titleSize",
+      "expr": "(stacked ? 13 : 12) * unit"
+    },
+    {
+      "name": "titleY",
+      "expr": "top0 + (stacked ? 26 : 23) * unit"
+    },
+    {
+      "name": "valueSize",
+      "expr": "(stacked ? 40 : 32) * unit"
+    },
+    {
+      "name": "valueY",
+      "expr": "top0 + (stacked ? 82 : 67) * unit"
+    },
+    {
+      "name": "deltaSize",
+      "expr": "(stacked ? 15 : 17) * unit"
+    },
+    {
+      "name": "deltaY",
+      "expr": "top0 + (stacked ? 112 : 46) * unit"
+    },
+    {
+      "name": "noteSize",
+      "expr": "(stacked ? 12 : 11.5) * unit"
+    },
+    {
+      "name": "noteY",
+      "expr": "top0 + (stacked ? 134 : 67) * unit"
+    },
+    {
+      "name": "sideX",
+      "expr": "stacked ? pad : width - pad"
+    },
+    {
+      "name": "sideAlign",
+      "expr": "stacked ? 'left' : 'right'"
+    },
+    {
+      "name": "valueLimit",
+      "expr": "stacked ? width - 2 * pad : width * 0.58 - pad"
+    },
+    {
+      "name": "sideLimit",
+      "expr": "stacked ? width - 2 * pad : width * 0.42 - pad"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "__0__",
+          "as": "vSum"
+        },
+        {
+          "op": "valid",
+          "field": "__0__",
+          "as": "vN"
+        },
+        {
+          "op": "sum",
+          "field": "__1__",
+          "as": "bSum"
+        },
+        {
+          "op": "valid",
+          "field": "__1__",
+          "as": "bN"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.vN > 0 ? datum.vSum : null",
+      "as": "v"
+    },
+    {
+      "calculate": "datum.bN > 0 ? datum.bSum : null",
+      "as": "b"
+    },
+    {
+      "calculate": "isValid(datum.v) && isValid(datum.b) ? datum.v - datum.b : null",
+      "as": "d"
+    },
+    {
+      "calculate": "isValid(datum.d) && datum.b !== 0 ? datum.d / abs(datum.b) : null",
+      "as": "p"
+    },
+    {
+      "calculate": "isValid(datum.d) ? (higherIsBetter ? 1 : -1) * datum.d : 0",
+      "as": "g"
+    },
+    {
+      "calculate": "(datum.g > 0 ? colorGood : datum.g < 0 ? colorBad : colorNeutral)",
+      "as": "statusColor"
+    },
+    {
+      "calculate": "(varianceUnit === 'points' || (varianceUnit === 'auto' && indexof(valueFormat, '%') >= 0))",
+      "as": "isPts"
+    },
+    {
+      "calculate": "(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== 'auto' ? format(datum.v, valueFormat) : (datum.v < 0 ? '−' : '') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.v) >= 999.5e6 ? 'bn' : abs(datum.v) >= 999.5e3 ? 'M' : abs(datum.v) >= 999.5 ? 'K' : ''))",
+      "as": "valueText"
+    },
+    {
+      "calculate": "(!isValid(datum.b) || !isFinite(datum.b) ? noDataText : valueFormat !== 'auto' ? format(datum.b, valueFormat) : (datum.b < 0 ? '−' : '') + prefix + format(abs(datum.b) / (abs(datum.b) >= 999.5e6 ? 1e9 : abs(datum.b) >= 999.5e3 ? 1e6 : abs(datum.b) >= 999.5 ? 1e3 : 1), abs(datum.b) / (abs(datum.b) >= 999.5e6 ? 1e9 : abs(datum.b) >= 999.5e3 ? 1e6 : abs(datum.b) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.b) >= 999.5e6 ? 1e9 : abs(datum.b) >= 999.5e3 ? 1e6 : abs(datum.b) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.b) >= 999.5e6 ? 'bn' : abs(datum.b) >= 999.5e3 ? 'M' : abs(datum.b) >= 999.5 ? 'K' : ''))",
+      "as": "benchText"
+    },
+    {
+      "calculate": "(isValid(datum.d) && datum.d > 0 ? '+' : '') + (!isValid(datum.d) || !isFinite(datum.d) ? noDataText : valueFormat !== 'auto' ? format(datum.d, valueFormat) : (datum.d < 0 ? '−' : '') + prefix + format(abs(datum.d) / (abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1), abs(datum.d) / (abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.d) >= 999.5e6 ? 'bn' : abs(datum.d) >= 999.5e3 ? 'M' : abs(datum.d) >= 999.5 ? 'K' : ''))",
+      "as": "amountText"
+    },
+    {
+      "calculate": "datum.isPts ? (!isValid(datum.d) ? noDataText : (datum.d > 0 ? '+' : datum.d < 0 ? '−' : '') + format(abs(datum.d) * 100, '.1f') + ' pts') : (!isValid(datum.p) || !isFinite(datum.p) ? noDataText : format(datum.p, pctFormat))",
+      "as": "relText"
+    },
+    {
+      "calculate": "(!isValid(datum.d) ? '' : datum.d > 0 ? arrowUp : datum.d < 0 ? arrowDown : arrowFlat) + ' ' + (stacked && !datum.isPts ? datum.amountText + ' ' : '') + datum.relText",
+      "as": "deltaText"
+    },
+    {
+      "calculate": "stacked || datum.isPts ? 'vs ' + comparisonLabel + ' ' + datum.benchText : datum.amountText + ' vs ' + comparisonLabel",
+      "as": "noteText"
+    },
+    {
+      "calculate": "stacked ? labelColor : datum.statusColor",
+      "as": "noteColor"
+    },
+    {
+      "calculate": "datum.amountText + ' (' + datum.relText + ')'",
+      "as": "tipChange"
+    }
+  ],
+  "layer": [
+    {
+      "description": "Card background and border, inset by half the border so the container never clips it",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "x": {
+          "expr": "borderWidth / 2"
+        },
+        "y": {
+          "expr": "borderWidth / 2"
+        },
+        "x2": {
+          "expr": "width - borderWidth / 2"
+        },
+        "y2": {
+          "expr": "height - borderWidth / 2"
+        },
+        "fill": {
+          "expr": "cardColor"
+        },
+        "stroke": {
+          "expr": "borderColor"
+        },
+        "strokeWidth": {
+          "expr": "borderWidth"
+        },
+        "cornerRadius": {
+          "expr": "cardRadius"
+        }
+      }
+    },
+    {
+      "description": "Title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "titleY"
+        },
+        "fontSize": {
+          "expr": "titleSize"
+        },
+        "limit": {
+          "expr": "width - 2 * pad"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "title"
+        }
+      }
+    },
+    {
+      "description": "Value",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "valueY"
+        },
+        "fontSize": {
+          "expr": "valueSize"
+        },
+        "limit": {
+          "expr": "valueLimit"
+        },
+        "fill": {
+          "expr": "valueColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "valueText",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "benchText",
+            "type": "nominal",
+            "title": "Benchmark"
+          },
+          {
+            "field": "tipChange",
+            "type": "nominal",
+            "title": "Change"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Change: arrow and percentage, coloured good or bad",
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "sideAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "sideX"
+        },
+        "y": {
+          "expr": "deltaY"
+        },
+        "fontSize": {
+          "expr": "deltaSize"
+        },
+        "limit": {
+          "expr": "sideLimit"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "deltaText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "statusColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "benchText",
+            "type": "nominal",
+            "title": "Benchmark"
+          },
+          {
+            "field": "tipChange",
+            "type": "nominal",
+            "title": "Change"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Note: the amount (side by side) or the benchmark itself (stacked)",
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "sideAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "sideX"
+        },
+        "y": {
+          "expr": "noteY"
+        },
+        "fontSize": {
+          "expr": "noteSize"
+        },
+        "limit": {
+          "expr": "sideLimit"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "noteText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "noteColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    }
+  ]
+}

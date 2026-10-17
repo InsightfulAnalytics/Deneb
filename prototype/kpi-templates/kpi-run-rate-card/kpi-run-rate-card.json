@@ -1,0 +1,1149 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Run-rate Projection Card",
+      "description": "Period to date actual, a projected period end from the run rate so far, and the target: a cumulative line that turns into a dashed projection after the last day with data, coloured by whether it lands on target.",
+      "author": "Timothy Osborn",
+      "uuid": "0f585042-7fe4-4f0d-891e-e7de7f2c931e",
+      "generated": "2026-10-18T00:00:00.000Z"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Date",
+        "description": "One row per day of the period. Days still to come can carry a Target and a blank Value.",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Value",
+        "description": "The day value. Blank after the last day with data.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Target",
+        "description": "The day target (summed), or the whole period target on every row with targetPerRow false.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {
+      "name": "title",
+      "value": "Sales MTD"
+    },
+    {
+      "name": "periodEnd",
+      "value": "auto"
+    },
+    {
+      "name": "targetPerRow",
+      "value": true
+    },
+    {
+      "name": "projectedLabel",
+      "value": "Projected"
+    },
+    {
+      "name": "targetNoun",
+      "value": "target"
+    },
+    {
+      "name": "dateFormat",
+      "value": "%-d %b"
+    },
+    {
+      "name": "lineColor",
+      "expr": "pbiColor(0, -0.3)"
+    },
+    {
+      "name": "areaOpacity",
+      "value": 0.12
+    },
+    {
+      "name": "targetLineColor",
+      "value": "#A19F9D"
+    },
+    {
+      "name": "todayLineColor",
+      "value": "#C8C6C4"
+    },
+    {
+      "name": "valueFormat",
+      "value": "auto"
+    },
+    {
+      "name": "prefix",
+      "value": "$"
+    },
+    {
+      "name": "pctFormat",
+      "value": ".0%"
+    },
+    {
+      "name": "noDataText",
+      "value": "n/a"
+    },
+    {
+      "name": "higherIsBetter",
+      "value": true
+    },
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "colorNeutral",
+      "expr": "pbiColor('neutral')"
+    },
+    {
+      "name": "arrowUp",
+      "value": "▲"
+    },
+    {
+      "name": "arrowDown",
+      "value": "▼"
+    },
+    {
+      "name": "arrowFlat",
+      "value": "►"
+    },
+    {
+      "name": "cardColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "borderColor",
+      "value": "#E1DFDD"
+    },
+    {
+      "name": "borderWidth",
+      "value": 1
+    },
+    {
+      "name": "cardRadius",
+      "value": 4
+    },
+    {
+      "name": "valueColor",
+      "expr": "pbiColor(0, -0.5)"
+    },
+    {
+      "name": "labelColor",
+      "value": "#605E5C"
+    },
+    {
+      "name": "mutedColor",
+      "value": "#A19F9D"
+    },
+    {
+      "name": "stacked",
+      "expr": "width < 2.4 * height"
+    },
+    {
+      "name": "unit",
+      "expr": "stacked ? clamp(min(width / 280, height / 190), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)"
+    },
+    {
+      "name": "pad",
+      "expr": "14 * unit"
+    },
+    {
+      "name": "titleSize",
+      "expr": "(stacked ? 13 : 11.5) * unit"
+    },
+    {
+      "name": "titleY",
+      "expr": "(stacked ? 24 : 19) * unit"
+    },
+    {
+      "name": "valueSize",
+      "expr": "(stacked ? 30 : 24) * unit"
+    },
+    {
+      "name": "valueY",
+      "expr": "(stacked ? 58 : 46) * unit"
+    },
+    {
+      "name": "leftLimit",
+      "expr": "stacked ? width * 0.5 - pad : width * 0.44 - pad"
+    },
+    {
+      "name": "rightX",
+      "expr": "stacked ? width - pad : pad"
+    },
+    {
+      "name": "rightAlign",
+      "expr": "stacked ? 'right' : 'left'"
+    },
+    {
+      "name": "projSize",
+      "expr": "(stacked ? 20 : 11) * unit"
+    },
+    {
+      "name": "projY",
+      "expr": "(stacked ? 50 : 63) * unit"
+    },
+    {
+      "name": "projLabelY",
+      "expr": "24 * unit"
+    },
+    {
+      "name": "shareSize",
+      "expr": "(stacked ? 11 : 10) * unit"
+    },
+    {
+      "name": "shareY",
+      "expr": "(stacked ? 67 : 78) * unit"
+    },
+    {
+      "name": "plotX0",
+      "expr": "stacked ? pad : width * 0.47"
+    },
+    {
+      "name": "plotX1",
+      "expr": "width - pad"
+    },
+    {
+      "name": "plotY0",
+      "expr": "(stacked ? 84 : 12) * unit"
+    },
+    {
+      "name": "plotY1",
+      "expr": "stacked ? height - 24 * unit : height - 12 * unit"
+    },
+    {
+      "name": "labelSize",
+      "expr": "9.5 * unit"
+    },
+    {
+      "name": "labelY",
+      "expr": "height - 9 * unit"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "calculate": "time(toDate(datum['__0__']))",
+      "as": "t"
+    },
+    {
+      "filter": "isFinite(datum.t)"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "__1__",
+          "as": "vSum"
+        },
+        {
+          "op": "valid",
+          "field": "__1__",
+          "as": "vN"
+        },
+        {
+          "op": "sum",
+          "field": "__2__",
+          "as": "tgSum"
+        },
+        {
+          "op": "valid",
+          "field": "__2__",
+          "as": "tgN"
+        }
+      ],
+      "groupby": [
+        "t"
+      ]
+    },
+    {
+      "calculate": "datum.vN > 0 ? datum.vSum : null",
+      "as": "v"
+    },
+    {
+      "calculate": "datum.tgN > 0 ? datum.tgSum : null",
+      "as": "tg"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "k"
+        },
+        {
+          "op": "lag",
+          "field": "t",
+          "as": "prevT"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "calculate": "isValid(datum.prevT) ? datum.t - datum.prevT : null",
+      "as": "gapMs"
+    },
+    {
+      "calculate": "isValid(datum.v) ? datum.t : null",
+      "as": "actualT"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "min",
+          "field": "t",
+          "as": "tMin"
+        },
+        {
+          "op": "max",
+          "field": "t",
+          "as": "tMax"
+        },
+        {
+          "op": "median",
+          "field": "gapMs",
+          "as": "step0"
+        },
+        {
+          "op": "max",
+          "field": "actualT",
+          "as": "lastT"
+        },
+        {
+          "op": "sum",
+          "field": "tg",
+          "as": "tgSum"
+        },
+        {
+          "op": "max",
+          "field": "tg",
+          "as": "tgMax"
+        }
+      ]
+    },
+    {
+      "filter": "isValid(datum.lastT)"
+    },
+    {
+      "calculate": "isValid(datum.step0) && datum.step0 > 0 ? datum.step0 : 864e5",
+      "as": "step"
+    },
+    {
+      "calculate": "datum.lastT - datum.tMin + datum.step",
+      "as": "span"
+    },
+    {
+      "calculate": "time(datetime(year(datum.lastT), month(datum.lastT) + 1, 1))",
+      "as": "endMonth"
+    },
+    {
+      "calculate": "time(datetime(year(datum.lastT), floor(month(datum.lastT) / 3) * 3 + 3, 1))",
+      "as": "endQuarter"
+    },
+    {
+      "calculate": "time(datetime(year(datum.lastT) + 1, 0, 1))",
+      "as": "endYear"
+    },
+    {
+      "calculate": "periodEnd === 'data' ? datum.tMax + datum.step : periodEnd === 'month' ? datum.endMonth : periodEnd === 'quarter' ? datum.endQuarter : periodEnd === 'year' ? datum.endYear : datum.tMax > datum.lastT ? datum.tMax + datum.step : datum.span <= 31.5 * 864e5 ? datum.endMonth : datum.span <= 92.5 * 864e5 ? datum.endQuarter : datum.endYear",
+      "as": "peRaw"
+    },
+    {
+      "calculate": "datum.lastT + datum.step",
+      "as": "elapsedEnd"
+    },
+    {
+      "calculate": "max(datum.peRaw, datum.elapsedEnd)",
+      "as": "pe"
+    },
+    {
+      "calculate": "(datum.elapsedEnd - datum.tMin) / (datum.pe - datum.tMin)",
+      "as": "share"
+    },
+    {
+      "calculate": "datum.t <= datum.lastT && isValid(datum.v) ? datum.v : 0",
+      "as": "v0"
+    },
+    {
+      "calculate": "isValid(datum.tg) ? datum.tg : 0",
+      "as": "tg0"
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "v0",
+          "as": "cumV"
+        },
+        {
+          "op": "sum",
+          "field": "tg0",
+          "as": "cumT"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "v0",
+          "as": "actual"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.share > 0 ? datum.actual / datum.share : null",
+      "as": "proj"
+    },
+    {
+      "calculate": "targetPerRow ? datum.tgSum : datum.tgMax",
+      "as": "target"
+    },
+    {
+      "calculate": "isValid(datum.proj) && isValid(datum.target) && datum.target !== 0 ? datum.proj / datum.target : null",
+      "as": "tShare"
+    },
+    {
+      "calculate": "isValid(datum.tShare) ? (higherIsBetter ? 1 : -1) * (datum.tShare - 1) : 0",
+      "as": "g"
+    },
+    {
+      "calculate": "(datum.g > 0 ? colorGood : datum.g < 0 ? colorBad : colorNeutral)",
+      "as": "projColor"
+    },
+    {
+      "calculate": "max(1e-9, datum.actual, isValid(datum.proj) ? datum.proj : 0, isValid(datum.target) ? datum.target : 0) * 1.06",
+      "as": "yMax"
+    },
+    {
+      "calculate": "(!isValid(datum.actual) || !isFinite(datum.actual) ? noDataText : valueFormat !== 'auto' ? format(datum.actual, valueFormat) : (datum.actual < 0 ? '−' : '') + prefix + format(abs(datum.actual) / (abs(datum.actual) >= 999.5e6 ? 1e9 : abs(datum.actual) >= 999.5e3 ? 1e6 : abs(datum.actual) >= 999.5 ? 1e3 : 1), abs(datum.actual) / (abs(datum.actual) >= 999.5e6 ? 1e9 : abs(datum.actual) >= 999.5e3 ? 1e6 : abs(datum.actual) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.actual) >= 999.5e6 ? 1e9 : abs(datum.actual) >= 999.5e3 ? 1e6 : abs(datum.actual) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.actual) >= 999.5e6 ? 'bn' : abs(datum.actual) >= 999.5e3 ? 'M' : abs(datum.actual) >= 999.5 ? 'K' : ''))",
+      "as": "valueText"
+    },
+    {
+      "calculate": "(!isValid(datum.proj) || !isFinite(datum.proj) ? noDataText : valueFormat !== 'auto' ? format(datum.proj, valueFormat) : (datum.proj < 0 ? '−' : '') + prefix + format(abs(datum.proj) / (abs(datum.proj) >= 999.5e6 ? 1e9 : abs(datum.proj) >= 999.5e3 ? 1e6 : abs(datum.proj) >= 999.5 ? 1e3 : 1), abs(datum.proj) / (abs(datum.proj) >= 999.5e6 ? 1e9 : abs(datum.proj) >= 999.5e3 ? 1e6 : abs(datum.proj) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.proj) >= 999.5e6 ? 1e9 : abs(datum.proj) >= 999.5e3 ? 1e6 : abs(datum.proj) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.proj) >= 999.5e6 ? 'bn' : abs(datum.proj) >= 999.5e3 ? 'M' : abs(datum.proj) >= 999.5 ? 'K' : ''))",
+      "as": "projText"
+    },
+    {
+      "calculate": "(!isValid(datum.target) || !isFinite(datum.target) ? noDataText : valueFormat !== 'auto' ? format(datum.target, valueFormat) : (datum.target < 0 ? '−' : '') + prefix + format(abs(datum.target) / (abs(datum.target) >= 999.5e6 ? 1e9 : abs(datum.target) >= 999.5e3 ? 1e6 : abs(datum.target) >= 999.5 ? 1e3 : 1), abs(datum.target) / (abs(datum.target) >= 999.5e6 ? 1e9 : abs(datum.target) >= 999.5e3 ? 1e6 : abs(datum.target) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.target) >= 999.5e6 ? 1e9 : abs(datum.target) >= 999.5e3 ? 1e6 : abs(datum.target) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.target) >= 999.5e6 ? 'bn' : abs(datum.target) >= 999.5e3 ? 'M' : abs(datum.target) >= 999.5 ? 'K' : ''))",
+      "as": "targetText"
+    },
+    {
+      "calculate": "(!isValid(datum.tShare) || !isFinite(datum.tShare) ? noDataText : format(datum.tShare, pctFormat)) + ' of ' + datum.targetText + ' ' + targetNoun",
+      "as": "shareText"
+    },
+    {
+      "calculate": "stacked ? (!isValid(datum.tShare - 1) ? '' : datum.tShare - 1 > 0 ? arrowUp : datum.tShare - 1 < 0 ? arrowDown : arrowFlat) + ' ' + datum.projText : (!isValid(datum.tShare - 1) ? '' : datum.tShare - 1 > 0 ? arrowUp : datum.tShare - 1 < 0 ? arrowDown : arrowFlat) + ' ' + projectedLabel + ' ' + datum.projText",
+      "as": "projLine"
+    },
+    {
+      "calculate": "timeFormat(datum.lastT, '%-d %b %Y')",
+      "as": "tipLast"
+    }
+  ],
+  "layer": [
+    {
+      "description": "Card background and border, inset by half the border so the container never clips it",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "x": {
+          "expr": "borderWidth / 2"
+        },
+        "y": {
+          "expr": "borderWidth / 2"
+        },
+        "x2": {
+          "expr": "width - borderWidth / 2"
+        },
+        "y2": {
+          "expr": "height - borderWidth / 2"
+        },
+        "fill": {
+          "expr": "cardColor"
+        },
+        "stroke": {
+          "expr": "borderColor"
+        },
+        "strokeWidth": {
+          "expr": "borderWidth"
+        },
+        "cornerRadius": {
+          "expr": "cardRadius"
+        }
+      }
+    },
+    {
+      "description": "Title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "titleY"
+        },
+        "fontSize": {
+          "expr": "titleSize"
+        },
+        "limit": {
+          "expr": "leftLimit"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "title"
+        }
+      }
+    },
+    {
+      "description": "Actual to date",
+      "transform": [
+        {
+          "filter": "datum.k === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "valueY"
+        },
+        "fontSize": {
+          "expr": "valueSize"
+        },
+        "limit": {
+          "expr": "leftLimit"
+        },
+        "fill": {
+          "expr": "valueColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "valueText",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Actual"
+          },
+          {
+            "field": "projText",
+            "type": "nominal",
+            "title": "Projected"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "tipLast",
+            "type": "nominal",
+            "title": "Data to"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Projection label (stacked only)",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "filter": "stacked"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "width - pad"
+        },
+        "y": {
+          "expr": "projLabelY"
+        },
+        "fontSize": {
+          "expr": "10.5 * unit"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "projectedLabel"
+        }
+      }
+    },
+    {
+      "description": "Projected period end, coloured by whether it reaches target",
+      "transform": [
+        {
+          "filter": "datum.k === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "rightAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "rightX"
+        },
+        "y": {
+          "expr": "projY"
+        },
+        "fontSize": {
+          "expr": "projSize"
+        },
+        "limit": {
+          "expr": "stacked ? width * 0.46 - pad : width * 0.44 - pad"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "projLine",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "projColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Projection as a share of target",
+      "transform": [
+        {
+          "filter": "datum.k === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "rightAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "rightX"
+        },
+        "y": {
+          "expr": "shareY"
+        },
+        "fontSize": {
+          "expr": "shareSize"
+        },
+        "limit": {
+          "expr": "stacked ? width * 0.5 - pad : width * 0.44 - pad"
+        },
+        "fill": {
+          "expr": "labelColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "shareText",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Actual: cumulative area and line from zero, through the last day with data",
+      "transform": [
+        {
+          "filter": "datum.t <= datum.lastT"
+        },
+        {
+          "calculate": "datum.k === 1 ? [0, 1] : [1]",
+          "as": "pts"
+        },
+        {
+          "flatten": [
+            "pts"
+          ]
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotX0 + ((datum.tMin) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0) : plotX0 + ((datum.t + datum.step) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "ax"
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotY1 - (0) / datum.yMax * (plotY1 - plotY0) : plotY1 - (datum.cumV) / datum.yMax * (plotY1 - plotY0)",
+          "as": "ay"
+        },
+        {
+          "calculate": "plotY1 - (0) / datum.yMax * (plotY1 - plotY0)",
+          "as": "ay0"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "area",
+            "fill": {
+              "expr": "lineColor"
+            },
+            "fillOpacity": {
+              "expr": "areaOpacity"
+            }
+          },
+          "encoding": {
+            "x": {
+              "field": "ax",
+              "type": "quantitative",
+              "scale": null
+            },
+            "y": {
+              "field": "ay",
+              "type": "quantitative",
+              "scale": null
+            },
+            "y2": {
+              "field": "ay0"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "line",
+            "stroke": {
+              "expr": "lineColor"
+            },
+            "strokeWidth": {
+              "expr": "2 * unit"
+            },
+            "strokeJoin": "round"
+          },
+          "encoding": {
+            "x": {
+              "field": "ax",
+              "type": "quantitative",
+              "scale": null
+            },
+            "y": {
+              "field": "ay",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Target: cumulative day targets, or a straight line to the period target",
+      "transform": [
+        {
+          "filter": "targetPerRow || datum.k === 1"
+        },
+        {
+          "calculate": "targetPerRow ? (datum.k === 1 ? [0, 1] : [1]) : [0, 2]",
+          "as": "pts"
+        },
+        {
+          "flatten": [
+            "pts"
+          ]
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotX0 + ((datum.tMin) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0) : datum.pts === 2 ? plotX0 + ((datum.pe) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0) : plotX0 + ((datum.t + datum.step) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "tx"
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotY1 - (0) / datum.yMax * (plotY1 - plotY0) : datum.pts === 2 ? plotY1 - (datum.target) / datum.yMax * (plotY1 - plotY0) : plotY1 - (datum.cumT) / datum.yMax * (plotY1 - plotY0)",
+          "as": "ty"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "stroke": {
+          "expr": "targetLineColor"
+        },
+        "strokeWidth": {
+          "expr": "1.5 * unit"
+        },
+        "strokeDash": [
+          2,
+          2
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "tx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "ty",
+          "type": "quantitative",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Line at the last day with data",
+      "transform": [
+        {
+          "filter": "datum.k === 1 && datum.elapsedEnd < datum.pe"
+        },
+        {
+          "calculate": "plotX0 + ((datum.elapsedEnd) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "lx"
+        },
+        {
+          "calculate": "plotY0",
+          "as": "ly0"
+        },
+        {
+          "calculate": "plotY1",
+          "as": "ly1"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "todayLineColor"
+        },
+        "strokeWidth": 1,
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "lx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "lx"
+        },
+        "y": {
+          "field": "ly0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "ly1"
+        }
+      }
+    },
+    {
+      "description": "Projection: dashed from the last actual to the period end",
+      "transform": [
+        {
+          "filter": "datum.t === datum.lastT"
+        },
+        {
+          "calculate": "[0, 1]",
+          "as": "pts"
+        },
+        {
+          "flatten": [
+            "pts"
+          ]
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotX0 + ((datum.elapsedEnd) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0) : plotX0 + ((datum.pe) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "qx"
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotY1 - (datum.actual) / datum.yMax * (plotY1 - plotY0) : plotY1 - (datum.proj) / datum.yMax * (plotY1 - plotY0)",
+          "as": "qy"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": {
+          "expr": "2 * unit"
+        },
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "qx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "qy",
+          "type": "quantitative",
+          "scale": null
+        },
+        "color": {
+          "field": "projColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Projection end point",
+      "transform": [
+        {
+          "filter": "datum.t === datum.lastT && isValid(datum.proj)"
+        },
+        {
+          "calculate": "plotX0 + ((datum.pe) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "ex"
+        },
+        {
+          "calculate": "plotY1 - (datum.proj) / datum.yMax * (plotY1 - plotY0)",
+          "as": "ey"
+        },
+        {
+          "calculate": "PI * pow(3.5 * unit, 2)",
+          "as": "es"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 1,
+        "shape": "circle"
+      },
+      "encoding": {
+        "x": {
+          "field": "ex",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "ey",
+          "type": "quantitative",
+          "scale": null
+        },
+        "size": {
+          "field": "es",
+          "type": "quantitative",
+          "scale": null
+        },
+        "color": {
+          "field": "projColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "projText",
+            "type": "nominal",
+            "title": "Projected"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "shareText",
+            "type": "nominal",
+            "title": "Of target"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Dates under the chart: start, last actual, end (stacked only)",
+      "transform": [
+        {
+          "filter": "stacked && datum.k === 1"
+        },
+        {
+          "calculate": "[0, 1, 2]",
+          "as": "li"
+        },
+        {
+          "flatten": [
+            "li"
+          ]
+        },
+        {
+          "calculate": "datum.li === 0 ? plotX0 : datum.li === 2 ? plotX1 : plotX0 + ((datum.elapsedEnd) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "lx"
+        },
+        {
+          "calculate": "timeFormat(datum.li === 0 ? datum.tMin : datum.li === 2 ? datum.pe - 864e5 : datum.lastT, dateFormat)",
+          "as": "lt"
+        },
+        {
+          "filter": "datum.li !== 1 || (datum.lx - plotX0 > 40 * unit && plotX1 - datum.lx > 40 * unit)"
+        }
+      ],
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.li === 0"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "alphabetic",
+            "y": {
+              "expr": "labelY"
+            },
+            "fontSize": {
+              "expr": "labelSize"
+            },
+            "fill": {
+              "expr": "mutedColor"
+            }
+          },
+          "encoding": {
+            "text": {
+              "field": "lt",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "lx",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.li === 1"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "alphabetic",
+            "y": {
+              "expr": "labelY"
+            },
+            "fontSize": {
+              "expr": "labelSize"
+            },
+            "fill": {
+              "expr": "mutedColor"
+            }
+          },
+          "encoding": {
+            "text": {
+              "field": "lt",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "lx",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.li === 2"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "alphabetic",
+            "y": {
+              "expr": "labelY"
+            },
+            "fontSize": {
+              "expr": "labelSize"
+            },
+            "fill": {
+              "expr": "mutedColor"
+            }
+          },
+          "encoding": {
+            "text": {
+              "field": "lt",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "lx",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

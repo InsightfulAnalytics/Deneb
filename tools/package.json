@@ -5,7 +5,8 @@
   "description": "Checks, renders and regenerates the Deneb templates in this repo. Vega and Vega-Lite are pinned to the Deneb 2.0.0.0 bundle.",
   "scripts": {
     "check": "node check-templates.mjs",
-    "render": "node check-templates.mjs --render out"
+    "render": "node check-templates.mjs --render out",
+    "prototype": "node ../prototype/kpi-templates/build.mjs && node ../prototype/kpi-templates/serve.mjs"
   },
   "devDependencies": {
     "ajv": "8.17.1",
