@@ -1,0 +1,254 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "e3b31a07e1c8b476315e",
+  "position": {
+    "x": 672,
+    "y": 81,
+    "z": 4000,
+    "height": 160,
+    "width": 240,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-progress-card-no-pace"
+                    }
+                  },
+                  "Property": "Value (kpi-progress-card-no-pace)"
+                }
+              },
+              "queryRef": "kpi-progress-card-no-pace.Value (kpi-progress-card-no-pace)",
+              "nativeQueryRef": "Value (kpi-progress-card-no-pace)",
+              "displayName": "Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-progress-card-no-pace"
+                    }
+                  },
+                  "Property": "Target (kpi-progress-card-no-pace)"
+                }
+              },
+              "queryRef": "kpi-progress-card-no-pace.Target (kpi-progress-card-no-pace)",
+              "nativeQueryRef": "Target (kpi-progress-card-no-pace)",
+              "displayName": "Target"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-progress-card-no-pace"
+                    }
+                  },
+                  "Property": "Percent Elapsed (kpi-progress-card-no-pace)"
+                }
+              },
+              "queryRef": "kpi-progress-card-no-pace.Percent Elapsed (kpi-progress-card-no-pace)",
+              "nativeQueryRef": "Percent Elapsed (kpi-progress-card-no-pace)",
+              "displayName": "Percent Elapsed"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"padding\": 0,\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"Sales MTD\"\n    },\n    {\n      \"name\": \"targetLabel\",\n      \"value\": \"target\"\n    },\n    {\n      \"name\": \"aheadText\",\n      \"value\": \"ahead of pace\"\n    },\n    {\n      \"name\": \"behindText\",\n      \"value\": \"behind pace\"\n    },\n    {\n      \"name\": \"toGoText\",\n      \"value\": \"to go\"\n    },\n    {\n      \"name\": \"overText\",\n      \"value\": \"over target\"\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"prefix\",\n      \"value\": \"$\"\n    },\n    {\n      \"name\": \"pctFormat\",\n      \"value\": \".0%\"\n    },\n    {\n      \"name\": \"noDataText\",\n      \"value\": \"n/a\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": true\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"arrowUp\",\n      \"value\": \"▲\"\n    },\n    {\n      \"name\": \"arrowDown\",\n      \"value\": \"▼\"\n    },\n    {\n      \"name\": \"arrowFlat\",\n      \"value\": \"►\"\n    },\n    {\n      \"name\": \"cardColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"borderColor\",\n      \"value\": \"#E1DFDD\"\n    },\n    {\n      \"name\": \"borderWidth\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"cardRadius\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"valueColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"labelColor\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"barColor\",\n      \"expr\": \"pbiColor(0)\"\n    },\n    {\n      \"name\": \"trackColor\",\n      \"value\": \"#EDEBE9\"\n    },\n    {\n      \"name\": \"paceColor\",\n      \"value\": \"#252423\"\n    },\n    {\n      \"name\": \"stacked\",\n      \"expr\": \"width < 2.4 * height\"\n    },\n    {\n      \"name\": \"unit\",\n      \"expr\": \"stacked ? clamp(min(width / 240, height / 160), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)\"\n    },\n    {\n      \"name\": \"pad\",\n      \"expr\": \"14 * unit\"\n    },\n    {\n      \"name\": \"top0\",\n      \"expr\": \"max(0, (height - (stacked ? 160 : 90) * unit) / 2)\"\n    },\n    {\n      \"name\": \"titleSize\",\n      \"expr\": \"(stacked ? 13 : 12) * unit\"\n    },\n    {\n      \"name\": \"titleY\",\n      \"expr\": \"top0 + (stacked ? 26 : 22) * unit\"\n    },\n    {\n      \"name\": \"valueSize\",\n      \"expr\": \"(stacked ? 38 : 28) * unit\"\n    },\n    {\n      \"name\": \"valueY\",\n      \"expr\": \"top0 + (stacked ? 76 : 53) * unit\"\n    },\n    {\n      \"name\": \"headSize\",\n      \"expr\": \"12 * unit\"\n    },\n    {\n      \"name\": \"headX\",\n      \"expr\": \"stacked ? pad : width - pad\"\n    },\n    {\n      \"name\": \"headY\",\n      \"expr\": \"top0 + (stacked ? 98 : 22) * unit\"\n    },\n    {\n      \"name\": \"headAlign\",\n      \"expr\": \"stacked ? ''left'' : ''right''\"\n    },\n    {\n      \"name\": \"statusSize\",\n      \"expr\": \"(stacked ? 12 : 11.5) * unit\"\n    },\n    {\n      \"name\": \"statusX\",\n      \"expr\": \"stacked ? pad : width - pad\"\n    },\n    {\n      \"name\": \"statusY\",\n      \"expr\": \"top0 + (stacked ? 148 : 52) * unit\"\n    },\n    {\n      \"name\": \"statusAlign\",\n      \"expr\": \"stacked ? ''left'' : ''right''\"\n    },\n    {\n      \"name\": \"barX0\",\n      \"expr\": \"pad\"\n    },\n    {\n      \"name\": \"barX1\",\n      \"expr\": \"width - pad\"\n    },\n    {\n      \"name\": \"barY0\",\n      \"expr\": \"top0 + (stacked ? 110 : 63) * unit\"\n    },\n    {\n      \"name\": \"barY1\",\n      \"expr\": \"top0 + (stacked ? 124 : 73) * unit\"\n    },\n    {\n      \"name\": \"barRadius\",\n      \"expr\": \"(barY1 - barY0) / 2\"\n    },\n    {\n      \"name\": \"paceOverhang\",\n      \"expr\": \"4 * unit\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"aggregate\": [\n        {\n          \"op\": \"sum\",\n          \"field\": \"Value\",\n          \"as\": \"vSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Value\",\n          \"as\": \"vN\"\n        },\n        {\n          \"op\": \"sum\",\n          \"field\": \"Target\",\n          \"as\": \"tgSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Target\",\n          \"as\": \"tgN\"\n        },\n        {\n          \"op\": \"mean\",\n          \"field\": \"Percent Elapsed\",\n          \"as\": \"peMean\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Percent Elapsed\",\n          \"as\": \"peN\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"datum.vN > 0 ? datum.vSum : null\",\n      \"as\": \"v\"\n    },\n    {\n      \"calculate\": \"datum.tgN > 0 ? datum.tgSum : null\",\n      \"as\": \"tg\"\n    },\n    {\n      \"calculate\": \"datum.peN > 0 ? clamp(datum.peMean, 0, 1) : null\",\n      \"as\": \"pe\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) && datum.tg !== 0 ? datum.v / datum.tg : null\",\n      \"as\": \"r\"\n    },\n    {\n      \"calculate\": \"isValid(datum.r) && isValid(datum.pe) ? datum.r - datum.pe : null\",\n      \"as\": \"pg\"\n    },\n    {\n      \"calculate\": \"isValid(datum.pg) ? (higherIsBetter ? 1 : -1) * datum.pg : 0\",\n      \"as\": \"g\"\n    },\n    {\n      \"calculate\": \"isValid(datum.pg) ? (datum.g >= 0 ? colorGood : colorBad) : barColor\",\n      \"as\": \"fillColor\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) ? datum.tg - datum.v : null\",\n      \"as\": \"rem\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== ''auto'' ? format(datum.v, valueFormat) : (datum.v < 0 ? ''−'' : '''') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.v) >= 999.5e6 ? ''bn'' : abs(datum.v) >= 999.5e3 ? ''M'' : abs(datum.v) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"valueText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : valueFormat !== ''auto'' ? format(datum.tg, valueFormat) : (datum.tg < 0 ? ''−'' : '''') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.tg) >= 999.5e6 ? ''bn'' : abs(datum.tg) >= 999.5e3 ? ''M'' : abs(datum.tg) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"targetText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.r) || !isFinite(datum.r) ? noDataText : format(datum.r, pctFormat))\",\n      \"as\": \"ratioText\"\n    },\n    {\n      \"calculate\": \"datum.ratioText + '' of '' + datum.targetText + (stacked ? '' '' + targetLabel : '''')\",\n      \"as\": \"headText\"\n    },\n    {\n      \"calculate\": \"isValid(datum.rem) ? abs(datum.rem) : null\",\n      \"as\": \"remAbs\"\n    },\n    {\n      \"calculate\": \"!isValid(datum.rem) ? noDataText : datum.rem > 0 ? (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== ''auto'' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? ''−'' : '''') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.remAbs) >= 999.5e6 ? ''bn'' : abs(datum.remAbs) >= 999.5e3 ? ''M'' : abs(datum.remAbs) >= 999.5 ? ''K'' : '''')) + '' '' + toGoText : datum.rem < 0 ? (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== ''auto'' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? ''−'' : '''') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.remAbs) >= 999.5e6 ? ''bn'' : abs(datum.remAbs) >= 999.5e3 ? ''M'' : abs(datum.remAbs) >= 999.5 ? ''K'' : '''')) + '' '' + overText : ''on '' + targetLabel\",\n      \"as\": \"gapText\"\n    },\n    {\n      \"calculate\": \"isValid(datum.pg) ? format(abs(datum.pg) * 100, ''.0f'') : ''''\",\n      \"as\": \"paceN\"\n    },\n    {\n      \"calculate\": \"isValid(datum.pg) ? (!isValid(datum.pg) ? '''' : datum.pg > 0 ? arrowUp : datum.pg < 0 ? arrowDown : arrowFlat) + '' '' + datum.paceN + (datum.paceN === ''1'' ? '' pt '' : '' pts '') + (datum.pg >= 0 ? aheadText : behindText) : ''''\",\n      \"as\": \"paceText\"\n    },\n    {\n      \"calculate\": \"isValid(datum.pg) ? datum.paceText : datum.gapText\",\n      \"as\": \"statusText\"\n    },\n    {\n      \"calculate\": \"isValid(datum.rem) && datum.rem < 0 ? (higherIsBetter ? colorGood : colorBad) : labelColor\",\n      \"as\": \"overColor\"\n    },\n    {\n      \"calculate\": \"isValid(datum.pg) ? datum.fillColor : datum.overColor\",\n      \"as\": \"statusColor\"\n    },\n    {\n      \"calculate\": \"stacked && isValid(datum.pg) ? datum.gapText : ''''\",\n      \"as\": \"restText\"\n    },\n    {\n      \"calculate\": \"max(1, isValid(datum.r) ? datum.r : 0)\",\n      \"as\": \"barMax\"\n    },\n    {\n      \"calculate\": \"barX0 + clamp(isValid(datum.r) ? datum.r : 0, 0, datum.barMax) / datum.barMax * (barX1 - barX0)\",\n      \"as\": \"fillX\"\n    },\n    {\n      \"calculate\": \"barX0 + (barX1 - barX0) / datum.barMax\",\n      \"as\": \"targetX\"\n    },\n    {\n      \"calculate\": \"isValid(datum.pe) ? barX0 + datum.pe / datum.barMax * (barX1 - barX0) : null\",\n      \"as\": \"paceX\"\n    },\n    {\n      \"calculate\": \"barX0\",\n      \"as\": \"bx0\"\n    },\n    {\n      \"calculate\": \"barX1\",\n      \"as\": \"bx1\"\n    },\n    {\n      \"calculate\": \"barY0\",\n      \"as\": \"by0\"\n    },\n    {\n      \"calculate\": \"barY1\",\n      \"as\": \"by1\"\n    },\n    {\n      \"calculate\": \"barY0 - paceOverhang\",\n      \"as\": \"py0\"\n    },\n    {\n      \"calculate\": \"barY1 + paceOverhang\",\n      \"as\": \"py1\"\n    },\n    {\n      \"calculate\": \"isValid(datum.pe) ? format(datum.pe, ''.0%'') + '' of the period gone'' : ''no pace bound''\",\n      \"as\": \"tipPace\"\n    }\n  ],\n  \"layer\": [\n    {\n      \"description\": \"Card background and border, inset by half the border so the container never clips it\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"x\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"y\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"x2\": {\n          \"expr\": \"width - borderWidth / 2\"\n        },\n        \"y2\": {\n          \"expr\": \"height - borderWidth / 2\"\n        },\n        \"fill\": {\n          \"expr\": \"cardColor\"\n        },\n        \"stroke\": {\n          \"expr\": \"borderColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"borderWidth\"\n        },\n        \"cornerRadius\": {\n          \"expr\": \"cardRadius\"\n        }\n      }\n    },\n    {\n      \"description\": \"Title\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"y\": {\n          \"expr\": \"titleY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"titleSize\"\n        },\n        \"limit\": {\n          \"expr\": \"width * 0.5\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"title\"\n        }\n      }\n    },\n    {\n      \"description\": \"Share of target: top right in a tile, under the value when stacked\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": {\n          \"expr\": \"headAlign\"\n        },\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"normal\",\n        \"x\": {\n          \"expr\": \"headX\"\n        },\n        \"y\": {\n          \"expr\": \"headY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"headSize\"\n        },\n        \"limit\": {\n          \"expr\": \"stacked ? width - 2 * pad : width * 0.5 - pad\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"headText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"description\": \"Value\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"bold\",\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"y\": {\n          \"expr\": \"valueY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"valueSize\"\n        },\n        \"limit\": {\n          \"expr\": \"stacked ? width - 2 * pad : width * 0.5 - pad\"\n        },\n        \"fill\": {\n          \"expr\": \"valueColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"valueText\",\n          \"type\": \"nominal\"\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"ratioText\",\n            \"type\": \"nominal\",\n            \"title\": \"Of target\"\n          },\n          {\n            \"field\": \"tipPace\",\n            \"type\": \"nominal\",\n            \"title\": \"Pace\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Pace line, or the gap when no pace is bound\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": {\n          \"expr\": \"statusAlign\"\n        },\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"statusX\"\n        },\n        \"y\": {\n          \"expr\": \"statusY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"statusSize\"\n        },\n        \"limit\": {\n          \"expr\": \"stacked ? width * 0.62 - pad : width * 0.5 - pad\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"statusText\",\n          \"type\": \"nominal\"\n        },\n        \"color\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"description\": \"What is left to go, opposite the pace line (stacked only)\",\n      \"transform\": [\n        {\n          \"filter\": \"length(datum.restText) > 0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"normal\",\n        \"x\": {\n          \"expr\": \"width - pad\"\n        },\n        \"y\": {\n          \"expr\": \"statusY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"statusSize\"\n        },\n        \"limit\": {\n          \"expr\": \"width * 0.38 - pad\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"restText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"description\": \"Bar track\",\n      \"mark\": {\n        \"type\": \"rect\",\n        \"cornerRadius\": {\n          \"expr\": \"barRadius\"\n        },\n        \"fill\": {\n          \"expr\": \"trackColor\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"bx0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"bx1\"\n        },\n        \"y\": {\n          \"field\": \"by0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"by1\"\n        }\n      }\n    },\n    {\n      \"description\": \"Bar fill, to the share of target reached; past 100% the target moves inside the bar\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.fillX > datum.bx0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rect\",\n        \"cornerRadius\": {\n          \"expr\": \"barRadius\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"bx0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"fillX\"\n        },\n        \"y\": {\n          \"field\": \"by0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"by1\"\n        },\n        \"color\": {\n          \"field\": \"fillColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"ratioText\",\n            \"type\": \"nominal\",\n            \"title\": \"Of target\"\n          },\n          {\n            \"field\": \"tipPace\",\n            \"type\": \"nominal\",\n            \"title\": \"Pace\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Target mark inside an overfull bar\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.r > 1\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rule\",\n        \"strokeWidth\": {\n          \"expr\": \"2 * unit\"\n        },\n        \"stroke\": {\n          \"expr\": \"cardColor\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"targetX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"targetX\"\n        },\n        \"y\": {\n          \"field\": \"by0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"by1\"\n        }\n      }\n    },\n    {\n      \"description\": \"Pace marker: where the bar should be by now\",\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.paceX)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rule\",\n        \"strokeWidth\": {\n          \"expr\": \"2 * unit\"\n        },\n        \"stroke\": {\n          \"expr\": \"paceColor\"\n        },\n        \"strokeCap\": \"butt\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"paceX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"paceX\"\n        },\n        \"y\": {\n          \"field\": \"py0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"py1\"\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"tipPace\",\n            \"type\": \"nominal\",\n            \"title\": \"Pace\"\n          }\n        ]\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KPI Progress Card'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

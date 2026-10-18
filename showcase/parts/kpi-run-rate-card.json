@@ -1,0 +1,32 @@
+{
+  "template": "templates/kpi/kpi-run-rate-card/kpi-run-rate-card.json",
+  "instances": [
+    {
+      "id": "kpi-run-rate-card",
+      "page": "template",
+      "data": "templates/kpi/kpi-run-rate-card/sample-data.csv",
+      "size": [400, 220],
+      "params": {}
+    },
+    {
+      "id": "kpi-run-rate-card-orders",
+      "page": "template",
+      "data": "showcase/data/kpi-run-rate-card-orders.csv",
+      "size": [300, 90],
+      "params": {
+        "title": "Orders MTD",
+        "valueFormat": ",.0f"
+      }
+    },
+    {
+      "id": "kpi-run-rate-card-cost",
+      "page": "template",
+      "data": "showcase/data/kpi-run-rate-card-cost.csv",
+      "size": [300, 90],
+      "params": {
+        "title": "Cost MTD",
+        "higherIsBetter": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "70b33b46d9ccc3a918c7",
+  "displayName": "Hit or Miss Strip",
+  "displayOption": "FitToPage",
+  "height": 325,
+  "width": 1096
+}

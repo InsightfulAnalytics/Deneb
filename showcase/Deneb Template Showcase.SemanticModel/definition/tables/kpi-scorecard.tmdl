@@ -1,0 +1,69 @@
+/// Sample data for the KPI Scorecard template, showcase instance kpi-scorecard (templates/kpi/kpi-scorecard/sample-data.csv).
+table 'kpi-scorecard'
+	lineageTag: 025ef539-8a5d-5570-b326-f05ed3d73278
+
+	/// The KPI value for the row.
+	measure 'Value (kpi-scorecard)' = SUM ( 'kpi-scorecard'[Value] )
+		lineageTag: ba65a6ce-53d7-52ec-b96b-00ad339c80cf
+
+	/// Its target, or a prior period.
+	measure 'Target (kpi-scorecard)' = SUM ( 'kpi-scorecard'[Target] )
+		lineageTag: 79047ab3-ea62-5529-b952-cc76ebb535d9
+
+	/// One row per KPI, for example from a disconnected KPI table. Any category works too: a region or a product.
+	column 'KPI Name'
+		dataType: string
+		lineageTag: b012ade5-8798-5957-a78c-7dee1bae4ca2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [KPI Name]
+
+		annotation SummarizationSetBy = User
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: f887f691-d45a-5bf1-8a55-9308002f6172
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 089071c4-72d9-52fa-a99c-8309edba470b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	/// A d3 format per row ('$,.0f', '.1%', ',.0f' or 'auto'). Anything else, including a Power BI format string, falls back to valueFormat.
+	column Format
+		dataType: string
+		lineageTag: 1ed8149b-2d54-5294-9cbc-7eccf4c38de1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Format]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-scorecard' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "KPI Name", STRING,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    "Format", STRING,
+				    {
+				        { "Revenue", 4215380, 4000000, "auto" },
+				        { "Gross Margin", 0.382, 0.4, ".1%" },
+				        { "Orders", 18240, 17500, ",.0f" },
+				        { "Avg Order Value", 231.1, 228, "$,.2f" },
+				        { "Returns Rate", 0.041, 0.035, ".1%" },
+				        { "New Customers", 1320, 1500, ",.0f" }
+				    }
+				)

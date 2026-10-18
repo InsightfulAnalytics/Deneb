@@ -1,0 +1,69 @@
+/// Sample data for the KPI Scorecard template, showcase instance kpi-scorecard-status (showcase/data/kpi-scorecard-status.csv).
+table 'kpi-scorecard-status'
+	lineageTag: 5cc37845-7401-5f62-b1a2-225bc829076e
+
+	/// The KPI value for the row.
+	measure 'Value (kpi-scorecard-status)' = SUM ( 'kpi-scorecard-status'[Value] )
+		lineageTag: 17b8b719-a92e-5a44-ad32-dd2f6e6bab28
+
+	/// Its target, or a prior period.
+	measure 'Target (kpi-scorecard-status)' = SUM ( 'kpi-scorecard-status'[Target] )
+		lineageTag: 66efe634-c751-5a3a-845b-e9a3e4e5af12
+
+	/// One row per KPI, for example from a disconnected KPI table. Any category works too: a region or a product.
+	column 'KPI Name'
+		dataType: string
+		lineageTag: b9e59bd0-b7e4-54b0-b32b-d7e84a09b78e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [KPI Name]
+
+		annotation SummarizationSetBy = User
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: cf698bb7-1a59-5f02-a0f9-f5577bda8a87
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 0af7fe09-f679-514a-9b4a-e28150e0e7ab
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	/// A d3 format per row ('$,.0f', '.1%', ',.0f' or 'auto'). Anything else, including a Power BI format string, falls back to valueFormat.
+	column Format
+		dataType: string
+		lineageTag: 96bb45c0-f271-5e49-b338-e50bc256e737
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Format]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-scorecard-status' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "KPI Name", STRING,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    "Format", STRING,
+				    {
+				        { "Revenue", 4215380, 4000000, "auto" },
+				        { "Gross Margin", 0.382, 0.4, ".1%" },
+				        { "Orders", 18240, 17500, ",.0f" },
+				        { "Avg Order Value", 231.1, 228, "$,.2f" },
+				        { "Returns Rate", 0.041, 0.035, ".1%" },
+				        { "New Customers", 1320, 1500, ",.0f" }
+				    }
+				)

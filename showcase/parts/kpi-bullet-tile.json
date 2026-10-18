@@ -1,0 +1,34 @@
+{
+  "template": "templates/kpi/kpi-bullet-tile/kpi-bullet-tile.json",
+  "instances": [
+    {
+      "id": "kpi-bullet-tile",
+      "page": "template",
+      "data": "templates/kpi/kpi-bullet-tile/sample-data.csv",
+      "size": [300, 90],
+      "params": {}
+    },
+    {
+      "id": "kpi-bullet-tile-orders",
+      "page": "template",
+      "data": "showcase/data/kpi-bullet-tile-orders.csv",
+      "size": [300, 90],
+      "params": {
+        "title": "Orders",
+        "valueFormat": ",.0f"
+      }
+    },
+    {
+      "id": "kpi-bullet-tile-cost",
+      "page": "template",
+      "data": "showcase/data/kpi-bullet-tile-cost.csv",
+      "size": [240, 160],
+      "params": {
+        "title": "Operating cost",
+        "higherIsBetter": false,
+        "targetLabel": "Budget",
+        "colorBarByStatus": true
+      }
+    }
+  ]
+}

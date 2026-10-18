@@ -1,0 +1,1150 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Run-rate Projection Card",
+      "description": "Period to date actual, a projected period end from the run rate so far, and the target: a cumulative line that turns into a dashed projection after the last day with data, coloured by whether it lands on target. Design by Timothy Osborn.",
+      "author": "Timothy Osborn",
+      "uuid": "0f585042-7fe4-4f0d-891e-e7de7f2c931e",
+      "generated": "2026-10-18T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Date",
+        "description": "One row per day of the period. Days still to come can carry a Target and a blank Value.",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Value",
+        "description": "The day value. Blank after the last day with data.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Target",
+        "description": "The day target (summed), or the whole period target on every row with targetPerRow false.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {
+      "name": "title",
+      "value": "Sales MTD"
+    },
+    {
+      "name": "periodEnd",
+      "value": "auto"
+    },
+    {
+      "name": "targetPerRow",
+      "value": true
+    },
+    {
+      "name": "projectedLabel",
+      "value": "Projected"
+    },
+    {
+      "name": "targetNoun",
+      "value": "target"
+    },
+    {
+      "name": "dateFormat",
+      "value": "%-d %b"
+    },
+    {
+      "name": "lineColor",
+      "expr": "pbiColor(0, -0.3)"
+    },
+    {
+      "name": "areaOpacity",
+      "value": 0.12
+    },
+    {
+      "name": "targetLineColor",
+      "value": "#A19F9D"
+    },
+    {
+      "name": "todayLineColor",
+      "value": "#C8C6C4"
+    },
+    {
+      "name": "valueFormat",
+      "value": "auto"
+    },
+    {
+      "name": "prefix",
+      "value": "$"
+    },
+    {
+      "name": "pctFormat",
+      "value": ".0%"
+    },
+    {
+      "name": "noDataText",
+      "value": "n/a"
+    },
+    {
+      "name": "higherIsBetter",
+      "value": true
+    },
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "colorNeutral",
+      "expr": "pbiColor('neutral')"
+    },
+    {
+      "name": "arrowUp",
+      "value": "▲"
+    },
+    {
+      "name": "arrowDown",
+      "value": "▼"
+    },
+    {
+      "name": "arrowFlat",
+      "value": "►"
+    },
+    {
+      "name": "cardColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "borderColor",
+      "value": "#E1DFDD"
+    },
+    {
+      "name": "borderWidth",
+      "value": 1
+    },
+    {
+      "name": "cardRadius",
+      "value": 4
+    },
+    {
+      "name": "valueColor",
+      "expr": "pbiColor(0, -0.5)"
+    },
+    {
+      "name": "labelColor",
+      "value": "#605E5C"
+    },
+    {
+      "name": "mutedColor",
+      "value": "#A19F9D"
+    },
+    {
+      "name": "stacked",
+      "expr": "width < 2.4 * height"
+    },
+    {
+      "name": "unit",
+      "expr": "stacked ? clamp(min(width / 280, height / 190), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)"
+    },
+    {
+      "name": "pad",
+      "expr": "14 * unit"
+    },
+    {
+      "name": "titleSize",
+      "expr": "(stacked ? 13 : 11.5) * unit"
+    },
+    {
+      "name": "titleY",
+      "expr": "(stacked ? 24 : 19) * unit"
+    },
+    {
+      "name": "valueSize",
+      "expr": "(stacked ? 30 : 24) * unit"
+    },
+    {
+      "name": "valueY",
+      "expr": "(stacked ? 58 : 46) * unit"
+    },
+    {
+      "name": "leftLimit",
+      "expr": "stacked ? width * 0.5 - pad : width * 0.44 - pad"
+    },
+    {
+      "name": "rightX",
+      "expr": "stacked ? width - pad : pad"
+    },
+    {
+      "name": "rightAlign",
+      "expr": "stacked ? 'right' : 'left'"
+    },
+    {
+      "name": "projSize",
+      "expr": "(stacked ? 20 : 11) * unit"
+    },
+    {
+      "name": "projY",
+      "expr": "(stacked ? 50 : 63) * unit"
+    },
+    {
+      "name": "projLabelY",
+      "expr": "24 * unit"
+    },
+    {
+      "name": "shareSize",
+      "expr": "(stacked ? 11 : 10) * unit"
+    },
+    {
+      "name": "shareY",
+      "expr": "(stacked ? 67 : 78) * unit"
+    },
+    {
+      "name": "plotX0",
+      "expr": "stacked ? pad : width * 0.47"
+    },
+    {
+      "name": "plotX1",
+      "expr": "width - pad"
+    },
+    {
+      "name": "plotY0",
+      "expr": "(stacked ? 84 : 12) * unit"
+    },
+    {
+      "name": "plotY1",
+      "expr": "stacked ? height - 24 * unit : height - 12 * unit"
+    },
+    {
+      "name": "labelSize",
+      "expr": "9.5 * unit"
+    },
+    {
+      "name": "labelY",
+      "expr": "height - 9 * unit"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "calculate": "time(toDate(datum['__0__']))",
+      "as": "t"
+    },
+    {
+      "filter": "isFinite(datum.t)"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "__1__",
+          "as": "vSum"
+        },
+        {
+          "op": "valid",
+          "field": "__1__",
+          "as": "vN"
+        },
+        {
+          "op": "sum",
+          "field": "__2__",
+          "as": "tgSum"
+        },
+        {
+          "op": "valid",
+          "field": "__2__",
+          "as": "tgN"
+        }
+      ],
+      "groupby": [
+        "t"
+      ]
+    },
+    {
+      "calculate": "datum.vN > 0 ? datum.vSum : null",
+      "as": "v"
+    },
+    {
+      "calculate": "datum.tgN > 0 ? datum.tgSum : null",
+      "as": "tg"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "k"
+        },
+        {
+          "op": "lag",
+          "field": "t",
+          "as": "prevT"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "calculate": "isValid(datum.prevT) ? datum.t - datum.prevT : null",
+      "as": "gapMs"
+    },
+    {
+      "calculate": "isValid(datum.v) ? datum.t : null",
+      "as": "actualT"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "min",
+          "field": "t",
+          "as": "tMin"
+        },
+        {
+          "op": "max",
+          "field": "t",
+          "as": "tMax"
+        },
+        {
+          "op": "median",
+          "field": "gapMs",
+          "as": "step0"
+        },
+        {
+          "op": "max",
+          "field": "actualT",
+          "as": "lastT"
+        },
+        {
+          "op": "sum",
+          "field": "tg",
+          "as": "tgSum"
+        },
+        {
+          "op": "max",
+          "field": "tg",
+          "as": "tgMax"
+        }
+      ]
+    },
+    {
+      "filter": "isValid(datum.lastT)"
+    },
+    {
+      "calculate": "isValid(datum.step0) && datum.step0 > 0 ? datum.step0 : 864e5",
+      "as": "step"
+    },
+    {
+      "calculate": "datum.lastT - datum.tMin + datum.step",
+      "as": "span"
+    },
+    {
+      "calculate": "time(datetime(year(datum.lastT), month(datum.lastT) + 1, 1))",
+      "as": "endMonth"
+    },
+    {
+      "calculate": "time(datetime(year(datum.lastT), floor(month(datum.lastT) / 3) * 3 + 3, 1))",
+      "as": "endQuarter"
+    },
+    {
+      "calculate": "time(datetime(year(datum.lastT) + 1, 0, 1))",
+      "as": "endYear"
+    },
+    {
+      "calculate": "periodEnd === 'data' ? datum.tMax + datum.step : periodEnd === 'month' ? datum.endMonth : periodEnd === 'quarter' ? datum.endQuarter : periodEnd === 'year' ? datum.endYear : datum.tMax > datum.lastT ? datum.tMax + datum.step : datum.span <= 31.5 * 864e5 ? datum.endMonth : datum.span <= 92.5 * 864e5 ? datum.endQuarter : datum.endYear",
+      "as": "peRaw"
+    },
+    {
+      "calculate": "datum.lastT + datum.step",
+      "as": "elapsedEnd"
+    },
+    {
+      "calculate": "max(datum.peRaw, datum.elapsedEnd)",
+      "as": "pe"
+    },
+    {
+      "calculate": "(datum.elapsedEnd - datum.tMin) / (datum.pe - datum.tMin)",
+      "as": "share"
+    },
+    {
+      "calculate": "datum.t <= datum.lastT && isValid(datum.v) ? datum.v : 0",
+      "as": "v0"
+    },
+    {
+      "calculate": "isValid(datum.tg) ? datum.tg : 0",
+      "as": "tg0"
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "v0",
+          "as": "cumV"
+        },
+        {
+          "op": "sum",
+          "field": "tg0",
+          "as": "cumT"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "v0",
+          "as": "actual"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.share > 0 ? datum.actual / datum.share : null",
+      "as": "proj"
+    },
+    {
+      "calculate": "targetPerRow ? datum.tgSum : datum.tgMax",
+      "as": "target"
+    },
+    {
+      "calculate": "isValid(datum.proj) && isValid(datum.target) && datum.target !== 0 ? datum.proj / datum.target : null",
+      "as": "tShare"
+    },
+    {
+      "calculate": "isValid(datum.tShare) ? (higherIsBetter ? 1 : -1) * (datum.tShare - 1) : 0",
+      "as": "g"
+    },
+    {
+      "calculate": "(datum.g > 0 ? colorGood : datum.g < 0 ? colorBad : colorNeutral)",
+      "as": "projColor"
+    },
+    {
+      "calculate": "max(1e-9, datum.actual, isValid(datum.proj) ? datum.proj : 0, isValid(datum.target) ? datum.target : 0) * 1.06",
+      "as": "yMax"
+    },
+    {
+      "calculate": "(!isValid(datum.actual) || !isFinite(datum.actual) ? noDataText : valueFormat !== 'auto' ? format(datum.actual, valueFormat) : (datum.actual < 0 ? '−' : '') + prefix + format(abs(datum.actual) / (abs(datum.actual) >= 999.5e6 ? 1e9 : abs(datum.actual) >= 999.5e3 ? 1e6 : abs(datum.actual) >= 999.5 ? 1e3 : 1), abs(datum.actual) / (abs(datum.actual) >= 999.5e6 ? 1e9 : abs(datum.actual) >= 999.5e3 ? 1e6 : abs(datum.actual) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.actual) >= 999.5e6 ? 1e9 : abs(datum.actual) >= 999.5e3 ? 1e6 : abs(datum.actual) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.actual) >= 999.5e6 ? 'bn' : abs(datum.actual) >= 999.5e3 ? 'M' : abs(datum.actual) >= 999.5 ? 'K' : ''))",
+      "as": "valueText"
+    },
+    {
+      "calculate": "(!isValid(datum.proj) || !isFinite(datum.proj) ? noDataText : valueFormat !== 'auto' ? format(datum.proj, valueFormat) : (datum.proj < 0 ? '−' : '') + prefix + format(abs(datum.proj) / (abs(datum.proj) >= 999.5e6 ? 1e9 : abs(datum.proj) >= 999.5e3 ? 1e6 : abs(datum.proj) >= 999.5 ? 1e3 : 1), abs(datum.proj) / (abs(datum.proj) >= 999.5e6 ? 1e9 : abs(datum.proj) >= 999.5e3 ? 1e6 : abs(datum.proj) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.proj) >= 999.5e6 ? 1e9 : abs(datum.proj) >= 999.5e3 ? 1e6 : abs(datum.proj) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.proj) >= 999.5e6 ? 'bn' : abs(datum.proj) >= 999.5e3 ? 'M' : abs(datum.proj) >= 999.5 ? 'K' : ''))",
+      "as": "projText"
+    },
+    {
+      "calculate": "(!isValid(datum.target) || !isFinite(datum.target) ? noDataText : valueFormat !== 'auto' ? format(datum.target, valueFormat) : (datum.target < 0 ? '−' : '') + prefix + format(abs(datum.target) / (abs(datum.target) >= 999.5e6 ? 1e9 : abs(datum.target) >= 999.5e3 ? 1e6 : abs(datum.target) >= 999.5 ? 1e3 : 1), abs(datum.target) / (abs(datum.target) >= 999.5e6 ? 1e9 : abs(datum.target) >= 999.5e3 ? 1e6 : abs(datum.target) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.target) >= 999.5e6 ? 1e9 : abs(datum.target) >= 999.5e3 ? 1e6 : abs(datum.target) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.target) >= 999.5e6 ? 'bn' : abs(datum.target) >= 999.5e3 ? 'M' : abs(datum.target) >= 999.5 ? 'K' : ''))",
+      "as": "targetText"
+    },
+    {
+      "calculate": "(!isValid(datum.tShare) || !isFinite(datum.tShare) ? noDataText : format(datum.tShare, pctFormat)) + ' of ' + datum.targetText + ' ' + targetNoun",
+      "as": "shareText"
+    },
+    {
+      "calculate": "stacked ? (!isValid(datum.tShare - 1) ? '' : datum.tShare - 1 > 0 ? arrowUp : datum.tShare - 1 < 0 ? arrowDown : arrowFlat) + ' ' + datum.projText : (!isValid(datum.tShare - 1) ? '' : datum.tShare - 1 > 0 ? arrowUp : datum.tShare - 1 < 0 ? arrowDown : arrowFlat) + ' ' + projectedLabel + ' ' + datum.projText",
+      "as": "projLine"
+    },
+    {
+      "calculate": "timeFormat(datum.lastT, '%-d %b %Y')",
+      "as": "tipLast"
+    }
+  ],
+  "layer": [
+    {
+      "description": "Card background and border, inset by half the border so the container never clips it",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "x": {
+          "expr": "borderWidth / 2"
+        },
+        "y": {
+          "expr": "borderWidth / 2"
+        },
+        "x2": {
+          "expr": "width - borderWidth / 2"
+        },
+        "y2": {
+          "expr": "height - borderWidth / 2"
+        },
+        "fill": {
+          "expr": "cardColor"
+        },
+        "stroke": {
+          "expr": "borderColor"
+        },
+        "strokeWidth": {
+          "expr": "borderWidth"
+        },
+        "cornerRadius": {
+          "expr": "cardRadius"
+        }
+      }
+    },
+    {
+      "description": "Title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "titleY"
+        },
+        "fontSize": {
+          "expr": "titleSize"
+        },
+        "limit": {
+          "expr": "leftLimit"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "title"
+        }
+      }
+    },
+    {
+      "description": "Actual to date",
+      "transform": [
+        {
+          "filter": "datum.k === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "valueY"
+        },
+        "fontSize": {
+          "expr": "valueSize"
+        },
+        "limit": {
+          "expr": "leftLimit"
+        },
+        "fill": {
+          "expr": "valueColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "valueText",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Actual"
+          },
+          {
+            "field": "projText",
+            "type": "nominal",
+            "title": "Projected"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "tipLast",
+            "type": "nominal",
+            "title": "Data to"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Projection label (stacked only)",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "transform": [
+        {
+          "filter": "stacked"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "width - pad"
+        },
+        "y": {
+          "expr": "projLabelY"
+        },
+        "fontSize": {
+          "expr": "10.5 * unit"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "projectedLabel"
+        }
+      }
+    },
+    {
+      "description": "Projected period end, coloured by whether it reaches target",
+      "transform": [
+        {
+          "filter": "datum.k === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "rightAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "rightX"
+        },
+        "y": {
+          "expr": "projY"
+        },
+        "fontSize": {
+          "expr": "projSize"
+        },
+        "limit": {
+          "expr": "stacked ? width * 0.46 - pad : width * 0.44 - pad"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "projLine",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "projColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Projection as a share of target",
+      "transform": [
+        {
+          "filter": "datum.k === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "rightAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "rightX"
+        },
+        "y": {
+          "expr": "shareY"
+        },
+        "fontSize": {
+          "expr": "shareSize"
+        },
+        "limit": {
+          "expr": "stacked ? width * 0.5 - pad : width * 0.44 - pad"
+        },
+        "fill": {
+          "expr": "labelColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "shareText",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Actual: cumulative area and line from zero, through the last day with data",
+      "transform": [
+        {
+          "filter": "datum.t <= datum.lastT"
+        },
+        {
+          "calculate": "datum.k === 1 ? [0, 1] : [1]",
+          "as": "pts"
+        },
+        {
+          "flatten": [
+            "pts"
+          ]
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotX0 + ((datum.tMin) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0) : plotX0 + ((datum.t + datum.step) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "ax"
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotY1 - (0) / datum.yMax * (plotY1 - plotY0) : plotY1 - (datum.cumV) / datum.yMax * (plotY1 - plotY0)",
+          "as": "ay"
+        },
+        {
+          "calculate": "plotY1 - (0) / datum.yMax * (plotY1 - plotY0)",
+          "as": "ay0"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "area",
+            "fill": {
+              "expr": "lineColor"
+            },
+            "fillOpacity": {
+              "expr": "areaOpacity"
+            }
+          },
+          "encoding": {
+            "x": {
+              "field": "ax",
+              "type": "quantitative",
+              "scale": null
+            },
+            "y": {
+              "field": "ay",
+              "type": "quantitative",
+              "scale": null
+            },
+            "y2": {
+              "field": "ay0"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "line",
+            "stroke": {
+              "expr": "lineColor"
+            },
+            "strokeWidth": {
+              "expr": "2 * unit"
+            },
+            "strokeJoin": "round"
+          },
+          "encoding": {
+            "x": {
+              "field": "ax",
+              "type": "quantitative",
+              "scale": null
+            },
+            "y": {
+              "field": "ay",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Target: cumulative day targets, or a straight line to the period target",
+      "transform": [
+        {
+          "filter": "targetPerRow || datum.k === 1"
+        },
+        {
+          "calculate": "targetPerRow ? (datum.k === 1 ? [0, 1] : [1]) : [0, 2]",
+          "as": "pts"
+        },
+        {
+          "flatten": [
+            "pts"
+          ]
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotX0 + ((datum.tMin) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0) : datum.pts === 2 ? plotX0 + ((datum.pe) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0) : plotX0 + ((datum.t + datum.step) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "tx"
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotY1 - (0) / datum.yMax * (plotY1 - plotY0) : datum.pts === 2 ? plotY1 - (datum.target) / datum.yMax * (plotY1 - plotY0) : plotY1 - (datum.cumT) / datum.yMax * (plotY1 - plotY0)",
+          "as": "ty"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "stroke": {
+          "expr": "targetLineColor"
+        },
+        "strokeWidth": {
+          "expr": "1.5 * unit"
+        },
+        "strokeDash": [
+          2,
+          2
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "tx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "ty",
+          "type": "quantitative",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Line at the last day with data",
+      "transform": [
+        {
+          "filter": "datum.k === 1 && datum.elapsedEnd < datum.pe"
+        },
+        {
+          "calculate": "plotX0 + ((datum.elapsedEnd) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "lx"
+        },
+        {
+          "calculate": "plotY0",
+          "as": "ly0"
+        },
+        {
+          "calculate": "plotY1",
+          "as": "ly1"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "todayLineColor"
+        },
+        "strokeWidth": 1,
+        "strokeDash": [
+          3,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "lx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "lx"
+        },
+        "y": {
+          "field": "ly0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "ly1"
+        }
+      }
+    },
+    {
+      "description": "Projection: dashed from the last actual to the period end",
+      "transform": [
+        {
+          "filter": "datum.t === datum.lastT"
+        },
+        {
+          "calculate": "[0, 1]",
+          "as": "pts"
+        },
+        {
+          "flatten": [
+            "pts"
+          ]
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotX0 + ((datum.elapsedEnd) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0) : plotX0 + ((datum.pe) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "qx"
+        },
+        {
+          "calculate": "datum.pts === 0 ? plotY1 - (datum.actual) / datum.yMax * (plotY1 - plotY0) : plotY1 - (datum.proj) / datum.yMax * (plotY1 - plotY0)",
+          "as": "qy"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": {
+          "expr": "2 * unit"
+        },
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "qx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "qy",
+          "type": "quantitative",
+          "scale": null
+        },
+        "color": {
+          "field": "projColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Projection end point",
+      "transform": [
+        {
+          "filter": "datum.t === datum.lastT && isValid(datum.proj)"
+        },
+        {
+          "calculate": "plotX0 + ((datum.pe) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "ex"
+        },
+        {
+          "calculate": "plotY1 - (datum.proj) / datum.yMax * (plotY1 - plotY0)",
+          "as": "ey"
+        },
+        {
+          "calculate": "PI * pow(3.5 * unit, 2)",
+          "as": "es"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 1,
+        "shape": "circle"
+      },
+      "encoding": {
+        "x": {
+          "field": "ex",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "ey",
+          "type": "quantitative",
+          "scale": null
+        },
+        "size": {
+          "field": "es",
+          "type": "quantitative",
+          "scale": null
+        },
+        "color": {
+          "field": "projColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "projText",
+            "type": "nominal",
+            "title": "Projected"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "shareText",
+            "type": "nominal",
+            "title": "Of target"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Dates under the chart: start, last actual, end (stacked only)",
+      "transform": [
+        {
+          "filter": "stacked && datum.k === 1"
+        },
+        {
+          "calculate": "[0, 1, 2]",
+          "as": "li"
+        },
+        {
+          "flatten": [
+            "li"
+          ]
+        },
+        {
+          "calculate": "datum.li === 0 ? plotX0 : datum.li === 2 ? plotX1 : plotX0 + ((datum.elapsedEnd) - datum.tMin) / (datum.pe - datum.tMin) * (plotX1 - plotX0)",
+          "as": "lx"
+        },
+        {
+          "calculate": "timeFormat(datum.li === 0 ? datum.tMin : datum.li === 2 ? datum.pe - 864e5 : datum.lastT, dateFormat)",
+          "as": "lt"
+        },
+        {
+          "filter": "datum.li !== 1 || (datum.lx - plotX0 > 40 * unit && plotX1 - datum.lx > 40 * unit)"
+        }
+      ],
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.li === 0"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "alphabetic",
+            "y": {
+              "expr": "labelY"
+            },
+            "fontSize": {
+              "expr": "labelSize"
+            },
+            "fill": {
+              "expr": "mutedColor"
+            }
+          },
+          "encoding": {
+            "text": {
+              "field": "lt",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "lx",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.li === 1"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "alphabetic",
+            "y": {
+              "expr": "labelY"
+            },
+            "fontSize": {
+              "expr": "labelSize"
+            },
+            "fill": {
+              "expr": "mutedColor"
+            }
+          },
+          "encoding": {
+            "text": {
+              "field": "lt",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "lx",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.li === 2"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "alphabetic",
+            "y": {
+              "expr": "labelY"
+            },
+            "fontSize": {
+              "expr": "labelSize"
+            },
+            "fill": {
+              "expr": "mutedColor"
+            }
+          },
+          "encoding": {
+            "text": {
+              "field": "lt",
+              "type": "nominal"
+            },
+            "x": {
+              "field": "lx",
+              "type": "quantitative",
+              "scale": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

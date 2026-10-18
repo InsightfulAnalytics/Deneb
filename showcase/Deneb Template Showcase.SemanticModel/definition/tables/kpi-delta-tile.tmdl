@@ -1,0 +1,42 @@
+/// Sample data for the KPI Delta Tile template, showcase instance kpi-delta-tile (templates/kpi/kpi-delta-tile/sample-data.csv).
+table 'kpi-delta-tile'
+	lineageTag: a5fc5ee9-4b96-59f1-ad1d-843a3715ff81
+
+	/// The KPI, for example sales this month.
+	measure 'Value (kpi-delta-tile)' = SUM ( 'kpi-delta-tile'[Value] )
+		lineageTag: bbd07384-ae55-52e5-ba3f-cc05922db8ec
+
+	/// What Value is compared with: prior year, prior period, budget or target. Name it in comparisonLabel.
+	measure 'Benchmark (kpi-delta-tile)' = SUM ( 'kpi-delta-tile'[Benchmark] )
+		lineageTag: bc760ef0-566b-5d1b-93f1-4d83a254055e
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: c88e7c06-d390-5239-b0f6-b29055829ead
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Benchmark
+		dataType: double
+		isHidden
+		lineageTag: 4eb49ec9-f4e3-54ae-96b7-26066d397901
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Benchmark]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-delta-tile' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Value", DOUBLE,
+				    "Benchmark", DOUBLE,
+				    {
+				        { 4215380, 3926140 }
+				    }
+				)

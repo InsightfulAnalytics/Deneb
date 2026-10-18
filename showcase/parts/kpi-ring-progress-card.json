@@ -1,0 +1,31 @@
+{
+  "template": "templates/kpi/kpi-ring-progress-card/kpi-ring-progress-card.json",
+  "instances": [
+    {
+      "id": "kpi-ring-progress-card",
+      "page": "template",
+      "data": "templates/kpi/kpi-ring-progress-card/sample-data.csv",
+      "size": [300, 90],
+      "params": {}
+    },
+    {
+      "id": "kpi-ring-progress-card-orders",
+      "page": "template",
+      "data": "showcase/data/kpi-ring-progress-card-orders.csv",
+      "size": [300, 90],
+      "params": {
+        "title": "Orders",
+        "valueFormat": ",.0f"
+      }
+    },
+    {
+      "id": "kpi-ring-progress-card-status",
+      "page": "template",
+      "data": "showcase/data/kpi-ring-progress-card-status.csv",
+      "size": [400, 220],
+      "params": {
+        "colorByStatus": true
+      }
+    }
+  ]
+}

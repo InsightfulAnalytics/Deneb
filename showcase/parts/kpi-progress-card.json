@@ -1,0 +1,30 @@
+{
+  "template": "templates/kpi/kpi-progress-card/kpi-progress-card.json",
+  "instances": [
+    {
+      "id": "kpi-progress-card",
+      "page": "template",
+      "data": "templates/kpi/kpi-progress-card/sample-data.csv",
+      "size": [300, 90],
+      "params": {}
+    },
+    {
+      "id": "kpi-progress-card-spend",
+      "page": "template",
+      "data": "showcase/data/kpi-progress-card-spend.csv",
+      "size": [300, 90],
+      "params": {
+        "title": "Spend",
+        "targetLabel": "budget",
+        "higherIsBetter": false
+      }
+    },
+    {
+      "id": "kpi-progress-card-no-pace",
+      "page": "template",
+      "data": "showcase/data/kpi-progress-card-no-pace.csv",
+      "size": [240, 160],
+      "params": {}
+    }
+  ]
+}

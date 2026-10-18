@@ -1,0 +1,57 @@
+/// Sample data for the KPI Progress Card template, showcase instance kpi-progress-card-spend (showcase/data/kpi-progress-card-spend.csv).
+table 'kpi-progress-card-spend'
+	lineageTag: 25d57118-92ce-582b-a048-d7f8dc45bea3
+
+	/// Progress so far, for example sales month to date.
+	measure 'Value (kpi-progress-card-spend)' = SUM ( 'kpi-progress-card-spend'[Value] )
+		lineageTag: a4b93878-e96e-5b9a-8dca-925a97366392
+
+	/// The target for the whole period.
+	measure 'Target (kpi-progress-card-spend)' = SUM ( 'kpi-progress-card-spend'[Target] )
+		lineageTag: c38735e4-cfc9-568a-b3da-5b02d86d4191
+
+	/// Share of the period gone, 0 to 1, for the pace marker. A measure returning BLANK() hides the marker.
+	measure 'Percent Elapsed (kpi-progress-card-spend)' = SUM ( 'kpi-progress-card-spend'[Percent Elapsed] )
+		lineageTag: 1a302ed7-1f7e-50dd-a841-0410c35b7c0b
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: d40762b4-5be5-50a6-a970-4212fef61f65
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: aac1d6c7-400d-526f-b0ee-2666e5873e64
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	column 'Percent Elapsed'
+		dataType: double
+		isHidden
+		lineageTag: d63ffcf9-3b75-5ba3-8ead-b52e8cf05aef
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Percent Elapsed]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-progress-card-spend' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    "Percent Elapsed", DOUBLE,
+				    {
+				        { 3050000, 4000000, 0.71 }
+				    }
+				)

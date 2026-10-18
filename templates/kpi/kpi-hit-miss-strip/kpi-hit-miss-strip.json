@@ -1,0 +1,794 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Hit or Miss Strip",
+      "description": "The last twelve periods against target, each a short column coloured hit or miss (or an even dot), with the hit count written large (\"8 of 12 months on target\"). Reads day, week, month, quarter or year from the dates. Design by Timothy Osborn.",
+      "author": "Timothy Osborn",
+      "uuid": "0482bf97-ab77-4e15-8838-53696397506e",
+      "generated": "2026-10-18T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Date",
+        "description": "One row per period: a day, a week start, a month end. The strip shows the latest ones.",
+        "type": "dateTime",
+        "kind": "column"
+      },
+      {
+        "key": "__1__",
+        "name": "Value",
+        "description": "The period value.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Target",
+        "description": "The period target.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {
+      "name": "title",
+      "value": "Sales vs target"
+    },
+    {
+      "name": "periods",
+      "value": 12
+    },
+    {
+      "name": "periodNoun",
+      "value": "auto"
+    },
+    {
+      "name": "hitText",
+      "value": "on target"
+    },
+    {
+      "name": "goodShare",
+      "value": 0.5
+    },
+    {
+      "name": "markStyle",
+      "value": "column"
+    },
+    {
+      "name": "maxGap",
+      "value": 0.1
+    },
+    {
+      "name": "targetLineColor",
+      "value": "#C8C6C4"
+    },
+    {
+      "name": "valueFormat",
+      "value": "auto"
+    },
+    {
+      "name": "prefix",
+      "value": "$"
+    },
+    {
+      "name": "pctFormat",
+      "value": "+.1%"
+    },
+    {
+      "name": "noDataText",
+      "value": "n/a"
+    },
+    {
+      "name": "higherIsBetter",
+      "value": true
+    },
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "cardColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "borderColor",
+      "value": "#E1DFDD"
+    },
+    {
+      "name": "borderWidth",
+      "value": 1
+    },
+    {
+      "name": "cardRadius",
+      "value": 4
+    },
+    {
+      "name": "labelColor",
+      "value": "#605E5C"
+    },
+    {
+      "name": "mutedColor",
+      "value": "#A19F9D"
+    },
+    {
+      "name": "stacked",
+      "expr": "width < 2.4 * height"
+    },
+    {
+      "name": "unit",
+      "expr": "stacked ? clamp(min(width / 280, height / 190), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)"
+    },
+    {
+      "name": "pad",
+      "expr": "14 * unit"
+    },
+    {
+      "name": "textLimit",
+      "expr": "stacked ? width * 0.6 : width * 0.46 - pad"
+    },
+    {
+      "name": "titleLimit",
+      "expr": "stacked ? width * 0.6 : width - 2 * pad"
+    },
+    {
+      "name": "titleSize",
+      "expr": "(stacked ? 13 : 11.5) * unit"
+    },
+    {
+      "name": "titleY",
+      "expr": "(stacked ? 24 : 20) * unit"
+    },
+    {
+      "name": "hitsSize",
+      "expr": "(stacked ? 34 : 26) * unit"
+    },
+    {
+      "name": "hitsY",
+      "expr": "(stacked ? 64 : 55) * unit"
+    },
+    {
+      "name": "runSize",
+      "expr": "(stacked ? 14 : 11) * unit"
+    },
+    {
+      "name": "runY",
+      "expr": "(stacked ? 64 : 72) * unit"
+    },
+    {
+      "name": "stripX0",
+      "expr": "stacked ? pad : width * 0.48"
+    },
+    {
+      "name": "stripX1",
+      "expr": "width - pad"
+    },
+    {
+      "name": "stripY0",
+      "expr": "(stacked ? 82 : 32) * unit"
+    },
+    {
+      "name": "stripY1",
+      "expr": "stacked ? height - 26 * unit : 80 * unit"
+    },
+    {
+      "name": "stripMid",
+      "expr": "(stripY0 + stripY1) / 2"
+    },
+    {
+      "name": "showLabels",
+      "expr": "stacked"
+    },
+    {
+      "name": "labelSize",
+      "expr": "9.5 * unit"
+    },
+    {
+      "name": "labelY",
+      "expr": "height - 9 * unit"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "calculate": "time(toDate(datum['__0__']))",
+      "as": "t"
+    },
+    {
+      "filter": "isFinite(datum.t)"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "__1__",
+          "as": "vSum"
+        },
+        {
+          "op": "valid",
+          "field": "__1__",
+          "as": "vN"
+        },
+        {
+          "op": "sum",
+          "field": "__2__",
+          "as": "tgSum"
+        },
+        {
+          "op": "valid",
+          "field": "__2__",
+          "as": "tgN"
+        }
+      ],
+      "groupby": [
+        "t"
+      ]
+    },
+    {
+      "filter": "datum.vN > 0 && datum.tgN > 0"
+    },
+    {
+      "calculate": "datum.vSum",
+      "as": "v"
+    },
+    {
+      "calculate": "datum.tgSum",
+      "as": "tg"
+    },
+    {
+      "window": [
+        {
+          "op": "row_number",
+          "as": "back"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "filter": "datum.back <= periods"
+    },
+    {
+      "calculate": "(higherIsBetter ? datum.v >= datum.tg : datum.v <= datum.tg) ? 1 : 0",
+      "as": "hitNum"
+    },
+    {
+      "window": [
+        {
+          "op": "lag",
+          "field": "t",
+          "as": "prevT"
+        }
+      ],
+      "sort": [
+        {
+          "field": "t",
+          "order": "ascending"
+        }
+      ]
+    },
+    {
+      "calculate": "isValid(datum.prevT) ? datum.t - datum.prevT : null",
+      "as": "gapMs"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "count",
+          "as": "n"
+        },
+        {
+          "op": "sum",
+          "field": "hitNum",
+          "as": "hits"
+        },
+        {
+          "op": "median",
+          "field": "gapMs",
+          "as": "gapMed"
+        }
+      ]
+    },
+    {
+      "calculate": "periodNoun !== 'auto' ? periodNoun : !isValid(datum.gapMed) ? 'period' : datum.gapMed <= 1.5 * 864e5 ? 'day' : datum.gapMed <= 8.5 * 864e5 ? 'week' : datum.gapMed <= 32 * 864e5 ? 'month' : datum.gapMed <= 95 * 864e5 ? 'quarter' : 'year'",
+      "as": "noun"
+    },
+    {
+      "calculate": "datum.hits + ' of ' + datum.n",
+      "as": "hitsText"
+    },
+    {
+      "calculate": "(datum.n === 1 ? datum.noun : datum.noun + 's') + ' ' + hitText",
+      "as": "runText"
+    },
+    {
+      "calculate": "((length(datum.hits + '') + length(datum.n + '')) * 0.575 + 1.545) * hitsSize",
+      "as": "hitsW"
+    },
+    {
+      "calculate": "stacked ? pad + datum.hitsW + 7 * unit : pad",
+      "as": "runX"
+    },
+    {
+      "calculate": "stacked ? width - pad - datum.runX : textLimit",
+      "as": "runLimit"
+    },
+    {
+      "calculate": "datum.hits >= goodShare * datum.n ? colorGood : colorBad",
+      "as": "hitsColor"
+    },
+    {
+      "calculate": "datum.n - datum.back",
+      "as": "idx"
+    },
+    {
+      "calculate": "(stripX1 - stripX0) / datum.n",
+      "as": "pitch"
+    },
+    {
+      "calculate": "stripX0 + (datum.idx + 0.5) * datum.pitch",
+      "as": "cx"
+    },
+    {
+      "calculate": "min(datum.pitch * 0.68, 26 * unit)",
+      "as": "cw"
+    },
+    {
+      "calculate": "datum.cx - datum.cw / 2",
+      "as": "cx0"
+    },
+    {
+      "calculate": "datum.cx + datum.cw / 2",
+      "as": "cx1"
+    },
+    {
+      "calculate": "datum.tg !== 0 ? (datum.v - datum.tg) / abs(datum.tg) : 0",
+      "as": "gapShare"
+    },
+    {
+      "calculate": "max(abs(clamp(datum.gapShare / maxGap, -1, 1)) * (stripY1 - stripY0) / 2, 2 * unit)",
+      "as": "mag"
+    },
+    {
+      "calculate": "datum.gapShare >= 0 ? stripMid - datum.mag : stripMid",
+      "as": "cy0"
+    },
+    {
+      "calculate": "datum.gapShare >= 0 ? stripMid : stripMid + datum.mag",
+      "as": "cy1"
+    },
+    {
+      "calculate": "datum.hitNum === 1 ? colorGood : colorBad",
+      "as": "cellColor"
+    },
+    {
+      "calculate": "PI * pow(min(datum.cw, (stripY1 - stripY0) * 0.5) / 2, 2)",
+      "as": "dotSize"
+    },
+    {
+      "calculate": "stripMid",
+      "as": "my"
+    },
+    {
+      "calculate": "datum.noun === 'month' ? timeFormat(datum.t, '%b') : datum.noun === 'quarter' ? 'Q' + (quarter(datum.t) + 1) : datum.noun === 'year' ? timeFormat(datum.t, '%Y') : datum.noun === 'day' ? timeFormat(datum.t, '%-d') : timeFormat(datum.t, '%-d %b')",
+      "as": "lbl"
+    },
+    {
+      "calculate": "datum.noun === 'month' && datum.pitch < labelSize * 2.2 ? substring(datum.lbl, 0, 1) : datum.lbl",
+      "as": "lblShort"
+    },
+    {
+      "calculate": "max(1, ceil(labelSize * 0.62 * length(datum.lblShort) * 1.2 / datum.pitch))",
+      "as": "labelEvery"
+    },
+    {
+      "calculate": "timeFormat(datum.t, '%-d %b %Y')",
+      "as": "tipDate"
+    },
+    {
+      "calculate": "(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== 'auto' ? format(datum.v, valueFormat) : (datum.v < 0 ? '−' : '') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.v) >= 999.5e6 ? 'bn' : abs(datum.v) >= 999.5e3 ? 'M' : abs(datum.v) >= 999.5 ? 'K' : ''))",
+      "as": "tipValue"
+    },
+    {
+      "calculate": "(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : valueFormat !== 'auto' ? format(datum.tg, valueFormat) : (datum.tg < 0 ? '−' : '') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.tg) >= 999.5e6 ? 'bn' : abs(datum.tg) >= 999.5e3 ? 'M' : abs(datum.tg) >= 999.5 ? 'K' : ''))",
+      "as": "tipTarget"
+    },
+    {
+      "calculate": "(!isValid(datum.gapShare) || !isFinite(datum.gapShare) ? noDataText : format(datum.gapShare, pctFormat))",
+      "as": "tipGap"
+    },
+    {
+      "calculate": "datum.hitNum === 1 ? 'Hit' : 'Miss'",
+      "as": "tipHit"
+    },
+    {
+      "calculate": "stripX0",
+      "as": "sx0"
+    },
+    {
+      "calculate": "stripX1",
+      "as": "sx1"
+    }
+  ],
+  "layer": [
+    {
+      "description": "Card background and border, inset by half the border so the container never clips it",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "x": {
+          "expr": "borderWidth / 2"
+        },
+        "y": {
+          "expr": "borderWidth / 2"
+        },
+        "x2": {
+          "expr": "width - borderWidth / 2"
+        },
+        "y2": {
+          "expr": "height - borderWidth / 2"
+        },
+        "fill": {
+          "expr": "cardColor"
+        },
+        "stroke": {
+          "expr": "borderColor"
+        },
+        "strokeWidth": {
+          "expr": "borderWidth"
+        },
+        "cornerRadius": {
+          "expr": "cardRadius"
+        }
+      }
+    },
+    {
+      "description": "Title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "titleY"
+        },
+        "fontSize": {
+          "expr": "titleSize"
+        },
+        "limit": {
+          "expr": "titleLimit"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "title"
+        }
+      }
+    },
+    {
+      "description": "Hit count, the headline: 8 of 12",
+      "transform": [
+        {
+          "filter": "datum.back === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "hitsY"
+        },
+        "fontSize": {
+          "expr": "hitsSize"
+        },
+        "limit": {
+          "expr": "textLimit"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "hitsText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "hitsColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "What was counted: months on target",
+      "transform": [
+        {
+          "filter": "datum.back === 1"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "y": {
+          "expr": "runY"
+        },
+        "fontSize": {
+          "expr": "runSize"
+        },
+        "limit": {
+          "expr": "datum.runLimit"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "runX",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "runText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "hitsColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Target line through the strip",
+      "transform": [
+        {
+          "filter": "markStyle === 'column' && datum.back === 1"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": {
+          "expr": "targetLineColor"
+        },
+        "strokeWidth": 1,
+        "strokeDash": [
+          3,
+          2
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "sx0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "sx1"
+        },
+        "y": {
+          "field": "my",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "my"
+        }
+      }
+    },
+    {
+      "description": "Columns: each period above or below the target line, coloured hit or miss",
+      "transform": [
+        {
+          "filter": "markStyle === 'column'"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "cornerRadius": {
+          "expr": "1 * unit"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "cx0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "cx1"
+        },
+        "y": {
+          "field": "cy0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "cy1"
+        },
+        "color": {
+          "field": "cellColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "tipDate",
+            "type": "nominal",
+            "title": "Period"
+          },
+          {
+            "field": "tipValue",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "tipTarget",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "tipGap",
+            "type": "nominal",
+            "title": "Gap"
+          },
+          {
+            "field": "tipHit",
+            "type": "nominal",
+            "title": "Result"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Dots: one per period, coloured hit or miss",
+      "transform": [
+        {
+          "filter": "markStyle === 'dot'"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 1,
+        "shape": "circle"
+      },
+      "encoding": {
+        "x": {
+          "field": "cx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y": {
+          "field": "my",
+          "type": "quantitative",
+          "scale": null
+        },
+        "size": {
+          "field": "dotSize",
+          "type": "quantitative",
+          "scale": null
+        },
+        "color": {
+          "field": "cellColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "tipDate",
+            "type": "nominal",
+            "title": "Period"
+          },
+          {
+            "field": "tipValue",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "tipTarget",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "tipGap",
+            "type": "nominal",
+            "title": "Gap"
+          },
+          {
+            "field": "tipHit",
+            "type": "nominal",
+            "title": "Result"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Period labels, thinned from the latest backwards",
+      "transform": [
+        {
+          "filter": "showLabels && (datum.back - 1) % datum.labelEvery === 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "y": {
+          "expr": "labelY"
+        },
+        "fontSize": {
+          "expr": "labelSize"
+        },
+        "fill": {
+          "expr": "mutedColor"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "cx",
+          "type": "quantitative",
+          "scale": null
+        },
+        "text": {
+          "field": "lblShort",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

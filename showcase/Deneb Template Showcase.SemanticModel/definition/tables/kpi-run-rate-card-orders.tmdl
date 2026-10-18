@@ -1,0 +1,86 @@
+/// Sample data for the Run-rate Projection Card template, showcase instance kpi-run-rate-card-orders (showcase/data/kpi-run-rate-card-orders.csv).
+table 'kpi-run-rate-card-orders'
+	lineageTag: ec77a6b4-e09f-5b74-99b1-8288d56f901d
+
+	/// The day value. Blank after the last day with data.
+	measure 'Value (kpi-run-rate-card-orders)' = SUM ( 'kpi-run-rate-card-orders'[Value] )
+		lineageTag: 0629fb3e-d21d-57d8-945f-0b7ac9d36877
+
+	/// The day target (summed), or the whole period target on every row with targetPerRow false.
+	measure 'Target (kpi-run-rate-card-orders)' = SUM ( 'kpi-run-rate-card-orders'[Target] )
+		lineageTag: 37ffd53e-7490-5781-9ff7-97d78b79c84c
+
+	/// One row per day of the period. Days still to come can carry a Target and a blank Value.
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 477efb12-fb71-5d83-ac68-1f89f32be847
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 2adbe62f-7989-5e05-b379-ff08e2c62e6e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 4123885e-3d57-5018-b915-69fc184c0655
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-run-rate-card-orders' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Date", DATETIME,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    {
+				        { "2026-10-01", 517, 520 },
+				        { "2026-10-02", 514, 520 },
+				        { "2026-10-03", 341, 310 },
+				        { "2026-10-04", 311, 310 },
+				        { "2026-10-05", 520, 520 },
+				        { "2026-10-06", 561, 520 },
+				        { "2026-10-07", 582, 520 },
+				        { "2026-10-08", 560, 520 },
+				        { "2026-10-09", 586, 520 },
+				        { "2026-10-10", 344, 310 },
+				        { "2026-10-11", 327, 310 },
+				        { "2026-10-12", 581, 520 },
+				        { "2026-10-13", 548, 520 },
+				        { "2026-10-14", 531, 520 },
+				        { "2026-10-15", 561, 520 },
+				        { "2026-10-16", 549, 520 },
+				        { "2026-10-17", 324, 310 },
+				        { "2026-10-18", 303, 310 },
+				        { "2026-10-19", BLANK (), 520 },
+				        { "2026-10-20", BLANK (), 520 },
+				        { "2026-10-21", BLANK (), 520 },
+				        { "2026-10-22", BLANK (), 520 },
+				        { "2026-10-23", BLANK (), 520 },
+				        { "2026-10-24", BLANK (), 310 },
+				        { "2026-10-25", BLANK (), 310 },
+				        { "2026-10-26", BLANK (), 520 },
+				        { "2026-10-27", BLANK (), 520 },
+				        { "2026-10-28", BLANK (), 520 },
+				        { "2026-10-29", BLANK (), 520 },
+				        { "2026-10-30", BLANK (), 520 },
+				        { "2026-10-31", BLANK (), 310 }
+				    }
+				)

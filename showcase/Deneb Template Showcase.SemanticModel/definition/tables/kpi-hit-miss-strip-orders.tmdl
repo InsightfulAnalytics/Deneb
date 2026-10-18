@@ -1,0 +1,67 @@
+/// Sample data for the Hit or Miss Strip template, showcase instance kpi-hit-miss-strip-orders (showcase/data/kpi-hit-miss-strip-orders.csv).
+table 'kpi-hit-miss-strip-orders'
+	lineageTag: 0fb879ab-91be-5fb9-aa65-28dac6737525
+
+	/// The period value.
+	measure 'Value (kpi-hit-miss-strip-orders)' = SUM ( 'kpi-hit-miss-strip-orders'[Value] )
+		lineageTag: ea489789-a1f2-512f-a3f0-a685fd71fc0c
+
+	/// The period target.
+	measure 'Target (kpi-hit-miss-strip-orders)' = SUM ( 'kpi-hit-miss-strip-orders'[Target] )
+		lineageTag: 490c5bba-dfb7-5eda-9f2d-9e0e843c7a2f
+
+	/// One row per period: a day, a week start, a month end. The strip shows the latest ones.
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: fc0abc22-6fbd-522c-a014-74b0b839cea2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: e6e8bbcc-bba6-5f28-a9ca-8e845bf0856c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 96eba301-9c0d-5280-9501-3a08865cbf8a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-hit-miss-strip-orders' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Date", DATETIME,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    {
+				        { "2026-07-06", 4284, 4200 },
+				        { "2026-07-13", 4115, 4242 },
+				        { "2026-07-20", 4327, 4284 },
+				        { "2026-07-27", 4499, 4326 },
+				        { "2026-08-03", 4324, 4368 },
+				        { "2026-08-10", 4542, 4410 },
+				        { "2026-08-17", 4675, 4452 },
+				        { "2026-08-24", 4584, 4494 },
+				        { "2026-08-31", 4355, 4536 },
+				        { "2026-09-07", 4624, 4578 },
+				        { "2026-09-14", 4759, 4620 },
+				        { "2026-09-21", 4755, 4662 }
+				    }
+				)

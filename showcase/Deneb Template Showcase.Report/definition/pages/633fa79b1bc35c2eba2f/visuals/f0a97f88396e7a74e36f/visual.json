@@ -1,0 +1,269 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "f0a97f88396e7a74e36f",
+  "position": {
+    "x": 448,
+    "y": 81,
+    "z": 3000,
+    "height": 220,
+    "width": 400,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-scorecard-status"
+                    }
+                  },
+                  "Property": "KPI Name"
+                }
+              },
+              "queryRef": "kpi-scorecard-status.KPI Name",
+              "nativeQueryRef": "KPI Name",
+              "displayName": "KPI Name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-scorecard-status"
+                    }
+                  },
+                  "Property": "Value (kpi-scorecard-status)"
+                }
+              },
+              "queryRef": "kpi-scorecard-status.Value (kpi-scorecard-status)",
+              "nativeQueryRef": "Value (kpi-scorecard-status)",
+              "displayName": "Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-scorecard-status"
+                    }
+                  },
+                  "Property": "Target (kpi-scorecard-status)"
+                }
+              },
+              "queryRef": "kpi-scorecard-status.Target (kpi-scorecard-status)",
+              "nativeQueryRef": "Target (kpi-scorecard-status)",
+              "displayName": "Target"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-scorecard-status"
+                    }
+                  },
+                  "Property": "Format"
+                }
+              },
+              "queryRef": "kpi-scorecard-status.Format",
+              "nativeQueryRef": "Format",
+              "displayName": "Format"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"padding\": 0,\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"KPI\"\n    },\n    {\n      \"name\": \"valueHeader\",\n      \"value\": \"Actual\"\n    },\n    {\n      \"name\": \"comparisonLabel\",\n      \"value\": \"Target\"\n    },\n    {\n      \"name\": \"deltaHeader\",\n      \"value\": \"Var\"\n    },\n    {\n      \"name\": \"sortBy\",\n      \"value\": \"status\"\n    },\n    {\n      \"name\": \"statusStyle\",\n      \"value\": \"dot\"\n    },\n    {\n      \"name\": \"lowerIsBetter\",\n      \"value\": [\n        \"Cost\",\n        \"Returns Rate\"\n      ]\n    },\n    {\n      \"name\": \"showTarget\",\n      \"value\": true\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"prefix\",\n      \"value\": \"$\"\n    },\n    {\n      \"name\": \"pctFormat\",\n      \"value\": \"+.1%\"\n    },\n    {\n      \"name\": \"noDataText\",\n      \"value\": \"n/a\"\n    },\n    {\n      \"name\": \"varianceUnit\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": true\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"colorNeutral\",\n      \"expr\": \"pbiColor(''neutral'')\"\n    },\n    {\n      \"name\": \"arrowUp\",\n      \"value\": \"▲\"\n    },\n    {\n      \"name\": \"arrowDown\",\n      \"value\": \"▼\"\n    },\n    {\n      \"name\": \"arrowFlat\",\n      \"value\": \"►\"\n    },\n    {\n      \"name\": \"cardColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"borderColor\",\n      \"value\": \"#E1DFDD\"\n    },\n    {\n      \"name\": \"borderWidth\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"cardRadius\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"valueColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"labelColor\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"mutedColor\",\n      \"value\": \"#A19F9D\"\n    },\n    {\n      \"name\": \"trackColor\",\n      \"value\": \"#EDEBE9\"\n    },\n    {\n      \"name\": \"rowLineColor\",\n      \"value\": \"#EDEBE9\"\n    },\n    {\n      \"name\": \"unit\",\n      \"expr\": \"clamp(min(width / 360, height / 140), 0.8, 2)\"\n    },\n    {\n      \"name\": \"pad\",\n      \"expr\": \"12 * unit\"\n    },\n    {\n      \"name\": \"fontSize\",\n      \"expr\": \"12 * unit\"\n    },\n    {\n      \"name\": \"headerSize\",\n      \"expr\": \"10 * unit\"\n    },\n    {\n      \"name\": \"headerH\",\n      \"expr\": \"22 * unit\"\n    },\n    {\n      \"name\": \"minRowH\",\n      \"expr\": \"18 * unit\"\n    },\n    {\n      \"name\": \"maxRowH\",\n      \"expr\": \"30 * unit\"\n    },\n    {\n      \"name\": \"statusW\",\n      \"expr\": \"statusStyle === ''bar'' ? clamp(width * 0.16, 28, 80 * unit) : 10 * unit\"\n    },\n    {\n      \"name\": \"statusX1\",\n      \"expr\": \"width - pad\"\n    },\n    {\n      \"name\": \"statusX0\",\n      \"expr\": \"statusX1 - statusW\"\n    },\n    {\n      \"name\": \"deltaRight\",\n      \"expr\": \"statusX0 - 10 * unit\"\n    },\n    {\n      \"name\": \"targetOn\",\n      \"expr\": \"showTarget && width >= 360\"\n    },\n    {\n      \"name\": \"targetRight\",\n      \"expr\": \"deltaRight - 70 * unit\"\n    },\n    {\n      \"name\": \"valueRight\",\n      \"expr\": \"targetOn ? targetRight - 50 * unit : deltaRight - 70 * unit\"\n    },\n    {\n      \"name\": \"nameLimit\",\n      \"expr\": \"max(20, valueRight - 52 * unit - pad - 6)\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"rowIn\"\n        }\n      ]\n    },\n    {\n      \"aggregate\": [\n        {\n          \"op\": \"sum\",\n          \"field\": \"Value\",\n          \"as\": \"vSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Value\",\n          \"as\": \"vN\"\n        },\n        {\n          \"op\": \"sum\",\n          \"field\": \"Target\",\n          \"as\": \"tgSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Target\",\n          \"as\": \"tgN\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"rowIn\",\n          \"as\": \"firstRow\"\n        }\n      ],\n      \"groupby\": [\n        \"KPI Name\",\n        \"Format\"\n      ]\n    },\n    {\n      \"calculate\": \"datum.vN > 0 ? datum.vSum : null\",\n      \"as\": \"v\"\n    },\n    {\n      \"calculate\": \"datum.tgN > 0 ? datum.tgSum : null\",\n      \"as\": \"tg\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''KPI Name'']) ? datum[''KPI Name''] + '''' : noDataText\",\n      \"as\": \"name\"\n    },\n    {\n      \"calculate\": \"isValid(datum[''Format'']) ? datum[''Format''] + '''' : ''''\",\n      \"as\": \"fmtRaw\"\n    },\n    {\n      \"calculate\": \"datum.fmtRaw === ''auto'' || (length(datum.fmtRaw) > 0 && test(/^(?:(.)?([<>=^]))?([+\\\\-( ])?([$#])?(0)?(\\\\d+)?(,)?(\\\\.\\\\d+)?(~)?([a-z%])?$/i, datum.fmtRaw)) ? datum.fmtRaw : valueFormat\",\n      \"as\": \"f\"\n    },\n    {\n      \"calculate\": \"(indexof(lowerIsBetter, datum.name) >= 0 ? -1 : 1) * (higherIsBetter ? 1 : -1)\",\n      \"as\": \"dir\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) ? datum.v - datum.tg : null\",\n      \"as\": \"d\"\n    },\n    {\n      \"calculate\": \"isValid(datum.d) && datum.tg !== 0 ? datum.d / abs(datum.tg) : null\",\n      \"as\": \"p\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) && datum.tg !== 0 ? datum.v / datum.tg : null\",\n      \"as\": \"r\"\n    },\n    {\n      \"calculate\": \"isValid(datum.d) ? datum.dir * datum.d : 0\",\n      \"as\": \"g\"\n    },\n    {\n      \"calculate\": \"(datum.g > 0 ? colorGood : datum.g < 0 ? colorBad : colorNeutral)\",\n      \"as\": \"statusColor\"\n    },\n    {\n      \"calculate\": \"(varianceUnit === ''points'' || (varianceUnit === ''auto'' && indexof(datum.f, ''%'') >= 0))\",\n      \"as\": \"isPts\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : datum.f !== ''auto'' ? format(datum.v, datum.f) : (datum.v < 0 ? ''−'' : '''') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.v) >= 999.5e6 ? ''bn'' : abs(datum.v) >= 999.5e3 ? ''M'' : abs(datum.v) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"valueText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : datum.f !== ''auto'' ? format(datum.tg, datum.f) : (datum.tg < 0 ? ''−'' : '''') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.tg) >= 999.5e6 ? ''bn'' : abs(datum.tg) >= 999.5e3 ? ''M'' : abs(datum.tg) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"targetText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.d) ? '''' : datum.d > 0 ? arrowUp : datum.d < 0 ? arrowDown : arrowFlat) + '' '' + (datum.isPts ? (!isValid(datum.d) ? noDataText : (datum.d > 0 ? ''+'' : datum.d < 0 ? ''−'' : '''') + format(abs(datum.d) * 100, ''.1f'') + '' pts'') : (!isValid(datum.p) || !isFinite(datum.p) ? noDataText : format(datum.p, pctFormat)))\",\n      \"as\": \"deltaText\"\n    },\n    {\n      \"calculate\": \"sortBy === ''value'' ? (isValid(datum.v) ? -datum.v : 1e300) : sortBy === ''status'' ? (isValid(datum.p) ? datum.dir * datum.p : 1e300) : sortBy === ''name'' ? 0 : datum.firstRow\",\n      \"as\": \"sortKey\"\n    },\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"rank\"\n        }\n      ],\n      \"sort\": [\n        {\n          \"field\": \"sortKey\",\n          \"order\": \"ascending\"\n        },\n        {\n          \"field\": \"name\",\n          \"order\": \"ascending\"\n        }\n      ]\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"count\",\n          \"as\": \"n\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"max(1, floor((height - headerH - pad / 2) / minRowH))\",\n      \"as\": \"rowsFit\"\n    },\n    {\n      \"calculate\": \"datum.n <= datum.rowsFit ? datum.n : max(1, datum.rowsFit - 1)\",\n      \"as\": \"shown\"\n    },\n    {\n      \"calculate\": \"clamp((height - headerH - pad / 2) / min(datum.n, datum.rowsFit), minRowH, maxRowH)\",\n      \"as\": \"rowH\"\n    },\n    {\n      \"calculate\": \"headerH + (datum.rank - 0.5) * datum.rowH\",\n      \"as\": \"cy\"\n    },\n    {\n      \"calculate\": \"headerH + (datum.rank - 1) * datum.rowH\",\n      \"as\": \"lineY\"\n    },\n    {\n      \"calculate\": \"clamp(isValid(datum.r) ? datum.r : 0, 0, 1.25) / 1.25\",\n      \"as\": \"barFrac\"\n    },\n    {\n      \"calculate\": \"statusX0\",\n      \"as\": \"sx0\"\n    },\n    {\n      \"calculate\": \"statusX1\",\n      \"as\": \"sx1\"\n    },\n    {\n      \"calculate\": \"statusX0 + datum.barFrac * statusW\",\n      \"as\": \"fillX\"\n    },\n    {\n      \"calculate\": \"statusX0 + statusW / 1.25\",\n      \"as\": \"tickX\"\n    },\n    {\n      \"calculate\": \"datum.cy - 3.5 * unit\",\n      \"as\": \"barY0\"\n    },\n    {\n      \"calculate\": \"datum.cy + 3.5 * unit\",\n      \"as\": \"barY1\"\n    },\n    {\n      \"calculate\": \"datum.cy - 6 * unit\",\n      \"as\": \"tickY0\"\n    },\n    {\n      \"calculate\": \"datum.cy + 6 * unit\",\n      \"as\": \"tickY1\"\n    },\n    {\n      \"calculate\": \"statusX1 - 5 * unit\",\n      \"as\": \"dotX\"\n    },\n    {\n      \"calculate\": \"PI * pow(4.5 * unit, 2)\",\n      \"as\": \"dotSize\"\n    },\n    {\n      \"calculate\": \"''+'' + (datum.n - datum.shown) + '' more''\",\n      \"as\": \"moreText\"\n    },\n    {\n      \"calculate\": \"pad\",\n      \"as\": \"lx0\"\n    },\n    {\n      \"calculate\": \"width - pad\",\n      \"as\": \"lx1\"\n    }\n  ],\n  \"layer\": [\n    {\n      \"description\": \"Card background and border, inset by half the border so the container never clips it\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"x\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"y\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"x2\": {\n          \"expr\": \"width - borderWidth / 2\"\n        },\n        \"y2\": {\n          \"expr\": \"height - borderWidth / 2\"\n        },\n        \"fill\": {\n          \"expr\": \"cardColor\"\n        },\n        \"stroke\": {\n          \"expr\": \"borderColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"borderWidth\"\n        },\n        \"cornerRadius\": {\n          \"expr\": \"cardRadius\"\n        }\n      }\n    },\n    {\n      \"description\": \"Header: name column\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"y\": {\n          \"expr\": \"headerH * 0.68\"\n        },\n        \"fontSize\": {\n          \"expr\": \"headerSize\"\n        },\n        \"limit\": {\n          \"expr\": \"nameLimit\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"title\"\n        }\n      }\n    },\n    {\n      \"description\": \"Header: values\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"valueRight\"\n        },\n        \"y\": {\n          \"expr\": \"headerH * 0.68\"\n        },\n        \"fontSize\": {\n          \"expr\": \"headerSize\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"valueHeader\"\n        }\n      }\n    },\n    {\n      \"description\": \"Header: targets\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"transform\": [\n        {\n          \"filter\": \"targetOn\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"targetRight\"\n        },\n        \"y\": {\n          \"expr\": \"headerH * 0.68\"\n        },\n        \"fontSize\": {\n          \"expr\": \"headerSize\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"comparisonLabel\"\n        }\n      }\n    },\n    {\n      \"description\": \"Header: variances\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"deltaRight\"\n        },\n        \"y\": {\n          \"expr\": \"headerH * 0.68\"\n        },\n        \"fontSize\": {\n          \"expr\": \"headerSize\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"deltaHeader\"\n        }\n      }\n    },\n    {\n      \"description\": \"Line under the header\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"transform\": [\n        {\n          \"calculate\": \"pad\",\n          \"as\": \"lx0\"\n        },\n        {\n          \"calculate\": \"width - pad\",\n          \"as\": \"lx1\"\n        },\n        {\n          \"calculate\": \"headerH\",\n          \"as\": \"ly\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rule\",\n        \"stroke\": {\n          \"expr\": \"borderColor\"\n        },\n        \"strokeWidth\": 1\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"lx0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"lx1\"\n        },\n        \"y\": {\n          \"field\": \"ly\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"ly\"\n        }\n      }\n    },\n    {\n      \"description\": \"Lines between rows\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.rank > 1 && datum.rank <= datum.shown + (datum.n > datum.shown ? 1 : 0)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rule\",\n        \"stroke\": {\n          \"expr\": \"rowLineColor\"\n        },\n        \"strokeWidth\": 1\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"lx0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"lx1\"\n        },\n        \"y\": {\n          \"field\": \"lineY\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"lineY\"\n        }\n      }\n    },\n    {\n      \"description\": \"KPI name\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.rank <= datum.shown\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"middle\",\n        \"fontWeight\": \"normal\",\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"fontSize\": {\n          \"expr\": \"fontSize\"\n        },\n        \"limit\": {\n          \"expr\": \"nameLimit\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        }\n      },\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"cy\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"name\",\n          \"type\": \"nominal\"\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"name\",\n            \"type\": \"nominal\",\n            \"title\": \"KPI\"\n          },\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Actual\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"deltaText\",\n            \"type\": \"nominal\",\n            \"title\": \"Variance\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Value\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.rank <= datum.shown\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"middle\",\n        \"fontWeight\": \"bold\",\n        \"x\": {\n          \"expr\": \"valueRight\"\n        },\n        \"fontSize\": {\n          \"expr\": \"fontSize\"\n        },\n        \"fill\": {\n          \"expr\": \"valueColor\"\n        }\n      },\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"cy\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"valueText\",\n          \"type\": \"nominal\"\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"name\",\n            \"type\": \"nominal\",\n            \"title\": \"KPI\"\n          },\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Actual\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"deltaText\",\n            \"type\": \"nominal\",\n            \"title\": \"Variance\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Target\",\n      \"transform\": [\n        {\n          \"filter\": \"targetOn && datum.rank <= datum.shown\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"middle\",\n        \"fontWeight\": \"normal\",\n        \"x\": {\n          \"expr\": \"targetRight\"\n        },\n        \"fontSize\": {\n          \"expr\": \"fontSize\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        }\n      },\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"cy\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"targetText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"description\": \"Variance, coloured good or bad\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.rank <= datum.shown\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"middle\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"deltaRight\"\n        },\n        \"fontSize\": {\n          \"expr\": \"fontSize\"\n        }\n      },\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"cy\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"deltaText\",\n          \"type\": \"nominal\"\n        },\n        \"color\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"description\": \"Mini bar track\",\n      \"transform\": [\n        {\n          \"filter\": \"statusStyle === ''bar'' && datum.rank <= datum.shown\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rect\",\n        \"fill\": {\n          \"expr\": \"trackColor\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"sx0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"sx1\"\n        },\n        \"y\": {\n          \"field\": \"barY0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"barY1\"\n        }\n      }\n    },\n    {\n      \"description\": \"Mini bar: Value against Target, to 125%\",\n      \"transform\": [\n        {\n          \"filter\": \"statusStyle === ''bar'' && datum.rank <= datum.shown && datum.fillX > datum.sx0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rect\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"sx0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"fillX\"\n        },\n        \"y\": {\n          \"field\": \"barY0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"barY1\"\n        },\n        \"color\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"name\",\n            \"type\": \"nominal\",\n            \"title\": \"KPI\"\n          },\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Actual\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"deltaText\",\n            \"type\": \"nominal\",\n            \"title\": \"Variance\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Mini bar: target tick at 100%\",\n      \"transform\": [\n        {\n          \"filter\": \"statusStyle === ''bar'' && datum.rank <= datum.shown\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rule\",\n        \"stroke\": {\n          \"expr\": \"valueColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"1.5 * unit\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"tickX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"tickX\"\n        },\n        \"y\": {\n          \"field\": \"tickY0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"tickY1\"\n        }\n      }\n    },\n    {\n      \"description\": \"Status dot\",\n      \"transform\": [\n        {\n          \"filter\": \"statusStyle === ''dot'' && datum.rank <= datum.shown\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"point\",\n        \"filled\": true,\n        \"opacity\": 1,\n        \"shape\": \"circle\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"dotX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"cy\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"size\": {\n          \"field\": \"dotSize\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"color\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"name\",\n            \"type\": \"nominal\",\n            \"title\": \"KPI\"\n          },\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Actual\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"deltaText\",\n            \"type\": \"nominal\",\n            \"title\": \"Variance\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"\\\"+n more\\\" when the rows do not fit\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.n > datum.shown && datum.rank === datum.shown + 1\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"middle\",\n        \"fontWeight\": \"normal\",\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"fontSize\": {\n          \"expr\": \"fontSize\"\n        },\n        \"fill\": {\n          \"expr\": \"mutedColor\"\n        },\n        \"fontStyle\": \"italic\"\n      },\n      \"encoding\": {\n        \"y\": {\n          \"field\": \"cy\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"moreText\",\n          \"type\": \"nominal\"\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KPI Scorecard'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

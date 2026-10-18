@@ -1,0 +1,42 @@
+/// Sample data for the Ring Progress Card template, showcase instance kpi-ring-progress-card-orders (showcase/data/kpi-ring-progress-card-orders.csv).
+table 'kpi-ring-progress-card-orders'
+	lineageTag: a56fbb34-5a31-5c58-92b7-31513dd0d2d4
+
+	/// Progress so far.
+	measure 'Value (kpi-ring-progress-card-orders)' = SUM ( 'kpi-ring-progress-card-orders'[Value] )
+		lineageTag: 81eb5313-0877-53f4-9270-88d35b4aab3d
+
+	/// The target the ring fills to.
+	measure 'Target (kpi-ring-progress-card-orders)' = SUM ( 'kpi-ring-progress-card-orders'[Target] )
+		lineageTag: 536fa981-0b42-59f5-951d-160b6eae7695
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: f1e244bf-ea27-592b-add2-aa4bcdf9f7aa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 7288d3cd-942e-5a19-982f-18e0eca39d3d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-ring-progress-card-orders' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    {
+				        { 18240, 17500 }
+				    }
+				)
