@@ -1,0 +1,86 @@
+/// Sample data for the Run-rate Projection Card template, showcase instance kpi-run-rate-card (templates/kpi/kpi-run-rate-card/sample-data.csv).
+table 'kpi-run-rate-card'
+	lineageTag: 31492be3-c032-50e8-ab8d-f9a94c01665d
+
+	/// The day value. Blank after the last day with data.
+	measure 'Value (kpi-run-rate-card)' = SUM ( 'kpi-run-rate-card'[Value] )
+		lineageTag: df2d2568-a8e0-51fa-8caa-a43fc25b7591
+
+	/// The day target (summed), or the whole period target on every row with targetPerRow false.
+	measure 'Target (kpi-run-rate-card)' = SUM ( 'kpi-run-rate-card'[Target] )
+		lineageTag: f77df76f-2b12-533c-b937-7f779d21bbef
+
+	/// One row per day of the period. Days still to come can carry a Target and a blank Value.
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 962a3c07-5618-5588-bc8a-25f8f8ce6968
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: a7b63f3c-c801-5449-ab8e-9a9b500d8817
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 3c0fcebf-ac2b-5985-8ac9-756001ecf925
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-run-rate-card' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Date", DATETIME,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    {
+				        { "2026-10-01", 154635, 165000 },
+				        { "2026-10-02", 151377, 165000 },
+				        { "2026-10-03", 96380, 95000 },
+				        { "2026-10-04", 92040, 95000 },
+				        { "2026-10-05", 167481, 165000 },
+				        { "2026-10-06", 161715, 165000 },
+				        { "2026-10-07", 146743, 165000 },
+				        { "2026-10-08", 165846, 165000 },
+				        { "2026-10-09", 145105, 165000 },
+				        { "2026-10-10", 87001, 95000 },
+				        { "2026-10-11", 93915, 95000 },
+				        { "2026-10-12", 160237, 165000 },
+				        { "2026-10-13", 147065, 165000 },
+				        { "2026-10-14", 145219, 165000 },
+				        { "2026-10-15", 149035, 165000 },
+				        { "2026-10-16", 156493, 165000 },
+				        { "2026-10-17", 89348, 95000 },
+				        { "2026-10-18", 85060, 95000 },
+				        { "2026-10-19", BLANK (), 165000 },
+				        { "2026-10-20", BLANK (), 165000 },
+				        { "2026-10-21", BLANK (), 165000 },
+				        { "2026-10-22", BLANK (), 165000 },
+				        { "2026-10-23", BLANK (), 165000 },
+				        { "2026-10-24", BLANK (), 95000 },
+				        { "2026-10-25", BLANK (), 95000 },
+				        { "2026-10-26", BLANK (), 165000 },
+				        { "2026-10-27", BLANK (), 165000 },
+				        { "2026-10-28", BLANK (), 165000 },
+				        { "2026-10-29", BLANK (), 165000 },
+				        { "2026-10-30", BLANK (), 165000 },
+				        { "2026-10-31", BLANK (), 95000 }
+				    }
+				)

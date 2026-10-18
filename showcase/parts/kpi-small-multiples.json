@@ -1,0 +1,23 @@
+{
+  "template": "templates/kpi/kpi-small-multiples/kpi-small-multiples.json",
+  "instances": [
+    {
+      "id": "kpi-small-multiples",
+      "page": "template",
+      "data": "templates/kpi/kpi-small-multiples/sample-data.csv",
+      "size": [400, 220],
+      "params": {}
+    },
+    {
+      "id": "kpi-small-multiples-shared",
+      "page": "template",
+      "data": "showcase/data/kpi-small-multiples-shared.csv",
+      "size": [400, 220],
+      "params": {
+        "title": "Sales by region",
+        "sharedScale": true,
+        "changeVs": "first"
+      }
+    }
+  ]
+}

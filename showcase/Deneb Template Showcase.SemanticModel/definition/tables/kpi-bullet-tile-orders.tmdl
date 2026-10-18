@@ -1,0 +1,42 @@
+/// Sample data for the KPI Bullet Tile template, showcase instance kpi-bullet-tile-orders (showcase/data/kpi-bullet-tile-orders.csv).
+table 'kpi-bullet-tile-orders'
+	lineageTag: b86fd108-52fa-51ba-ac2c-5684366e0c9d
+
+	/// The KPI.
+	measure 'Value (kpi-bullet-tile-orders)' = SUM ( 'kpi-bullet-tile-orders'[Value] )
+		lineageTag: 311cb7bb-5441-5a8b-99ba-e911c41041ce
+
+	/// Its target. The bands are shares of it.
+	measure 'Target (kpi-bullet-tile-orders)' = SUM ( 'kpi-bullet-tile-orders'[Target] )
+		lineageTag: 2083c3bf-0b0e-5516-8188-c103bf3acad8
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 21c94a69-5223-5e90-8c10-b1d551ad612a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: bbca0f04-233d-573f-8127-f79785196657
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-bullet-tile-orders' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    {
+				        { 21400, 18000 }
+				    }
+				)

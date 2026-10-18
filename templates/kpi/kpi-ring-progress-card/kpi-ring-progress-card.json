@@ -1,0 +1,624 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "Ring Progress Card",
+      "description": "Value against target as a full ring with the percentage in the centre, and the value, target and what is left beside it. Past 100% a second lap starts in a darker shade. For when the half-donut gauge is too much. Design by Timothy Osborn.",
+      "author": "Timothy Osborn",
+      "uuid": "9f9beff3-49fd-4f86-8ab0-90ca40c3a31d",
+      "generated": "2026-10-18T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Value",
+        "description": "Progress so far.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__1__",
+        "name": "Target",
+        "description": "The target the ring fills to.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {
+      "name": "title",
+      "value": "Sales"
+    },
+    {
+      "name": "targetLabel",
+      "value": "target"
+    },
+    {
+      "name": "toGoText",
+      "value": "to go"
+    },
+    {
+      "name": "overText",
+      "value": "over target"
+    },
+    {
+      "name": "ringColor",
+      "expr": "pbiColor(0)"
+    },
+    {
+      "name": "overColor",
+      "expr": "pbiColor(0, -0.45)"
+    },
+    {
+      "name": "trackColor",
+      "value": "#EDEBE9"
+    },
+    {
+      "name": "colorByStatus",
+      "value": false
+    },
+    {
+      "name": "thickness",
+      "value": 0.17
+    },
+    {
+      "name": "valueFormat",
+      "value": "auto"
+    },
+    {
+      "name": "prefix",
+      "value": "$"
+    },
+    {
+      "name": "pctFormat",
+      "value": ".0%"
+    },
+    {
+      "name": "noDataText",
+      "value": "n/a"
+    },
+    {
+      "name": "higherIsBetter",
+      "value": true
+    },
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "arrowUp",
+      "value": "▲"
+    },
+    {
+      "name": "cardColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "borderColor",
+      "value": "#E1DFDD"
+    },
+    {
+      "name": "borderWidth",
+      "value": 1
+    },
+    {
+      "name": "cardRadius",
+      "value": 4
+    },
+    {
+      "name": "valueColor",
+      "expr": "pbiColor(0, -0.5)"
+    },
+    {
+      "name": "labelColor",
+      "value": "#605E5C"
+    },
+    {
+      "name": "pad",
+      "expr": "clamp(min(width, height) * 0.09, 6, 20)"
+    },
+    {
+      "name": "ringR",
+      "expr": "max(8, min(height - 2 * pad, width * 0.38) / 2)"
+    },
+    {
+      "name": "ringCX",
+      "expr": "pad + ringR"
+    },
+    {
+      "name": "ringCY",
+      "expr": "height / 2"
+    },
+    {
+      "name": "innerR",
+      "expr": "ringR * (1 - thickness)"
+    },
+    {
+      "name": "ringRound",
+      "expr": "(ringR - innerR) / 2"
+    },
+    {
+      "name": "textX",
+      "expr": "ringCX + ringR + max(10, pad)"
+    },
+    {
+      "name": "textW",
+      "expr": "max(20, width - textX - pad)"
+    },
+    {
+      "name": "unit",
+      "expr": "clamp(min(textW / 150, height / 92), 0.55, 2.4)"
+    },
+    {
+      "name": "blockTop",
+      "expr": "max(0, (height - 82 * unit) / 2)"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "__0__",
+          "as": "vSum"
+        },
+        {
+          "op": "valid",
+          "field": "__0__",
+          "as": "vN"
+        },
+        {
+          "op": "sum",
+          "field": "__1__",
+          "as": "tgSum"
+        },
+        {
+          "op": "valid",
+          "field": "__1__",
+          "as": "tgN"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.vN > 0 ? datum.vSum : null",
+      "as": "v"
+    },
+    {
+      "calculate": "datum.tgN > 0 ? datum.tgSum : null",
+      "as": "tg"
+    },
+    {
+      "calculate": "isValid(datum.v) && isValid(datum.tg) && datum.tg !== 0 ? datum.v / datum.tg : null",
+      "as": "r"
+    },
+    {
+      "calculate": "isValid(datum.v) && isValid(datum.tg) ? datum.tg - datum.v : null",
+      "as": "rem"
+    },
+    {
+      "calculate": "isValid(datum.rem) ? abs(datum.rem) : null",
+      "as": "remAbs"
+    },
+    {
+      "calculate": "isValid(datum.r) ? (higherIsBetter ? 1 : -1) * (datum.r - 1) : 0",
+      "as": "g"
+    },
+    {
+      "calculate": "colorByStatus ? (datum.g >= 0 ? colorGood : colorBad) : ringColor",
+      "as": "fillColor"
+    },
+    {
+      "calculate": "2 * PI * clamp(isValid(datum.r) ? datum.r : 0, 0, 1)",
+      "as": "fillTheta"
+    },
+    {
+      "calculate": "2 * PI * clamp(isValid(datum.r) ? datum.r - 1 : 0, 0, 1)",
+      "as": "overTheta"
+    },
+    {
+      "calculate": "(!isValid(datum.r) || !isFinite(datum.r) ? noDataText : format(datum.r, pctFormat))",
+      "as": "pctText"
+    },
+    {
+      "calculate": "min(innerR * 0.62, innerR * 1.75 / max(3, length(datum.pctText)))",
+      "as": "pctSize"
+    },
+    {
+      "calculate": "(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== 'auto' ? format(datum.v, valueFormat) : (datum.v < 0 ? '−' : '') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.v) >= 999.5e6 ? 'bn' : abs(datum.v) >= 999.5e3 ? 'M' : abs(datum.v) >= 999.5 ? 'K' : ''))",
+      "as": "valueText"
+    },
+    {
+      "calculate": "(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : valueFormat !== 'auto' ? format(datum.tg, valueFormat) : (datum.tg < 0 ? '−' : '') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.tg) >= 999.5e6 ? 'bn' : abs(datum.tg) >= 999.5e3 ? 'M' : abs(datum.tg) >= 999.5 ? 'K' : ''))",
+      "as": "targetText"
+    },
+    {
+      "calculate": "'of ' + datum.targetText + ' ' + targetLabel",
+      "as": "ofText"
+    },
+    {
+      "calculate": "!isValid(datum.rem) ? noDataText : datum.rem > 0 ? (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== 'auto' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? '−' : '') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.remAbs) >= 999.5e6 ? 'bn' : abs(datum.remAbs) >= 999.5e3 ? 'M' : abs(datum.remAbs) >= 999.5 ? 'K' : '')) + ' ' + toGoText : datum.rem < 0 ? arrowUp + ' ' + (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== 'auto' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? '−' : '') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.remAbs) >= 999.5e6 ? 'bn' : abs(datum.remAbs) >= 999.5e3 ? 'M' : abs(datum.remAbs) >= 999.5 ? 'K' : '')) + ' ' + overText : 'on ' + targetLabel",
+      "as": "gapText"
+    },
+    {
+      "calculate": "isValid(datum.r) ? (higherIsBetter ? (datum.r >= 1 ? colorGood : labelColor) : (datum.r > 1 ? colorBad : colorGood)) : labelColor",
+      "as": "gapColor"
+    }
+  ],
+  "layer": [
+    {
+      "description": "Card background and border, inset by half the border so the container never clips it",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "x": {
+          "expr": "borderWidth / 2"
+        },
+        "y": {
+          "expr": "borderWidth / 2"
+        },
+        "x2": {
+          "expr": "width - borderWidth / 2"
+        },
+        "y2": {
+          "expr": "height - borderWidth / 2"
+        },
+        "fill": {
+          "expr": "cardColor"
+        },
+        "stroke": {
+          "expr": "borderColor"
+        },
+        "strokeWidth": {
+          "expr": "borderWidth"
+        },
+        "cornerRadius": {
+          "expr": "cardRadius"
+        }
+      }
+    },
+    {
+      "description": "Ring track",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "arc",
+        "x": {
+          "expr": "ringCX"
+        },
+        "y": {
+          "expr": "ringCY"
+        },
+        "radius": {
+          "expr": "ringR"
+        },
+        "radius2": {
+          "expr": "innerR"
+        },
+        "theta": 0,
+        "theta2": {
+          "expr": "2 * PI"
+        },
+        "fill": {
+          "expr": "trackColor"
+        }
+      }
+    },
+    {
+      "description": "Ring fill to the share of target, rounded ends",
+      "transform": [
+        {
+          "filter": "datum.fillTheta > 0"
+        }
+      ],
+      "mark": {
+        "type": "arc",
+        "x": {
+          "expr": "ringCX"
+        },
+        "y": {
+          "expr": "ringCY"
+        },
+        "radius": {
+          "expr": "ringR"
+        },
+        "radius2": {
+          "expr": "innerR"
+        },
+        "theta": 0,
+        "theta2": {
+          "expr": "datum.fillTheta"
+        },
+        "cornerRadius": {
+          "expr": "ringRound"
+        }
+      },
+      "encoding": {
+        "fill": {
+          "field": "fillColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "pctText",
+            "type": "nominal",
+            "title": "Of target"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Second lap past 100%",
+      "transform": [
+        {
+          "filter": "datum.overTheta > 0"
+        }
+      ],
+      "mark": {
+        "type": "arc",
+        "x": {
+          "expr": "ringCX"
+        },
+        "y": {
+          "expr": "ringCY"
+        },
+        "radius": {
+          "expr": "ringR"
+        },
+        "radius2": {
+          "expr": "innerR"
+        },
+        "theta": 0,
+        "theta2": {
+          "expr": "datum.overTheta"
+        },
+        "cornerRadius": {
+          "expr": "ringRound"
+        },
+        "fill": {
+          "expr": "overColor"
+        }
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "pctText",
+            "type": "nominal",
+            "title": "Of target"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Percentage in the centre",
+      "mark": {
+        "type": "text",
+        "x": {
+          "expr": "ringCX"
+        },
+        "y": {
+          "expr": "ringCY"
+        },
+        "align": "center",
+        "baseline": "middle",
+        "fontWeight": "bold",
+        "fill": {
+          "expr": "valueColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "pctText",
+          "type": "nominal"
+        },
+        "size": {
+          "field": "pctSize",
+          "type": "quantitative",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "Title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "textX"
+        },
+        "y": {
+          "expr": "blockTop + 13 * unit"
+        },
+        "fontSize": {
+          "expr": "11.5 * unit"
+        },
+        "limit": {
+          "expr": "textW"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "title"
+        }
+      }
+    },
+    {
+      "description": "Value",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "textX"
+        },
+        "y": {
+          "expr": "blockTop + 44 * unit"
+        },
+        "fontSize": {
+          "expr": "26 * unit"
+        },
+        "limit": {
+          "expr": "textW"
+        },
+        "fill": {
+          "expr": "valueColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "valueText",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "pctText",
+            "type": "nominal",
+            "title": "Of target"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Target",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "textX"
+        },
+        "y": {
+          "expr": "blockTop + 62 * unit"
+        },
+        "fontSize": {
+          "expr": "11 * unit"
+        },
+        "limit": {
+          "expr": "textW"
+        },
+        "fill": {
+          "expr": "labelColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "ofText",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Left to go, or past target",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "textX"
+        },
+        "y": {
+          "expr": "blockTop + 79 * unit"
+        },
+        "fontSize": {
+          "expr": "11 * unit"
+        },
+        "limit": {
+          "expr": "textW"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "gapText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "gapColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    }
+  ]
+}

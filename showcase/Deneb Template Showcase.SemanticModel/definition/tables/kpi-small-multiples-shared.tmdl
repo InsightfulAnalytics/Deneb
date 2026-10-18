@@ -1,0 +1,123 @@
+/// Sample data for the KPI Small Multiples template, showcase instance kpi-small-multiples-shared (showcase/data/kpi-small-multiples-shared.csv).
+table 'kpi-small-multiples-shared'
+	lineageTag: cb2651d2-b243-57d0-83b1-0c677be9a506
+
+	/// The KPI per category and date.
+	measure 'Value (kpi-small-multiples-shared)' = SUM ( 'kpi-small-multiples-shared'[Value] )
+		lineageTag: 29ac3620-850c-501a-855f-db3ae1844c5b
+
+	/// One panel each, for example Region or Product.
+	column Category
+		dataType: string
+		lineageTag: d59da2b0-a3f3-5334-a4a2-cfa61718ea7e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category]
+
+		annotation SummarizationSetBy = User
+
+	/// The sparkline axis: a day, a week or a month.
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 2aee76dc-9a89-5edc-9740-4dd1aed9972e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 00ae74dd-324c-591e-8d56-b42626153852
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-small-multiples-shared' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Category", STRING,
+				    "Date", DATETIME,
+				    "Value", DOUBLE,
+				    {
+				        { "North", "2025-01-31", 803435 },
+				        { "North", "2025-02-28", 867294 },
+				        { "North", "2025-03-31", 871877 },
+				        { "North", "2025-04-30", 850998 },
+				        { "North", "2025-05-31", 852384 },
+				        { "North", "2025-06-30", 847586 },
+				        { "North", "2025-07-31", 867753 },
+				        { "North", "2025-08-31", 813818 },
+				        { "North", "2025-09-30", 774704 },
+				        { "North", "2025-10-31", 798987 },
+				        { "North", "2025-11-30", 813431 },
+				        { "North", "2025-12-31", 844901 },
+				        { "South", "2025-01-31", 667728 },
+				        { "South", "2025-02-28", 696797 },
+				        { "South", "2025-03-31", 642755 },
+				        { "South", "2025-04-30", 664361 },
+				        { "South", "2025-05-31", 632884 },
+				        { "South", "2025-06-30", 613945 },
+				        { "South", "2025-07-31", 576395 },
+				        { "South", "2025-08-31", 579691 },
+				        { "South", "2025-09-30", 566163 },
+				        { "South", "2025-10-31", 599374 },
+				        { "South", "2025-11-30", 598677 },
+				        { "South", "2025-12-31", 618969 },
+				        { "East", "2025-01-31", 724027 },
+				        { "East", "2025-02-28", 745989 },
+				        { "East", "2025-03-31", 746708 },
+				        { "East", "2025-04-30", 715150 },
+				        { "East", "2025-05-31", 691095 },
+				        { "East", "2025-06-30", 719772 },
+				        { "East", "2025-07-31", 697558 },
+				        { "East", "2025-08-31", 752744 },
+				        { "East", "2025-09-30", 771421 },
+				        { "East", "2025-10-31", 775910 },
+				        { "East", "2025-11-30", 826654 },
+				        { "East", "2025-12-31", 854456 },
+				        { "West", "2025-01-31", 578154 },
+				        { "West", "2025-02-28", 565841 },
+				        { "West", "2025-03-31", 546344 },
+				        { "West", "2025-04-30", 566277 },
+				        { "West", "2025-05-31", 560904 },
+				        { "West", "2025-06-30", 557861 },
+				        { "West", "2025-07-31", 595599 },
+				        { "West", "2025-08-31", 625346 },
+				        { "West", "2025-09-30", 633103 },
+				        { "West", "2025-10-31", 620316 },
+				        { "West", "2025-11-30", 645425 },
+				        { "West", "2025-12-31", 640507 },
+				        { "Central", "2025-01-31", 417681 },
+				        { "Central", "2025-02-28", 408456 },
+				        { "Central", "2025-03-31", 410091 },
+				        { "Central", "2025-04-30", 403763 },
+				        { "Central", "2025-05-31", 419478 },
+				        { "Central", "2025-06-30", 443787 },
+				        { "Central", "2025-07-31", 424487 },
+				        { "Central", "2025-08-31", 441410 },
+				        { "Central", "2025-09-30", 422791 },
+				        { "Central", "2025-10-31", 422859 },
+				        { "Central", "2025-11-30", 404350 },
+				        { "Central", "2025-12-31", 396576 },
+				        { "Online", "2025-01-31", 357797 },
+				        { "Online", "2025-02-28", 376453 },
+				        { "Online", "2025-03-31", 393547 },
+				        { "Online", "2025-04-30", 419791 },
+				        { "Online", "2025-05-31", 453934 },
+				        { "Online", "2025-06-30", 493491 },
+				        { "Online", "2025-07-31", 480554 },
+				        { "Online", "2025-08-31", 486981 },
+				        { "Online", "2025-09-30", 513842 },
+				        { "Online", "2025-10-31", 523200 },
+				        { "Online", "2025-11-30", 528203 },
+				        { "Online", "2025-12-31", 531887 }
+				    }
+				)

@@ -1,0 +1,32 @@
+{
+  "template": "templates/kpi/kpi-delta-tile/kpi-delta-tile.json",
+  "instances": [
+    {
+      "id": "kpi-delta-tile",
+      "page": "template",
+      "data": "templates/kpi/kpi-delta-tile/sample-data.csv",
+      "size": [300, 90],
+      "params": {}
+    },
+    {
+      "id": "kpi-delta-tile-margin",
+      "page": "template",
+      "data": "showcase/data/kpi-delta-tile-margin.csv",
+      "size": [300, 90],
+      "params": {
+        "title": "Gross margin",
+        "valueFormat": ".1%"
+      }
+    },
+    {
+      "id": "kpi-delta-tile-cost",
+      "page": "template",
+      "data": "showcase/data/kpi-delta-tile-cost.csv",
+      "size": [240, 150],
+      "params": {
+        "title": "Operating cost",
+        "higherIsBetter": false
+      }
+    }
+  ]
+}

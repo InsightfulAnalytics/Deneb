@@ -1,0 +1,67 @@
+/// Sample data for the Hit or Miss Strip template, showcase instance kpi-hit-miss-strip (templates/kpi/kpi-hit-miss-strip/sample-data.csv).
+table 'kpi-hit-miss-strip'
+	lineageTag: 62ae8f94-9b2d-549e-9e3b-5720e65cf017
+
+	/// The period value.
+	measure 'Value (kpi-hit-miss-strip)' = SUM ( 'kpi-hit-miss-strip'[Value] )
+		lineageTag: 1cf2447b-0156-5a5c-949d-ef0d0a565365
+
+	/// The period target.
+	measure 'Target (kpi-hit-miss-strip)' = SUM ( 'kpi-hit-miss-strip'[Target] )
+		lineageTag: a57ea2ac-420a-5a8a-9c3e-70083d0d5abd
+
+	/// One row per period: a day, a week start, a month end. The strip shows the latest ones.
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8f235b35-a767-50c2-a290-83975cb3251f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 7a00c99d-09ce-5d4e-94c6-ac6ed6adbce0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: 57c20834-f763-50bf-8059-2f98a23526f9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-hit-miss-strip' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Date", DATETIME,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    {
+				        { "2025-01-31", 1152000, 1200000 },
+				        { "2025-02-28", 1269216, 1220400 },
+				        { "2025-03-31", 1327656, 1240800 },
+				        { "2025-04-30", 1235976, 1261200 },
+				        { "2025-05-31", 1320048, 1281600 },
+				        { "2025-06-30", 1223880, 1302000 },
+				        { "2025-07-31", 1309176, 1322400 },
+				        { "2025-08-31", 1369656, 1342800 },
+				        { "2025-09-30", 1431360, 1363200 },
+				        { "2025-10-31", 1425108, 1383600 },
+				        { "2025-11-30", 1516320, 1404000 },
+				        { "2025-12-31", 1481376, 1424400 }
+				    }
+				)

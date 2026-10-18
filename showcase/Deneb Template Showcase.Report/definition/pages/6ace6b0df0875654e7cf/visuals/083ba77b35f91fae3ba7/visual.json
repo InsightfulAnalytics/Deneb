@@ -1,0 +1,239 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "083ba77b35f91fae3ba7",
+  "position": {
+    "x": 24,
+    "y": 81,
+    "z": 2000,
+    "height": 90,
+    "width": 300,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-bullet-tile"
+                    }
+                  },
+                  "Property": "Value (kpi-bullet-tile)"
+                }
+              },
+              "queryRef": "kpi-bullet-tile.Value (kpi-bullet-tile)",
+              "nativeQueryRef": "Value (kpi-bullet-tile)",
+              "displayName": "Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-bullet-tile"
+                    }
+                  },
+                  "Property": "Target (kpi-bullet-tile)"
+                }
+              },
+              "queryRef": "kpi-bullet-tile.Target (kpi-bullet-tile)",
+              "nativeQueryRef": "Target (kpi-bullet-tile)",
+              "displayName": "Target"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"padding\": 0,\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"Sales\"\n    },\n    {\n      \"name\": \"targetLabel\",\n      \"value\": \"Target\"\n    },\n    {\n      \"name\": \"bandBreaks\",\n      \"value\": [\n        0.7,\n        0.9\n      ]\n    },\n    {\n      \"name\": \"scaleMax\",\n      \"value\": 1.2\n    },\n    {\n      \"name\": \"bandColors\",\n      \"value\": [\n        \"#C8C6C4\",\n        \"#DCDAD8\",\n        \"#EDEBE9\"\n      ]\n    },\n    {\n      \"name\": \"axisFormat\",\n      \"value\": \".0%\"\n    },\n    {\n      \"name\": \"barColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"colorBarByStatus\",\n      \"value\": false\n    },\n    {\n      \"name\": \"targetColor\",\n      \"value\": \"#252423\"\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"prefix\",\n      \"value\": \"$\"\n    },\n    {\n      \"name\": \"pctFormat\",\n      \"value\": \"+.1%\"\n    },\n    {\n      \"name\": \"noDataText\",\n      \"value\": \"n/a\"\n    },\n    {\n      \"name\": \"varianceUnit\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": true\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"colorNeutral\",\n      \"expr\": \"pbiColor(''neutral'')\"\n    },\n    {\n      \"name\": \"arrowUp\",\n      \"value\": \"▲\"\n    },\n    {\n      \"name\": \"arrowDown\",\n      \"value\": \"▼\"\n    },\n    {\n      \"name\": \"arrowFlat\",\n      \"value\": \"►\"\n    },\n    {\n      \"name\": \"cardColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"borderColor\",\n      \"value\": \"#E1DFDD\"\n    },\n    {\n      \"name\": \"borderWidth\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"cardRadius\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"valueColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"labelColor\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"mutedColor\",\n      \"value\": \"#A19F9D\"\n    },\n    {\n      \"name\": \"stacked\",\n      \"expr\": \"width < 2.4 * height\"\n    },\n    {\n      \"name\": \"unit\",\n      \"expr\": \"stacked ? clamp(min(width / 240, height / 160), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)\"\n    },\n    {\n      \"name\": \"pad\",\n      \"expr\": \"14 * unit\"\n    },\n    {\n      \"name\": \"top0\",\n      \"expr\": \"max(0, (height - (stacked ? 160 : 90) * unit) / 2)\"\n    },\n    {\n      \"name\": \"textLimit\",\n      \"expr\": \"stacked ? width - 2 * pad : width * 0.44 - 1.5 * pad\"\n    },\n    {\n      \"name\": \"titleSize\",\n      \"expr\": \"(stacked ? 13 : 11.5) * unit\"\n    },\n    {\n      \"name\": \"titleY\",\n      \"expr\": \"top0 + (stacked ? 24 : 21) * unit\"\n    },\n    {\n      \"name\": \"valueSize\",\n      \"expr\": \"(stacked ? 36 : 26) * unit\"\n    },\n    {\n      \"name\": \"valueY\",\n      \"expr\": \"top0 + (stacked ? 66 : 52) * unit\"\n    },\n    {\n      \"name\": \"gapSize\",\n      \"expr\": \"(stacked ? 12.5 : 11) * unit\"\n    },\n    {\n      \"name\": \"gapY\",\n      \"expr\": \"top0 + (stacked ? 88 : 71) * unit\"\n    },\n    {\n      \"name\": \"bulletX0\",\n      \"expr\": \"stacked ? pad : width * 0.44\"\n    },\n    {\n      \"name\": \"bulletX1\",\n      \"expr\": \"width - pad\"\n    },\n    {\n      \"name\": \"labelSize\",\n      \"expr\": \"9.5 * unit\"\n    },\n    {\n      \"name\": \"targetLabelY\",\n      \"expr\": \"top0 + (stacked ? 106 : 22) * unit\"\n    },\n    {\n      \"name\": \"bandY0\",\n      \"expr\": \"top0 + (stacked ? 112 : 29) * unit\"\n    },\n    {\n      \"name\": \"bandY1\",\n      \"expr\": \"top0 + (stacked ? 136 : 61) * unit\"\n    },\n    {\n      \"name\": \"barY0\",\n      \"expr\": \"top0 + (stacked ? 119 : 39) * unit\"\n    },\n    {\n      \"name\": \"barY1\",\n      \"expr\": \"top0 + (stacked ? 129 : 51) * unit\"\n    },\n    {\n      \"name\": \"tickY0\",\n      \"expr\": \"top0 + (stacked ? 108 : 25) * unit\"\n    },\n    {\n      \"name\": \"tickY1\",\n      \"expr\": \"top0 + (stacked ? 140 : 65) * unit\"\n    },\n    {\n      \"name\": \"axisY\",\n      \"expr\": \"top0 + (stacked ? 153 : 78) * unit\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"aggregate\": [\n        {\n          \"op\": \"sum\",\n          \"field\": \"Value\",\n          \"as\": \"vSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Value\",\n          \"as\": \"vN\"\n        },\n        {\n          \"op\": \"sum\",\n          \"field\": \"Target\",\n          \"as\": \"tgSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Target\",\n          \"as\": \"tgN\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"datum.vN > 0 ? datum.vSum : null\",\n      \"as\": \"v\"\n    },\n    {\n      \"calculate\": \"datum.tgN > 0 ? datum.tgSum : null\",\n      \"as\": \"tg\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) ? datum.v - datum.tg : null\",\n      \"as\": \"d\"\n    },\n    {\n      \"calculate\": \"isValid(datum.d) && datum.tg !== 0 ? datum.d / abs(datum.tg) : null\",\n      \"as\": \"p\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) && datum.tg !== 0 ? datum.v / datum.tg : null\",\n      \"as\": \"r\"\n    },\n    {\n      \"calculate\": \"isValid(datum.d) ? (higherIsBetter ? 1 : -1) * datum.d : 0\",\n      \"as\": \"g\"\n    },\n    {\n      \"calculate\": \"(datum.g > 0 ? colorGood : datum.g < 0 ? colorBad : colorNeutral)\",\n      \"as\": \"statusColor\"\n    },\n    {\n      \"calculate\": \"(varianceUnit === ''points'' || (varianceUnit === ''auto'' && indexof(valueFormat, ''%'') >= 0))\",\n      \"as\": \"isPts\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== ''auto'' ? format(datum.v, valueFormat) : (datum.v < 0 ? ''−'' : '''') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.v) >= 999.5e6 ? ''bn'' : abs(datum.v) >= 999.5e3 ? ''M'' : abs(datum.v) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"valueText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : valueFormat !== ''auto'' ? format(datum.tg, valueFormat) : (datum.tg < 0 ? ''−'' : '''') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.tg) >= 999.5e6 ? ''bn'' : abs(datum.tg) >= 999.5e3 ? ''M'' : abs(datum.tg) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"targetText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.d) ? '''' : datum.d > 0 ? arrowUp : datum.d < 0 ? arrowDown : arrowFlat) + '' '' + (datum.isPts ? (!isValid(datum.d) ? noDataText : (datum.d > 0 ? ''+'' : datum.d < 0 ? ''−'' : '''') + format(abs(datum.d) * 100, ''.1f'') + '' pts'') : (isValid(datum.d) && datum.d > 0 ? ''+'' : '''') + (!isValid(datum.d) || !isFinite(datum.d) ? noDataText : valueFormat !== ''auto'' ? format(datum.d, valueFormat) : (datum.d < 0 ? ''−'' : '''') + prefix + format(abs(datum.d) / (abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1), abs(datum.d) / (abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.d) >= 999.5e6 ? ''bn'' : abs(datum.d) >= 999.5e3 ? ''M'' : abs(datum.d) >= 999.5 ? ''K'' : '''')) + '' ('' + (!isValid(datum.p) || !isFinite(datum.p) ? noDataText : format(datum.p, pctFormat)) + '')'')\",\n      \"as\": \"gapText\"\n    },\n    {\n      \"calculate\": \"max(scaleMax, 1.04, isValid(datum.r) ? datum.r * 1.04 : 0)\",\n      \"as\": \"scaleEnd\"\n    },\n    {\n      \"calculate\": \"bulletX0 + (clamp(isValid(datum.r) ? datum.r : 0, 0, datum.scaleEnd)) / datum.scaleEnd * (bulletX1 - bulletX0)\",\n      \"as\": \"barEnd\"\n    },\n    {\n      \"calculate\": \"bulletX0 + (1) / datum.scaleEnd * (bulletX1 - bulletX0)\",\n      \"as\": \"targetX\"\n    },\n    {\n      \"calculate\": \"targetLabel + '' '' + datum.targetText\",\n      \"as\": \"targetLabelText\"\n    },\n    {\n      \"calculate\": \"min(max(datum.targetX, bulletX0 + labelSize * 0.29 * length(datum.targetLabelText)), bulletX1 - labelSize * 0.29 * length(datum.targetLabelText))\",\n      \"as\": \"targetLabelX\"\n    },\n    {\n      \"calculate\": \"colorBarByStatus ? datum.statusColor : barColor\",\n      \"as\": \"barFill\"\n    },\n    {\n      \"calculate\": \"bulletX0\",\n      \"as\": \"bx0\"\n    },\n    {\n      \"calculate\": \"barY0\",\n      \"as\": \"by0\"\n    },\n    {\n      \"calculate\": \"barY1\",\n      \"as\": \"by1\"\n    },\n    {\n      \"calculate\": \"tickY0\",\n      \"as\": \"ty0\"\n    },\n    {\n      \"calculate\": \"tickY1\",\n      \"as\": \"ty1\"\n    },\n    {\n      \"calculate\": \"datum.gapText\",\n      \"as\": \"tipGap\"\n    }\n  ],\n  \"layer\": [\n    {\n      \"description\": \"Card background and border, inset by half the border so the container never clips it\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"x\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"y\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"x2\": {\n          \"expr\": \"width - borderWidth / 2\"\n        },\n        \"y2\": {\n          \"expr\": \"height - borderWidth / 2\"\n        },\n        \"fill\": {\n          \"expr\": \"cardColor\"\n        },\n        \"stroke\": {\n          \"expr\": \"borderColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"borderWidth\"\n        },\n        \"cornerRadius\": {\n          \"expr\": \"cardRadius\"\n        }\n      }\n    },\n    {\n      \"description\": \"Title\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"y\": {\n          \"expr\": \"titleY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"titleSize\"\n        },\n        \"limit\": {\n          \"expr\": \"textLimit\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"title\"\n        }\n      }\n    },\n    {\n      \"description\": \"Value\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"bold\",\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"y\": {\n          \"expr\": \"valueY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"valueSize\"\n        },\n        \"limit\": {\n          \"expr\": \"textLimit\"\n        },\n        \"fill\": {\n          \"expr\": \"valueColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"valueText\",\n          \"type\": \"nominal\"\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"tipGap\",\n            \"type\": \"nominal\",\n            \"title\": \"Gap\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Gap to target, coloured good or bad\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"y\": {\n          \"expr\": \"gapY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"gapSize\"\n        },\n        \"limit\": {\n          \"expr\": \"textLimit\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"gapText\",\n          \"type\": \"nominal\"\n        },\n        \"color\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"description\": \"Qualitative bands, one row each from the breaks\",\n      \"transform\": [\n        {\n          \"calculate\": \"sequence(0, length(bandBreaks) + 1)\",\n          \"as\": \"bi\"\n        },\n        {\n          \"flatten\": [\n            \"bi\"\n          ]\n        },\n        {\n          \"calculate\": \"datum.bi === 0 ? 0 : bandBreaks[datum.bi - 1]\",\n          \"as\": \"s0\"\n        },\n        {\n          \"calculate\": \"min(datum.bi === length(bandBreaks) ? datum.scaleEnd : bandBreaks[datum.bi], datum.scaleEnd)\",\n          \"as\": \"s1\"\n        },\n        {\n          \"filter\": \"datum.s1 > datum.s0\"\n        },\n        {\n          \"calculate\": \"bulletX0 + (datum.s0) / datum.scaleEnd * (bulletX1 - bulletX0)\",\n          \"as\": \"x0\"\n        },\n        {\n          \"calculate\": \"bulletX0 + (datum.s1) / datum.scaleEnd * (bulletX1 - bulletX0)\",\n          \"as\": \"x1\"\n        },\n        {\n          \"calculate\": \"bandY0\",\n          \"as\": \"y0\"\n        },\n        {\n          \"calculate\": \"bandY1\",\n          \"as\": \"y1\"\n        },\n        {\n          \"calculate\": \"bandColors[clamp(higherIsBetter ? datum.bi : length(bandBreaks) - datum.bi, 0, length(bandColors) - 1)]\",\n          \"as\": \"fillBand\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rect\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"x0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"x1\"\n        },\n        \"y\": {\n          \"field\": \"y0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"y1\"\n        },\n        \"color\": {\n          \"field\": \"fillBand\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"description\": \"Value bar\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.barEnd > datum.bx0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rect\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"bx0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"barEnd\"\n        },\n        \"y\": {\n          \"field\": \"by0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"by1\"\n        },\n        \"color\": {\n          \"field\": \"barFill\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"tipGap\",\n            \"type\": \"nominal\",\n            \"title\": \"Gap\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Target tick\",\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.r)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rule\",\n        \"strokeWidth\": {\n          \"expr\": \"2.5 * unit\"\n        },\n        \"stroke\": {\n          \"expr\": \"targetColor\"\n        },\n        \"strokeCap\": \"butt\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"targetX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"targetX\"\n        },\n        \"y\": {\n          \"field\": \"ty0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"ty1\"\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Target label over the tick, kept inside the bullet\",\n      \"transform\": [\n        {\n          \"filter\": \"isValid(datum.r)\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"center\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"normal\",\n        \"y\": {\n          \"expr\": \"targetLabelY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"labelSize\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"targetLabelX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"targetLabelText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"description\": \"Band labels under the bullet, one per break; the target is labelled over its tick\",\n      \"transform\": [\n        {\n          \"calculate\": \"sequence(0, length(bandBreaks))\",\n          \"as\": \"li\"\n        },\n        {\n          \"flatten\": [\n            \"li\"\n          ]\n        },\n        {\n          \"calculate\": \"bandBreaks[datum.li]\",\n          \"as\": \"ls\"\n        },\n        {\n          \"filter\": \"datum.ls < datum.scaleEnd\"\n        },\n        {\n          \"calculate\": \"bulletX0 + (datum.ls) / datum.scaleEnd * (bulletX1 - bulletX0)\",\n          \"as\": \"lx\"\n        },\n        {\n          \"calculate\": \"format(datum.ls, axisFormat)\",\n          \"as\": \"lt\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"center\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"normal\",\n        \"y\": {\n          \"expr\": \"axisY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"labelSize\"\n        },\n        \"fill\": {\n          \"expr\": \"mutedColor\"\n        }\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"lx\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"text\": {\n          \"field\": \"lt\",\n          \"type\": \"nominal\"\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KPI Bullet Tile'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

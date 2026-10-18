@@ -1,0 +1,239 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "77efc7cb1445dcd396b4",
+  "position": {
+    "x": 24,
+    "y": 81,
+    "z": 2000,
+    "height": 90,
+    "width": 300,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-delta-tile"
+                    }
+                  },
+                  "Property": "Value (kpi-delta-tile)"
+                }
+              },
+              "queryRef": "kpi-delta-tile.Value (kpi-delta-tile)",
+              "nativeQueryRef": "Value (kpi-delta-tile)",
+              "displayName": "Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-delta-tile"
+                    }
+                  },
+                  "Property": "Benchmark (kpi-delta-tile)"
+                }
+              },
+              "queryRef": "kpi-delta-tile.Benchmark (kpi-delta-tile)",
+              "nativeQueryRef": "Benchmark (kpi-delta-tile)",
+              "displayName": "Benchmark"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"padding\": 0,\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"Sales\"\n    },\n    {\n      \"name\": \"comparisonLabel\",\n      \"value\": \"PY\"\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"prefix\",\n      \"value\": \"$\"\n    },\n    {\n      \"name\": \"pctFormat\",\n      \"value\": \"+.1%\"\n    },\n    {\n      \"name\": \"noDataText\",\n      \"value\": \"n/a\"\n    },\n    {\n      \"name\": \"varianceUnit\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": true\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"colorNeutral\",\n      \"expr\": \"pbiColor(''neutral'')\"\n    },\n    {\n      \"name\": \"arrowUp\",\n      \"value\": \"▲\"\n    },\n    {\n      \"name\": \"arrowDown\",\n      \"value\": \"▼\"\n    },\n    {\n      \"name\": \"arrowFlat\",\n      \"value\": \"►\"\n    },\n    {\n      \"name\": \"cardColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"borderColor\",\n      \"value\": \"#E1DFDD\"\n    },\n    {\n      \"name\": \"borderWidth\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"cardRadius\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"valueColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"labelColor\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"stacked\",\n      \"expr\": \"width < 2.4 * height\"\n    },\n    {\n      \"name\": \"unit\",\n      \"expr\": \"stacked ? clamp(min(width / 240, height / 150), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)\"\n    },\n    {\n      \"name\": \"pad\",\n      \"expr\": \"14 * unit\"\n    },\n    {\n      \"name\": \"top0\",\n      \"expr\": \"max(0, (height - (stacked ? 150 : 90) * unit) / 2)\"\n    },\n    {\n      \"name\": \"titleSize\",\n      \"expr\": \"(stacked ? 13 : 12) * unit\"\n    },\n    {\n      \"name\": \"titleY\",\n      \"expr\": \"top0 + (stacked ? 26 : 23) * unit\"\n    },\n    {\n      \"name\": \"valueSize\",\n      \"expr\": \"(stacked ? 40 : 32) * unit\"\n    },\n    {\n      \"name\": \"valueY\",\n      \"expr\": \"top0 + (stacked ? 82 : 67) * unit\"\n    },\n    {\n      \"name\": \"deltaSize\",\n      \"expr\": \"(stacked ? 15 : 17) * unit\"\n    },\n    {\n      \"name\": \"deltaY\",\n      \"expr\": \"top0 + (stacked ? 112 : 46) * unit\"\n    },\n    {\n      \"name\": \"noteSize\",\n      \"expr\": \"(stacked ? 12 : 11.5) * unit\"\n    },\n    {\n      \"name\": \"noteY\",\n      \"expr\": \"top0 + (stacked ? 134 : 67) * unit\"\n    },\n    {\n      \"name\": \"sideX\",\n      \"expr\": \"stacked ? pad : width - pad\"\n    },\n    {\n      \"name\": \"sideAlign\",\n      \"expr\": \"stacked ? ''left'' : ''right''\"\n    },\n    {\n      \"name\": \"valueLimit\",\n      \"expr\": \"stacked ? width - 2 * pad : width * 0.58 - pad\"\n    },\n    {\n      \"name\": \"sideLimit\",\n      \"expr\": \"stacked ? width - 2 * pad : width * 0.42 - pad\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"aggregate\": [\n        {\n          \"op\": \"sum\",\n          \"field\": \"Value\",\n          \"as\": \"vSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Value\",\n          \"as\": \"vN\"\n        },\n        {\n          \"op\": \"sum\",\n          \"field\": \"Benchmark\",\n          \"as\": \"bSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Benchmark\",\n          \"as\": \"bN\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"datum.vN > 0 ? datum.vSum : null\",\n      \"as\": \"v\"\n    },\n    {\n      \"calculate\": \"datum.bN > 0 ? datum.bSum : null\",\n      \"as\": \"b\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.b) ? datum.v - datum.b : null\",\n      \"as\": \"d\"\n    },\n    {\n      \"calculate\": \"isValid(datum.d) && datum.b !== 0 ? datum.d / abs(datum.b) : null\",\n      \"as\": \"p\"\n    },\n    {\n      \"calculate\": \"isValid(datum.d) ? (higherIsBetter ? 1 : -1) * datum.d : 0\",\n      \"as\": \"g\"\n    },\n    {\n      \"calculate\": \"(datum.g > 0 ? colorGood : datum.g < 0 ? colorBad : colorNeutral)\",\n      \"as\": \"statusColor\"\n    },\n    {\n      \"calculate\": \"(varianceUnit === ''points'' || (varianceUnit === ''auto'' && indexof(valueFormat, ''%'') >= 0))\",\n      \"as\": \"isPts\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== ''auto'' ? format(datum.v, valueFormat) : (datum.v < 0 ? ''−'' : '''') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.v) >= 999.5e6 ? ''bn'' : abs(datum.v) >= 999.5e3 ? ''M'' : abs(datum.v) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"valueText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.b) || !isFinite(datum.b) ? noDataText : valueFormat !== ''auto'' ? format(datum.b, valueFormat) : (datum.b < 0 ? ''−'' : '''') + prefix + format(abs(datum.b) / (abs(datum.b) >= 999.5e6 ? 1e9 : abs(datum.b) >= 999.5e3 ? 1e6 : abs(datum.b) >= 999.5 ? 1e3 : 1), abs(datum.b) / (abs(datum.b) >= 999.5e6 ? 1e9 : abs(datum.b) >= 999.5e3 ? 1e6 : abs(datum.b) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.b) >= 999.5e6 ? 1e9 : abs(datum.b) >= 999.5e3 ? 1e6 : abs(datum.b) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.b) >= 999.5e6 ? ''bn'' : abs(datum.b) >= 999.5e3 ? ''M'' : abs(datum.b) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"benchText\"\n    },\n    {\n      \"calculate\": \"(isValid(datum.d) && datum.d > 0 ? ''+'' : '''') + (!isValid(datum.d) || !isFinite(datum.d) ? noDataText : valueFormat !== ''auto'' ? format(datum.d, valueFormat) : (datum.d < 0 ? ''−'' : '''') + prefix + format(abs(datum.d) / (abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1), abs(datum.d) / (abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.d) >= 999.5e6 ? 1e9 : abs(datum.d) >= 999.5e3 ? 1e6 : abs(datum.d) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.d) >= 999.5e6 ? ''bn'' : abs(datum.d) >= 999.5e3 ? ''M'' : abs(datum.d) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"amountText\"\n    },\n    {\n      \"calculate\": \"datum.isPts ? (!isValid(datum.d) ? noDataText : (datum.d > 0 ? ''+'' : datum.d < 0 ? ''−'' : '''') + format(abs(datum.d) * 100, ''.1f'') + '' pts'') : (!isValid(datum.p) || !isFinite(datum.p) ? noDataText : format(datum.p, pctFormat))\",\n      \"as\": \"relText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.d) ? '''' : datum.d > 0 ? arrowUp : datum.d < 0 ? arrowDown : arrowFlat) + '' '' + (stacked && !datum.isPts ? datum.amountText + '' '' : '''') + datum.relText\",\n      \"as\": \"deltaText\"\n    },\n    {\n      \"calculate\": \"stacked || datum.isPts ? ''vs '' + comparisonLabel + '' '' + datum.benchText : datum.amountText + '' vs '' + comparisonLabel\",\n      \"as\": \"noteText\"\n    },\n    {\n      \"calculate\": \"stacked ? labelColor : datum.statusColor\",\n      \"as\": \"noteColor\"\n    },\n    {\n      \"calculate\": \"datum.amountText + '' ('' + datum.relText + '')''\",\n      \"as\": \"tipChange\"\n    }\n  ],\n  \"layer\": [\n    {\n      \"description\": \"Card background and border, inset by half the border so the container never clips it\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"x\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"y\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"x2\": {\n          \"expr\": \"width - borderWidth / 2\"\n        },\n        \"y2\": {\n          \"expr\": \"height - borderWidth / 2\"\n        },\n        \"fill\": {\n          \"expr\": \"cardColor\"\n        },\n        \"stroke\": {\n          \"expr\": \"borderColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"borderWidth\"\n        },\n        \"cornerRadius\": {\n          \"expr\": \"cardRadius\"\n        }\n      }\n    },\n    {\n      \"description\": \"Title\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"y\": {\n          \"expr\": \"titleY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"titleSize\"\n        },\n        \"limit\": {\n          \"expr\": \"width - 2 * pad\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"title\"\n        }\n      }\n    },\n    {\n      \"description\": \"Value\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"bold\",\n        \"x\": {\n          \"expr\": \"pad\"\n        },\n        \"y\": {\n          \"expr\": \"valueY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"valueSize\"\n        },\n        \"limit\": {\n          \"expr\": \"valueLimit\"\n        },\n        \"fill\": {\n          \"expr\": \"valueColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"valueText\",\n          \"type\": \"nominal\"\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"benchText\",\n            \"type\": \"nominal\",\n            \"title\": \"Benchmark\"\n          },\n          {\n            \"field\": \"tipChange\",\n            \"type\": \"nominal\",\n            \"title\": \"Change\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Change: arrow and percentage, coloured good or bad\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": {\n          \"expr\": \"sideAlign\"\n        },\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"bold\",\n        \"x\": {\n          \"expr\": \"sideX\"\n        },\n        \"y\": {\n          \"expr\": \"deltaY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"deltaSize\"\n        },\n        \"limit\": {\n          \"expr\": \"sideLimit\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"deltaText\",\n          \"type\": \"nominal\"\n        },\n        \"color\": {\n          \"field\": \"statusColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"benchText\",\n            \"type\": \"nominal\",\n            \"title\": \"Benchmark\"\n          },\n          {\n            \"field\": \"tipChange\",\n            \"type\": \"nominal\",\n            \"title\": \"Change\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Note: the amount (side by side) or the benchmark itself (stacked)\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": {\n          \"expr\": \"sideAlign\"\n        },\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"normal\",\n        \"x\": {\n          \"expr\": \"sideX\"\n        },\n        \"y\": {\n          \"expr\": \"noteY\"\n        },\n        \"fontSize\": {\n          \"expr\": \"noteSize\"\n        },\n        \"limit\": {\n          \"expr\": \"sideLimit\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"noteText\",\n          \"type\": \"nominal\"\n        },\n        \"color\": {\n          \"field\": \"noteColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KPI Delta Tile'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

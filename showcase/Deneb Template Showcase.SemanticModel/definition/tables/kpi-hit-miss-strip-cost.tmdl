@@ -1,0 +1,67 @@
+/// Sample data for the Hit or Miss Strip template, showcase instance kpi-hit-miss-strip-cost (showcase/data/kpi-hit-miss-strip-cost.csv).
+table 'kpi-hit-miss-strip-cost'
+	lineageTag: 0869dea8-8e6a-5d7b-b6c4-64fb59118ca1
+
+	/// The period value.
+	measure 'Value (kpi-hit-miss-strip-cost)' = SUM ( 'kpi-hit-miss-strip-cost'[Value] )
+		lineageTag: 180584ac-ebac-5eac-b64c-b82878d73453
+
+	/// The period target.
+	measure 'Target (kpi-hit-miss-strip-cost)' = SUM ( 'kpi-hit-miss-strip-cost'[Target] )
+		lineageTag: d27c2e62-4831-57a0-be08-8272640ffb43
+
+	/// One row per period: a day, a week start, a month end. The strip shows the latest ones.
+	column Date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: bbcfa5b5-827e-5137-8959-39e2495f4af7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Value
+		dataType: double
+		isHidden
+		lineageTag: 743a7219-f28e-5388-bcf1-7c88f59852eb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	column Target
+		dataType: double
+		isHidden
+		lineageTag: bf3b09da-3418-5788-9ef8-f43f3966be84
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Target]
+
+		annotation SummarizationSetBy = User
+
+	partition 'kpi-hit-miss-strip-cost' = calculated
+		mode: import
+		source =
+				DATATABLE (
+				    "Date", DATETIME,
+				    "Value", DOUBLE,
+				    "Target", DOUBLE,
+				    {
+				        { "2025-01-31", 627200, 640000 },
+				        { "2025-02-28", 664474, 645120 },
+				        { "2025-03-31", 630733, 650240 },
+				        { "2025-04-30", 648806, 655360 },
+				        { "2025-05-31", 673690, 660480 },
+				        { "2025-06-30", 638976, 665600 },
+				        { "2025-07-31", 657306, 670720 },
+				        { "2025-08-31", 669082, 675840 },
+				        { "2025-09-30", 660531, 680960 },
+				        { "2025-10-31", 692941, 686080 },
+				        { "2025-11-30", 677376, 691200 },
+				        { "2025-12-31", 689357, 696320 }
+				    }
+				)

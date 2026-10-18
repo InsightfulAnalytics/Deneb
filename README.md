@@ -1,10 +1,11 @@
 # Deneb Templates for Power BI
 
-Thirteen ready-to-import [Deneb](https://deneb-viz.github.io/) templates for Power BI: KPI cards,
-bullet and comparison charts, [performant P&L statements](#performant-pl-statements) that render
-far faster than a Power BI matrix or table, a gauge, a map of Australia and a calendar heatmap. Each one comes
-with sample data, a preview and a README that lists its fields and options, and all of them sit
-bound to sample data in one Power BI project you can open and explore.
+Twenty-one ready-to-import [Deneb](https://deneb-viz.github.io/) templates for Power BI: KPI cards
+and tiles, a KPI scorecard and small multiples, bullet and comparison charts,
+[performant P&L statements](#performant-pl-statements) that render far faster than a Power BI
+matrix or table, a gauge, a map of Australia and a calendar heatmap. Each one comes with sample
+data, a preview and a README that lists its fields and options, and all of them sit bound to
+sample data in one Power BI project you can open and explore.
 
 ![KPI Dashboard 2015, rebuilt with these templates](showcase/dashboard.png)
 
@@ -19,9 +20,17 @@ a project of its own is copied in when it is finished, and its README says where
 
 | Template | Category | Built with | Fields | What it draws | Design |
 |---|---|---|---|---|---|
+| [Hit or Miss Strip](templates/kpi/kpi-hit-miss-strip/) | KPI | Vega-Lite | 3 | The last twelve periods as columns or dots coloured hit or miss, with the hit count written large | Timothy Osborn |
 | [KPI Bar Card](templates/kpi/kpi-bar-card/) | KPI | Vega | 5 | A top performer card: month-over-month change, reporting month and year, labelled monthly columns | After Gerard Duggan |
+| [KPI Bullet Tile](templates/kpi/kpi-bullet-tile/) | KPI | Vega-Lite | 2 | One KPI as a compact bullet: value bar, target tick and qualitative bands, with the gap to target | Timothy Osborn |
+| [KPI Delta Tile](templates/kpi/kpi-delta-tile/) | KPI | Vega-Lite | 2 | The value, its change against a benchmark as an amount and a percentage, and a coloured arrow | Timothy Osborn |
 | [KPI Gap Sparkline Card](templates/kpi/kpi-gap-sparkline-card/) | KPI | Vega-Lite | 3 | Month-to-date value, its gap to last year or a target, and a daily gap sparkline | After Ruben Van de Voorde (Tabular Editor) |
 | [KPI Line Card](templates/kpi/kpi-line-card/) | KPI | Vega-Lite | 4 | Value, three status lines coloured by the gap to target, and a monthly line against target | After Gerard Duggan |
+| [KPI Progress Card](templates/kpi/kpi-progress-card/) | KPI | Vega-Lite | 3 | Value against target as a progress bar, with a pace marker for the share of the period gone | Timothy Osborn |
+| [KPI Scorecard](templates/kpi/kpi-scorecard/) | KPI | Vega-Lite | 4 | Several KPIs in one table: actual, target, variance and a mini bar or status dot, formatted per row | Timothy Osborn |
+| [KPI Small Multiples](templates/kpi/kpi-small-multiples/) | KPI | Vega-Lite | 3 | One panel per category: the latest value, its change and a sparkline, in a grid that reflows | Timothy Osborn |
+| [Ring Progress Card](templates/kpi/kpi-ring-progress-card/) | KPI | Vega-Lite | 2 | Value against target as a full ring, the percentage in the centre, a second lap past 100% | Timothy Osborn |
+| [Run-rate Projection Card](templates/kpi/kpi-run-rate-card/) | KPI | Vega-Lite | 3 | Period to date against target, with a dashed projection to the period end at the run rate so far | Timothy Osborn |
 | [Bullet Chart](templates/comparison/bullet-chart/) | Comparison | Vega-Lite | 4 | Sorted bullets: actual against a budget tick and a last year bar, with variance labels | After Daniel Marsh-Patrick and Robert Mundigl |
 | [Bullet with Prior Period](templates/comparison/bullet-prior-period/) | Comparison | Vega-Lite | 6 | One bullet per row with a prior-period band, each row on its own axis | After Gerard Duggan |
 | [Overlapping Bars with Share Lollipop](templates/comparison/overlap-bar-share-lollipop/) | Comparison | Vega-Lite | 3 | Current in front of total, and current as a share of total | After Gerard Duggan |
@@ -48,6 +57,22 @@ Click a preview for the template's fields, options and credits.
 </tr>
 <tr>
 <td valign="top"><a href="templates/kpi/kpi-bar-card/"><img src="templates/kpi/kpi-bar-card/preview.png" alt="KPI Bar Card"></a><br><b>KPI Bar Card</b><br>A top performer card with month-over-month change and labelled monthly columns. After Gerard Duggan.</td>
+<td valign="top"><a href="templates/kpi/kpi-delta-tile/"><img src="templates/kpi/kpi-delta-tile/preview.png" alt="KPI Delta Tile"></a><br><b>KPI Delta Tile</b><br>The value, its change against a benchmark as an amount and a percentage, and a coloured arrow. By Timothy Osborn.</td>
+</tr>
+<tr>
+<td valign="top"><a href="templates/kpi/kpi-progress-card/"><img src="templates/kpi/kpi-progress-card/preview.png" alt="KPI Progress Card"></a><br><b>KPI Progress Card</b><br>Value against target as a progress bar, with a pace marker for where it should be by now. By Timothy Osborn.</td>
+<td valign="top"><a href="templates/kpi/kpi-bullet-tile/"><img src="templates/kpi/kpi-bullet-tile/preview.png" alt="KPI Bullet Tile"></a><br><b>KPI Bullet Tile</b><br>One KPI as a compact bullet: value bar, target tick and bands set as shares of target. By Timothy Osborn.</td>
+</tr>
+<tr>
+<td valign="top"><a href="templates/kpi/kpi-scorecard/"><img src="templates/kpi/kpi-scorecard/preview.png" alt="KPI Scorecard"></a><br><b>KPI Scorecard</b><br>Several KPIs in one visual, one row each, each in its own format, with a mini bar or a status dot. By Timothy Osborn.</td>
+<td valign="top"><a href="templates/kpi/kpi-hit-miss-strip/"><img src="templates/kpi/kpi-hit-miss-strip/preview.png" alt="Hit or Miss Strip"></a><br><b>Hit or Miss Strip</b><br>The last twelve periods coloured hit or miss against target, and how many were on target. By Timothy Osborn.</td>
+</tr>
+<tr>
+<td valign="top"><a href="templates/kpi/kpi-run-rate-card/"><img src="templates/kpi/kpi-run-rate-card/preview.png" alt="Run-rate Projection Card"></a><br><b>Run-rate Projection Card</b><br>Period to date, and a dashed projection to the period end coloured by whether it reaches target. By Timothy Osborn.</td>
+<td valign="top"><a href="templates/kpi/kpi-small-multiples/"><img src="templates/kpi/kpi-small-multiples/preview.png" alt="KPI Small Multiples"></a><br><b>KPI Small Multiples</b><br>One panel per category with its latest value, change and sparkline, in a grid that reflows. By Timothy Osborn.</td>
+</tr>
+<tr>
+<td valign="top"><a href="templates/kpi/kpi-ring-progress-card/"><img src="templates/kpi/kpi-ring-progress-card/preview.png" alt="Ring Progress Card"></a><br><b>Ring Progress Card</b><br>Value against target as a full ring with the percentage in the centre. By Timothy Osborn.</td>
 <td valign="top"><a href="templates/comparison/bullet-chart/"><img src="templates/comparison/bullet-chart/preview.png" alt="Bullet Chart"></a><br><b>Bullet Chart</b><br>Actual against a Budget tick and a Last Year bar, sorted, with variance labels. After Daniel Marsh-Patrick and Robert Mundigl.</td>
 </tr>
 <tr>
@@ -146,6 +171,7 @@ The dashboard and the showcase pages use the BI Nexus theme in
 | `showcase/` | The showcase Power BI project and its inputs: theme, parts, dashboard layout and dashboard data |
 | `tools/check-templates.mjs` | Validates every template, renders it headless with its sample data, and fails a template the master list does not link |
 | `tools/showcase/` | Builds the showcase project and crops the previews |
+| `tools/kpi/` | The generator for the eight KPI templates that share one set of helpers: the Delta, Progress and Bullet tiles, the Scorecard, the Hit or Miss Strip, the Run-rate Projection Card, the Small Multiples and the Ring Progress Card |
 | `tools/pl/` | Generators and numeric checks for the P&L templates |
 | `tools/schema/` | A copy of Deneb's v1 template metadata schema |
 

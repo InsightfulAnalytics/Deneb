@@ -1,0 +1,239 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1687d7ea831a316298e0",
+  "position": {
+    "x": 672,
+    "y": 81,
+    "z": 4000,
+    "height": 220,
+    "width": 400,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-ring-progress-card-status"
+                    }
+                  },
+                  "Property": "Value (kpi-ring-progress-card-status)"
+                }
+              },
+              "queryRef": "kpi-ring-progress-card-status.Value (kpi-ring-progress-card-status)",
+              "nativeQueryRef": "Value (kpi-ring-progress-card-status)",
+              "displayName": "Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-ring-progress-card-status"
+                    }
+                  },
+                  "Property": "Target (kpi-ring-progress-card-status)"
+                }
+              },
+              "queryRef": "kpi-ring-progress-card-status.Target (kpi-ring-progress-card-status)",
+              "nativeQueryRef": "Target (kpi-ring-progress-card-status)",
+              "displayName": "Target"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"padding\": 0,\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"Sales\"\n    },\n    {\n      \"name\": \"targetLabel\",\n      \"value\": \"target\"\n    },\n    {\n      \"name\": \"toGoText\",\n      \"value\": \"to go\"\n    },\n    {\n      \"name\": \"overText\",\n      \"value\": \"over target\"\n    },\n    {\n      \"name\": \"ringColor\",\n      \"expr\": \"pbiColor(0)\"\n    },\n    {\n      \"name\": \"overColor\",\n      \"expr\": \"pbiColor(0, -0.45)\"\n    },\n    {\n      \"name\": \"trackColor\",\n      \"value\": \"#EDEBE9\"\n    },\n    {\n      \"name\": \"colorByStatus\",\n      \"value\": true\n    },\n    {\n      \"name\": \"thickness\",\n      \"value\": 0.17\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"prefix\",\n      \"value\": \"$\"\n    },\n    {\n      \"name\": \"pctFormat\",\n      \"value\": \".0%\"\n    },\n    {\n      \"name\": \"noDataText\",\n      \"value\": \"n/a\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": true\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"arrowUp\",\n      \"value\": \"▲\"\n    },\n    {\n      \"name\": \"cardColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"borderColor\",\n      \"value\": \"#E1DFDD\"\n    },\n    {\n      \"name\": \"borderWidth\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"cardRadius\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"valueColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"labelColor\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"pad\",\n      \"expr\": \"clamp(min(width, height) * 0.09, 6, 20)\"\n    },\n    {\n      \"name\": \"ringR\",\n      \"expr\": \"max(8, min(height - 2 * pad, width * 0.38) / 2)\"\n    },\n    {\n      \"name\": \"ringCX\",\n      \"expr\": \"pad + ringR\"\n    },\n    {\n      \"name\": \"ringCY\",\n      \"expr\": \"height / 2\"\n    },\n    {\n      \"name\": \"innerR\",\n      \"expr\": \"ringR * (1 - thickness)\"\n    },\n    {\n      \"name\": \"ringRound\",\n      \"expr\": \"(ringR - innerR) / 2\"\n    },\n    {\n      \"name\": \"textX\",\n      \"expr\": \"ringCX + ringR + max(10, pad)\"\n    },\n    {\n      \"name\": \"textW\",\n      \"expr\": \"max(20, width - textX - pad)\"\n    },\n    {\n      \"name\": \"unit\",\n      \"expr\": \"clamp(min(textW / 150, height / 92), 0.55, 2.4)\"\n    },\n    {\n      \"name\": \"blockTop\",\n      \"expr\": \"max(0, (height - 82 * unit) / 2)\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"aggregate\": [\n        {\n          \"op\": \"sum\",\n          \"field\": \"Value\",\n          \"as\": \"vSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Value\",\n          \"as\": \"vN\"\n        },\n        {\n          \"op\": \"sum\",\n          \"field\": \"Target\",\n          \"as\": \"tgSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Target\",\n          \"as\": \"tgN\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"datum.vN > 0 ? datum.vSum : null\",\n      \"as\": \"v\"\n    },\n    {\n      \"calculate\": \"datum.tgN > 0 ? datum.tgSum : null\",\n      \"as\": \"tg\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) && datum.tg !== 0 ? datum.v / datum.tg : null\",\n      \"as\": \"r\"\n    },\n    {\n      \"calculate\": \"isValid(datum.v) && isValid(datum.tg) ? datum.tg - datum.v : null\",\n      \"as\": \"rem\"\n    },\n    {\n      \"calculate\": \"isValid(datum.rem) ? abs(datum.rem) : null\",\n      \"as\": \"remAbs\"\n    },\n    {\n      \"calculate\": \"isValid(datum.r) ? (higherIsBetter ? 1 : -1) * (datum.r - 1) : 0\",\n      \"as\": \"g\"\n    },\n    {\n      \"calculate\": \"colorByStatus ? (datum.g >= 0 ? colorGood : colorBad) : ringColor\",\n      \"as\": \"fillColor\"\n    },\n    {\n      \"calculate\": \"2 * PI * clamp(isValid(datum.r) ? datum.r : 0, 0, 1)\",\n      \"as\": \"fillTheta\"\n    },\n    {\n      \"calculate\": \"2 * PI * clamp(isValid(datum.r) ? datum.r - 1 : 0, 0, 1)\",\n      \"as\": \"overTheta\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.r) || !isFinite(datum.r) ? noDataText : format(datum.r, pctFormat))\",\n      \"as\": \"pctText\"\n    },\n    {\n      \"calculate\": \"min(innerR * 0.62, innerR * 1.75 / max(3, length(datum.pctText)))\",\n      \"as\": \"pctSize\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== ''auto'' ? format(datum.v, valueFormat) : (datum.v < 0 ? ''−'' : '''') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.v) >= 999.5e6 ? ''bn'' : abs(datum.v) >= 999.5e3 ? ''M'' : abs(datum.v) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"valueText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : valueFormat !== ''auto'' ? format(datum.tg, valueFormat) : (datum.tg < 0 ? ''−'' : '''') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.tg) >= 999.5e6 ? ''bn'' : abs(datum.tg) >= 999.5e3 ? ''M'' : abs(datum.tg) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"targetText\"\n    },\n    {\n      \"calculate\": \"''of '' + datum.targetText + '' '' + targetLabel\",\n      \"as\": \"ofText\"\n    },\n    {\n      \"calculate\": \"!isValid(datum.rem) ? noDataText : datum.rem > 0 ? (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== ''auto'' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? ''−'' : '''') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.remAbs) >= 999.5e6 ? ''bn'' : abs(datum.remAbs) >= 999.5e3 ? ''M'' : abs(datum.remAbs) >= 999.5 ? ''K'' : '''')) + '' '' + toGoText : datum.rem < 0 ? arrowUp + '' '' + (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== ''auto'' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? ''−'' : '''') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.remAbs) >= 999.5e6 ? ''bn'' : abs(datum.remAbs) >= 999.5e3 ? ''M'' : abs(datum.remAbs) >= 999.5 ? ''K'' : '''')) + '' '' + overText : ''on '' + targetLabel\",\n      \"as\": \"gapText\"\n    },\n    {\n      \"calculate\": \"isValid(datum.r) ? (higherIsBetter ? (datum.r >= 1 ? colorGood : labelColor) : (datum.r > 1 ? colorBad : colorGood)) : labelColor\",\n      \"as\": \"gapColor\"\n    }\n  ],\n  \"layer\": [\n    {\n      \"description\": \"Card background and border, inset by half the border so the container never clips it\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"x\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"y\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"x2\": {\n          \"expr\": \"width - borderWidth / 2\"\n        },\n        \"y2\": {\n          \"expr\": \"height - borderWidth / 2\"\n        },\n        \"fill\": {\n          \"expr\": \"cardColor\"\n        },\n        \"stroke\": {\n          \"expr\": \"borderColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"borderWidth\"\n        },\n        \"cornerRadius\": {\n          \"expr\": \"cardRadius\"\n        }\n      }\n    },\n    {\n      \"description\": \"Ring track\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"arc\",\n        \"x\": {\n          \"expr\": \"ringCX\"\n        },\n        \"y\": {\n          \"expr\": \"ringCY\"\n        },\n        \"radius\": {\n          \"expr\": \"ringR\"\n        },\n        \"radius2\": {\n          \"expr\": \"innerR\"\n        },\n        \"theta\": 0,\n        \"theta2\": {\n          \"expr\": \"2 * PI\"\n        },\n        \"fill\": {\n          \"expr\": \"trackColor\"\n        }\n      }\n    },\n    {\n      \"description\": \"Ring fill to the share of target, rounded ends\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.fillTheta > 0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"arc\",\n        \"x\": {\n          \"expr\": \"ringCX\"\n        },\n        \"y\": {\n          \"expr\": \"ringCY\"\n        },\n        \"radius\": {\n          \"expr\": \"ringR\"\n        },\n        \"radius2\": {\n          \"expr\": \"innerR\"\n        },\n        \"theta\": 0,\n        \"theta2\": {\n          \"expr\": \"datum.fillTheta\"\n        },\n        \"cornerRadius\": {\n          \"expr\": \"ringRound\"\n        }\n      },\n      \"encoding\": {\n        \"fill\": {\n          \"field\": \"fillColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"pctText\",\n            \"type\": \"nominal\",\n            \"title\": \"Of target\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Second lap past 100%\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.overTheta > 0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"arc\",\n        \"x\": {\n          \"expr\": \"ringCX\"\n        },\n        \"y\": {\n          \"expr\": \"ringCY\"\n        },\n        \"radius\": {\n          \"expr\": \"ringR\"\n        },\n        \"radius2\": {\n          \"expr\": \"innerR\"\n        },\n        \"theta\": 0,\n        \"theta2\": {\n          \"expr\": \"datum.overTheta\"\n        },\n        \"cornerRadius\": {\n          \"expr\": \"ringRound\"\n        },\n        \"fill\": {\n          \"expr\": \"overColor\"\n        }\n      },\n      \"encoding\": {\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"pctText\",\n            \"type\": \"nominal\",\n            \"title\": \"Of target\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Percentage in the centre\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"x\": {\n          \"expr\": \"ringCX\"\n        },\n        \"y\": {\n          \"expr\": \"ringCY\"\n        },\n        \"align\": \"center\",\n        \"baseline\": \"middle\",\n        \"fontWeight\": \"bold\",\n        \"fill\": {\n          \"expr\": \"valueColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"pctText\",\n          \"type\": \"nominal\"\n        },\n        \"size\": {\n          \"field\": \"pctSize\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"description\": \"Title\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"textX\"\n        },\n        \"y\": {\n          \"expr\": \"blockTop + 13 * unit\"\n        },\n        \"fontSize\": {\n          \"expr\": \"11.5 * unit\"\n        },\n        \"limit\": {\n          \"expr\": \"textW\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"title\"\n        }\n      }\n    },\n    {\n      \"description\": \"Value\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"bold\",\n        \"x\": {\n          \"expr\": \"textX\"\n        },\n        \"y\": {\n          \"expr\": \"blockTop + 44 * unit\"\n        },\n        \"fontSize\": {\n          \"expr\": \"26 * unit\"\n        },\n        \"limit\": {\n          \"expr\": \"textW\"\n        },\n        \"fill\": {\n          \"expr\": \"valueColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"valueText\",\n          \"type\": \"nominal\"\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          },\n          {\n            \"field\": \"targetText\",\n            \"type\": \"nominal\",\n            \"title\": \"Target\"\n          },\n          {\n            \"field\": \"pctText\",\n            \"type\": \"nominal\",\n            \"title\": \"Of target\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Target\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"normal\",\n        \"x\": {\n          \"expr\": \"textX\"\n        },\n        \"y\": {\n          \"expr\": \"blockTop + 62 * unit\"\n        },\n        \"fontSize\": {\n          \"expr\": \"11 * unit\"\n        },\n        \"limit\": {\n          \"expr\": \"textW\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"ofText\",\n          \"type\": \"nominal\"\n        }\n      }\n    },\n    {\n      \"description\": \"Left to go, or past target\",\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"textX\"\n        },\n        \"y\": {\n          \"expr\": \"blockTop + 79 * unit\"\n        },\n        \"fontSize\": {\n          \"expr\": \"11 * unit\"\n        },\n        \"limit\": {\n          \"expr\": \"textW\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"gapText\",\n          \"type\": \"nominal\"\n        },\n        \"color\": {\n          \"field\": \"gapColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ring Progress Card'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

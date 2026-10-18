@@ -1,0 +1,254 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "7ca5b8b096d5d3b153d5",
+  "position": {
+    "x": 448,
+    "y": 81,
+    "z": 3000,
+    "height": 220,
+    "width": 400,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-small-multiples-shared"
+                    }
+                  },
+                  "Property": "Category"
+                }
+              },
+              "queryRef": "kpi-small-multiples-shared.Category",
+              "nativeQueryRef": "Category",
+              "displayName": "Category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-small-multiples-shared"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "kpi-small-multiples-shared.Date",
+              "nativeQueryRef": "Date",
+              "displayName": "Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "kpi-small-multiples-shared"
+                    }
+                  },
+                  "Property": "Value (kpi-small-multiples-shared)"
+                }
+              },
+              "queryRef": "kpi-small-multiples-shared.Value (kpi-small-multiples-shared)",
+              "nativeQueryRef": "Value (kpi-small-multiples-shared)",
+              "displayName": "Value"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vegaLite'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"padding\": 0,\n  \"params\": [\n    {\n      \"name\": \"title\",\n      \"value\": \"Sales by region\"\n    },\n    {\n      \"name\": \"columns\",\n      \"value\": 0\n    },\n    {\n      \"name\": \"minPanelWidth\",\n      \"value\": 130\n    },\n    {\n      \"name\": \"minPanelHeight\",\n      \"value\": 52\n    },\n    {\n      \"name\": \"sortBy\",\n      \"value\": \"value\"\n    },\n    {\n      \"name\": \"changeVs\",\n      \"value\": \"first\"\n    },\n    {\n      \"name\": \"sharedScale\",\n      \"value\": true\n    },\n    {\n      \"name\": \"valueFormat\",\n      \"value\": \"auto\"\n    },\n    {\n      \"name\": \"prefix\",\n      \"value\": \"$\"\n    },\n    {\n      \"name\": \"pctFormat\",\n      \"value\": \"+.1%\"\n    },\n    {\n      \"name\": \"noDataText\",\n      \"value\": \"n/a\"\n    },\n    {\n      \"name\": \"higherIsBetter\",\n      \"value\": true\n    },\n    {\n      \"name\": \"colorGood\",\n      \"expr\": \"pbiColor(''good'')\"\n    },\n    {\n      \"name\": \"colorBad\",\n      \"expr\": \"pbiColor(''bad'')\"\n    },\n    {\n      \"name\": \"colorNeutral\",\n      \"expr\": \"pbiColor(''neutral'')\"\n    },\n    {\n      \"name\": \"arrowUp\",\n      \"value\": \"▲\"\n    },\n    {\n      \"name\": \"arrowDown\",\n      \"value\": \"▼\"\n    },\n    {\n      \"name\": \"arrowFlat\",\n      \"value\": \"►\"\n    },\n    {\n      \"name\": \"cardColor\",\n      \"value\": \"#FFFFFF\"\n    },\n    {\n      \"name\": \"borderColor\",\n      \"value\": \"#E1DFDD\"\n    },\n    {\n      \"name\": \"borderWidth\",\n      \"value\": 1\n    },\n    {\n      \"name\": \"cardRadius\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"valueColor\",\n      \"expr\": \"pbiColor(0, -0.5)\"\n    },\n    {\n      \"name\": \"labelColor\",\n      \"value\": \"#605E5C\"\n    },\n    {\n      \"name\": \"panelColor\",\n      \"value\": \"#FAF9F8\"\n    },\n    {\n      \"name\": \"panelGap\",\n      \"value\": 4\n    },\n    {\n      \"name\": \"lineColor\",\n      \"expr\": \"pbiColor(0, -0.3)\"\n    },\n    {\n      \"name\": \"headerH\",\n      \"expr\": \"length(title) > 0 ? clamp(height * 0.14, 18, 30) : 0\"\n    }\n  ],\n  \"data\": {\n    \"name\": \"dataset\"\n  },\n  \"transform\": [\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"rowIn\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"isValid(datum[''Category'']) ? datum[''Category''] + '''' : noDataText\",\n      \"as\": \"cat\"\n    },\n    {\n      \"calculate\": \"time(toDate(datum[''Date'']))\",\n      \"as\": \"t\"\n    },\n    {\n      \"filter\": \"isFinite(datum.t)\"\n    },\n    {\n      \"aggregate\": [\n        {\n          \"op\": \"sum\",\n          \"field\": \"Value\",\n          \"as\": \"vSum\"\n        },\n        {\n          \"op\": \"valid\",\n          \"field\": \"Value\",\n          \"as\": \"vN\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"rowIn\",\n          \"as\": \"firstRow\"\n        }\n      ],\n      \"groupby\": [\n        \"cat\",\n        \"t\"\n      ]\n    },\n    {\n      \"filter\": \"datum.vN > 0\"\n    },\n    {\n      \"calculate\": \"datum.vSum\",\n      \"as\": \"v\"\n    },\n    {\n      \"window\": [\n        {\n          \"op\": \"row_number\",\n          \"as\": \"k\"\n        },\n        {\n          \"op\": \"lag\",\n          \"field\": \"v\",\n          \"as\": \"prevV\"\n        }\n      ],\n      \"sort\": [\n        {\n          \"field\": \"t\",\n          \"order\": \"ascending\"\n        }\n      ],\n      \"groupby\": [\n        \"cat\"\n      ]\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"max\",\n          \"field\": \"t\",\n          \"as\": \"lastT\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"v\",\n          \"as\": \"vMin\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"v\",\n          \"as\": \"vMax\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"firstRow\",\n          \"as\": \"catRow\"\n        }\n      ],\n      \"groupby\": [\n        \"cat\"\n      ]\n    },\n    {\n      \"calculate\": \"datum.t === datum.lastT ? datum.v : null\",\n      \"as\": \"latestPart\"\n    },\n    {\n      \"calculate\": \"datum.t === datum.lastT ? datum.prevV : null\",\n      \"as\": \"prevPart\"\n    },\n    {\n      \"calculate\": \"datum.k === 1 ? datum.v : null\",\n      \"as\": \"firstPart\"\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"max\",\n          \"field\": \"latestPart\",\n          \"as\": \"latest\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"prevPart\",\n          \"as\": \"prev\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"firstPart\",\n          \"as\": \"first\"\n        }\n      ],\n      \"groupby\": [\n        \"cat\"\n      ]\n    },\n    {\n      \"joinaggregate\": [\n        {\n          \"op\": \"min\",\n          \"field\": \"v\",\n          \"as\": \"gMin\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"v\",\n          \"as\": \"gMax\"\n        },\n        {\n          \"op\": \"min\",\n          \"field\": \"t\",\n          \"as\": \"tMin\"\n        },\n        {\n          \"op\": \"max\",\n          \"field\": \"t\",\n          \"as\": \"tMax\"\n        },\n        {\n          \"op\": \"distinct\",\n          \"field\": \"cat\",\n          \"as\": \"nCats\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"changeVs === ''first'' ? datum.first : datum.prev\",\n      \"as\": \"base\"\n    },\n    {\n      \"calculate\": \"isValid(datum.base) && datum.base !== 0 ? (datum.latest - datum.base) / abs(datum.base) : null\",\n      \"as\": \"ch\"\n    },\n    {\n      \"calculate\": \"isValid(datum.ch) ? (higherIsBetter ? 1 : -1) * datum.ch : 0\",\n      \"as\": \"g\"\n    },\n    {\n      \"calculate\": \"sortBy === ''value'' ? -datum.latest : sortBy === ''change'' ? (isValid(datum.ch) ? -datum.g : 1e300) : sortBy === ''name'' ? 0 : datum.catRow\",\n      \"as\": \"sortKey\"\n    },\n    {\n      \"window\": [\n        {\n          \"op\": \"dense_rank\",\n          \"as\": \"panel\"\n        }\n      ],\n      \"sort\": [\n        {\n          \"field\": \"sortKey\",\n          \"order\": \"ascending\"\n        },\n        {\n          \"field\": \"cat\",\n          \"order\": \"ascending\"\n        }\n      ]\n    },\n    {\n      \"calculate\": \"columns > 0 ? min(columns, datum.nCats) : clamp(floor(width / minPanelWidth), 1, datum.nCats)\",\n      \"as\": \"cols\"\n    },\n    {\n      \"calculate\": \"min(ceil(datum.nCats / datum.cols), max(1, floor((height - headerH) / minPanelHeight)))\",\n      \"as\": \"rowsUsed\"\n    },\n    {\n      \"filter\": \"datum.panel <= datum.cols * datum.rowsUsed\"\n    },\n    {\n      \"calculate\": \"width / datum.cols\",\n      \"as\": \"pw\"\n    },\n    {\n      \"calculate\": \"(height - headerH) / datum.rowsUsed\",\n      \"as\": \"ph\"\n    },\n    {\n      \"calculate\": \"((datum.panel - 1) % datum.cols) * datum.pw\",\n      \"as\": \"px0\"\n    },\n    {\n      \"calculate\": \"headerH + floor((datum.panel - 1) / datum.cols) * datum.ph\",\n      \"as\": \"py0\"\n    },\n    {\n      \"calculate\": \"clamp(min(datum.pw / 150, datum.ph / 72), 0.6, 1.8)\",\n      \"as\": \"pu\"\n    },\n    {\n      \"calculate\": \"7 * datum.pu\",\n      \"as\": \"ip\"\n    },\n    {\n      \"calculate\": \"datum.py0 + datum.ip + 12 * datum.pu\",\n      \"as\": \"topY\"\n    },\n    {\n      \"calculate\": \"datum.topY + 12 * datum.pu\",\n      \"as\": \"chY\"\n    },\n    {\n      \"calculate\": \"datum.px0 + datum.ip\",\n      \"as\": \"sx0\"\n    },\n    {\n      \"calculate\": \"datum.px0 + datum.pw - datum.ip\",\n      \"as\": \"sx1\"\n    },\n    {\n      \"calculate\": \"datum.py0 + datum.ph - datum.ip\",\n      \"as\": \"sy1\"\n    },\n    {\n      \"calculate\": \"datum.chY + min(11 * datum.pu, 0.4 * (datum.sy1 - datum.chY))\",\n      \"as\": \"sy0\"\n    },\n    {\n      \"calculate\": \"sharedScale ? datum.gMin : datum.vMin\",\n      \"as\": \"lo\"\n    },\n    {\n      \"calculate\": \"sharedScale ? datum.gMax : datum.vMax\",\n      \"as\": \"hi\"\n    },\n    {\n      \"calculate\": \"datum.tMax > datum.tMin ? datum.sx0 + (datum.t - datum.tMin) / (datum.tMax - datum.tMin) * (datum.sx1 - datum.sx0) : (datum.sx0 + datum.sx1) / 2\",\n      \"as\": \"sx\"\n    },\n    {\n      \"calculate\": \"datum.hi > datum.lo ? datum.sy1 - (datum.v - datum.lo) / (datum.hi - datum.lo) * (datum.sy1 - datum.sy0) : (datum.sy0 + datum.sy1) / 2\",\n      \"as\": \"sy\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.latest) || !isFinite(datum.latest) ? noDataText : valueFormat !== ''auto'' ? format(datum.latest, valueFormat) : (datum.latest < 0 ? ''−'' : '''') + prefix + format(abs(datum.latest) / (abs(datum.latest) >= 999.5e6 ? 1e9 : abs(datum.latest) >= 999.5e3 ? 1e6 : abs(datum.latest) >= 999.5 ? 1e3 : 1), abs(datum.latest) / (abs(datum.latest) >= 999.5e6 ? 1e9 : abs(datum.latest) >= 999.5e3 ? 1e6 : abs(datum.latest) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.latest) >= 999.5e6 ? 1e9 : abs(datum.latest) >= 999.5e3 ? 1e6 : abs(datum.latest) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.latest) >= 999.5e6 ? ''bn'' : abs(datum.latest) >= 999.5e3 ? ''M'' : abs(datum.latest) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"valueText\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.ch) ? '''' : datum.ch > 0 ? arrowUp : datum.ch < 0 ? arrowDown : arrowFlat) + '' '' + (!isValid(datum.ch) || !isFinite(datum.ch) ? noDataText : format(datum.ch, pctFormat))\",\n      \"as\": \"chText\"\n    },\n    {\n      \"calculate\": \"(datum.g > 0 ? colorGood : datum.g < 0 ? colorBad : colorNeutral)\",\n      \"as\": \"chColor\"\n    },\n    {\n      \"calculate\": \"datum.px0 + datum.ip\",\n      \"as\": \"nameX\"\n    },\n    {\n      \"calculate\": \"datum.topY\",\n      \"as\": \"nameY\"\n    },\n    {\n      \"calculate\": \"10.5 * datum.pu\",\n      \"as\": \"nameSize\"\n    },\n    {\n      \"calculate\": \"datum.px0 + datum.pw - datum.ip\",\n      \"as\": \"rightX\"\n    },\n    {\n      \"calculate\": \"datum.topY\",\n      \"as\": \"valueY\"\n    },\n    {\n      \"calculate\": \"15 * datum.pu\",\n      \"as\": \"valueSize\"\n    },\n    {\n      \"calculate\": \"10 * datum.pu\",\n      \"as\": \"chSize\"\n    },\n    {\n      \"calculate\": \"max(20, datum.pw - 2 * datum.ip - 0.6 * datum.valueSize * length(datum.valueText) - 6 * datum.pu)\",\n      \"as\": \"nameLimit\"\n    },\n    {\n      \"calculate\": \"datum.px0 + panelGap / 2\",\n      \"as\": \"bx0\"\n    },\n    {\n      \"calculate\": \"datum.px0 + datum.pw - panelGap / 2\",\n      \"as\": \"bx1\"\n    },\n    {\n      \"calculate\": \"datum.py0 + panelGap / 2\",\n      \"as\": \"by0\"\n    },\n    {\n      \"calculate\": \"datum.py0 + datum.ph - panelGap / 2\",\n      \"as\": \"by1\"\n    },\n    {\n      \"calculate\": \"1.6 * datum.pu\",\n      \"as\": \"lineW\"\n    },\n    {\n      \"calculate\": \"PI * pow(2.6 * datum.pu, 2)\",\n      \"as\": \"dotSize\"\n    },\n    {\n      \"calculate\": \"timeFormat(datum.t, ''%-d %b %Y'')\",\n      \"as\": \"tipDate\"\n    },\n    {\n      \"calculate\": \"(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== ''auto'' ? format(datum.v, valueFormat) : (datum.v < 0 ? ''−'' : '''') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? ''.1f'' : ''.2~f'') : '',.0f'') + (abs(datum.v) >= 999.5e6 ? ''bn'' : abs(datum.v) >= 999.5e3 ? ''M'' : abs(datum.v) >= 999.5 ? ''K'' : ''''))\",\n      \"as\": \"tipValue\"\n    }\n  ],\n  \"layer\": [\n    {\n      \"description\": \"Card background and border, inset by half the border so the container never clips it\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"mark\": {\n        \"type\": \"rect\",\n        \"x\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"y\": {\n          \"expr\": \"borderWidth / 2\"\n        },\n        \"x2\": {\n          \"expr\": \"width - borderWidth / 2\"\n        },\n        \"y2\": {\n          \"expr\": \"height - borderWidth / 2\"\n        },\n        \"fill\": {\n          \"expr\": \"cardColor\"\n        },\n        \"stroke\": {\n          \"expr\": \"borderColor\"\n        },\n        \"strokeWidth\": {\n          \"expr\": \"borderWidth\"\n        },\n        \"cornerRadius\": {\n          \"expr\": \"cardRadius\"\n        }\n      }\n    },\n    {\n      \"description\": \"Title, when set\",\n      \"data\": {\n        \"values\": [\n          {}\n        ]\n      },\n      \"transform\": [\n        {\n          \"filter\": \"length(title) > 0\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"x\": {\n          \"expr\": \"8\"\n        },\n        \"y\": {\n          \"expr\": \"headerH * 0.7\"\n        },\n        \"fontSize\": {\n          \"expr\": \"headerH * 0.5\"\n        },\n        \"limit\": {\n          \"expr\": \"width - 2 * panelGap\"\n        },\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"text\": {\n          \"expr\": \"title\"\n        }\n      }\n    },\n    {\n      \"description\": \"Panel backgrounds, one per category\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.t === datum.lastT\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"rect\",\n        \"fill\": {\n          \"expr\": \"panelColor\"\n        },\n        \"cornerRadius\": 3\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"bx0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"x2\": {\n          \"field\": \"bx1\"\n        },\n        \"y\": {\n          \"field\": \"by0\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y2\": {\n          \"field\": \"by1\"\n        }\n      }\n    },\n    {\n      \"description\": \"Category name\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.t === datum.lastT\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"left\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600,\n        \"fill\": {\n          \"expr\": \"labelColor\"\n        },\n        \"limit\": {\n          \"expr\": \"datum.nameLimit\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"cat\",\n          \"type\": \"nominal\"\n        },\n        \"x\": {\n          \"field\": \"nameX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"nameY\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"size\": {\n          \"field\": \"nameSize\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"description\": \"Sparkline, one per category\",\n      \"mark\": {\n        \"type\": \"line\",\n        \"stroke\": {\n          \"expr\": \"lineColor\"\n        },\n        \"strokeJoin\": \"round\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"sx\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"sy\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"detail\": {\n          \"field\": \"cat\",\n          \"type\": \"nominal\"\n        },\n        \"strokeWidth\": {\n          \"field\": \"lineW\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"cat\",\n            \"type\": \"nominal\",\n            \"title\": \"Category\"\n          },\n          {\n            \"field\": \"tipDate\",\n            \"type\": \"nominal\",\n            \"title\": \"Date\"\n          },\n          {\n            \"field\": \"tipValue\",\n            \"type\": \"nominal\",\n            \"title\": \"Value\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Latest point\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.t === datum.lastT\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"point\",\n        \"filled\": true,\n        \"opacity\": 1,\n        \"shape\": \"circle\"\n      },\n      \"encoding\": {\n        \"x\": {\n          \"field\": \"sx\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"sy\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"size\": {\n          \"field\": \"dotSize\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"color\": {\n          \"field\": \"chColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    },\n    {\n      \"description\": \"Latest value\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.t === datum.lastT\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": \"bold\",\n        \"fill\": {\n          \"expr\": \"valueColor\"\n        }\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"valueText\",\n          \"type\": \"nominal\"\n        },\n        \"x\": {\n          \"field\": \"rightX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"valueY\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"size\": {\n          \"field\": \"valueSize\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"tooltip\": [\n          {\n            \"field\": \"cat\",\n            \"type\": \"nominal\",\n            \"title\": \"Category\"\n          },\n          {\n            \"field\": \"valueText\",\n            \"type\": \"nominal\",\n            \"title\": \"Latest\"\n          },\n          {\n            \"field\": \"chText\",\n            \"type\": \"nominal\",\n            \"title\": \"Change\"\n          }\n        ]\n      }\n    },\n    {\n      \"description\": \"Change, coloured good or bad\",\n      \"transform\": [\n        {\n          \"filter\": \"datum.t === datum.lastT\"\n        }\n      ],\n      \"mark\": {\n        \"type\": \"text\",\n        \"align\": \"right\",\n        \"baseline\": \"alphabetic\",\n        \"fontWeight\": 600\n      },\n      \"encoding\": {\n        \"text\": {\n          \"field\": \"chText\",\n          \"type\": \"nominal\"\n        },\n        \"x\": {\n          \"field\": \"rightX\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"y\": {\n          \"field\": \"chY\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"size\": {\n          \"field\": \"chSize\",\n          \"type\": \"quantitative\",\n          \"scale\": null\n        },\n        \"color\": {\n          \"field\": \"chColor\",\n          \"type\": \"nominal\",\n          \"scale\": null\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\"autosize\":{\"type\":\"fit\",\"contains\":\"padding\"},\"view\":{\"stroke\":\"transparent\"},\"background\":\"transparent\",\"font\":\"Arial\"}'"
+                }
+              }
+            },
+            "renderMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'svg'"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.4.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.9.1.0'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KPI Small Multiples'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

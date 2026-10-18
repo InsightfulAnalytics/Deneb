@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "1d047b6633152be0da15",
+  "displayName": "KPI Progress Card",
+  "displayOption": "FitToPage",
+  "height": 265,
+  "width": 936
+}

@@ -1,0 +1,22 @@
+{
+  "template": "templates/kpi/kpi-scorecard/kpi-scorecard.json",
+  "instances": [
+    {
+      "id": "kpi-scorecard",
+      "page": "template",
+      "data": "templates/kpi/kpi-scorecard/sample-data.csv",
+      "size": [400, 220],
+      "params": {}
+    },
+    {
+      "id": "kpi-scorecard-status",
+      "page": "template",
+      "data": "showcase/data/kpi-scorecard-status.csv",
+      "size": [400, 220],
+      "params": {
+        "sortBy": "status",
+        "statusStyle": "dot"
+      }
+    }
+  ]
+}

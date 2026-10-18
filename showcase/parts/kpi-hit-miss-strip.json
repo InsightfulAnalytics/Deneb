@@ -1,0 +1,34 @@
+{
+  "template": "templates/kpi/kpi-hit-miss-strip/kpi-hit-miss-strip.json",
+  "instances": [
+    {
+      "id": "kpi-hit-miss-strip",
+      "page": "template",
+      "data": "templates/kpi/kpi-hit-miss-strip/sample-data.csv",
+      "size": [400, 220],
+      "params": {}
+    },
+    {
+      "id": "kpi-hit-miss-strip-orders",
+      "page": "template",
+      "data": "showcase/data/kpi-hit-miss-strip-orders.csv",
+      "size": [300, 90],
+      "params": {
+        "title": "Orders vs plan",
+        "valueFormat": ",.0f",
+        "markStyle": "dot"
+      }
+    },
+    {
+      "id": "kpi-hit-miss-strip-cost",
+      "page": "template",
+      "data": "showcase/data/kpi-hit-miss-strip-cost.csv",
+      "size": [300, 90],
+      "params": {
+        "title": "Cost vs budget",
+        "higherIsBetter": false,
+        "hitText": "within budget"
+      }
+    }
+  ]
+}

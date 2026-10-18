@@ -1,0 +1,803 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "usermeta": {
+    "deneb": {
+      "build": "1.9.1.0",
+      "metaVersion": 1,
+      "provider": "vegaLite",
+      "providerVersion": "6.4.1"
+    },
+    "information": {
+      "name": "KPI Progress Card",
+      "description": "Value against target as a progress bar, the share of target reached, what is left to go, and a pace marker showing where the bar should be by now. With Percent Elapsed blank there is no marker and the bar takes the theme colour. Design by Timothy Osborn.",
+      "author": "Timothy Osborn",
+      "uuid": "6c7fa4ce-3438-453f-a17a-be742aadc70b",
+      "generated": "2026-10-18T00:00:00.000Z",
+      "previewImageBase64PNG": "data:image/png;base64,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"
+    },
+    "dataset": [
+      {
+        "key": "__0__",
+        "name": "Value",
+        "description": "Progress so far, for example sales month to date.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__1__",
+        "name": "Target",
+        "description": "The target for the whole period.",
+        "type": "numeric",
+        "kind": "measure"
+      },
+      {
+        "key": "__2__",
+        "name": "Percent Elapsed",
+        "description": "Share of the period gone, 0 to 1, for the pace marker. A measure returning BLANK() hides the marker.",
+        "type": "numeric",
+        "kind": "measure"
+      }
+    ],
+    "interactivity": {
+      "tooltip": true,
+      "contextMenu": true,
+      "selection": false,
+      "highlight": false,
+      "dataPointLimit": 50
+    }
+  },
+  "config": {
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "view": {
+      "stroke": "transparent"
+    },
+    "background": "transparent",
+    "font": "Segoe UI"
+  },
+  "padding": 0,
+  "params": [
+    {
+      "name": "title",
+      "value": "Sales MTD"
+    },
+    {
+      "name": "targetLabel",
+      "value": "target"
+    },
+    {
+      "name": "aheadText",
+      "value": "ahead of pace"
+    },
+    {
+      "name": "behindText",
+      "value": "behind pace"
+    },
+    {
+      "name": "toGoText",
+      "value": "to go"
+    },
+    {
+      "name": "overText",
+      "value": "over target"
+    },
+    {
+      "name": "valueFormat",
+      "value": "auto"
+    },
+    {
+      "name": "prefix",
+      "value": "$"
+    },
+    {
+      "name": "pctFormat",
+      "value": ".0%"
+    },
+    {
+      "name": "noDataText",
+      "value": "n/a"
+    },
+    {
+      "name": "higherIsBetter",
+      "value": true
+    },
+    {
+      "name": "colorGood",
+      "expr": "pbiColor('good')"
+    },
+    {
+      "name": "colorBad",
+      "expr": "pbiColor('bad')"
+    },
+    {
+      "name": "arrowUp",
+      "value": "▲"
+    },
+    {
+      "name": "arrowDown",
+      "value": "▼"
+    },
+    {
+      "name": "arrowFlat",
+      "value": "►"
+    },
+    {
+      "name": "cardColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "borderColor",
+      "value": "#E1DFDD"
+    },
+    {
+      "name": "borderWidth",
+      "value": 1
+    },
+    {
+      "name": "cardRadius",
+      "value": 4
+    },
+    {
+      "name": "valueColor",
+      "expr": "pbiColor(0, -0.5)"
+    },
+    {
+      "name": "labelColor",
+      "value": "#605E5C"
+    },
+    {
+      "name": "barColor",
+      "expr": "pbiColor(0)"
+    },
+    {
+      "name": "trackColor",
+      "value": "#EDEBE9"
+    },
+    {
+      "name": "paceColor",
+      "value": "#252423"
+    },
+    {
+      "name": "stacked",
+      "expr": "width < 2.4 * height"
+    },
+    {
+      "name": "unit",
+      "expr": "stacked ? clamp(min(width / 240, height / 160), 0.5, 3) : clamp(min(width / 300, height / 90), 0.5, 3)"
+    },
+    {
+      "name": "pad",
+      "expr": "14 * unit"
+    },
+    {
+      "name": "top0",
+      "expr": "max(0, (height - (stacked ? 160 : 90) * unit) / 2)"
+    },
+    {
+      "name": "titleSize",
+      "expr": "(stacked ? 13 : 12) * unit"
+    },
+    {
+      "name": "titleY",
+      "expr": "top0 + (stacked ? 26 : 22) * unit"
+    },
+    {
+      "name": "valueSize",
+      "expr": "(stacked ? 38 : 28) * unit"
+    },
+    {
+      "name": "valueY",
+      "expr": "top0 + (stacked ? 76 : 53) * unit"
+    },
+    {
+      "name": "headSize",
+      "expr": "12 * unit"
+    },
+    {
+      "name": "headX",
+      "expr": "stacked ? pad : width - pad"
+    },
+    {
+      "name": "headY",
+      "expr": "top0 + (stacked ? 98 : 22) * unit"
+    },
+    {
+      "name": "headAlign",
+      "expr": "stacked ? 'left' : 'right'"
+    },
+    {
+      "name": "statusSize",
+      "expr": "(stacked ? 12 : 11.5) * unit"
+    },
+    {
+      "name": "statusX",
+      "expr": "stacked ? pad : width - pad"
+    },
+    {
+      "name": "statusY",
+      "expr": "top0 + (stacked ? 148 : 52) * unit"
+    },
+    {
+      "name": "statusAlign",
+      "expr": "stacked ? 'left' : 'right'"
+    },
+    {
+      "name": "barX0",
+      "expr": "pad"
+    },
+    {
+      "name": "barX1",
+      "expr": "width - pad"
+    },
+    {
+      "name": "barY0",
+      "expr": "top0 + (stacked ? 110 : 63) * unit"
+    },
+    {
+      "name": "barY1",
+      "expr": "top0 + (stacked ? 124 : 73) * unit"
+    },
+    {
+      "name": "barRadius",
+      "expr": "(barY1 - barY0) / 2"
+    },
+    {
+      "name": "paceOverhang",
+      "expr": "4 * unit"
+    }
+  ],
+  "data": {
+    "name": "dataset"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "__0__",
+          "as": "vSum"
+        },
+        {
+          "op": "valid",
+          "field": "__0__",
+          "as": "vN"
+        },
+        {
+          "op": "sum",
+          "field": "__1__",
+          "as": "tgSum"
+        },
+        {
+          "op": "valid",
+          "field": "__1__",
+          "as": "tgN"
+        },
+        {
+          "op": "mean",
+          "field": "__2__",
+          "as": "peMean"
+        },
+        {
+          "op": "valid",
+          "field": "__2__",
+          "as": "peN"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.vN > 0 ? datum.vSum : null",
+      "as": "v"
+    },
+    {
+      "calculate": "datum.tgN > 0 ? datum.tgSum : null",
+      "as": "tg"
+    },
+    {
+      "calculate": "datum.peN > 0 ? clamp(datum.peMean, 0, 1) : null",
+      "as": "pe"
+    },
+    {
+      "calculate": "isValid(datum.v) && isValid(datum.tg) && datum.tg !== 0 ? datum.v / datum.tg : null",
+      "as": "r"
+    },
+    {
+      "calculate": "isValid(datum.r) && isValid(datum.pe) ? datum.r - datum.pe : null",
+      "as": "pg"
+    },
+    {
+      "calculate": "isValid(datum.pg) ? (higherIsBetter ? 1 : -1) * datum.pg : 0",
+      "as": "g"
+    },
+    {
+      "calculate": "isValid(datum.pg) ? (datum.g >= 0 ? colorGood : colorBad) : barColor",
+      "as": "fillColor"
+    },
+    {
+      "calculate": "isValid(datum.v) && isValid(datum.tg) ? datum.tg - datum.v : null",
+      "as": "rem"
+    },
+    {
+      "calculate": "(!isValid(datum.v) || !isFinite(datum.v) ? noDataText : valueFormat !== 'auto' ? format(datum.v, valueFormat) : (datum.v < 0 ? '−' : '') + prefix + format(abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1), abs(datum.v) / (abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.v) >= 999.5e6 ? 1e9 : abs(datum.v) >= 999.5e3 ? 1e6 : abs(datum.v) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.v) >= 999.5e6 ? 'bn' : abs(datum.v) >= 999.5e3 ? 'M' : abs(datum.v) >= 999.5 ? 'K' : ''))",
+      "as": "valueText"
+    },
+    {
+      "calculate": "(!isValid(datum.tg) || !isFinite(datum.tg) ? noDataText : valueFormat !== 'auto' ? format(datum.tg, valueFormat) : (datum.tg < 0 ? '−' : '') + prefix + format(abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1), abs(datum.tg) / (abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.tg) >= 999.5e6 ? 1e9 : abs(datum.tg) >= 999.5e3 ? 1e6 : abs(datum.tg) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.tg) >= 999.5e6 ? 'bn' : abs(datum.tg) >= 999.5e3 ? 'M' : abs(datum.tg) >= 999.5 ? 'K' : ''))",
+      "as": "targetText"
+    },
+    {
+      "calculate": "(!isValid(datum.r) || !isFinite(datum.r) ? noDataText : format(datum.r, pctFormat))",
+      "as": "ratioText"
+    },
+    {
+      "calculate": "datum.ratioText + ' of ' + datum.targetText + (stacked ? ' ' + targetLabel : '')",
+      "as": "headText"
+    },
+    {
+      "calculate": "isValid(datum.rem) ? abs(datum.rem) : null",
+      "as": "remAbs"
+    },
+    {
+      "calculate": "!isValid(datum.rem) ? noDataText : datum.rem > 0 ? (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== 'auto' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? '−' : '') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.remAbs) >= 999.5e6 ? 'bn' : abs(datum.remAbs) >= 999.5e3 ? 'M' : abs(datum.remAbs) >= 999.5 ? 'K' : '')) + ' ' + toGoText : datum.rem < 0 ? (!isValid(datum.remAbs) || !isFinite(datum.remAbs) ? noDataText : valueFormat !== 'auto' ? format(datum.remAbs, valueFormat) : (datum.remAbs < 0 ? '−' : '') + prefix + format(abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1), abs(datum.remAbs) / (abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) < 10 ? ((abs(datum.remAbs) >= 999.5e6 ? 1e9 : abs(datum.remAbs) >= 999.5e3 ? 1e6 : abs(datum.remAbs) >= 999.5 ? 1e3 : 1) > 1 ? '.1f' : '.2~f') : ',.0f') + (abs(datum.remAbs) >= 999.5e6 ? 'bn' : abs(datum.remAbs) >= 999.5e3 ? 'M' : abs(datum.remAbs) >= 999.5 ? 'K' : '')) + ' ' + overText : 'on ' + targetLabel",
+      "as": "gapText"
+    },
+    {
+      "calculate": "isValid(datum.pg) ? format(abs(datum.pg) * 100, '.0f') : ''",
+      "as": "paceN"
+    },
+    {
+      "calculate": "isValid(datum.pg) ? (!isValid(datum.pg) ? '' : datum.pg > 0 ? arrowUp : datum.pg < 0 ? arrowDown : arrowFlat) + ' ' + datum.paceN + (datum.paceN === '1' ? ' pt ' : ' pts ') + (datum.pg >= 0 ? aheadText : behindText) : ''",
+      "as": "paceText"
+    },
+    {
+      "calculate": "isValid(datum.pg) ? datum.paceText : datum.gapText",
+      "as": "statusText"
+    },
+    {
+      "calculate": "isValid(datum.rem) && datum.rem < 0 ? (higherIsBetter ? colorGood : colorBad) : labelColor",
+      "as": "overColor"
+    },
+    {
+      "calculate": "isValid(datum.pg) ? datum.fillColor : datum.overColor",
+      "as": "statusColor"
+    },
+    {
+      "calculate": "stacked && isValid(datum.pg) ? datum.gapText : ''",
+      "as": "restText"
+    },
+    {
+      "calculate": "max(1, isValid(datum.r) ? datum.r : 0)",
+      "as": "barMax"
+    },
+    {
+      "calculate": "barX0 + clamp(isValid(datum.r) ? datum.r : 0, 0, datum.barMax) / datum.barMax * (barX1 - barX0)",
+      "as": "fillX"
+    },
+    {
+      "calculate": "barX0 + (barX1 - barX0) / datum.barMax",
+      "as": "targetX"
+    },
+    {
+      "calculate": "isValid(datum.pe) ? barX0 + datum.pe / datum.barMax * (barX1 - barX0) : null",
+      "as": "paceX"
+    },
+    {
+      "calculate": "barX0",
+      "as": "bx0"
+    },
+    {
+      "calculate": "barX1",
+      "as": "bx1"
+    },
+    {
+      "calculate": "barY0",
+      "as": "by0"
+    },
+    {
+      "calculate": "barY1",
+      "as": "by1"
+    },
+    {
+      "calculate": "barY0 - paceOverhang",
+      "as": "py0"
+    },
+    {
+      "calculate": "barY1 + paceOverhang",
+      "as": "py1"
+    },
+    {
+      "calculate": "isValid(datum.pe) ? format(datum.pe, '.0%') + ' of the period gone' : 'no pace bound'",
+      "as": "tipPace"
+    }
+  ],
+  "layer": [
+    {
+      "description": "Card background and border, inset by half the border so the container never clips it",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "x": {
+          "expr": "borderWidth / 2"
+        },
+        "y": {
+          "expr": "borderWidth / 2"
+        },
+        "x2": {
+          "expr": "width - borderWidth / 2"
+        },
+        "y2": {
+          "expr": "height - borderWidth / 2"
+        },
+        "fill": {
+          "expr": "cardColor"
+        },
+        "stroke": {
+          "expr": "borderColor"
+        },
+        "strokeWidth": {
+          "expr": "borderWidth"
+        },
+        "cornerRadius": {
+          "expr": "cardRadius"
+        }
+      }
+    },
+    {
+      "description": "Title",
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "titleY"
+        },
+        "fontSize": {
+          "expr": "titleSize"
+        },
+        "limit": {
+          "expr": "width * 0.5"
+        },
+        "fill": {
+          "expr": "labelColor"
+        },
+        "text": {
+          "expr": "title"
+        }
+      }
+    },
+    {
+      "description": "Share of target: top right in a tile, under the value when stacked",
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "headAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "headX"
+        },
+        "y": {
+          "expr": "headY"
+        },
+        "fontSize": {
+          "expr": "headSize"
+        },
+        "limit": {
+          "expr": "stacked ? width - 2 * pad : width * 0.5 - pad"
+        },
+        "fill": {
+          "expr": "labelColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "headText",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Value",
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "alphabetic",
+        "fontWeight": "bold",
+        "x": {
+          "expr": "pad"
+        },
+        "y": {
+          "expr": "valueY"
+        },
+        "fontSize": {
+          "expr": "valueSize"
+        },
+        "limit": {
+          "expr": "stacked ? width - 2 * pad : width * 0.5 - pad"
+        },
+        "fill": {
+          "expr": "valueColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "valueText",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "ratioText",
+            "type": "nominal",
+            "title": "Of target"
+          },
+          {
+            "field": "tipPace",
+            "type": "nominal",
+            "title": "Pace"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Pace line, or the gap when no pace is bound",
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "statusAlign"
+        },
+        "baseline": "alphabetic",
+        "fontWeight": 600,
+        "x": {
+          "expr": "statusX"
+        },
+        "y": {
+          "expr": "statusY"
+        },
+        "fontSize": {
+          "expr": "statusSize"
+        },
+        "limit": {
+          "expr": "stacked ? width * 0.62 - pad : width * 0.5 - pad"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "statusText",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "statusColor",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    },
+    {
+      "description": "What is left to go, opposite the pace line (stacked only)",
+      "transform": [
+        {
+          "filter": "length(datum.restText) > 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "alphabetic",
+        "fontWeight": "normal",
+        "x": {
+          "expr": "width - pad"
+        },
+        "y": {
+          "expr": "statusY"
+        },
+        "fontSize": {
+          "expr": "statusSize"
+        },
+        "limit": {
+          "expr": "width * 0.38 - pad"
+        },
+        "fill": {
+          "expr": "labelColor"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "restText",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "Bar track",
+      "mark": {
+        "type": "rect",
+        "cornerRadius": {
+          "expr": "barRadius"
+        },
+        "fill": {
+          "expr": "trackColor"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "bx0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "bx1"
+        },
+        "y": {
+          "field": "by0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "by1"
+        }
+      }
+    },
+    {
+      "description": "Bar fill, to the share of target reached; past 100% the target moves inside the bar",
+      "transform": [
+        {
+          "filter": "datum.fillX > datum.bx0"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "cornerRadius": {
+          "expr": "barRadius"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "bx0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "fillX"
+        },
+        "y": {
+          "field": "by0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "by1"
+        },
+        "color": {
+          "field": "fillColor",
+          "type": "nominal",
+          "scale": null
+        },
+        "tooltip": [
+          {
+            "field": "valueText",
+            "type": "nominal",
+            "title": "Value"
+          },
+          {
+            "field": "targetText",
+            "type": "nominal",
+            "title": "Target"
+          },
+          {
+            "field": "ratioText",
+            "type": "nominal",
+            "title": "Of target"
+          },
+          {
+            "field": "tipPace",
+            "type": "nominal",
+            "title": "Pace"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Target mark inside an overfull bar",
+      "transform": [
+        {
+          "filter": "datum.r > 1"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": {
+          "expr": "2 * unit"
+        },
+        "stroke": {
+          "expr": "cardColor"
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "targetX",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "targetX"
+        },
+        "y": {
+          "field": "by0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "by1"
+        }
+      }
+    },
+    {
+      "description": "Pace marker: where the bar should be by now",
+      "transform": [
+        {
+          "filter": "isValid(datum.paceX)"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "strokeWidth": {
+          "expr": "2 * unit"
+        },
+        "stroke": {
+          "expr": "paceColor"
+        },
+        "strokeCap": "butt"
+      },
+      "encoding": {
+        "x": {
+          "field": "paceX",
+          "type": "quantitative",
+          "scale": null
+        },
+        "x2": {
+          "field": "paceX"
+        },
+        "y": {
+          "field": "py0",
+          "type": "quantitative",
+          "scale": null
+        },
+        "y2": {
+          "field": "py1"
+        },
+        "tooltip": [
+          {
+            "field": "tipPace",
+            "type": "nominal",
+            "title": "Pace"
+          }
+        ]
+      }
+    }
+  ]
+}
