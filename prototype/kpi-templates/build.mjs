@@ -705,7 +705,7 @@ const hitRatios = [0.96, 1.04, 1.07, 0.98, 1.03, 0.94, 0.99, 1.02, 1.05, 1.03, 1
 const hitMiss = {
   slug: 'kpi-hit-miss-strip',
   name: 'Hit or Miss Strip',
-  description: 'The last twelve periods against target, each a short column coloured hit or miss (or an even dot), with the current streak written large ("5 months on target") and the hit count. Reads day, week, month, quarter or year from the dates.',
+  description: 'The last twelve periods against target, each a short column coloured hit or miss (or an even dot), with the hit count written large ("8 of 12 months on target"). Reads day, week, month, quarter or year from the dates.',
   author: 'Timothy Osborn',
   render: { width: 400, height: 220 },
   fields: [
@@ -717,9 +717,8 @@ const hitMiss = {
     P('title', 'Sales vs target', 'Card label, top left.'),
     P('periods', 12, 'How many of the latest periods to show.'),
     P('periodNoun', 'auto', "'auto' reads the spacing of the dates; or 'day', 'week', 'month', 'quarter', 'year'."),
-    P('hitText', 'on target', 'Streak wording after a hit.'),
-    P('missText', 'off target', 'Streak wording after a miss.'),
-    P('ofText', 'hit', 'Last word of the hit count, "9 of 12 hit".'),
+    P('hitText', 'on target', 'Wording after the period noun, "8 of 12 months on target".'),
+    P('goodShare', 0.5, 'Share of periods hit at which the headline takes the good colour; below it, the bad one.'),
     P('markStyle', 'column', "'column' draws each gap to target as a short column above or below the target line, 'dot' an even dot."),
     P('maxGap', 0.1, 'The gap to target, as a share, that fills a column. Bigger gaps are capped.'),
     P('targetLineColor', '#C8C6C4', 'Target line through the strip.'),
@@ -733,14 +732,10 @@ const hitMiss = {
     E('titleLimit', 'stacked ? width * 0.6 : width - 2 * pad'),
     E('titleSize', '(stacked ? 13 : 11.5) * unit'),
     E('titleY', '(stacked ? 24 : 20) * unit'),
-    E('streakSize', '(stacked ? 34 : 28) * unit'),
-    E('streakY', '(stacked ? 64 : 51) * unit'),
+    E('hitsSize', '(stacked ? 34 : 26) * unit'),
+    E('hitsY', '(stacked ? 64 : 55) * unit'),
     E('runSize', '(stacked ? 14 : 11) * unit'),
-    E('runY', '(stacked ? 64 : 67) * unit'),
-    E('hitsSize', '(stacked ? 11 : 10) * unit'),
-    E('hitsX', 'stacked ? width - pad : pad'),
-    E('hitsY', '(stacked ? 24 : 82) * unit'),
-    E('hitsAlign', "stacked ? 'right' : 'left'"),
+    E('runY', '(stacked ? 64 : 72) * unit'),
     E('stripX0', 'stacked ? pad : width * 0.48'),
     E('stripX1', 'width - pad'),
     E('stripY0', '(stacked ? 82 : 32) * unit'),
@@ -761,25 +756,20 @@ const hitMiss = {
       { window: [{ op: 'row_number', as: 'back' }], sort: [{ field: 't', order: 'descending' }] },
       { filter: 'datum.back <= periods' },
       calc('hitNum', '(higherIsBetter ? datum.v >= datum.tg : datum.v <= datum.tg) ? 1 : 0'),
-      { window: [{ op: 'lag', field: 'hitNum', as: 'laterHit' }], sort: [{ field: 't', order: 'descending' }] },
-      calc('change', 'isValid(datum.laterHit) && datum.laterHit !== datum.hitNum ? 1 : 0'),
-      { window: [{ op: 'sum', field: 'change', as: 'runId' }], sort: [{ field: 't', order: 'descending' }] },
       { window: [{ op: 'lag', field: 't', as: 'prevT' }], sort: [{ field: 't', order: 'ascending' }] },
       calc('gapMs', 'isValid(datum.prevT) ? datum.t - datum.prevT : null'),
-      calc('inRun', 'datum.runId === 0 ? 1 : 0'),
-      calc('latestPart', 'datum.back === 1 ? datum.hitNum : null'),
       {
         joinaggregate: [
-          { op: 'count', as: 'n' }, { op: 'sum', field: 'hitNum', as: 'hits' }, { op: 'sum', field: 'inRun', as: 'streak' },
-          { op: 'median', field: 'gapMs', as: 'gapMed' }, { op: 'max', field: 'latestPart', as: 'latestHit' },
+          { op: 'count', as: 'n' }, { op: 'sum', field: 'hitNum', as: 'hits' }, { op: 'median', field: 'gapMs', as: 'gapMed' },
         ],
       },
       calc('noun', "periodNoun !== 'auto' ? periodNoun : !isValid(datum.gapMed) ? 'period' : datum.gapMed <= 1.5 * 864e5 ? 'day' : datum.gapMed <= 8.5 * 864e5 ? 'week' : datum.gapMed <= 32 * 864e5 ? 'month' : datum.gapMed <= 95 * 864e5 ? 'quarter' : 'year'"),
-      calc('streakText', "datum.streak + ''"),
-      calc('runText', "(datum.streak === 1 ? datum.noun : datum.noun + 's') + ' ' + (datum.latestHit === 1 ? hitText : missText)"),
-      calc('runX', 'stacked ? pad + length(datum.streakText) * 0.56 * streakSize + 6 * unit : pad'),
-      calc('runColor', 'datum.latestHit === 1 ? colorGood : colorBad'),
-      calc('hitsText', "datum.hits + ' of ' + datum.n + ' ' + ofText"),
+      calc('hitsText', "datum.hits + ' of ' + datum.n"),
+      calc('runText', "(datum.n === 1 ? datum.noun : datum.noun + 's') + ' ' + hitText"),
+      calc('hitsW', '((length(datum.hits + \'\') + length(datum.n + \'\')) * 0.575 + 1.545) * hitsSize'),
+      calc('runX', 'stacked ? pad + datum.hitsW + 7 * unit : pad'),
+      calc('runLimit', 'stacked ? width - pad - datum.runX : textLimit'),
+      calc('hitsColor', 'datum.hits >= goodShare * datum.n ? colorGood : colorBad'),
       calc('idx', 'datum.n - datum.back'),
       calc('pitch', '(stripX1 - stripX0) / datum.n'),
       calc('cx', 'stripX0 + (datum.idx + 0.5) * datum.pitch'),
@@ -805,16 +795,12 @@ const hitMiss = {
     layer: [
       cardLayer(),
       txt('Title', { data: one, value: 'title', x: 'pad', y: 'titleY', size: 'titleSize', fill: 'labelColor', weight: 600, limit: 'titleLimit' }),
-      txt('Hit count', {
-        field: 'hitsText', x: 'hitsX', y: 'hitsY', size: 'hitsSize', alignExpr: 'hitsAlign', fill: 'labelColor', limit: 'textLimit',
+      txt('Hit count, the headline: 8 of 12', {
+        field: 'hitsText', x: 'pad', y: 'hitsY', size: 'hitsSize', colorField: 'hitsColor', weight: 'bold', limit: 'textLimit',
         transform: [{ filter: 'datum.back === 1' }],
       }),
-      txt('Current streak, the headline', {
-        field: 'streakText', x: 'pad', y: 'streakY', size: 'streakSize', colorField: 'runColor', weight: 'bold',
-        transform: [{ filter: 'datum.back === 1' }],
-      }),
-      txt('What the streak is', {
-        field: 'runText', y: 'runY', size: 'runSize', colorField: 'runColor', weight: 600, limit: 'textLimit',
+      txt('What was counted: months on target', {
+        field: 'runText', y: 'runY', size: 'runSize', colorField: 'hitsColor', weight: 600, limit: 'datum.runLimit',
         transform: [{ filter: 'datum.back === 1' }], encoding: { x: px('runX') },
       }),
       {
@@ -850,12 +836,12 @@ const hitMiss = {
   sample: monthlyHits(hitRatios, 1200000, 0.017),
   band: [
     { label: 'Monthly sales', params: {}, rows: monthlyHits(hitRatios, 1200000, 0.017) },
-    { label: 'A miss last month', params: { title: 'Profit vs target' }, rows: monthlyHits([1.02, 1.05, 0.97, 1.01, 1.03, 1.04, 0.95, 1.02, 1.06, 1.01, 1.03, 0.97], 210000, 0.01) },
+    { label: 'Under half hit', params: { title: 'Profit vs target' }, rows: monthlyHits([0.97, 1.02, 0.96, 0.98, 1.01, 0.95, 0.99, 1.03, 0.97, 0.98, 1.02, 0.96], 210000, 0.01) },
     { label: 'Weekly, as dots', params: { title: 'Orders vs plan', valueFormat: ',.0f', markStyle: 'dot' }, rows: weeklyHits([1.02, 0.97, 1.01, 1.04, 0.99, 1.03, 1.05, 1.02, 0.96, 1.01, 1.03, 1.02], 4200) },
-    { label: 'Cost: under budget is a hit', params: { title: 'Cost vs budget', higherIsBetter: false, hitText: 'within budget', missText: 'over budget' }, rows: monthlyHits([0.98, 1.03, 0.97, 0.99, 1.02, 0.96, 0.98, 0.99, 0.97, 1.01, 0.98, 0.99], 640000, 0.008) },
+    { label: 'Cost: under budget is a hit', params: { title: 'Cost vs budget', higherIsBetter: false, hitText: 'within budget' }, rows: monthlyHits([0.98, 1.03, 0.97, 0.99, 1.02, 0.96, 0.98, 0.99, 0.97, 1.01, 0.98, 0.99], 640000, 0.008) },
   ],
   alt: { label: "markStyle 'dot'", params: { markStyle: 'dot' }, rows: monthlyHits(hitRatios, 1200000, 0.017) },
-  note: 'Brief item 5. Column heights are the gap to target, capped at maxGap; the streak counts back from the latest period.',
+  note: 'Brief item 5. Column heights are the gap to target, capped at maxGap; the headline counts every period on target, in any order.',
 }
 
 // ---------------------------------------------------------------- 6. Run-rate Projection Card

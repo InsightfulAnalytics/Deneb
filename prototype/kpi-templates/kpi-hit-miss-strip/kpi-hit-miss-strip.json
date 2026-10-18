@@ -9,7 +9,7 @@
     },
     "information": {
       "name": "Hit or Miss Strip",
-      "description": "The last twelve periods against target, each a short column coloured hit or miss (or an even dot), with the current streak written large (\"5 months on target\") and the hit count. Reads day, week, month, quarter or year from the dates.",
+      "description": "The last twelve periods against target, each a short column coloured hit or miss (or an even dot), with the hit count written large (\"8 of 12 months on target\"). Reads day, week, month, quarter or year from the dates.",
       "author": "Timothy Osborn",
       "uuid": "0482bf97-ab77-4e15-8838-53696397506e",
       "generated": "2026-10-18T00:00:00.000Z"
@@ -75,12 +75,8 @@
       "value": "on target"
     },
     {
-      "name": "missText",
-      "value": "off target"
-    },
-    {
-      "name": "ofText",
-      "value": "hit"
+      "name": "goodShare",
+      "value": 0.5
     },
     {
       "name": "markStyle",
@@ -195,12 +191,12 @@
       "expr": "(stacked ? 24 : 20) * unit"
     },
     {
-      "name": "streakSize",
-      "expr": "(stacked ? 34 : 28) * unit"
+      "name": "hitsSize",
+      "expr": "(stacked ? 34 : 26) * unit"
     },
     {
-      "name": "streakY",
-      "expr": "(stacked ? 64 : 51) * unit"
+      "name": "hitsY",
+      "expr": "(stacked ? 64 : 55) * unit"
     },
     {
       "name": "runSize",
@@ -208,23 +204,7 @@
     },
     {
       "name": "runY",
-      "expr": "(stacked ? 64 : 67) * unit"
-    },
-    {
-      "name": "hitsSize",
-      "expr": "(stacked ? 11 : 10) * unit"
-    },
-    {
-      "name": "hitsX",
-      "expr": "stacked ? width - pad : pad"
-    },
-    {
-      "name": "hitsY",
-      "expr": "(stacked ? 24 : 82) * unit"
-    },
-    {
-      "name": "hitsAlign",
-      "expr": "stacked ? 'right' : 'left'"
+      "expr": "(stacked ? 64 : 72) * unit"
     },
     {
       "name": "stripX0",
@@ -333,40 +313,6 @@
       "window": [
         {
           "op": "lag",
-          "field": "hitNum",
-          "as": "laterHit"
-        }
-      ],
-      "sort": [
-        {
-          "field": "t",
-          "order": "descending"
-        }
-      ]
-    },
-    {
-      "calculate": "isValid(datum.laterHit) && datum.laterHit !== datum.hitNum ? 1 : 0",
-      "as": "change"
-    },
-    {
-      "window": [
-        {
-          "op": "sum",
-          "field": "change",
-          "as": "runId"
-        }
-      ],
-      "sort": [
-        {
-          "field": "t",
-          "order": "descending"
-        }
-      ]
-    },
-    {
-      "window": [
-        {
-          "op": "lag",
           "field": "t",
           "as": "prevT"
         }
@@ -383,14 +329,6 @@
       "as": "gapMs"
     },
     {
-      "calculate": "datum.runId === 0 ? 1 : 0",
-      "as": "inRun"
-    },
-    {
-      "calculate": "datum.back === 1 ? datum.hitNum : null",
-      "as": "latestPart"
-    },
-    {
       "joinaggregate": [
         {
           "op": "count",
@@ -402,19 +340,9 @@
           "as": "hits"
         },
         {
-          "op": "sum",
-          "field": "inRun",
-          "as": "streak"
-        },
-        {
           "op": "median",
           "field": "gapMs",
           "as": "gapMed"
-        },
-        {
-          "op": "max",
-          "field": "latestPart",
-          "as": "latestHit"
         }
       ]
     },
@@ -423,24 +351,28 @@
       "as": "noun"
     },
     {
-      "calculate": "datum.streak + ''",
-      "as": "streakText"
+      "calculate": "datum.hits + ' of ' + datum.n",
+      "as": "hitsText"
     },
     {
-      "calculate": "(datum.streak === 1 ? datum.noun : datum.noun + 's') + ' ' + (datum.latestHit === 1 ? hitText : missText)",
+      "calculate": "(datum.n === 1 ? datum.noun : datum.noun + 's') + ' ' + hitText",
       "as": "runText"
     },
     {
-      "calculate": "stacked ? pad + length(datum.streakText) * 0.56 * streakSize + 6 * unit : pad",
+      "calculate": "((length(datum.hits + '') + length(datum.n + '')) * 0.575 + 1.545) * hitsSize",
+      "as": "hitsW"
+    },
+    {
+      "calculate": "stacked ? pad + datum.hitsW + 7 * unit : pad",
       "as": "runX"
     },
     {
-      "calculate": "datum.latestHit === 1 ? colorGood : colorBad",
-      "as": "runColor"
+      "calculate": "stacked ? width - pad - datum.runX : textLimit",
+      "as": "runLimit"
     },
     {
-      "calculate": "datum.hits + ' of ' + datum.n + ' ' + ofText",
-      "as": "hitsText"
+      "calculate": "datum.hits >= goodShare * datum.n ? colorGood : colorBad",
+      "as": "hitsColor"
     },
     {
       "calculate": "datum.n - datum.back",
@@ -604,44 +536,7 @@
       }
     },
     {
-      "description": "Hit count",
-      "transform": [
-        {
-          "filter": "datum.back === 1"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": {
-          "expr": "hitsAlign"
-        },
-        "baseline": "alphabetic",
-        "fontWeight": "normal",
-        "x": {
-          "expr": "hitsX"
-        },
-        "y": {
-          "expr": "hitsY"
-        },
-        "fontSize": {
-          "expr": "hitsSize"
-        },
-        "limit": {
-          "expr": "textLimit"
-        },
-        "fill": {
-          "expr": "labelColor"
-        }
-      },
-      "encoding": {
-        "text": {
-          "field": "hitsText",
-          "type": "nominal"
-        }
-      }
-    },
-    {
-      "description": "Current streak, the headline",
+      "description": "Hit count, the headline: 8 of 12",
       "transform": [
         {
           "filter": "datum.back === 1"
@@ -656,26 +551,29 @@
           "expr": "pad"
         },
         "y": {
-          "expr": "streakY"
+          "expr": "hitsY"
         },
         "fontSize": {
-          "expr": "streakSize"
+          "expr": "hitsSize"
+        },
+        "limit": {
+          "expr": "textLimit"
         }
       },
       "encoding": {
         "text": {
-          "field": "streakText",
+          "field": "hitsText",
           "type": "nominal"
         },
         "color": {
-          "field": "runColor",
+          "field": "hitsColor",
           "type": "nominal",
           "scale": null
         }
       }
     },
     {
-      "description": "What the streak is",
+      "description": "What was counted: months on target",
       "transform": [
         {
           "filter": "datum.back === 1"
@@ -693,7 +591,7 @@
           "expr": "runSize"
         },
         "limit": {
-          "expr": "textLimit"
+          "expr": "datum.runLimit"
         }
       },
       "encoding": {
@@ -707,7 +605,7 @@
           "type": "nominal"
         },
         "color": {
-          "field": "runColor",
+          "field": "hitsColor",
           "type": "nominal",
           "scale": null
         }
